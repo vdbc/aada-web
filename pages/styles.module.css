@@ -1,0 +1,52 @@
+.container {
+  padding: 0;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner, .about, .awardCategories, .timeline, .purpose, .news, .footerImg {
+  width: 100%;
+}
+.overview {
+  width: 60%;
+  margin-bottom: 50px;
+}
+.aada_partners {
+  width: 73%;
+  margin-bottom: 40px;
+  margin-top: 92px;
+}
+
+/* @media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: #222;
+  }
+  .code {
+    background: #111;
+  }
+  .logo img {
+    filter: invert(1);
+  }
+} */

@@ -19,13 +19,13 @@ export default function Header() {
         <Link className={styles.link} href="/the-award">
           THE AWARD
         </Link>
-        <Link className={styles.link} href="/the-award">
+        <Link className={styles.link} href="/categories">
           CATEGORIES
         </Link>
         <Link className={styles.link} href="/the-award">
           REGISTRATION
         </Link>
-        <Link className={styles.link} href="/the-award">
+        <Link className={styles.link} href="/get-involved">
           GET INVOLVED
         </Link>
         <Link className={styles.link} href="/the-award">
