@@ -1,0 +1,52 @@
+.container {
+  padding: 0;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner, .theAward, .footerImg, .why {
+  width: 100%;
+}
+.theAward {
+  padding: 62px 95px;
+  padding-bottom: 250px;
+}
+
+.images {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;}
+
+.oneImage {
+  height: 16vw;
+  width: 30%;
+  position: relative;
+  > img {
+    object-fit: contain;
+  }
+}
+.video {
+  width: 100%;
+  height: 29vw;
+  position: relative;
+
+  > img {
+    object-fit: contain;
+  }
+}
+.singleImage {
+  width: 100%;
+  height: 43vw;
+  position: relative;
+
+  > img {
+    object-fit: contain;
+  }
+}
