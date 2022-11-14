@@ -11,12 +11,6 @@
   align-items: center;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .banner, .theAward, .footerImg, .why {
   width: 100%;
 }
@@ -24,23 +18,3 @@
   padding: 62px 95px;
   padding-bottom: 250px;
 }
-
-/* @media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
-  }
-} */
