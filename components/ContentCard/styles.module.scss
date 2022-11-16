@@ -20,24 +20,29 @@
   top: 100px;
 }
 
-.content {
+.wrapperConent {
   flex: 2;
   margin-left: 55px;
   margin-top: 65px;
-  > h2 {
-    font-weight: 500;
-    font-size: 30px;
-    margin: 0;
-    margin-top: 25px;
-  }
+  display: flex;
+  flex-direction: row;
+  .content {
+    width: 100%;
+    > h2 {
+      font-weight: 500;
+      font-size: 30px;
+      margin: 0;
+      margin-top: 25px;
+    }
 
-  > div {
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-    margin-top: 15px;
-  }
-  > div:first-of-type, h2:first-of-type {
-    margin-top: 0;
+    > div {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+      margin-top: 15px;
+    }
+    > div:first-of-type, h2:first-of-type {
+      margin-top: 0;
+    }
   }
 }

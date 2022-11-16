@@ -98,6 +98,18 @@
   height: 100%;
 }
 
+.separator {
+  width: 35px;
+  display: flex;
+  
+  .line {
+    margin-left: 4.5px;
+    margin-bottom: 20px;
+    width: 0.5px;
+    background-color: #FAC47E;
+  }
+}
+
 .buttonProcess {
   width: 100%;
   background-color: white;
@@ -105,9 +117,21 @@
   flex-direction: row;
   align-items: center;
   padding: 20px;
+  position: relative;
   span {
     font-weight: 700;
     font-size: 20px;
     color: #A67F56;
+  }
+  
+  .dot {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: #A67F56;
+    border-radius: 7px;
+    border: 0.5px solid #FAC47E;
+    top: 23px;
+    left: -35px;
   }
 }

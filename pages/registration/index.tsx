@@ -6,6 +6,10 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./styles.module.scss";
 
+const separator = <div className={styles.separator} >
+              <div className={styles.line} />
+</div>
+
 export default function _View() {
   return (
     <div className={styles.container}>
@@ -73,11 +77,12 @@ export default function _View() {
           />
           </div>
           <div className={styles.content}>
-            <ContentCard title={"\\\nRegistration\nProcess"}>
+            <ContentCard title={"\\\nRegistration\nProcess"} separator={separator}>
               <div className={styles.buttonProcess}>
                 <span>
                 CREATE YOUR AADA ACCOUNT
                 </span>
+                <div className={styles.dot} />
               </div>
               <div>
                 Fill the registration form for an official account on AADA website. You may have to provide required information of yourself and the participating business and non-mandatory fields for additional terms that you can choose whether to fill or not.
@@ -87,6 +92,7 @@ export default function _View() {
                 <span>
                 SELECT YOUR NOMINATION CATEGORY
                 </span>
+                <div className={styles.dot} />
               </div>
               <div>
               Choose the suitable discipline and category for your entry. The number of nomination is not limited. The categories change depening on chosen discipline.
@@ -96,6 +102,7 @@ export default function _View() {
                 <span>
                 PAYMENT OF FEES
                 </span>
+                <div className={styles.dot} />
               </div>
               <div>
               All fees are charged per entry to 2023 AADA. Upon finishing your submission categories selection, you are directed to a payment gateway that allows payment in Paypal. The invoice of Entry fee will be sent in email to acknowledge your successful payment.
@@ -105,6 +112,7 @@ export default function _View() {
                 <span>
                 SUBMIT YOUR ENTRY DOCUMENTS
                 </span>
+                <div className={styles.dot} />
               </div>
               <div>
               The 2023 AADA evaluation process is a jury-based scoring procedure, hence you are required to provide detailed description of your project and business. The documents needed to complete your nomination include a Project Statement, Details and at least 10 pictures (or video, if possible).
