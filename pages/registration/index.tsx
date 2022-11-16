@@ -82,6 +82,7 @@ export default function _View() {
               <div>
                 Fill the registration form for an official account on AADA website. You may have to provide required information of yourself and the participating business and non-mandatory fields for additional terms that you can choose whether to fill or not.
               </div>
+              <br />
               <div className={styles.buttonProcess}>
                 <span>
                 SELECT YOUR NOMINATION CATEGORY
@@ -90,14 +91,16 @@ export default function _View() {
               <div>
               Choose the suitable discipline and category for your entry. The number of nomination is not limited. The categories change depening on chosen discipline.
               </div>
+              <br />
               <div className={styles.buttonProcess}>
                 <span>
-                PAYMENT of fees
+                PAYMENT OF FEES
                 </span>
               </div>
               <div>
               All fees are charged per entry to 2023 AADA. Upon finishing your submission categories selection, you are directed to a payment gateway that allows payment in Paypal. The invoice of Entry fee will be sent in email to acknowledge your successful payment.
               </div>
+              <br />
               <div className={styles.buttonProcess}>
                 <span>
                 SUBMIT YOUR ENTRY DOCUMENTS
