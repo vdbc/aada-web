@@ -213,15 +213,10 @@ export default function Home() {
             munere facilis accusam eu dicat falli consulatu at vis.
           </div>
         </ContentCard>
-        {/* <img
-          className={styles.imageContent}
-          alt="Content"
-          src="/get_involved/involved.svg"
-        /> */}
         <img
           className={styles.why}
           alt="Why you should submit"
-          src="why_you_should_submit.svg"
+          src="excited_to_become_a_sponsor.svg"
         />
       </main>
       <Footer />

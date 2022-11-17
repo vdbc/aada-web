@@ -16,7 +16,7 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
 
-        <img className={styles.banner} alt="Banner" src="/home/banner.svg" />
+        <img className={styles.banner} alt="Banner" src="/the_award_banner.svg" />
         <ContentCard title={"\\\nAsia\nArchitecture\nDesign\nAward"}>
           <h2>THE ORIGINS</h2>
           <div>
@@ -33,12 +33,15 @@ export default function Home() {
           <div className={styles.images}>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
+              <div className={styles.badgeContent}>6 DISCIPLINES</div>
             </div>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
+              <div className={styles.badgeContent}>30 AWARDS CATEGORIES</div>
             </div>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
+              <div className={styles.badgeContent}>PROFESSIONAL JURORS</div>
             </div>
           </div>
           <h2>VISION & MISSION</h2>
@@ -57,11 +60,10 @@ export default function Home() {
         <ContentCard title={"\\\n2023 AADA\nImpactful Asia"}>
           <h2>FOR AN IMPACTFUL ASIA</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+          AADA seeks to promote an Impactful Asia in architecture design and construction industry that influences not just within Asian countries but also at a global arena. 
+</div>
+<div>
+By the means of this 2023 AADA presentation, independent accomplishment to full-serviced firms’ masterwork that have impactfully contributed to the society will continue to develop greater networking platform and marketing prospect. It is an opportunity for businesses to garner prestigious accolades, hence a continual growth on an international level.
           </div>
           <div className={styles.video}>
             <Image src="/video1.jpg" alt="Square" fill />
@@ -78,43 +80,35 @@ export default function Home() {
             <Image src="/the_value.svg" alt="The Value" fill />
           </div>
         </ContentCard>
-        <ContentCard title={"\\\n2023 AADA\nWinners Gala Night"}>
+        <ContentCard title={"\\\n2023 AADA\nWinners’ Gala Night"}>
           <h2>A NIGHT TO REMEMBER</h2>
           <div>
-            The 2023 AADA Winners Gala Night celebrates the outstanding works of
-            the 6-month competition, yet brings about the networking
-            opportunities for participants. The red-carpet event is for high
-            profile attendees that acquire the award, industry professionals,
-            international media and industry KOLs, KOCs.
+          The 2023 AADA Winners Gala Night celebrates the outstanding works of the 6-month competition, yet brings about the networking opportunities for participants. The red-carpet event is for high profile attendees that acquire the award, industry professionals, international media and industry KOLs, KOCs.
+          </div>
+          <div>
+            AADA sets to hold the Winners’ Gala Night at Fairmont Singapore in an upscale, bustling area of the center Singapore.
           </div>
           <div className={styles.video}>
-            <Image src="/video1.jpg" alt="Square" fill />
+            <Image src="/a_night_to_remember.svg" alt="Square" fill />
           </div>
         </ContentCard>
         <ContentCard title={"\\\n2023 AADA\nin Numbers"}>
+          <h2>6 DISCIPLINES</h2>
+          <div></div>
+          <div>
+          Prevalent award categories such as Asia Best Architecture Design, Best Interior Design, Best Furniture Design, Best Hotel & Resort Design, Best Firms in Architecture Design and many others are ready to be bagged by individuals or organizations from the industry.
+          <br />
+          <br />
+          </div>
           <h2>30 AWARD CATEGORIES</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
-          <h2>90 WINNERS</h2>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+          There are 30 categories open for registration from beginning of December 2022 and is targeted to close the participation entries by February 2023, varying in 6 disciplines within architecture design industry.
+          <br />
+          <br />
           </div>
           <h2>20 JUDGES</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+          AADA ensures a transparency in the judging process to be carried out by selected panel of judges from various background of prominent figures in the region, including design professionals, distinguished experts in academic architectural institutions and renown social initiators
           </div>
         </ContentCard>
         <img

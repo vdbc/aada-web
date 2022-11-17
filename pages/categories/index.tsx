@@ -16,35 +16,37 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <img className={styles.banner} alt="Banner" src="/home/banner.svg" />
-        <ContentCard title={"\\\n2023 AADA\nCategories"}>
-          <h2>CATEGORIES</h2>
+        <ContentCard title={"\\\n2023 AADA\nDisciplines"}>
+          <h2>DISCIPLINES</h2>
           <div>
-            The appreciation of Architecture & Design works, ranging from
-            independent work to full-serviced firms that has substantial
-            contribution to the society. The AADA is open to all entities from
-            independent submission to brands, architecture offices, design
-            studios, creative agencies or manufacturers, distributors…
+          The appreciation of Architecture & Design works, ranging from independent work to full-serviced firms that has substantial contribution to the society. The AADA is open to all entities from independent submission to brands, architecture offices, design studios, creative agencies or manufacturers, distributors…
           </div>
           <div className={styles.images}>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
+              <div className={styles.badgeContent}>BEST ARCHITECTURE DESIGN</div>
             </div>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
+              <div className={styles.badgeContent}>BEST INTERIOR DESIGN</div>
             </div>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
+              <div className={styles.badgeContent}>BEST FURNITURE DESIGN</div>
             </div>
           </div>
           <div className={styles.images}>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
+              <div className={styles.badgeContent}>BEST FIRMS FOR ARCHITECTURE DESIGN</div>
             </div>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
+              <div className={styles.badgeContent}>BEST FIRMS FOR INTERIOR DESIGN</div>
             </div>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
+              <div className={styles.badgeContent}>BEST FIRMS IN FURNITURE MANUFACTURING & RETAILING</div>
             </div>
           </div>
         </ContentCard>
