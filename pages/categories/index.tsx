@@ -4,6 +4,7 @@ import Image from "next/image";
 import ContentCard from "../../components/ContentCard";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import { DefaultTopBanner } from "../../components/TopBanner";
 import styles from "./styles.module.scss";
 
 declare type AwardItemProps = {
@@ -36,7 +37,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <Header />
-        <img className={styles.banner} alt="Banner" src="/home/banner.svg" />
+        <DefaultTopBanner />
         <ContentCard title={"\\\n2023 AADA\nDisciplines"}>
           <h2>DISCIPLINES</h2>
           <div>

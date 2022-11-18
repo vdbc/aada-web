@@ -4,11 +4,14 @@ import Image from "next/image";
 import ContentCard from "../../components/ContentCard";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import { DefaultTopBanner } from "../../components/TopBanner";
 import styles from "./styles.module.scss";
 
-const separator = <div className={styles.separator} >
-              <div className={styles.line} />
-</div>
+const separator = (
+  <div className={styles.separator}>
+    <div className={styles.line} />
+  </div>
+);
 
 export default function _View() {
   return (
@@ -19,7 +22,7 @@ export default function _View() {
 
       <main className={styles.main}>
         <Header />
-        <img className={styles.banner} alt="Banner" src="/home/banner.svg" />
+        <DefaultTopBanner />
         <ContentCard title={"\\\nA Brand\nIdentity Boost"}>
           <div>
             Lorem ipsum dolor sit amet et delectus accommodare his consul
@@ -68,54 +71,56 @@ export default function _View() {
           src="/registration_timeline.svg"
         />
         <div className={styles.groupProcess}>
-          <div
-            className={styles.registration_process}
-            >
-          <img
-            alt="Registration Process"
-            src="/registration_process.svg"
-          />
+          <div className={styles.registration_process}>
+            <img alt="Registration Process" src="/registration_process.svg" />
           </div>
           <div className={styles.content}>
-            <ContentCard title={"\\\nRegistration\nProcess"} separator={separator}>
+            <ContentCard
+              title={"\\\nRegistration\nProcess"}
+              separator={separator}
+            >
               <div className={styles.buttonProcess}>
-                <span>
-                CREATE YOUR AADA ACCOUNT
-                </span>
+                <span>CREATE YOUR AADA ACCOUNT</span>
                 <div className={styles.dot} />
               </div>
               <div>
-                Fill the registration form for an official account on AADA website. You may have to provide required information of yourself and the participating business and non-mandatory fields for additional terms that you can choose whether to fill or not.
+                Fill the registration form for an official account on AADA
+                website. You may have to provide required information of
+                yourself and the participating business and non-mandatory fields
+                for additional terms that you can choose whether to fill or not.
               </div>
               <br />
               <div className={styles.buttonProcess}>
-                <span>
-                SELECT YOUR NOMINATION CATEGORY
-                </span>
+                <span>SELECT YOUR NOMINATION CATEGORY</span>
                 <div className={styles.dot} />
               </div>
               <div>
-              Choose the suitable discipline and category for your entry. The number of nomination is not limited. The categories change depening on chosen discipline.
+                Choose the suitable discipline and category for your entry. The
+                number of nomination is not limited. The categories change
+                depening on chosen discipline.
               </div>
               <br />
               <div className={styles.buttonProcess}>
-                <span>
-                PAYMENT OF FEES
-                </span>
+                <span>PAYMENT OF FEES</span>
                 <div className={styles.dot} />
               </div>
               <div>
-              All fees are charged per entry to 2023 AADA. Upon finishing your submission categories selection, you are directed to a payment gateway that allows payment in Paypal. The invoice of Entry fee will be sent in email to acknowledge your successful payment.
+                All fees are charged per entry to 2023 AADA. Upon finishing your
+                submission categories selection, you are directed to a payment
+                gateway that allows payment in Paypal. The invoice of Entry fee
+                will be sent in email to acknowledge your successful payment.
               </div>
               <br />
               <div className={styles.buttonProcess}>
-                <span>
-                SUBMIT YOUR ENTRY DOCUMENTS
-                </span>
+                <span>SUBMIT YOUR ENTRY DOCUMENTS</span>
                 <div className={styles.dot} />
               </div>
               <div>
-              The 2023 AADA evaluation process is a jury-based scoring procedure, hence you are required to provide detailed description of your project and business. The documents needed to complete your nomination include a Project Statement, Details and at least 10 pictures (or video, if possible).
+                The 2023 AADA evaluation process is a jury-based scoring
+                procedure, hence you are required to provide detailed
+                description of your project and business. The documents needed
+                to complete your nomination include a Project Statement, Details
+                and at least 10 pictures (or video, if possible).
               </div>
             </ContentCard>
           </div>

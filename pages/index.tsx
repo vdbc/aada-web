@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { DefaultTopBanner } from "../components/TopBanner";
 import styles from "./styles.module.css";
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <Header />
-        <img className={styles.banner} alt="Banner" src="/home/banner.svg" />
+        <DefaultTopBanner />
         <img
           className={styles.overview}
           alt="Overview"

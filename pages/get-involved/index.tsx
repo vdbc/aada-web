@@ -4,6 +4,7 @@ import Image from "next/image";
 import ContentCard from "../../components/ContentCard";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import { DefaultTopBanner } from "../../components/TopBanner";
 import styles from "./styles.module.scss";
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <Header />
-        <img className={styles.banner} alt="Banner" src="/home/banner.svg" />
+        <DefaultTopBanner />
         <ContentCard title={"\\\nGet Involved \nwith AADA"}>
           <div>
             Lorem ipsum dolor sit amet et delectus accommodare his consul
