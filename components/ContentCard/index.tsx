@@ -6,7 +6,11 @@ declare type ContentCardProps = {
   separator?: any;
 };
 
-export default function _View({ title, children, separator }: ContentCardProps) {
+export default function _View({
+  title,
+  children,
+  separator,
+}: ContentCardProps) {
   return (
     <div className={styles.container}>
       <div className={styles.title}>{title}</div>

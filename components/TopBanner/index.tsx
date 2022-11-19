@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
+import { MdArrowForward } from "react-icons/md";
 import styles from "./styles.module.scss";
 
 declare type TopBannerProps = {
@@ -22,7 +23,7 @@ function _ButtonLink({ href, children }: any) {
     <Link href={href}>
       <div className={styles.buttonLink}>
         <div className={styles.wrapper}>{children}</div>
-        <Image src="/arrow_right.svg" alt="->" width={12} height={9.6} />
+        <MdArrowForward size={20} />
       </div>
     </Link>
   );
@@ -43,7 +44,7 @@ export function DefaultTopBanner() {
       </div>
       <div style={{ height: 40 }} />
       <div className={styles.wrapperLink}>
-        <_ButtonLink href={"/"}>EXPLORE 2023 AADA</_ButtonLink>
+        <_ButtonLink href={"/the-award"}>EXPLORE 2023 AADA</_ButtonLink>
         <div className={styles.spacer} />
       </div>
       <div style={{ height: 40 }} />
@@ -67,7 +68,9 @@ export function TheAwardTopBanner() {
       </div>
       <div style={{ height: 40 }} />
       <div className={styles.wrapperLink}>
-        <_ButtonLink href={"/"}>EXPLORE 2023 AADA</_ButtonLink>
+        <_ButtonLink href={"/categories "}>
+          EXPLORE 2023 AADA CATEGORIES
+        </_ButtonLink>
         <div className={styles.spacer} />
       </div>
       <div style={{ height: 40 }} />
