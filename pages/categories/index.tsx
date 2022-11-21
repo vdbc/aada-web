@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import ContentCard from "../../components/ContentCard";
 import Footer from "../../components/Footer";
+import { RegistrationFooterBanner } from "../../components/FooterBanner";
 import Header from "../../components/Header";
 import { DefaultTopBanner } from "../../components/OldTopBanner";
 import styles from "./styles.module.scss";
@@ -358,11 +359,7 @@ export default function Home() {
             munere facilis accusam eu dicat falli consulatu at vis.
           </div>
         </ContentCard>
-        <img
-          className={styles.why}
-          alt="Ready to submit your work?"
-          src="ready_to_submit_your_work.svg"
-        />
+        <RegistrationFooterBanner />
       </main>
       <Footer />
     </div>
