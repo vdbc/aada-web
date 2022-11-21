@@ -3,8 +3,9 @@ import Head from "next/head";
 import Image from "next/image";
 import ContentCard from "../../components/ContentCard";
 import Footer from "../../components/Footer";
+import { RegistrationFooterBanner } from "../../components/FooterBanner";
 import Header from "../../components/Header";
-import { DefaultTopBanner } from "../../components/TopBanner";
+import { RegistrationTopBanner } from "../../components/TopBanner";
 import styles from "./styles.module.scss";
 
 const separator = (
@@ -12,6 +13,23 @@ const separator = (
     <div className={styles.line} />
   </div>
 );
+
+declare type OfferCardProps = {
+  children: any;
+};
+
+function OfferCard({ children }: OfferCardProps) {
+  return (
+    <div className={styles.offerCardContainer}>
+      <div className={styles.logo}>
+        <div>
+          <Image src="/favicon.svg" alt="Logo" fill />
+        </div>
+      </div>
+      <div className={styles.content}>{children}</div>
+    </div>
+  );
+}
 
 export default function _View() {
   return (
@@ -22,47 +40,41 @@ export default function _View() {
 
       <main className={styles.main}>
         <Header />
-        <DefaultTopBanner />
+        <RegistrationTopBanner />
         <ContentCard title={"\\\nA Brand\nIdentity Boost"}>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            Industry players from architecture & design disciplines have made
+            their strong presence in recent years, some notable emerging market
+            economies in Asia includes ASEAN countries, undoubtedly both the
+            middle eastern and northern Asian regions.
           </div>
-          <div></div>
-          <h2>5-MINUTE SUBMISSION</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            Entering an award is to make a difference to the brand’s presence,
+            yet plan for a success as judging criteria for each award category
+            reflect the ageless principles that drive better business result.
           </div>
-          <h2>INFORMATIVE PROCESS</h2>
+          <h2>A QUICK 5-MINUTE SUBMISSION</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            It takes less than 5 minutes to complete an entry submission online
+            as long as you have studied the 2023 AADA submission guidelines.
+          </div>
+          <h2>INFORMATIVE GUIDED PROCESS</h2>
+          <div>
+            Guidelines are provided within every steps of entry registration,
+            including what needs to be prepared, what kind of required
+            information and you can come back to finish or update your entry
+            following a submission progress in your admin dashboard.
           </div>
           <h2>INSTANT ENTRY SUPPORT</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            AADA supports instant registration assistance in case there is any
+            difficulties during your submission progress.
           </div>
           <h2>STANDARDIZED VERIFICATION</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            By entering 2023 AADA, you have to submit proof of your work to be
+            eligible to nominate a project. AADA is responsible for verifying
+            your business and project and eligibility of your submission.
           </div>
         </ContentCard>
         <img
@@ -128,69 +140,61 @@ export default function _View() {
         <ContentCard title={"\\\nEntry Fee"}>
           <h2>AADA SPECIAL OFFERS</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            Take advantage of the Early Entry Discounts to nominate your work
+            before 31 Dec, 2022! The submission fees start at $180 per category
+            during the Early Entry submission phase.
           </div>
-          <div className={styles.images}>
-            <div className={styles.oneImage}>
-              <Image src="/early_bird.png" alt="Square" fill />
-            </div>
-            <div className={styles.oneImage}>
-              <Image src="/early_bird.png" alt="Square" fill />
-            </div>
+          <div className={styles.offers}>
+            <OfferCard>
+              <h3>EARLY ENTRY</h3>
+              <div>USD180 per entry</div>
+            </OfferCard>
+            <div style={{ width: 20 }} />
+            <OfferCard>
+              <h3>Standard</h3>
+              <div>USD200 per entry</div>
+            </OfferCard>
           </div>
         </ContentCard>
         <ContentCard title={"\\\nRegistration\nTips"}>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            Careful preparation for entry submission increases the chances of
+            being shortlisted and winning a prize. Below are some Do’s for you
+            upon gathering required information for all steps of registration.
           </div>
           <div></div>
+          <h2>CHOOSE THE RIGHT AWARD CATEGORY</h2>
+          <div>
+            Consider how your project can stack up by studying each award
+            category carefully. Only by selecting the right award category can
+            your project be stand out of the crowd and profile your project’s
+            strengths.
+          </div>
           <h2>VALIDATED DOCUMENTS</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            The award submission requires validated documents relating to
+            projects. It’s the evidence and proof of your work to the jury
+            panel.
           </div>
-          <h2>PROJECT GALLERY</h2>
+          <h2>CONTENT PREPARATION</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
-          <h2>ENGLISH WRITTEN</h2>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            Make sure you clearly map out what needs to be presented in each
+            section. Tell good story but make sure your submission address
+            exactly what is important each criteria by bullet the killer facts,
+            highlight the key features that you want judges to consider in the
+            main part.
           </div>
           <h2>PROJECT CREDIT</h2>
           <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
+            Earning an award is an excellent internal recognition for all great
+            contribution and team-work efforts. The award is far more than a
+            credit to business, it helps build internal credibility and
+            strengthens business advantages and promotes talents for
+            organization.
           </div>
         </ContentCard>
 
-        <img
-          className={styles.why}
-          alt="Ready to submit your work?"
-          src="ready_to_submit_your_work.svg"
-        />
+        <RegistrationFooterBanner />
       </main>
       <Footer />
     </div>

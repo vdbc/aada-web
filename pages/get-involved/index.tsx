@@ -4,7 +4,7 @@ import Image from "next/image";
 import ContentCard from "../../components/ContentCard";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { DefaultTopBanner } from "../../components/TopBanner";
+import { DefaultTopBanner } from "../../components/OldTopBanner";
 import styles from "./styles.module.scss";
 
 export default function Home() {

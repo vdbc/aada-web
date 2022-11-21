@@ -6,7 +6,7 @@ import {
   GetInvolvedHomeBanner,
   TheAwardHomeBanner,
 } from "../components/HomeBanner";
-import { DefaultTopBanner } from "../components/TopBanner";
+import { DefaultTopBanner } from "../components/OldTopBanner";
 import WhyYouShouldSubmitHomeBanner from "../components/WhyYouShouldSubmitHomeBanner";
 import styles from "./styles.module.css";
 

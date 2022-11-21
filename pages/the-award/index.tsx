@@ -1,45 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
-import { MdArrowForward, MdExpandMore } from "react-icons/md";
 import ContentCard from "../../components/ContentCard";
 import Footer from "../../components/Footer";
+import { TheAwardFooterBanner } from "../../components/FooterBanner";
 import Header from "../../components/Header";
+import { TheAwardTopBanner } from "../../components/TopBanner";
 import styles from "./styles.module.scss";
-
-function _ButtonLink({ href, children }: any) {
-  return (
-    <Link href={href}>
-      <div className={styles.buttonLink}>
-        <div className={styles.wrapper}>{children}</div>
-        <MdArrowForward size={20} />
-      </div>
-    </Link>
-  );
-}
-function TopBanner() {
-  return (
-    <div className={styles.topBanner}>
-      <div className={styles.background}>
-        <div>
-          <Image src="/bg_the_award.jpg" alt="Background" fill />
-        </div>
-      </div>
-      <Image src="/2023_logo.svg" alt="Logo" width={613} height={115} />
-      <h1>The awards</h1>
-      <div className={styles.subTitle}>
-        AADA seeks to promote an Impactful Asia in architecture design and
-        construction industry that influences not just within Asian countries
-        but also at a global arena.
-      </div>
-      <_ButtonLink href="/categories">EXPLORE 2023 AADA CATEGORIES</_ButtonLink>
-      <div className={styles.scrollDown}>
-        <MdExpandMore size={15} />
-        <div>Scroll down to learn more</div>
-      </div>
-    </div>
-  );
-}
 
 export default function Home() {
   return (
@@ -51,7 +17,7 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
 
-        <TopBanner />
+        <TheAwardTopBanner />
         <ContentCard title={"\\\nAsia\nArchitecture\nDesign\nAward"}>
           <h2>THE ORIGINS</h2>
           <div>
@@ -171,11 +137,7 @@ export default function Home() {
             initiators
           </div>
         </ContentCard>
-        <img
-          className={styles.why}
-          alt="Why you should submit"
-          src="why_you_should_submit.svg"
-        />
+        <TheAwardFooterBanner />
       </main>
       <Footer />
     </div>
