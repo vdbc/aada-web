@@ -22,6 +22,12 @@
     right: 0;
     bottom: 0;
     z-index: -1;
+
+    > video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .contentBox {
@@ -99,4 +105,28 @@
     // margin: 0 24px;
     margin-right: 45px;
   }
+}
+@keyframes flexAnimation {
+  from {
+    flex: 0;
+  }
+  to {
+    flex: 1;
+  }
+}
+.flexAnimation {
+  animation-name: flexAnimation;
+  animation-duration: 3s;
+}
+@keyframes opacityAnimation {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.opacityAnimation {
+  animation-name: opacityAnimation;
+  animation-duration: 2s;
 }
