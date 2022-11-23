@@ -74,7 +74,7 @@ export default function Home() {
             continual growth on an international level.
           </div>
           <div className={styles.video}>
-            <video controls>
+            <video autoPlay muted loop>
               <source src="/the_award.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
