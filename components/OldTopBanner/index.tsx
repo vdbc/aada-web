@@ -84,13 +84,13 @@ export default function _View({ backgroundUrl, children }: TopBannerProps) {
       <div className={styles.background}>
         <video src={backgroundUrl} autoPlay controls muted loop />
       </div>
-      <div className={[styles.spacer, styles.flexAnimation].join(" ")} />
+      {/* <div className={[styles.spacer, styles.flexAnimation].join(" ")} />
       <div className={styles.spacer}>
         <div className={[styles.contentBox, styles.opacityAnimation].join(" ")}>
           {children}
         </div>
         <div className={styles.spacer1} />
-      </div>
+      </div> */}
     </div>
   );
 }
