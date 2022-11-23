@@ -16,7 +16,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  
+
+  > .loginButton {
+    font-size: 15px;
+    color: white;
+    background-color: #a67f56;
+    min-width: 156px;
+    min-height: 38px;
+    border-style: none;
+    margin-left: 15px;
+    cursor: pointer;
+  }
 }
 
 .spacer {
@@ -26,6 +36,6 @@
 .link {
   font-weight: 500;
   font-size: 15px;
-  color: #A67F56;
-  padding: 12px 20px;
+  color: #a67f56;
+  padding: 12px 15px;
 }

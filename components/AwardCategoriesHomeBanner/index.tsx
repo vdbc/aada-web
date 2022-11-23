@@ -66,16 +66,19 @@ function Slider({ items }: SliderProps) {
         <MdArrowBack size={25} />
       </button>
       <SliderItem
+        key={index - 1}
         isLeft
         title={itemsDisplay[0].title}
         description={itemsDisplay[0].description}
       />
       <SliderItem
+        key={index}
         isActive
         title={itemsDisplay[1].title}
         description={itemsDisplay[1].description}
       />
       <SliderItem
+        key={index + 1}
         title={itemsDisplay[2].title}
         description={itemsDisplay[2].description}
       />

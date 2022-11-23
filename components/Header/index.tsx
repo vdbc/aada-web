@@ -1,8 +1,12 @@
+import { Dialog } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Header.module.css";
+import { useState } from "react";
+import LoginForm from "../LoginForm";
+import styles from "./styles.module.scss";
 
 export default function Header() {
+  const [isLogging, setLogging] = useState(false);
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -28,10 +32,16 @@ export default function Header() {
         <Link className={styles.link} href="/get-involved">
           GET INVOLVED
         </Link>
-        <Link className={styles.link} href="/contact">
-          CONTACT
-        </Link>
+        <button
+          className={styles.loginButton}
+          onClick={() => setLogging(!isLogging)}
+        >
+          Login/Sign up
+        </button>
       </div>
+      <Dialog open={isLogging} onClose={() => setLogging(false)}>
+        <LoginForm />
+      </Dialog>
     </div>
   );
 }

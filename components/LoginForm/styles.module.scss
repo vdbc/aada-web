@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  max-width: 500px;
+  height: 100vh;
+  max-height: 500px;
+  background-color: #a67f56;
+  color: white;
+
+  > .wrapper {
+    width: 70%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      margin-bottom: 6px;
+    }
+
+    > button {
+      margin-top: 7px;
+      color: #a67f56;
+      width: 100%;
+      height: 25px;
+      background-color: white;
+      border-width: 0px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 9px;
+    }
+
+    .link {
+      margin-top: 13px;
+      font-size: 9px;
+    }
+
+    > .input {
+      margin-top: 7px;
+      width: 100%;
+      height: 38px;
+      padding: 0 20px;
+      border-style: none;
+      border-width: 0;
+
+      &::placeholder {
+        color: rgba(166, 127, 86, 0.3);
+      }
+
+      &:focus {
+        outline-style: none;
+      }
+    }
+
+    .termPolicy {
+      margin: 13px 20px;
+      font-size: 6px;
+    }
+
+    > .titleRegister {
+      font-size: 9px;
+      line-height: 11px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .registerButtonWrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      > .button {
+        width: 180px;
+        border: 0.5px solid #fac47e;
+      }
+    }
+  }
+}
