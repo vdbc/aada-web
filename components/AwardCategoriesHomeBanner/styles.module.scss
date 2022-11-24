@@ -13,8 +13,8 @@
   width: 100%;
   position: relative;
   color: #a67f56;
-  height: calc(100vh - 100px);
-  min-height: 500px;
+  min-height: calc(100vh - 100px);
+  // min-height: 500px;
   padding: 50px 100px;
 
   > h1 {

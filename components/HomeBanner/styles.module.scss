@@ -12,8 +12,8 @@
   width: 100%;
   position: relative;
   color: white;
-  height: calc(100vh - 100px);
-  min-height: 500px;
+  min-height: calc(100vh - 100px);
+  // min-height: 500px;
 
   > .background {
     position: absolute;
