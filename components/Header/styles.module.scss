@@ -26,6 +26,10 @@
     border-style: none;
     margin-left: 15px;
     cursor: pointer;
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 }
 

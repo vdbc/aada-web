@@ -38,7 +38,6 @@ const lightTheme: ThemeOptions = createTheme({
 });
 
 export default function _View() {
-  const theme = createTheme({});
   return (
     <ThemeProvider theme={lightTheme}>
       <div className={styles.container}>
@@ -46,21 +45,16 @@ export default function _View() {
           <div className={styles.title}>SIGN IN WITH YOUR AADA ACCOUNT</div>
           <input placeholder="Email" className={styles.input} />
           <input placeholder="Password" className={styles.input} />
-          <button>Sign in</button>
-          <Link href="#" className={styles.link}>
-            Forgot your password?
-          </Link>
-          <div className={styles.termPolicy}>
-            By clicking "Sign in", Google, Facebook or Apple ID you agree to the
-            Terms of use and Privacy policy and agree to receive newsletters
-            from Asia Architecture Design Awards.
-          </div>
-          <div className={styles.titleRegister}>NOT AN AADA MEMBER?</div>
-          <div className={styles.registerButtonWrapper}>
-            <Link href="/open-account" className={styles.button}>
-              Create your account
+          <button className={styles.button}>Sign in</button>
+          <div className={styles.forgotPassword}>
+            <Link href="#" className={styles.link}>
+              Forgot your password?
             </Link>
           </div>
+          <div className={styles.titleRegister}>Not an AADA member?</div>
+          <Link href="/open-account" className={styles.button}>
+            Create your account
+          </Link>
         </div>
       </div>
     </ThemeProvider>
