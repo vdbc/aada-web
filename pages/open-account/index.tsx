@@ -10,7 +10,7 @@ export default function _View() {
   return (
     <div className={styles.container}>
       <Header />
-      <HeaderPage activeTab={0} />
+      <HeaderPage activeTab={tab} />
       {contents[tab]}
     </div>
   );
