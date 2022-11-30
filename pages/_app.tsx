@@ -2,6 +2,8 @@ import { Lato } from "@next/font/google";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Fragment } from "react";
+import { Provider } from "react-redux";
+import { store } from "../store";
 import "../styles/globals.css";
 
 const latoFont = Lato({
@@ -17,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <main className={latoFont.className}>
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
       </main>
     </Fragment>
   );
