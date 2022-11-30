@@ -15,7 +15,7 @@
   .groupInput {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     margin-top: 25px;
     width: 100%;
@@ -70,8 +70,12 @@
   height: 65px;
   padding: 0 20px;
   outline: none;
+  font-size: 19px;
+  color: #a67f56;
+  text-transform: uppercase;
+  border-color: #a67f56;
 
-  select::after {
+  &::after {
     position: absolute;
     color: red;
     content: "";
@@ -92,4 +96,35 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.wrapperSelectEntry {
+  margin-bottom: 8px;
+  background-color: #a67f56;
+  .labelBox {
+    color: white;
+    font-size: 19px;
+  }
+
+  .selectItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    > span {
+      flex: 1;
+      text-align: center;
+    }
+
+    > button {
+      background-color: transparent;
+      border-style: none;
+      color: unset;
+      font-size: 20px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
 }

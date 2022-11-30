@@ -5,7 +5,7 @@ import NominationForm from "./NominationForm";
 import RegistrationForm from "./RegistrationForm";
 import styles from "./styles.module.scss";
 
-export default function _View() {
+function _View() {
   const [tab, setTab] = useState(0);
   const contents = [
     <RegistrationForm onRegisterSuccess={() => setTab(1)} />,
@@ -19,3 +19,5 @@ export default function _View() {
     </div>
   );
 }
+
+export default _View;

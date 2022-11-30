@@ -3,6 +3,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { combineReducers } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import nominateSlice from "./modules/nominate";
 import userSlice from "./modules/user";
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -14,7 +15,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(
   persistConfig,
-  combineReducers({ user: userSlice.reducer })
+  combineReducers({ user: userSlice.reducer, nominate: nominateSlice.reducer })
 );
 
 export const store = configureStore({

@@ -1,16 +1,8 @@
-import {
-  Checkbox,
-  FormControl,
-  InputLabel,
-  ListItemText,
-  MenuItem,
-  OutlinedInput,
-  Select,
-  SelectChangeEvent,
-  Theme,
-  useTheme,
-} from "@mui/material";
+import { Theme } from "@mui/material";
 import { useState } from "react";
+import { MdClose } from "react-icons/md";
+import { NominateEntry } from "../../../models/NominateModel";
+import { ValueChanged } from "../../../utils/interface";
 import styles from "./styles.module.scss";
 
 declare type LabelBoxProps = {
@@ -72,17 +64,12 @@ declare type Props = {
   label: string;
   description: string;
   feePerEntry: number;
-  entries: string[];
+  entries: NominateEntry[];
+  onSelectEntry: ValueChanged<string>;
+  onRemoveEntry: ValueChanged<string>;
   required?: boolean;
 };
 
-const names = [
-  "2023 BEST RESORT ARCHITECTURE DESIGN",
-  "2023 Best Interior Design",
-  "2023 BEST RESORT INTERIOR DESIGN",
-  "2023 BEST HOTEL INTERIOR DESIGN",
-  "2023 BEST F&B INTERIOR DESIGN",
-];
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -110,20 +97,18 @@ export default function _View({
   feePerEntry,
   entries,
   required = true,
+  onSelectEntry,
+  onRemoveEntry,
 }: Props) {
-  const [personName, setPersonName] = useState<string[]>([]);
+  const [selected, setSelected] = useState<NominateEntry[]>([]);
+  const entriesToSelected = entries.filter(
+    (entry) => !selected.includes(entry)
+  );
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
+  const unselectItem = (value: NominateEntry) => {
+    onRemoveEntry(value.id);
+    setSelected(selected.filter((item) => item != value));
   };
-
-  const theme = useTheme();
 
   return (
     <div className={styles.container}>
@@ -131,33 +116,39 @@ export default function _View({
       <div className={styles.groupInput}>
         <div className={styles.entries}>
           <ColumnContent label={label} description={description}>
-            <select className={styles.select}>
-              {names.map((name) => (
-                <option>{name}</option>
-              ))}
-            </select>
-            {/* <FormControl fullWidth>
-              <InputLabel id="demo-multiple-name-label">Name</InputLabel>
-              <Select
-                labelId="demo-multiple-name-label"
-                id="demo-multiple-name"
-                multiple
-                value={personName}
-                onChange={handleChange}
-                input={<OutlinedInput label="Name" />}
-                MenuProps={MenuProps}
+            {selected.map((item) => (
+              <div className={styles.wrapperSelectEntry}>
+                <LabelBox>
+                  <div className={styles.selectItem}>
+                    <span>{item.name}</span>
+                    <button onClick={() => unselectItem(item)}>
+                      <MdClose />
+                    </button>
+                  </div>
+                </LabelBox>
+              </div>
+            ))}
+            {entriesToSelected.length > 0 && (
+              <select
+                value="1"
+                className={styles.select}
+                onChange={(event) => {
+                  const entryId = event.target.value;
+                  const entry = entriesToSelected.find(
+                    (item) => item.id == entryId
+                  );
+                  onSelectEntry(entryId);
+                  if (entry) setSelected([...selected, entry]);
+                }}
               >
-                {names.map((name) => (
-                  <MenuItem
-                    key={name}
-                    value={name}
-                    style={getStyles(name, personName, theme)}
-                  >
-                    {name}
-                  </MenuItem>
+                <option value="1" disabled>
+                  Select your category
+                </option>
+                {entriesToSelected.map((item) => (
+                  <option value={item.id}>{item.name}</option>
                 ))}
-              </Select>
-            </FormControl> */}
+              </select>
+            )}
           </ColumnContent>
         </div>
         <div className={styles.numOfEntries}>
@@ -165,7 +156,7 @@ export default function _View({
             label="Number of entry"
             description="You can choose unlimited number of entry"
           >
-            <LabelBox>0</LabelBox>
+            <LabelBox>{selected.length}</LabelBox>
           </ColumnContent>
         </div>
         <div className={styles.totalFee}>
@@ -173,7 +164,7 @@ export default function _View({
             label="Early bird entry fee"
             description="Apply for single entry USD 180"
           >
-            <LabelBox>USD 0</LabelBox>
+            <LabelBox>USD {selected.length * feePerEntry}</LabelBox>
           </ColumnContent>
         </div>
       </div>
