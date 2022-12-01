@@ -11,7 +11,8 @@
   z-index: 1000;
 }
 .header {
-  width: 80%;
+  width: 100%;
+  max-width: 1200px;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -41,8 +42,13 @@
   font-weight: 500;
   font-size: 15px;
   color: #a67f56;
-  padding: 12px 15px;
+  padding: 10px 20px;
   text-transform: uppercase;
+}
+
+.active {
+  background-color: #a67f56;
+  color: white;
 }
 
 .hello {

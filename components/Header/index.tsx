@@ -1,6 +1,7 @@
 import { Dialog } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useAppSelector } from "../../store";
 import { selectIsLogged, selectLastName } from "../../store/modules/user";
@@ -66,6 +67,7 @@ declare type HeaderProps = {
 
 export default function _View(props: HeaderProps) {
   const [isLogging, setLogging] = useState(false);
+  const router = useRouter();
 
   const isLogged = useAppSelector(selectIsLogged);
   const lastName = useAppSelector(selectLastName);
@@ -85,7 +87,14 @@ export default function _View(props: HeaderProps) {
         </Link>
         <div className={styles.spacer} />
         {tabs.map((tab) => (
-          <Link key={tab.title} className={styles.link} href={tab.link}>
+          <Link
+            key={tab.title}
+            className={[
+              styles.link,
+              router.asPath == tab.link && isLogged ? styles.active : "",
+            ].join(" ")}
+            href={tab.link}
+          >
             {tab.title}
           </Link>
         ))}
