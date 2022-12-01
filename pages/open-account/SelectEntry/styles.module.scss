@@ -1,0 +1,130 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 60px;
+  width: 100%;
+
+  .title {
+    font-weight: 700;
+    font-size: 25px;
+    color: #a67f56;
+  }
+
+  .groupInput {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+
+    > .entries {
+      flex: 2;
+    }
+
+    .numOfEntries,
+    .totalFee {
+      margin-left: 25px;
+      flex: 1;
+      height: 100%;
+    }
+  }
+}
+
+.columnContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 140px;
+  color: #a67f56;
+
+  > h2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+
+  > .descriptionContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: flex-start;
+    margin-top: 8px;
+    font-size: 15px;
+  }
+
+  > .children {
+    margin-top: 8px;
+    width: 100%;
+    font-size: 25px;
+  }
+}
+
+.select {
+  width: 100%;
+  height: 65px;
+  padding: 0 20px;
+  outline: none;
+  font-size: 19px;
+  color: #a67f56;
+  text-transform: uppercase;
+  border-color: #a67f56;
+
+  &::after {
+    position: absolute;
+    color: red;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+}
+
+.labelBox {
+  border: 0.5px solid #a67f56;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperSelectEntry {
+  margin-bottom: 8px;
+  background-color: #a67f56;
+  .labelBox {
+    color: white;
+    font-size: 19px;
+  }
+
+  .selectItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    > span {
+      flex: 1;
+      text-align: center;
+    }
+
+    > button {
+      background-color: transparent;
+      border-style: none;
+      color: unset;
+      font-size: 20px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+}

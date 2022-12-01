@@ -66,16 +66,19 @@ function Slider({ items }: SliderProps) {
         <MdArrowBack size={25} />
       </button>
       <SliderItem
+        key={index - 1}
         isLeft
         title={itemsDisplay[0].title}
         description={itemsDisplay[0].description}
       />
       <SliderItem
+        key={index}
         isActive
         title={itemsDisplay[1].title}
         description={itemsDisplay[1].description}
       />
       <SliderItem
+        key={index + 1}
         title={itemsDisplay[2].title}
         description={itemsDisplay[2].description}
       />
@@ -91,19 +94,34 @@ function Slider({ items }: SliderProps) {
 
 const sliderItems: Item[] = [
   {
-    title: "2023 BEST FURNITURE DESIGN",
-    description:
-      "Indication and celebration of quality and perfection in Furniture Design.",
-  },
-  {
     title: "2023 best architecture design",
     description:
       "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
   },
   {
-    title: "2023 best interior design",
+    title: "2023 Best Interior Design",
     description:
-      "Honoring the innovative visions and remarkable works of interior designers.",
+      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+  },
+  {
+    title: "2023 Best Furniture Design",
+    description:
+      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+  },
+  {
+    title: "2023 Best Firms in Architecture Design",
+    description:
+      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+  },
+  {
+    title: "2023 Best Firms in Interior Design",
+    description:
+      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+  },
+  {
+    title: "2023 Best Furniture Manufacturer/ Distributor",
+    description:
+      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
   },
 ];
 

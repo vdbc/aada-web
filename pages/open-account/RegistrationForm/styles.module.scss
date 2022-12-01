@@ -1,0 +1,53 @@
+.registration {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.footerPage {
+  margin-bottom: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  > .term {
+    margin: 20px 0;
+    width: 100%;
+    max-width: 380px;
+    font-size: 12px;
+    text-align: center;
+    color: #a67f56;
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+
+  > button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 295px;
+    height: 40px;
+    background-color: #a67f56;
+    color: white;
+    border-style: none;
+    font-size: 15px;
+    text-transform: uppercase;
+
+    > span {
+      margin-right: 10px;
+    }
+  }
+
+  .inactive {
+    opacity: 0.5;
+  }
+}

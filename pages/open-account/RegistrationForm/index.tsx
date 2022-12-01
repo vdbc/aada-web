@@ -1,0 +1,100 @@
+import { useState } from "react";
+import { MdArrowForwardIos } from "react-icons/md";
+import { Organization } from "../../../models/Organization";
+import { UserModel } from "../../../models/UserModel";
+import { registerOrganization } from "../../../services/OrganizationService";
+import { requestRegisterUser } from "../../../services/UserService";
+import { useAppDispatch } from "../../../store";
+import userSlice from "../../../store/modules/user";
+import AccountInfo from "../AccountInfo";
+import OrganizationInfo from "../OrganizationInfo";
+import styles from "./styles.module.scss";
+
+declare type RegistrationProps = {
+  onRegisterSuccess: Function;
+};
+
+function checkCanContinue(
+  user: UserModel,
+  organization: Organization
+): boolean {
+  const requiredField = [
+    user.firstName,
+    user.lastName,
+    user.email,
+    user.password,
+    organization.name,
+    organization.address,
+    organization.city,
+    organization.country,
+    organization.zipCode,
+  ];
+  return requiredField.findIndex((item: string) => item === "") == -1;
+}
+
+export default function _View({ onRegisterSuccess }: RegistrationProps) {
+  const [user, setUser] = useState<UserModel>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+  const [organization, setOrganization] = useState<Organization>({
+    id: "",
+    createdByUserId: "",
+    name: "",
+    country: "",
+    city: "",
+    zipCode: "",
+    address: "",
+    email: "",
+    createdAt: "",
+  });
+
+  const [isLoading, setLoading] = useState(false);
+  const dispatch = useAppDispatch();
+  async function _handleRegister() {
+    setLoading(true);
+    try {
+      const authModel = await requestRegisterUser(user);
+      dispatch(userSlice.actions.setUser(authModel.user));
+      dispatch(userSlice.actions.setToken(authModel.token));
+      const organizationCreated = await registerOrganization(
+        organization,
+        authModel.token
+      );
+      dispatch(userSlice.actions.setOrganization(organizationCreated));
+
+      onRegisterSuccess();
+    } catch (err) {
+      alert(err);
+    }
+    setLoading(false);
+  }
+
+  const canContinue = !isLoading && checkCanContinue(user, organization);
+
+  return (
+    <div className={styles.registration}>
+      <AccountInfo onUserUpdated={(user) => setUser(user)} user={user} />
+      <OrganizationInfo
+        onChanged={(organization) => setOrganization(organization)}
+        organization={organization}
+      />
+      <div className={styles.footerPage}>
+        <div className={styles.term}>
+          By proceeding, you agree to ASIA ARCHITECTURE DESIGN AWARD{" "}
+          <a href="#">Terms of use</a> and <a href="#">Privacy Policy</a> and
+          agree to receive newsletters from Asia Architecture Design Awards.
+        </div>
+        <button
+          onClick={canContinue ? () => _handleRegister() : undefined}
+          className={canContinue ? styles.active : styles.inactive}
+        >
+          <span>Next</span>
+          <MdArrowForwardIos />
+        </button>
+      </div>
+    </div>
+  );
+}
