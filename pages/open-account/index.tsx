@@ -8,8 +8,8 @@ import styles from "./styles.module.scss";
 function _View() {
   const [tab, setTab] = useState(0);
   const contents = [
-    <RegistrationForm onRegisterSuccess={() => setTab(1)} />,
-    <NominationForm onRegisterSuccess={() => setTab(2)} />,
+    <RegistrationForm key="registration" onRegisterSuccess={() => setTab(1)} />,
+    <NominationForm key="nomination" onRegisterSuccess={() => setTab(2)} />,
   ];
   return (
     <div className={styles.container}>

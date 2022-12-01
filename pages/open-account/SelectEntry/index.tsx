@@ -101,13 +101,13 @@ export default function _View({
   onRemoveEntry,
 }: Props) {
   const [selected, setSelected] = useState<NominateEntry[]>([]);
-  const entriesToSelected = entries.filter(
+  const entriesToSelected = (entries ?? []).filter(
     (entry) => !selected.includes(entry)
   );
 
   const unselectItem = (value: NominateEntry) => {
     onRemoveEntry(value.id);
-    setSelected(selected.filter((item) => item != value));
+    setSelected((selected ?? []).filter((item) => item != value));
   };
 
   return (
@@ -117,7 +117,7 @@ export default function _View({
         <div className={styles.entries}>
           <ColumnContent label={label} description={description}>
             {selected.map((item) => (
-              <div className={styles.wrapperSelectEntry}>
+              <div key={item.id} className={styles.wrapperSelectEntry}>
                 <LabelBox>
                   <div className={styles.selectItem}>
                     <span>{item.name}</span>
@@ -145,7 +145,9 @@ export default function _View({
                   Select your category
                 </option>
                 {entriesToSelected.map((item) => (
-                  <option value={item.id}>{item.name}</option>
+                  <option key={item.id} value={item.id}>
+                    {item.name}
+                  </option>
                 ))}
               </select>
             )}

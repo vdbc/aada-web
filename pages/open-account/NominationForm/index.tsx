@@ -41,6 +41,7 @@ function _View({ onRegisterSuccess }: Props) {
         {allNominate &&
           allNominate.map((item) => (
             <SelectEntry
+              key={item.id}
               onSelectEntry={_onSelectEntry}
               onRemoveEntry={_onRemoveEntry}
               title="NOMINATE YOUR ENTRY"

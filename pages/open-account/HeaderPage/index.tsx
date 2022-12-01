@@ -40,7 +40,7 @@ export default function _View({ activeTab, onTabChanged }: HeaderPageProps) {
     <div className={styles.container}>
       <div>
         {tabs.map(({ title }, index) => (
-          <ButtonTab title={title} isActive={index == activeTab} />
+          <ButtonTab key={title} title={title} isActive={index == activeTab} />
         ))}
       </div>
     </div>
