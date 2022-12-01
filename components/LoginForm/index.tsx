@@ -93,7 +93,11 @@ export default function _View({ dismiss }: Props) {
             </Link>
           </div>
           <div className={styles.titleRegister}>Not an AADA member?</div>
-          <Link href="/open-account" className={styles.button}>
+          <Link
+            href="/open-account"
+            className={styles.button}
+            onClick={() => dismiss()}
+          >
             Create your account
           </Link>
         </div>

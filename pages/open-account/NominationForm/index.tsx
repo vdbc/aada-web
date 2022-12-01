@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { MdArrowForwardIos } from "react-icons/md";
-import { getAllNominate } from "../../../services/NominateService";
-import { useAppDispatch, useAppSelector } from "../../../store";
+import {
+  getAllNominate,
+  registerNominateEntries,
+} from "../../../services/NominateService";
+import { store, useAppDispatch, useAppSelector } from "../../../store";
 import nominateSlice, {
   selectNominates,
 } from "../../../store/modules/nominate";
@@ -16,7 +19,8 @@ declare type Props = {
 const feePerEntry = 180;
 
 function _View({ onRegisterSuccess }: Props) {
-  const [selectedEntries, setSelectedEntries] = useState<String[]>([]);
+  const [selectedEntries, setSelectedEntries] = useState<string[]>([]);
+  const [isLoading, setLoading] = useState(false);
   const token = useAppSelector(selectToken);
   const dispatch = useAppDispatch();
 
@@ -34,6 +38,20 @@ function _View({ onRegisterSuccess }: Props) {
     setSelectedEntries([...selectedEntries, entryId]);
   const _onRemoveEntry = (entryId: string) =>
     setSelectedEntries(selectedEntries.filter((id) => id != entryId));
+
+  const handleRegister = async () => {
+    if (isLoading) return;
+    setLoading(true);
+    try {
+      const token = selectToken(store.getState());
+      await registerNominateEntries(selectedEntries, token);
+      onRegisterSuccess();
+    } catch (error: any) {
+      alert(error?.message ?? "");
+    }
+
+    setLoading(false);
+  };
 
   return (
     <div className={styles.container}>
@@ -56,7 +74,7 @@ function _View({ onRegisterSuccess }: Props) {
           totalFee={toalEntries * feePerEntry}
         />
         <div className={styles.footerAction}>
-          <button>
+          <button onClick={handleRegister}>
             Payment
             <MdArrowForwardIos />
           </button>
