@@ -10,3 +10,13 @@ export async function requestRegisterUser(user: UserModel): Promise<AuthModel> {
 
   return resp.data;
 }
+
+export async function login(
+  username: string,
+  password: string
+): Promise<AuthModel> {
+  const url = `${apiUrl}/auth`;
+  const resp = await axios.post(url, { username, password });
+
+  return resp.data;
+}

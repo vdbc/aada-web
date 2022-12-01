@@ -101,7 +101,7 @@ export default function _View(props: HeaderProps) {
         )}
       </div>
       <Dialog open={isLogging} onClose={() => setLogging(false)}>
-        <LoginForm />
+        <LoginForm dismiss={() => setLogging(false)} />
       </Dialog>
     </div>
   );
