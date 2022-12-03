@@ -11,6 +11,8 @@ declare type AwardItemProps = {
   children: string;
 };
 
+const defaultText = "";
+
 function AwardItem({ children }: AwardItemProps) {
   return (
     <div className={styles.awardItemContainer}>
@@ -142,29 +144,11 @@ export default function Home() {
             designers.
           </h3>
           <AwardItem>2023 BEST RESORT INTERIOR DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST HOTEL INTERIOR DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST F&B INTERIOR DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST RESIDENTIAL INTERIOR DESIGN</AwardItem>
           <div>
             These awards presented to trendy residential interior design that
@@ -172,37 +156,13 @@ export default function Home() {
             a single room or the whole place.
           </div>
           <AwardItem>2023 BEST RETAIL INTERIOR DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST LEISURE & WELLNESS INTERIOR DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST COMMERCIAL INTERIOR DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST WORKPLACE INTERIOR DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
         </ContentCard>
         <ContentCard title={"\\\nBest\nFurniture\nDesign"}>
           <h3>
@@ -210,39 +170,15 @@ export default function Home() {
             Design.
           </h3>
           <AwardItem>2023 BEST HOUSEHOLD FURNITURE DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST FURNITURE ACCESSORIES DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST LIGHTING DESIGN</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>
             2023 BEST BATHROOM FURNITURE & SANITARY WARE DESIGN
           </AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
         </ContentCard>
         <ContentCard title={"\\\nBest Firms in\nArchitecture\nDesign"}>
           <h3>
@@ -251,47 +187,17 @@ export default function Home() {
             daily lives.
           </h3>
           <AwardItem>2023 BEST ARCHITECTURE DESIGN FIRM</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>
             2023 BEST MULTI-DISCIPLINARY ARCHITECTURE DESIGN FIRM
           </AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST LANDSCAPE ARCHITECTURE DESIGN FIRM</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST HOSPITALITY ARCHITECTURE DESIGN FIRM</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST PROPERTY DEVELOPMENT FIRM</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
         </ContentCard>
         <ContentCard title={"\\\nBest Firms in\nInterior\nDesign"}>
           <h3>
@@ -300,29 +206,11 @@ export default function Home() {
             industry.
           </h3>
           <AwardItem>2023 BEST INTERIOR DESIGN FIRM</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST HOTEL & RESORT INTERIOR FIRM</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST BOUTIQUE INTERIOR DESIGN FIRM</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
         </ContentCard>
         <ContentCard
           title={"\\\nBest Firms in\nFurniture\nManufacturing\n& Retailing"}
@@ -334,29 +222,11 @@ export default function Home() {
             an.
           </h3>
           <AwardItem>2023 BEST FURNITURE MANUFACTURER</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST FURNITURE RETAILER</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
           <AwardItem>2023 BEST INNOVATIVE FURNITURE DESIGN FIRM</AwardItem>
-          <div>
-            Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus delicata usu. Vidit
-            dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum
-            an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit
-            munere facilis accusam eu dicat falli consulatu at vis.
-          </div>
+          <div>{defaultText}</div>
         </ContentCard>
         <RegistrationFooterBanner />
       </main>

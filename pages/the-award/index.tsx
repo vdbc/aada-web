@@ -42,7 +42,7 @@ export default function Home() {
             </div>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
-              <div className={styles.badgeContent}>PROFESSIONAL JURORS</div>
+              <div className={styles.badgeContent}>professional judges</div>
             </div>
           </div>
           <h2>VISION & MISSION</h2>
