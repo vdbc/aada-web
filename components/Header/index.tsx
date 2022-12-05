@@ -91,7 +91,7 @@ export default function _View(props: HeaderProps) {
             key={tab.title}
             className={[
               styles.link,
-              router.asPath == tab.link && isLogged ? styles.active : "",
+              router.route == tab.link && isLogged ? styles.active : "",
             ].join(" ")}
             href={tab.link}
           >
