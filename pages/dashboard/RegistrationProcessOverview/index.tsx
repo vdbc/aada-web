@@ -1,4 +1,5 @@
 import { Chart } from "react-google-charts";
+import ProgressBar from "../../../components/ProgressBar";
 import styles from "./styles.module.scss";
 
 declare type OverviewChartProps = {
@@ -54,12 +55,7 @@ function ProcessStatus({ name, process }: ProcessStatusProps) {
   return (
     <div className={styles.processStatusContainer}>
       <h3>{name}</h3>
-      <div className={styles.processBackground}>
-        <div
-          style={{ width: `${process * 100}%` }}
-          className={styles.processPercent}
-        />
-      </div>
+      <ProgressBar percent={process * 100} />
     </div>
   );
 }
