@@ -1,0 +1,82 @@
+.overviewContainer {
+  margin-top: 55px;
+  background-color: white;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+
+  .statusOverviewContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    > h2 {
+      font-weight: 700;
+      font-size: 35px;
+      margin: 0;
+    }
+
+    .processStatusContainer {
+      width: 100%;
+
+      > h3 {
+        margin-top: 13px;
+        margin-bottom: 8px;
+      }
+
+      .processBackground {
+        background-color: #f6f6f6;
+
+        .processPercent {
+          height: 20px;
+          background-color: #a67f56;
+        }
+      }
+    }
+  }
+}
+
+.overviewChart {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .center {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .percent {
+      font-weight: 700;
+      font-size: 85px;
+    }
+  }
+}
+
+.buttonLink {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0.36px solid #a67f56;
+  padding: 0 24px;
+  height: 35px;
+  margin-top: 25px;
+
+  > .wrapper {
+    margin-right: 45px;
+  }
+}

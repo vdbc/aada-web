@@ -49,7 +49,7 @@ const loggedInTab = [
   },
   {
     title: "Status Overview",
-    link: "/overview",
+    link: "/status-overview",
   },
   {
     title: "Your Submission",
