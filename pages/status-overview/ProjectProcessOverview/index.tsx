@@ -97,7 +97,7 @@ function StatusOverview() {
     <div className={styles.statusOverviewContainer}>
       <h2>PROJECT 1</h2>
       {data.map((item) => (
-        <ProcessStatus {...item} />
+        <ProcessStatus key={item.name} {...item} />
       ))}
       <_ButtonLink href="#">COMPLETE YOUR SUBMISSION</_ButtonLink>
     </div>

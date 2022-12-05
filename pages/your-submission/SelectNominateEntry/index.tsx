@@ -31,6 +31,7 @@ function NominateEntries({
       {isExpand &&
         nominate.entries.map((item) => (
           <button
+            key={item.id}
             className={[
               styles.item,
               styles.entry,

@@ -38,6 +38,7 @@ export default function _View({ onRegisterSuccess }: RegistrationProps) {
     lastName: "",
     email: "",
     password: "",
+    address: "",
   });
   const [organization, setOrganization] = useState<Organization>({
     id: "",

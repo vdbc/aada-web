@@ -87,7 +87,7 @@ function StatusOverview() {
     <div className={styles.statusOverviewContainer}>
       <h2>Status Overview</h2>
       {data.map((item) => (
-        <ProcessStatus {...item} />
+        <ProcessStatus key={item.name} {...item} />
       ))}
     </div>
   );
