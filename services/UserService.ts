@@ -11,6 +11,17 @@ export async function requestRegisterUser(user: UserModel): Promise<AuthModel> {
   return resp.data;
 }
 
+export async function getUserInfo(token: string): Promise<UserModel> {
+  const url = `${apiUrl}/me`;
+  const resp = await axios.get(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return resp.data;
+}
+
 export async function login(
   username: string,
   password: string

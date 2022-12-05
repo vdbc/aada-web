@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 25px 50px;
+  color: #a67f56;
+  background-color: white;
+  min-height: 365px;
+
+  > h2 {
+    font-weight: 700;
+    font-size: 35px;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 25px;
+  }
+
+  .title {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  .field {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 25px;
+
+    > div {
+      margin-left: 12px;
+    }
+  }
+}
+
+.chatWithUseContainer {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  > .label {
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  > .iconWrapper {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #a67f56;
+    color: white;
+  }
+}
