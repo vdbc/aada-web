@@ -26,13 +26,11 @@ function SliderItem({
   ].join(" ");
   return (
     <div className={container}>
-      <div className={styles.spacer} />
       <div className={styles.sliderLogo}>
         <Image src={logo} alt="Logo" fill />
       </div>
       <h2>{title}</h2>
       <div>{description}</div>
-      <div className={styles.spacer} />
     </div>
   );
 }

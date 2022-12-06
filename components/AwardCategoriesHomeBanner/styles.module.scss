@@ -108,7 +108,7 @@
     }
 
     h2 {
-      flex: 5;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -131,7 +131,8 @@
     background-color: #a67f56;
     border: 5px solid #ffffff;
     color: white;
-    padding: inherit 25px;
+    padding-left: 25px;
+    padding-right: 25px;
 
     .sliderLogo {
       width: 150;
