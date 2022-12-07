@@ -1,25 +1,30 @@
-import ProgressBar from "../../../components/ProgressBar";
-import { ValueChanged } from "../../../utils/interface";
+import Image from "next/image";
+import { IoIosArrowDown } from "react-icons/io";
+import InputField from "../../../components/InputField";
 import styles from "./styles.module.scss";
 
-declare type InputFieldProps = {
+function SelectLocale() {
+  return (
+    <div className={styles.selectLocaleContainer}>
+      <Image src="/flag_vn.svg" alt="Flag VN" width={33} height={22} />
+      <div className={styles.value}>Viet Nam</div>
+      <IoIosArrowDown />
+    </div>
+  );
+}
+
+declare type InputAboutField = {
   label: string;
-  placeholder: string;
-  onChanged?: ValueChanged<string>;
+  desc: string;
+  required?: boolean;
 };
 
-function InputField({
-  label,
-  placeholder,
-  onChanged = (value) => {},
-}: InputFieldProps) {
+function InputAboutField({ label, desc, required = true }: InputAboutField) {
   return (
-    <div className={styles.inputField}>
-      <div>{label}</div>
-      <input
-        placeholder={placeholder}
-        onChange={(event) => onChanged(event.target.value)}
-      />
+    <div className={styles.inputAboutField}>
+      <div className={styles.label}>{label + (required ? "*" : "")}</div>
+      <textarea className={styles.input} />
+      <div className={styles.desc}>{desc}</div>
     </div>
   );
 }
@@ -27,18 +32,69 @@ function InputField({
 export default function _View() {
   return (
     <div className={styles.container}>
-      <div className={styles.inputs}>
-        <InputField label="Entry ID" placeholder="<EntryID>" />
-        <InputField label="Entry Name" placeholder="<EntryName>" />
-        <InputField label="Deadline" placeholder="<DeadlineDate>" />
-      </div>
-      <div className={styles.progressContainer}>
-        <div>Progress</div>
-        <div className={styles.progress}>
-          <ProgressBar percent={30} />
-        </div>
-        <div>30%</div>
-      </div>
+      <InputField
+        className={styles.inputField}
+        label="Your Entry Name"
+        placeholder="Please type your entry name"
+        required
+      />
+      <InputField
+        prefix={<SelectLocale />}
+        className={styles.inputField}
+        label="Location"
+        placeholder="Type your city name"
+        required
+      />
+      <h3>Tell Us About Your Project</h3>
+      <InputAboutField
+        label="Idea"
+        desc={
+          "How the project begins, how it achieves the origin of the idea.\nAnswer should be less than 300 words"
+        }
+      />
+      <InputAboutField
+        label="Impact"
+        desc={
+          "What impactful criteria that project have met or exceeded, how the project benefits the society.\nAnswer should be less than 300 words"
+        }
+      />
+      <InputAboutField
+        label="Differentiation"
+        desc={
+          "What are the project USPs, how it can be a stand-out comparing to the others at the same category.\nAnswer should be less than 300 words"
+        }
+      />
+      <InputAboutField
+        label="Function"
+        desc={
+          "What is the usage of the project, how it benefits the user/ owner.\nAnswer should be less than 300 words"
+        }
+      />
+      <InputAboutField
+        label="Innovation"
+        desc={
+          "How was the project executed, what was innovated during the whole process.\nAnswer should be less than 300 words"
+        }
+      />
+      <h3>Project Credit</h3>
+      <InputField
+        className={styles.inputField}
+        label="Designer"
+        placeholder="Enter name"
+        required
+      />
+      <InputField
+        className={styles.inputField}
+        label="Manufacturer"
+        placeholder="Enter name"
+        required
+      />
+      <InputField
+        className={styles.inputField}
+        label="Stakeholder/Owner"
+        placeholder="Enter name"
+        required
+      />
     </div>
   );
 }

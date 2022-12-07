@@ -1,6 +1,6 @@
+import InputField from "../../../components/InputField";
 import { Organization } from "../../../models/Organization";
 import { ValueChanged } from "../../../utils/interface";
-import InputField from "../InputField";
 import styles from "./styles.module.scss";
 
 declare type Props = {

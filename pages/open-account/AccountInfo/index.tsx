@@ -1,7 +1,7 @@
 import { useState } from "react";
+import InputField from "../../../components/InputField";
 import { UserModel } from "../../../models/UserModel";
 import { ValueChanged } from "../../../utils/interface";
-import InputField from "../InputField";
 import styles from "./styles.module.scss";
 
 declare type Props = {
