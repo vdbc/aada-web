@@ -12,6 +12,7 @@ function SelectLocale() {
     </div>
   );
 }
+function _onChangeDefault(value: string) {}
 
 declare type InputAboutField = {
   label: string;
@@ -36,6 +37,7 @@ export default function _View() {
         className={styles.inputField}
         label="Your Entry Name"
         placeholder="Please type your entry name"
+        onChange={_onChangeDefault}
         required
       />
       <InputField
@@ -43,6 +45,7 @@ export default function _View() {
         className={styles.inputField}
         label="Location"
         placeholder="Type your city name"
+        onChange={_onChangeDefault}
         required
       />
       <h3>Tell Us About Your Project</h3>
@@ -81,18 +84,21 @@ export default function _View() {
         className={styles.inputField}
         label="Designer"
         placeholder="Enter name"
+        onChange={_onChangeDefault}
         required
       />
       <InputField
         className={styles.inputField}
         label="Manufacturer"
         placeholder="Enter name"
+        onChange={_onChangeDefault}
         required
       />
       <InputField
         className={styles.inputField}
         label="Stakeholder/Owner"
         placeholder="Enter name"
+        onChange={_onChangeDefault}
         required
       />
     </div>

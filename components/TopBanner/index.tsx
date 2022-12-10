@@ -50,6 +50,24 @@ export function TheAwardTopBanner() {
   );
 }
 
+export function GetInvolvedTopBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.jpg">
+      <h1>Get Involved</h1>
+      <div className={styles.subTitle}>
+        Winning the 2023 ASIA ARCHITECTURE DESIGN AWARDS is a prestigious
+        accolade, giving businesses a springboard on an international level and
+        augmenting their global profile.
+      </div>
+      <_ButtonLink href="/categories">EXPLORE 2023 AADA</_ButtonLink>
+      <div className={styles.scrollDown}>
+        <MdExpandMore size={15} />
+        <div>Scroll down to learn more</div>
+      </div>
+    </_View>
+  );
+}
+
 declare type TopBannerProps = {
   bgUrl: string;
   children: any;

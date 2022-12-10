@@ -21,6 +21,15 @@ export function TheAwardFooterBanner() {
   );
 }
 
+export function GetInvolvedFooterBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.jpg">
+      <h1>{"EXCITED TO BECOME\nA SPONSOR?"}</h1>
+      <_ButtonLink href="/categories">CONTACT US</_ButtonLink>
+    </_View>
+  );
+}
+
 export function RegistrationFooterBanner() {
   return (
     <_View bgUrl="/bg_the_award.jpg">
