@@ -171,7 +171,7 @@ export default function Home() {
           <AwardItem>2023 BEST RETAIL INTERIOR DESIGN</AwardItem>
           <div>
             The award goes to the creator of a space that best reflects a
-            brand's personality and positioning, and communicates this clearly
+            brand’s personality and positioning, and communicates this clearly
             to the consumer.
           </div>
           <AwardItem>2023 BEST LEISURE & WELLNESS INTERIOR DESIGN</AwardItem>
