@@ -68,6 +68,23 @@ export function GetInvolvedTopBanner() {
   );
 }
 
+export function CategoriesTopBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.jpg">
+      <h1>Categories</h1>
+      <div className={styles.subTitle}>
+        The Asia Architecture Design Awards (AADA) is born with a desire to
+        honor excellences and creativities in a varied range of Architecture &
+        Design works, from regional to international scale.
+      </div>
+      <div className={styles.scrollDown}>
+        <MdExpandMore size={15} />
+        <div>Scroll down to learn more</div>
+      </div>
+    </_View>
+  );
+}
+
 declare type TopBannerProps = {
   bgUrl: string;
   children: any;
