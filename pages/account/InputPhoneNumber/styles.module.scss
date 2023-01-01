@@ -1,0 +1,10 @@
+.selectLocaleContainer {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .value {
+    margin: 0 12px;
+  }
+}

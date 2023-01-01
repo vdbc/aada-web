@@ -35,5 +35,6 @@ export const selectFirstName = (state: RootState) => state.user.user?.firstName;
 export const selectLastName = (state: RootState) => state.user.user?.lastName;
 export const selectIsLogged = (state: RootState) => !!state.user.token;
 export const selectToken = (state: RootState) => state.user.token;
+export const selectOrganization = (state: RootState) => state.user.organization;
 
 export default userSlice;

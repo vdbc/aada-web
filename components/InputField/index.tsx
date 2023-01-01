@@ -1,7 +1,7 @@
 import { ValueChanged } from "../../utils/interface";
 import styles from "./styles.module.scss";
 
-declare type InputProps = {
+export declare type InputProps = {
   label: string;
   placeholder: string;
   required?: boolean;
