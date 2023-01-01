@@ -1,126 +1,160 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdArrowForwardIos } from "react-icons/md";
-import { Nominate } from "../../../models/NominateModel";
+import { useAppSelector } from "../../../store";
+import {
+  selectNomintateEntryDetail,
+  selectProjectIdsGroupByEntry,
+  selectProjectNomintateDetail,
+} from "../../../store/modules/nominate";
 import { ValueChanged } from "../../../utils/interface";
 import styles from "./styles.module.scss";
 
 declare type NominateEntriesProps = {
-  nominate: Nominate;
-  selectedEntry: string;
-  onChanged: ValueChanged<string>;
+  projectIds: number[];
+  selectedProjectId: number;
+  entryId: string;
+  onChanged: ValueChanged<number>;
 };
 
 function NominateEntries({
-  nominate,
-  selectedEntry,
+  projectIds,
+  selectedProjectId: selectedEntry,
+  entryId,
   onChanged,
 }: NominateEntriesProps) {
   const isContainSelectedEntry =
-    nominate.entries.findIndex((item) => item.id == selectedEntry) >= 0;
+    projectIds.findIndex((item) => item == selectedEntry) >= 0;
   const [isExpand, setExpand] = useState(isContainSelectedEntry);
+
+  const entry = useAppSelector(selectNomintateEntryDetail(entryId));
+
   return (
     <div className={styles.nominateContainer}>
       <button
         className={[styles.item, styles.root].join(" ")}
         onClick={() => setExpand(!isExpand)}
       >
-        <div>{nominate.name}</div>
+        <div>{entry.name}</div>
         {isExpand ? <IoIosArrowDown /> : <MdArrowForwardIos />}
       </button>
       {isExpand &&
-        nominate.entries.map((item) => (
-          <button
-            key={item.id}
-            className={[
-              styles.item,
-              styles.entry,
-              item.id == selectedEntry ? styles.active : "",
-            ].join(" ")}
-            onClick={
-              item.id == selectedEntry ? undefined : () => onChanged(item.id)
-            }
-          >
-            {item.name}
-          </button>
+        projectIds.map((id) => (
+          <ProjectNominateComponent
+            key={id}
+            id={id}
+            isActive={id == selectedEntry}
+            onChanged={onChanged}
+          />
         ))}
     </div>
   );
 }
 
-const nominates: Nominate[] = [
-  {
-    id: "1",
-    name: "2023 Best architecture design",
-    description: "",
-    entries: [
-      {
-        id: "1.1",
-        nominateId: "1",
-        name: "Project 1 /NAME/",
-        description: "",
-      },
-      {
-        id: "1.2",
-        nominateId: "1",
-        name: "Project 2 /NAME/",
-        description: "",
-      },
-    ],
-  },
-  {
-    id: "2",
-    name: "2023 Best Interior Design",
-    description: "",
-    entries: [
-      {
-        id: "2.1",
-        nominateId: "2",
-        name: "Project 1 /NAME/",
-        description: "",
-      },
-      {
-        id: "2.2",
-        nominateId: "2",
-        name: "Project 2 /NAME/",
-        description: "",
-      },
-    ],
-  },
-  {
-    id: "3",
-    name: "2023 Best Firms in Architecture Design",
-    description: "",
-    entries: [
-      {
-        id: "3.1",
-        nominateId: "3",
-        name: "Project 1 /NAME/",
-        description: "",
-      },
-      {
-        id: "3.2",
-        nominateId: "3",
-        name: "Project 2 /NAME/",
-        description: "",
-      },
-    ],
-  },
-];
+declare type ProjectNominateComponentProps = {
+  id: number;
+  isActive: boolean;
+  onChanged: ValueChanged<number>;
+};
 
-export default function _View() {
-  const [selectedEntry, setSelectedEntry] = useState(
-    nominates[0].entries[0].id
+function ProjectNominateComponent({
+  id,
+  isActive,
+  onChanged,
+}: ProjectNominateComponentProps) {
+  const project = useAppSelector(selectProjectNomintateDetail(id));
+  return (
+    <button
+      key={id}
+      className={[
+        styles.item,
+        styles.entry,
+        isActive ? styles.active : "",
+      ].join(" ")}
+      onClick={isActive ? undefined : () => onChanged(id)}
+    >
+      {project.name || `Project ${id}`}
+    </button>
   );
+}
+
+// const nominates: Nominate[] = [
+//   {
+//     id: "1",
+//     name: "2023 Best architecture design",
+//     description: "",
+//     entries: [
+//       {
+//         id: "1.1",
+//         nominateId: "1",
+//         name: "Project 1 /NAME/",
+//         description: "",
+//       },
+//       {
+//         id: "1.2",
+//         nominateId: "1",
+//         name: "Project 2 /NAME/",
+//         description: "",
+//       },
+//     ],
+//   },
+//   {
+//     id: "2",
+//     name: "2023 Best Interior Design",
+//     description: "",
+//     entries: [
+//       {
+//         id: "2.1",
+//         nominateId: "2",
+//         name: "Project 1 /NAME/",
+//         description: "",
+//       },
+//       {
+//         id: "2.2",
+//         nominateId: "2",
+//         name: "Project 2 /NAME/",
+//         description: "",
+//       },
+//     ],
+//   },
+//   {
+//     id: "3",
+//     name: "2023 Best Firms in Architecture Design",
+//     description: "",
+//     entries: [
+//       {
+//         id: "3.1",
+//         nominateId: "3",
+//         name: "Project 1 /NAME/",
+//         description: "",
+//       },
+//       {
+//         id: "3.2",
+//         nominateId: "3",
+//         name: "Project 2 /NAME/",
+//         description: "",
+//       },
+//     ],
+//   },
+// ];
+
+declare type ViewProps = {
+  onChanged: ValueChanged<number>;
+  selectedProjectId: number;
+};
+
+export default function _View({ selectedProjectId, onChanged }: ViewProps) {
+  const groupProjectIds = useAppSelector(selectProjectIdsGroupByEntry);
 
   return (
     <div className={styles.container}>
-      {nominates.map((nominate) => (
+      {groupProjectIds.map((group) => (
         <NominateEntries
-          key={nominate.id}
-          nominate={nominate}
-          selectedEntry={selectedEntry}
-          onChanged={setSelectedEntry}
+          key={group.entryId}
+          projectIds={group.projectIds}
+          entryId={group.entryId}
+          selectedProjectId={selectedProjectId}
+          onChanged={onChanged}
         />
       ))}
     </div>

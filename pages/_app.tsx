@@ -3,8 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Fragment } from "react";
 import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { persistor, store } from "../store";
+import { store } from "../store";
 import "../styles/globals.css";
 
 const latoFont = Lato({
@@ -21,9 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <main className={latoFont.className}>
         <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <Component {...pageProps} />
-          </PersistGate>
+          <Component {...pageProps} />
         </Provider>
       </main>
     </Fragment>

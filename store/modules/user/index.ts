@@ -30,6 +30,7 @@ export const userSlice = createSlice({
 });
 
 export const selectUser = (state: RootState) => state.user.user;
+export const selectUserId = (state: RootState) => state.user.user?.id;
 export const selectFirstName = (state: RootState) => state.user.user?.firstName;
 export const selectLastName = (state: RootState) => state.user.user?.lastName;
 export const selectIsLogged = (state: RootState) => !!state.user.token;

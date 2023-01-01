@@ -20,19 +20,19 @@ export default function _View({ user, onUserUpdated }: Props) {
       <InputField
         label="First name"
         placeholder="Please type your first name here"
-        onChange={(value) => onUserUpdated({ ...user, firstName: value })}
+        onChanged={(value) => onUserUpdated({ ...user, firstName: value })}
         required
       />
       <InputField
         label="Last name"
         placeholder="Please type your last name here"
-        onChange={(value) => onUserUpdated({ ...user, lastName: value })}
+        onChanged={(value) => onUserUpdated({ ...user, lastName: value })}
         required
       />
       <InputField
         label="Email"
         placeholder="Please type your email address here"
-        onChange={(value) => {
+        onChanged={(value) => {
           setEmail(value);
           if (value == reEmail) onUserUpdated({ ...user, email: value });
           else onUserUpdated({ ...user, email: "" });
@@ -42,7 +42,7 @@ export default function _View({ user, onUserUpdated }: Props) {
       <InputField
         label="Email Confirmation"
         placeholder="Please type your email address here"
-        onChange={(value) => {
+        onChanged={(value) => {
           setReEmail(value);
           if (value == email) onUserUpdated({ ...user, email: value });
           else onUserUpdated({ ...user, email: "" });
@@ -52,7 +52,7 @@ export default function _View({ user, onUserUpdated }: Props) {
       <InputField
         label="Password"
         placeholder="Please type your password here"
-        onChange={(value) => {
+        onChanged={(value) => {
           setPassword(value);
           if (value == rePassword) onUserUpdated({ ...user, password: value });
           else onUserUpdated({ ...user, password: "" });
@@ -63,7 +63,7 @@ export default function _View({ user, onUserUpdated }: Props) {
       <InputField
         label="Password Confirmation"
         placeholder="Please type your password here"
-        onChange={(value) => {
+        onChanged={(value) => {
           setRePassword(value);
           if (value == password) onUserUpdated({ ...user, password: value });
           else onUserUpdated({ ...user, password: "" });

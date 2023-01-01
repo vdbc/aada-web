@@ -1,7 +1,6 @@
 import axios from "axios";
 import { apiUrl } from "../models/AppConfig";
-
-import { Nominate } from "../models/NominateModel";
+import { Nominate, ProjectNominate } from "../models/NominateModel";
 
 export async function getAllNominate(token: string): Promise<Nominate[]> {
   const url = `${apiUrl}/nominate`;
@@ -28,6 +27,33 @@ export async function registerNominateEntries(
       },
     }
   );
+
+  return resp.data.data;
+}
+
+export async function getProjectRegistered(
+  token: string
+): Promise<ProjectNominate[]> {
+  const url = `${apiUrl}/nominate/projects`;
+  const resp = await axios.get(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return resp.data.data;
+}
+
+export async function saveProject(
+  project: ProjectNominate,
+  token: string
+): Promise<ProjectNominate> {
+  const url = `${apiUrl}/nominate/projects/${project.id}`;
+  const resp = await axios.put(url, project, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   return resp.data.data;
 }

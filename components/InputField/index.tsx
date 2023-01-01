@@ -8,7 +8,9 @@ declare type InputProps = {
   secure?: boolean;
   prefix?: any;
   className?: string;
-  onChange: ValueChanged<string>;
+  onChanged: ValueChanged<string>;
+  disable?: boolean;
+  value?: string;
 };
 
 export default function InputField({
@@ -17,8 +19,10 @@ export default function InputField({
   required,
   secure = false,
   prefix,
-  onChange,
+  onChanged: onChange,
   className = "",
+  disable: disabled = false,
+  value = "",
 }: InputProps) {
   return (
     <div className={[styles.inputContainer, className].join(" ")}>
@@ -27,9 +31,11 @@ export default function InputField({
       <div className={styles.input}>
         {prefix}
         <input
+          value={value}
           placeholder={placeholder}
           onChange={(event) => onChange(event.target.value)}
           type={secure ? "password" : "text"}
+          disabled={disabled}
         />
       </div>
     </div>

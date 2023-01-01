@@ -1,12 +1,29 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import { useAppDispatch, useAppSelector } from "../../store";
+import {
+  fetchAllNominate,
+  fetchProjectNominate,
+  selectProjectNomintateIds,
+} from "../../store/modules/nominate";
+import { selectUserId } from "../../store/modules/user";
 import InputOverview from "./InputOverview";
 import InputProjectDetail from "./InputProjectDetail";
 import SelectNominateEntry from "./SelectNominateEntry";
 import styles from "./styles.module.scss";
 
-export default function _View() {
+export default function _View(props: any) {
+  const dispatch = useAppDispatch();
+  const userId = useAppSelector(selectUserId);
+  useEffect(() => {
+    dispatch(fetchProjectNominate());
+    dispatch(fetchAllNominate());
+  }, [dispatch, userId]);
+  const projectIds = useAppSelector(selectProjectNomintateIds);
+  const [selectedProjectId, setActiveProject] = useState(projectIds[0]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,13 +34,16 @@ export default function _View() {
         <Header />
         <div className={styles.bodyPage}>
           <div style={{ height: 72 }} />
-          <InputOverview />
+          <InputOverview projectId={selectedProjectId} />
           <div className={styles.detail}>
             <div className={styles.selectNominateEntry}>
-              <SelectNominateEntry />
+              <SelectNominateEntry
+                selectedProjectId={selectedProjectId}
+                onChanged={setActiveProject}
+              />
             </div>
             <div className={styles.inputDetail}>
-              <InputProjectDetail />
+              <InputProjectDetail projectId={selectedProjectId} />
             </div>
           </div>
         </div>

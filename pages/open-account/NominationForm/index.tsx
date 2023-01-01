@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { MdArrowForwardIos } from "react-icons/md";
-import {
-  getAllNominate,
-  registerNominateEntries,
-} from "../../../services/NominateService";
+import { registerNominateEntries } from "../../../services/NominateService";
 import { store, useAppDispatch, useAppSelector } from "../../../store";
-import nominateSlice, {
+import {
+  fetchAllNominate,
   selectNominates,
 } from "../../../store/modules/nominate";
 import { selectToken } from "../../../store/modules/user";
@@ -25,10 +23,8 @@ function _View({ onRegisterSuccess }: Props) {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    getAllNominate(token).then((result) =>
-      dispatch(nominateSlice.actions.setNominates(result))
-    );
-  }, []);
+    dispatch(fetchAllNominate());
+  });
 
   const allNominate = useAppSelector(selectNominates);
 

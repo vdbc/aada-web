@@ -15,13 +15,13 @@ export default function _View({ organization, onChanged }: Props) {
       <InputField
         label="Organization name"
         placeholder="Please type your organization name here"
-        onChange={(value) => onChanged({ ...organization, name: value })}
+        onChanged={(value) => onChanged({ ...organization, name: value })}
         required
       />
       <InputField
         label="Country"
         placeholder="Select your Country"
-        onChange={(value) => onChanged({ ...organization, country: value })}
+        onChanged={(value) => onChanged({ ...organization, country: value })}
         required
       />
       <div className={styles.wrapperRow}>
@@ -29,7 +29,7 @@ export default function _View({ organization, onChanged }: Props) {
           <InputField
             label="City"
             placeholder="Type your city"
-            onChange={(value) => onChanged({ ...organization, city: value })}
+            onChanged={(value) => onChanged({ ...organization, city: value })}
             required
           />
         </div>
@@ -37,7 +37,9 @@ export default function _View({ organization, onChanged }: Props) {
           <InputField
             label="ZIP / Postal Code"
             placeholder="Your ZIP code"
-            onChange={(value) => onChanged({ ...organization, zipCode: value })}
+            onChanged={(value) =>
+              onChanged({ ...organization, zipCode: value })
+            }
             required
           />
         </div>
@@ -45,25 +47,27 @@ export default function _View({ organization, onChanged }: Props) {
       <InputField
         label="Address"
         placeholder="Please type your address"
-        onChange={(value) => onChanged({ ...organization, address: value })}
+        onChanged={(value) => onChanged({ ...organization, address: value })}
         required
       />
       <InputField
         label="Email address"
         placeholder="Please type your organization email address"
-        onChange={(value) => onChanged({ ...organization, email: value })}
+        onChanged={(value) => onChanged({ ...organization, email: value })}
         required
       />
       <InputField
         label="Facebook URL"
         placeholder="Please type your Facebook URL"
-        onChange={(value) => onChanged({ ...organization, facebookUrl: value })}
+        onChanged={(value) =>
+          onChanged({ ...organization, facebookUrl: value })
+        }
         required
       />
       <InputField
         label="Website URL"
         placeholder="Please type your Website URL"
-        onChange={(value) => onChanged({ ...organization, website: value })}
+        onChanged={(value) => onChanged({ ...organization, website: value })}
         required
       />
     </div>
