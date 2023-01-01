@@ -1,5 +1,16 @@
+import { createSelector } from "@reduxjs/toolkit";
 import { Chart } from "react-google-charts";
 import ProgressBar from "../../../components/ProgressBar";
+import { RootState, useAppSelector } from "../../../store";
+import {
+  selectProjectNomintateDetails,
+  selectProjectNomintateIds,
+} from "../../../store/modules/nominate";
+import {
+  getOverviewProgressPercent,
+  getProjectName,
+  isCompleteProject,
+} from "../../../utils/project-nominate";
 import styles from "./styles.module.scss";
 
 declare type OverviewChartProps = {
@@ -48,41 +59,54 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
 
 declare type ProcessStatusProps = {
   name: string;
-  process: number;
+  progress: number;
 };
 
-function ProcessStatus({ name, process }: ProcessStatusProps) {
+function ProcessStatus({ name, progress }: ProcessStatusProps) {
   return (
     <div className={styles.processStatusContainer}>
       <h3>{name}</h3>
-      <ProgressBar percent={process * 100} />
+      <ProgressBar percent={progress} />
     </div>
   );
 }
 
+const selectProjectsOverview = createSelector(
+  selectProjectNomintateIds,
+  selectProjectNomintateDetails,
+  (ids, details) => {
+    return ids.map((id) => ({
+      name: getProjectName(details[id]),
+      progress: getOverviewProgressPercent(details[id]),
+    }));
+  }
+);
+
 function StatusOverview() {
-  const data = [
-    {
-      name: "Project 1",
-      process: 0.2,
-    },
-    {
-      name: "Project 2",
-      process: 0.5,
-    },
-    {
-      name: "Project 3",
-      process: 0.1,
-    },
-    {
-      name: "Project 4",
-      process: 0.6,
-    },
-    {
-      name: "Project 5",
-      process: 1,
-    },
-  ];
+  const data = useAppSelector(selectProjectsOverview);
+
+  // const data = [
+  //   {
+  //     name: "Project 1",
+  //     process: 0.2,
+  //   },
+  //   {
+  //     name: "Project 2",
+  //     process: 0.5,
+  //   },
+  //   {
+  //     name: "Project 3",
+  //     process: 0.1,
+  //   },
+  //   {
+  //     name: "Project 4",
+  //     process: 0.6,
+  //   },
+  //   {
+  //     name: "Project 5",
+  //     process: 1,
+  //   },
+  // ];
   return (
     <div className={styles.statusOverviewContainer}>
       <h2>Status Overview</h2>
@@ -93,10 +117,25 @@ function StatusOverview() {
   );
 }
 
+export const selectTotalProjects = (state: RootState) =>
+  selectProjectNomintateIds(state).length;
+export const selectTotalCompleteProjects = createSelector(
+  selectProjectNomintateIds,
+  selectProjectNomintateDetails,
+  (ids, details) => {
+    return ids.filter((id) => {
+      const project = details[id];
+      return isCompleteProject(project);
+    }).length;
+  }
+);
+
 export default function _View() {
+  const totalProjects = useAppSelector(selectTotalProjects);
+  const totalCompleted = useAppSelector(selectTotalCompleteProjects);
   return (
     <div className={styles.overviewContainer}>
-      <OverviewChart completed={7} totalEntries={9} />
+      <OverviewChart completed={totalCompleted} totalEntries={totalProjects} />
       <div style={{ width: 60 }} />
       <StatusOverview />
     </div>

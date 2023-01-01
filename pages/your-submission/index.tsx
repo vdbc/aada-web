@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -22,7 +23,13 @@ export default function _View(props: any) {
     dispatch(fetchAllNominate());
   }, [dispatch, userId]);
   const projectIds = useAppSelector(selectProjectNomintateIds);
-  const [selectedProjectId, setActiveProject] = useState(projectIds[0]);
+  const route = useRouter();
+  const paramProjectId = parseInt(route.query["project"]?.toString() ?? "0");
+  const activeProjectId = projectIds.includes(paramProjectId)
+    ? paramProjectId
+    : projectIds[0];
+
+  const [selectedProjectId, setActiveProject] = useState(activeProjectId);
 
   return (
     <div className={styles.container}>

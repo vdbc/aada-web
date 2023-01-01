@@ -1,6 +1,10 @@
 import { sum } from "lodash";
 import { ProjectNominate } from "../models/NominateModel";
 
+export function getProjectName(project: ProjectNominate) {
+  return project?.name ?? `Project ${project?.id ?? "--"}`;
+}
+
 export function getProgressPercentField(value?: string) {
   const numOfWords = (value ?? "").trim().split(/\s+/).length;
   if (numOfWords <= 10) return 0;
@@ -41,4 +45,27 @@ function getRequiredPercent(value: string): number {
   const text = (value ?? "").trim();
   if (text.length > 0) return 100;
   return 0;
+}
+
+export function isCompleteProject(project: ProjectNominate): boolean {
+  if (!project) return false;
+  const fields = [
+    project.name,
+    project.location,
+    project.designer,
+    project.manufacturer,
+    project.owner,
+    project.idea,
+    project.impact,
+    project.function,
+    project.differentiation,
+    project.innovation,
+  ];
+  for (const value in fields) {
+    if (!value) return false;
+    if (value.trim().length == 0) return false;
+  }
+  if ((project?.pictures?.length ?? 0) == 0) return false;
+
+  return true;
 }

@@ -2,6 +2,14 @@ import Link from "next/link";
 import { Chart } from "react-google-charts";
 import { MdArrowForward } from "react-icons/md";
 import ProgressBar from "../../../components/ProgressBar";
+import { ProjectNominate } from "../../../models/NominateModel";
+import { useAppSelector } from "../../../store";
+import { selectProjectNomintateDetail } from "../../../store/modules/nominate";
+import {
+  getOverviewProgressPercent,
+  getProgressPercentField,
+  getProjectName,
+} from "../../../utils/project-nominate";
 import styles from "./styles.module.scss";
 
 function _ButtonLink({ href, children }: any) {
@@ -65,51 +73,63 @@ function ProcessStatus({ name, process }: ProcessStatusProps) {
   return (
     <div className={styles.processStatusContainer}>
       <h3>{name}</h3>
-      <ProgressBar percent={process * 100} />
+      <ProgressBar percent={process} />
     </div>
   );
 }
 
-function StatusOverview() {
+declare type StatusOverviewProps = {
+  project: ProjectNominate;
+};
+
+function StatusOverview({ project }: StatusOverviewProps) {
   const data = [
     {
       name: "Idea",
-      process: 0.2,
+      process: getProgressPercentField(project.idea),
     },
     {
       name: "Impact",
-      process: 0.5,
+      process: getProgressPercentField(project.impact),
     },
     {
       name: "Differentiation",
-      process: 0.1,
+      process: getProgressPercentField(project.differentiation),
     },
     {
       name: "Function",
-      process: 0.6,
+      process: getProgressPercentField(project.function),
     },
     {
       name: "Innovation",
-      process: 1,
+      process: getProgressPercentField(project.innovation),
     },
   ];
   return (
     <div className={styles.statusOverviewContainer}>
-      <h2>PROJECT 1</h2>
+      <h2>{getProjectName(project)}</h2>
       {data.map((item) => (
         <ProcessStatus key={item.name} {...item} />
       ))}
-      <_ButtonLink href="#">COMPLETE YOUR SUBMISSION</_ButtonLink>
+      <_ButtonLink href={`/your-submission?project=${project.id}`}>
+        COMPLETE YOUR SUBMISSION
+      </_ButtonLink>
     </div>
   );
 }
 
-export default function _View() {
+declare type ViewProps = {
+  projectId: number;
+};
+
+export default function _View({ projectId }: ViewProps) {
+  const project = useAppSelector(selectProjectNomintateDetail(projectId));
+  const completed = getOverviewProgressPercent(project);
   return (
     <div className={styles.overviewContainer}>
-      <OverviewChart completed={7} totalEntries={9} />
+      <OverviewChart completed={completed} totalEntries={100} />
       <div style={{ width: 60 }} />
-      <StatusOverview />
+      <StatusOverview project={project} />
     </div>
   );
 }

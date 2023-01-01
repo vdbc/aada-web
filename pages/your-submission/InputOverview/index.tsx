@@ -2,7 +2,10 @@ import InputField from "../../../components/InputField";
 import ProgressBar from "../../../components/ProgressBar";
 import { useAppSelector } from "../../../store";
 import { selectProjectNomintateDetail } from "../../../store/modules/nominate";
-import { getOverviewProgressPercent } from "../../../utils/project-nominate";
+import {
+  getOverviewProgressPercent,
+  getProjectName,
+} from "../../../utils/project-nominate";
 import styles from "./styles.module.scss";
 
 function _onChangeDefault(value: string) {}
@@ -25,7 +28,7 @@ export default function _View({ projectId }: ViewProps) {
         />
         <InputField
           label="Entry Name"
-          placeholder={project?.name}
+          placeholder={getProjectName(project)}
           onChanged={_onChangeDefault}
           disable
         />

@@ -1,10 +1,25 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import { useAppDispatch, useAppSelector } from "../../store";
+import {
+  fetchProjectNominate,
+  selectProjectNomintateIds,
+} from "../../store/modules/nominate";
+import { selectUserId } from "../../store/modules/user";
 import ProjectProcessOverview from "./ProjectProcessOverview";
 import styles from "./styles.module.scss";
 
-export default function Home() {
+export default function _View() {
+  const dispatch = useAppDispatch();
+  const userId = useAppSelector(selectUserId);
+  useEffect(() => {
+    dispatch(fetchProjectNominate());
+  }, [dispatch, userId]);
+
+  const projectIds = useAppSelector(selectProjectNomintateIds);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -15,8 +30,11 @@ export default function Home() {
         <Header />
         <div className={styles.bodyPage}>
           <h2 className={styles.headerTitle}>BEST ARCHITECTURE DESIGN</h2>
-          <ProjectProcessOverview />
-          <ProjectProcessOverview />
+          {projectIds.map((projectId) => (
+            <ProjectProcessOverview key={projectId} projectId={projectId} />
+          ))}
+          {/* <ProjectProcessOverview />
+          <ProjectProcessOverview /> */}
         </div>
       </main>
       <Footer />

@@ -1,16 +1,30 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { useAppSelector } from "../../store";
-import { selectLastName } from "../../store/modules/user";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { fetchProjectNominate } from "../../store/modules/nominate";
+import { selectLastName, selectUserId } from "../../store/modules/user";
 import AccountInfo from "./AccountInfo";
 import ContactSupport from "./ContactSupport";
 import OverviewBox from "./OverviewBox";
-import RegistrationProcessOverview from "./RegistrationProcessOverview";
+import RegistrationProcessOverview, {
+  selectTotalCompleteProjects,
+  selectTotalProjects,
+} from "./RegistrationProcessOverview";
 import styles from "./styles.module.scss";
 
 export default function Home() {
   const lastName = useAppSelector(selectLastName);
+  const dispatch = useAppDispatch();
+  const userId = useAppSelector(selectUserId);
+  useEffect(() => {
+    dispatch(fetchProjectNominate());
+  }, [dispatch, userId]);
+
+  const totalCompleted = useAppSelector(selectTotalCompleteProjects);
+  const totalProjects = useAppSelector(selectTotalProjects);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -26,7 +40,11 @@ export default function Home() {
             deadlines, and more.
           </div>
           <div className={styles.overviews}>
-            <OverviewBox number={9} title="Submissions" subTitle="in total" />
+            <OverviewBox
+              number={totalProjects}
+              title="Submissions"
+              subTitle="in total"
+            />
             <OverviewBox
               number={4}
               title="updates"
@@ -37,7 +55,10 @@ export default function Home() {
               title="Days left"
               subTitle="until due date"
             />
-            <OverviewBox number={7} title="completed submissions" />
+            <OverviewBox
+              number={totalCompleted}
+              title="completed submissions"
+            />
           </div>
           <RegistrationProcessOverview />
           <div className={styles.userInfoAndContact}>

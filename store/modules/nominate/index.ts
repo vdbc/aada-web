@@ -2,7 +2,7 @@ import {
   createAsyncThunk,
   createSelector,
   createSlice,
-  PayloadAction
+  PayloadAction,
 } from "@reduxjs/toolkit";
 import { debounce, flatMap, keyBy, map } from "lodash";
 import { RootState, store } from "../..";
@@ -10,7 +10,7 @@ import { Nominate, ProjectNominate } from "../../../models/NominateModel";
 import {
   getAllNominate,
   getProjectRegistered,
-  saveProject
+  saveProject,
 } from "../../../services/NominateService";
 import listenerMiddleware from "../../listener-middleware";
 import { selectToken } from "../user";
