@@ -1,3 +1,4 @@
+import { utc } from "moment";
 import InputField from "../../../components/InputField";
 import ProgressBar from "../../../components/ProgressBar";
 import { useAppSelector } from "../../../store";
@@ -34,7 +35,7 @@ export default function _View({ projectId }: ViewProps) {
         />
         <InputField
           label="Deadline"
-          placeholder="<DeadlineDate>"
+          placeholder={utc(project?.deadline).format("DD MMMM yyyy")}
           onChanged={_onChangeDefault}
           disable
         />

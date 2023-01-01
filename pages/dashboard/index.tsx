@@ -3,7 +3,10 @@ import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { fetchProjectNominate } from "../../store/modules/nominate";
+import {
+  fetchProjectNominate,
+  selectDeadline,
+} from "../../store/modules/nominate";
 import { selectLastName, selectUserId } from "../../store/modules/user";
 import AccountInfo from "./AccountInfo";
 import ContactSupport from "./ContactSupport";
@@ -24,6 +27,9 @@ export default function Home() {
 
   const totalCompleted = useAppSelector(selectTotalCompleteProjects);
   const totalProjects = useAppSelector(selectTotalProjects);
+  const deadline = useAppSelector(selectDeadline);
+  const diff = deadline.getTime() - Date.now();
+  const daysLeft = Math.round((diff > 0 ? diff : 0) / 86400000);
 
   return (
     <div className={styles.container}>
@@ -51,7 +57,7 @@ export default function Home() {
               subTitle="in the last 7 days"
             />
             <OverviewBox
-              number={12}
+              number={daysLeft}
               title="Days left"
               subTitle="until due date"
             />

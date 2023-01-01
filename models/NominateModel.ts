@@ -34,4 +34,5 @@ export interface ProjectNominate {
   pictures: string[];
   status: ProjectNominateStatus.DRAFT;
   createdAt: Date;
+  deadline: string;
 }

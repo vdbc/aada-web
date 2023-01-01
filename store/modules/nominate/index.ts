@@ -5,6 +5,7 @@ import {
   PayloadAction,
 } from "@reduxjs/toolkit";
 import { debounce, flatMap, keyBy, map } from "lodash";
+import moment from "moment";
 import { RootState, store } from "../..";
 import { Nominate, ProjectNominate } from "../../../models/NominateModel";
 import {
@@ -140,6 +141,19 @@ export const selectProjectIdsGroupByEntry = createSelector(
     }));
   }
 );
+
+const defaultDeadline = "2023-02-15";
+
+const _selectDeadline = (state: RootState) => {
+  const projectIds = selectProjectNomintateIds(state);
+  const deadline = selectProjectNomintateDetail(projectIds[0])(state)?.deadline;
+  if (deadline) return deadline;
+  return defaultDeadline;
+};
+
+export const selectDeadline = createSelector(_selectDeadline, (deadline) => {
+  return moment(deadline, "YYYY-MM-DD").toDate();
+});
 
 listenerMiddleware.startListening({
   actionCreator: nominateSlice.actions.projectUpdated,
