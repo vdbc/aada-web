@@ -9,5 +9,17 @@ export interface Organization {
   email?: string;
   website?: string;
   facebookUrl?: string;
+  phone?: string;
   createdAt: string;
 }
+
+export const emptyOrganization: Organization = {
+  id: "",
+  createdByUserId: "",
+  name: "",
+  country: "",
+  city: "",
+  zipCode: "",
+  address: "",
+  createdAt: "",
+};
