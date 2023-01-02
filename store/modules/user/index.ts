@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { debounce } from "lodash";
 import { RootState, store } from "../..";
-import { emptyOrganization, Organization } from "../../../models/Organization";
+import { Organization, organizationEmpty } from "../../../models/Organization";
 import { UserModel } from "../../../models/UserModel";
 import {
   getOrganizationRegistered,
@@ -17,7 +17,7 @@ export interface UserState {
 
 const initialState: UserState = {
   token: "",
-  organization: emptyOrganization,
+  organization: organizationEmpty,
 };
 
 export const fetchOrganizationRegistered = createAsyncThunk<

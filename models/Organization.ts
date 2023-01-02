@@ -20,14 +20,14 @@ export interface Organization {
   marketingContact: MarketingContact;
 }
 
-export const emptyMarketingContact: MarketingContact = {
+export const marketingContactEmpty: MarketingContact = {
   firstName: "",
   lastName: "",
   email: "",
   phone: "",
 };
 
-export const emptyOrganization: Organization = {
+export const organizationEmpty: Organization = {
   id: "",
   createdByUserId: "",
   name: "",
@@ -36,5 +36,5 @@ export const emptyOrganization: Organization = {
   zipCode: "",
   address: "",
   createdAt: "",
-  marketingContact: emptyMarketingContact,
+  marketingContact: marketingContactEmpty,
 };

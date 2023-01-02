@@ -7,7 +7,7 @@ export interface UserModel {
   address: string;
 }
 
-export const emptyUser: UserModel = {
+export const userEmpty: UserModel = {
   id: "",
   firstName: "",
   lastName: "",
