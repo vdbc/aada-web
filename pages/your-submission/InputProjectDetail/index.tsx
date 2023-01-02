@@ -43,7 +43,7 @@ function InputAboutField({
     <div className={styles.inputAboutField}>
       <div className={styles.label}>{label + (required ? "*" : "")}</div>
       <textarea
-        value={value}
+        value={value || ""}
         onChange={(event) => onChanged(event.target.value)}
         className={styles.input}
       />

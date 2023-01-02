@@ -30,6 +30,7 @@ export default function _View(props: any) {
     : projectIds[0];
 
   const [selectedProjectId, setActiveProject] = useState(activeProjectId);
+  const _selectedProjectId = selectedProjectId || projectIds[0];
 
   return (
     <div className={styles.container}>
@@ -41,16 +42,16 @@ export default function _View(props: any) {
         <Header />
         <div className={styles.bodyPage}>
           <div style={{ height: 72 }} />
-          <InputOverview projectId={selectedProjectId} />
+          <InputOverview projectId={_selectedProjectId} />
           <div className={styles.detail}>
             <div className={styles.selectNominateEntry}>
               <SelectNominateEntry
-                selectedProjectId={selectedProjectId}
+                selectedProjectId={_selectedProjectId}
                 onChanged={setActiveProject}
               />
             </div>
             <div className={styles.inputDetail}>
-              <InputProjectDetail projectId={selectedProjectId} />
+              <InputProjectDetail projectId={_selectedProjectId} />
             </div>
           </div>
         </div>

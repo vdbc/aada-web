@@ -31,7 +31,7 @@ export default function InputField({
       <div className={styles.input}>
         {prefix}
         <input
-          value={value}
+          value={value || ""}
           placeholder={placeholder}
           onChange={(event) => onChange(event.target.value)}
           type={secure ? "password" : "text"}

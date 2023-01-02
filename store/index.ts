@@ -25,6 +25,7 @@ export const store = configureStore({
     getDefaultMiddleware().prepend(listenerMiddleware.middleware),
 });
 export const persistor = persistStore(store);
+persistor.persist();
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
