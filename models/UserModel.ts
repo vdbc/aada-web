@@ -6,3 +6,12 @@ export interface UserModel {
   password: string;
   address: string;
 }
+
+export const emptyUser: UserModel = {
+  id: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  address: "",
+};

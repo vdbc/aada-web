@@ -86,23 +86,23 @@ function StatusOverview({ project }: StatusOverviewProps) {
   const data = [
     {
       name: "Idea",
-      process: getProgressPercentField(project.idea),
+      process: getProgressPercentField(project?.idea),
     },
     {
       name: "Impact",
-      process: getProgressPercentField(project.impact),
+      process: getProgressPercentField(project?.impact),
     },
     {
       name: "Differentiation",
-      process: getProgressPercentField(project.differentiation),
+      process: getProgressPercentField(project?.differentiation),
     },
     {
       name: "Function",
-      process: getProgressPercentField(project.function),
+      process: getProgressPercentField(project?.function),
     },
     {
       name: "Innovation",
-      process: getProgressPercentField(project.innovation),
+      process: getProgressPercentField(project?.innovation),
     },
   ];
   return (
@@ -111,7 +111,7 @@ function StatusOverview({ project }: StatusOverviewProps) {
       {data.map((item) => (
         <ProcessStatus key={item.name} {...item} />
       ))}
-      <_ButtonLink href={`/your-submission?project=${project.id}`}>
+      <_ButtonLink href={`/your-submission?project=${project?.id}`}>
         COMPLETE YOUR SUBMISSION
       </_ButtonLink>
     </div>

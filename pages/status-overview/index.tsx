@@ -33,8 +33,6 @@ export default function _View() {
           {projectIds.map((projectId) => (
             <ProjectProcessOverview key={projectId} projectId={projectId} />
           ))}
-          {/* <ProjectProcessOverview />
-          <ProjectProcessOverview /> */}
         </div>
       </main>
       <Footer />

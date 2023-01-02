@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { apiUrl } from "../models/AppConfig";
 
 import { AuthModel } from "../models/AuthModel";
@@ -28,6 +28,29 @@ export async function login(
 ): Promise<AuthModel> {
   const url = `${apiUrl}/auth`;
   const resp = await axios.post(url, { username, password });
+
+  return resp.data;
+}
+
+export async function requestUpdatePassword(
+  currentPassword: string,
+  newPassword: string,
+  token: string
+): Promise<AuthModel> {
+  const url = `${apiUrl}/auth/password`;
+  const resp = await axios
+    .put(
+      url,
+      { currentPassword, newPassword },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    .catch((err: AxiosError) => {
+      throw err.response?.data;
+    });
 
   return resp.data;
 }

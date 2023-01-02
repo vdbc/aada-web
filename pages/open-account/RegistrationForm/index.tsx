@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdArrowForwardIos } from "react-icons/md";
 import { Organization } from "../../../models/Organization";
-import { UserModel } from "../../../models/UserModel";
+import { emptyUser, UserModel } from "../../../models/UserModel";
 import { registerOrganization } from "../../../services/OrganizationService";
 import { requestRegisterUser } from "../../../services/UserService";
 import { useAppDispatch } from "../../../store";
@@ -33,13 +33,7 @@ function checkCanContinue(
 }
 
 export default function _View({ onRegisterSuccess }: RegistrationProps) {
-  const [user, setUser] = useState<UserModel>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    address: "",
-  });
+  const [user, setUser] = useState<UserModel>(emptyUser);
   const [organization, setOrganization] = useState<Organization>({
     id: "",
     createdByUserId: "",
