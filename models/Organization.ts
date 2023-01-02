@@ -1,3 +1,9 @@
+export interface MarketingContact {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+}
 export interface Organization {
   id: string;
   createdByUserId: string;
@@ -11,7 +17,15 @@ export interface Organization {
   facebookUrl?: string;
   phone?: string;
   createdAt: string;
+  marketingContact: MarketingContact;
 }
+
+export const emptyMarketingContact: MarketingContact = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+};
 
 export const emptyOrganization: Organization = {
   id: "",
@@ -22,4 +36,5 @@ export const emptyOrganization: Organization = {
   zipCode: "",
   address: "",
   createdAt: "",
+  marketingContact: emptyMarketingContact,
 };

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import InputField from "../../../components/InputField";
-import { Organization } from "../../../models/Organization";
+import { MarketingContact, Organization } from "../../../models/Organization";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import userSlice, {
   fetchOrganizationRegistered,
@@ -13,6 +13,7 @@ import styles from "./styles.module.scss";
 
 export default function _View() {
   const organization = useAppSelector(selectOrganization);
+  const { marketingContact } = organization;
   const userId = useAppSelector(selectUserId);
   const dispatch = useAppDispatch();
 
@@ -22,6 +23,13 @@ export default function _View() {
 
   const onChanged: ValueChanged<Organization> = (value) =>
     dispatch(userSlice.actions.organizationUpdated(value));
+
+  const onMarketingContactChanged: ValueChanged<MarketingContact> = (value) => {
+    onChanged({
+      ...organization,
+      marketingContact: value,
+    });
+  };
 
   return (
     <div className={styles.container}>
@@ -90,15 +98,25 @@ export default function _View() {
           <InputField
             label="First Name"
             placeholder="First name"
-            onChanged={(value) => onChanged({ ...organization, city: value })}
+            value={marketingContact?.firstName}
+            onChanged={(firstName) =>
+              onMarketingContactChanged({
+                ...marketingContact,
+                firstName,
+              })
+            }
           />
         </div>
         <div>
           <InputField
             label="Last Name"
             placeholder="Last Name"
-            onChanged={(value) =>
-              onChanged({ ...organization, zipCode: value })
+            value={marketingContact?.lastName}
+            onChanged={(lastName) =>
+              onMarketingContactChanged({
+                ...marketingContact,
+                lastName,
+              })
             }
           />
         </div>
@@ -106,12 +124,24 @@ export default function _View() {
       <InputField
         label="Email"
         placeholder="Please type your email"
-        onChanged={(value) => onChanged({ ...organization, email: value })}
+        value={marketingContact?.email}
+        onChanged={(email) =>
+          onMarketingContactChanged({
+            ...marketingContact,
+            email,
+          })
+        }
       />
       <InputPhoneNumber
         label="Phone Number"
         placeholder="Enter your phone number"
-        onChanged={(value) => onChanged({ ...organization, phone: value })}
+        value={marketingContact?.phone}
+        onChanged={(phone) =>
+          onMarketingContactChanged({
+            ...marketingContact,
+            phone,
+          })
+        }
         className={styles.inputField}
       />
     </div>
