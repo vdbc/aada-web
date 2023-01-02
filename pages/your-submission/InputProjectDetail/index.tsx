@@ -8,6 +8,7 @@ import nominateSlice, {
 } from "../../../store/modules/nominate";
 import { ValueChanged } from "../../../utils/interface";
 import { getProgressPercentField } from "../../../utils/project-nominate";
+import InputImages from "../InputImages";
 import styles from "./styles.module.scss";
 
 function SelectLocale() {
@@ -215,6 +216,18 @@ export default function _View({ projectId }: ViewProps) {
           )
         }
         required
+      />
+      <InputImages
+        label="Your projects photo gallery*"
+        value={project.pictures}
+        onChanged={(pictures) =>
+          dispatch(
+            nominateSlice.actions.projectUpdated({
+              ...project,
+              pictures,
+            })
+          )
+        }
       />
     </div>
   );
