@@ -30,9 +30,21 @@
     margin: 0;
   }
 
-  .inputContainer {
+  .actions {
+    margin-top: 12px;
     width: 100%;
-    margin-top: 9px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    button {
+      height: 40px;
+      min-width: 160px;
+      background-color: #a67f56;
+      border-style: none;
+      color: white;
+    }
   }
 }
 

@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { listenerMiddleware } from "./listener-middleware";
+import billingSlice from "./modules/billing";
 import nominateSlice from "./modules/nominate";
 import userSlice from "./modules/user";
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -16,7 +17,11 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(
   persistConfig,
-  combineReducers({ user: userSlice.reducer, nominate: nominateSlice.reducer })
+  combineReducers({
+    user: userSlice.reducer,
+    nominate: nominateSlice.reducer,
+    billing: billingSlice.reducer,
+  })
 );
 
 export const store = configureStore({

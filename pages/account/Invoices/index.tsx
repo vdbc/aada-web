@@ -1,14 +1,38 @@
+import { useEffect } from "react";
 import InputField from "../../../components/InputField";
-import { useAppSelector } from "../../../store";
-import { selectOrganization } from "../../../store/modules/user";
+import { BillingModel } from "../../../models/BillingModel";
+import { useAppDispatch, useAppSelector } from "../../../store";
+import billingSlice, {
+  createBillingInfo,
+  fetchBillingRegistered,
+  selectBilling,
+  updateBillingRegistered,
+} from "../../../store/modules/billing";
+import { selectUserId } from "../../../store/modules/user";
 import { ValueChanged } from "../../../utils/interface";
 import InputPhoneNumber from "../InputPhoneNumber";
 import styles from "./styles.module.scss";
 
 export default function _View() {
-  const organization = useAppSelector(selectOrganization);
+  const billing = useAppSelector(selectBilling);
+  const userId = useAppSelector(selectUserId);
+  const dispatch = useAppDispatch();
 
-  const onChanged: ValueChanged<any> = (organization) => {};
+  useEffect(() => {
+    dispatch(fetchBillingRegistered());
+  }, [dispatch, userId]);
+
+  const onChanged: ValueChanged<BillingModel> = (billing) => {
+    dispatch(billingSlice.actions.billingUpdated(billing));
+  };
+
+  function handleSubmit() {
+    if (billing.id) {
+      dispatch(updateBillingRegistered(billing));
+    } else {
+      dispatch(createBillingInfo(billing));
+    }
+  }
 
   return (
     <div className={styles.container}>
@@ -16,25 +40,29 @@ export default function _View() {
       <InputField
         label="Recipient’s name"
         placeholder="Please type recipient’s name"
-        onChanged={(value) => onChanged({ ...organization, name: value })}
+        value={billing.name}
+        onChanged={(name) => onChanged({ ...billing, name })}
       />
       <InputField
         label="Address line 1"
         placeholder="Please type your address"
-        onChanged={(value) => onChanged({ ...organization, country: value })}
+        value={billing.address1}
+        onChanged={(address1) => onChanged({ ...billing, address1 })}
         required
       />
       <InputField
         label="Address line 2"
         placeholder="Please type your address"
-        onChanged={(value) => onChanged({ ...organization, country: value })}
+        value={billing.address2}
+        onChanged={(address2) => onChanged({ ...billing, address2 })}
       />
       <div className={styles.wrapperRow}>
         <div>
           <InputField
             label="City"
             placeholder="Type your city"
-            onChanged={(value) => onChanged({ ...organization, city: value })}
+            value={billing.city}
+            onChanged={(city) => onChanged({ ...billing, city })}
             required
           />
         </div>
@@ -42,9 +70,8 @@ export default function _View() {
           <InputField
             label="ZIP / Postal Code"
             placeholder="Your ZIP code"
-            onChanged={(value) =>
-              onChanged({ ...organization, zipCode: value })
-            }
+            value={billing.zipCode}
+            onChanged={(zipCode) => onChanged({ ...billing, zipCode })}
             required
           />
         </div>
@@ -52,21 +79,27 @@ export default function _View() {
       <InputField
         label="Country"
         placeholder="Select your country"
-        onChanged={(value) => onChanged({ ...organization, address: value })}
+        value={billing.country}
+        onChanged={(country) => onChanged({ ...billing, country })}
         required
       />
       <InputField
         label="Email"
         placeholder="Enter your email address"
-        onChanged={(value) => onChanged({ ...organization, email: value })}
+        value={billing.email}
+        onChanged={(email) => onChanged({ ...billing, email })}
         required
       />
       <InputPhoneNumber
         label="Phone Number"
         placeholder="Enter your phone number"
-        onChanged={(value) => onChanged({ ...organization, phone: value })}
+        value={billing.phone}
+        onChanged={(phone) => onChanged({ ...billing, phone })}
         className={styles.inputField}
       />
+      <div className={styles.actions}>
+        <button onClick={handleSubmit}>Save</button>
+      </div>
     </div>
   );
 }
