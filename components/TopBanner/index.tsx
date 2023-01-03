@@ -97,6 +97,22 @@ export function FAQsTopBanner() {
   );
 }
 
+export function NewsTopBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.jpg">
+      <h1>
+        LATEST UPDATE
+        <div>FROM ASIA ARCHITECTURE DESIGN AWARDS</div>
+      </h1>
+      <div style={{ height: 10 }} />
+      <div className={styles.scrollDown}>
+        <MdExpandMore size={15} />
+        <div>Scroll down to learn more</div>
+      </div>
+    </_View>
+  );
+}
+
 declare type TopBannerProps = {
   bgUrl: string;
   children: any;
