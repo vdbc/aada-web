@@ -77,7 +77,7 @@ function FooterMenu() {
             <Link href="#">Terms & Conditions</Link>
           </div>
           <div className={styles.item}>
-            <Link href="#">FAQs</Link>
+            <Link href="/faqs">FAQs</Link>
           </div>
         </div>
         <div className={styles.column}>

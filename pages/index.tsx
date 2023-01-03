@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import AwardCategoriesHomeBanner from "../components/AwardCategoriesHomeBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";

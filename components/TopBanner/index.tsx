@@ -85,6 +85,18 @@ export function CategoriesTopBanner() {
   );
 }
 
+export function FAQsTopBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.jpg">
+      <h1>FREQUENTLY ASKED QUESTIONS</h1>
+      <div className={styles.scrollDown}>
+        <MdExpandMore size={15} />
+        <div>Scroll down to learn more</div>
+      </div>
+    </_View>
+  );
+}
+
 declare type TopBannerProps = {
   bgUrl: string;
   children: any;
