@@ -25,7 +25,7 @@ export default function _View({
           <h3 className={styles.title}>{title}</h3>
           <div className={styles.desc}>{shortContent}</div>
           <div className={styles.actions}>
-            <ButtonLink href="#">Read more</ButtonLink>
+            <ButtonLink href="/news/id">Read more</ButtonLink>
           </div>
         </div>
       </div>

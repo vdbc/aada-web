@@ -9,8 +9,11 @@
   color: #fac47e;
   position: relative;
 
+  > * {
+    z-index: 1;
+  }
+
   > .background {
-    z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
