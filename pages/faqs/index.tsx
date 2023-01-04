@@ -169,7 +169,7 @@ export default function Home() {
                 What do I get if I am qualified to be the winner of 2023 AADA?
               </b>
               <div>
-                Each winner is awarded with a 2023 AADA’s Winners' Kit, which
+                Each winner is awarded with a 2023 AADA’s Winners’ Kit, which
                 includes:
                 <br />
                 An AADA trophy
@@ -178,7 +178,7 @@ export default function Home() {
                 <br />
                 A 2023 AADA Hall of Fame yearbook.
                 <br />
-                All digital assets to be used on the winner's online platform:
+                All digital assets to be used on the winner’s online platform:
                 Badge, certificate, Hall of Fame yearbook.
               </div>
             </li>
