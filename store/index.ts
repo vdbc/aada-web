@@ -5,6 +5,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { listenerMiddleware } from "./listener-middleware";
 import billingSlice from "./modules/billing";
+import newsSlice from "./modules/news";
 import nominateSlice from "./modules/nominate";
 import userSlice from "./modules/user";
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -13,6 +14,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 const persistConfig = {
   key: "root",
   storage,
+  whitelist: ["user"],
 };
 
 const persistedReducer = persistReducer(
@@ -21,6 +23,7 @@ const persistedReducer = persistReducer(
     user: userSlice.reducer,
     nominate: nominateSlice.reducer,
     billing: billingSlice.reducer,
+    news: newsSlice.reducer,
   })
 );
 

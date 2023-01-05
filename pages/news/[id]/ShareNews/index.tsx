@@ -23,9 +23,7 @@ export default function _View() {
           <FaLinkedinIn size={13} />
         </button>
       </div>
-      <div className={styles.ref}>
-        by Vietnam Design Centrale / @vncentrale.news
-      </div>
+      <div className={styles.ref}>by Asia Architecture and Design Awards</div>
     </div>
   );
 }

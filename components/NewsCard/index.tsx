@@ -1,20 +1,26 @@
 import Image from "next/image";
+import { useAppSelector } from "../../store";
+import { selectNewsDetail } from "../../store/modules/news";
 import ButtonLink from "../ButtonLink";
 import styles from "./styles.module.scss";
 
 declare type NewsCardProps = {
-  title: string;
-  shortContent: string;
-  thumbnail: string;
+  id: number;
+  className?: string;
 };
 
-export default function _View({
-  title,
-  shortContent,
-  thumbnail,
-}: NewsCardProps) {
+export default function _View({ id, className }: NewsCardProps) {
+  const { title, shortContent, thumbnail } =
+    useAppSelector(selectNewsDetail(id)) ?? {};
+  if (!id)
+    return (
+      <div
+        className={[styles.container, className ?? "", styles.hidden].join(" ")}
+      />
+    );
+
   return (
-    <div className={styles.container}>
+    <div className={[styles.container, className ?? ""].join(" ")}>
       <div className={styles.thumbnail}>
         <div>
           <Image src={thumbnail} alt="Thumbnail" fill />
@@ -25,7 +31,7 @@ export default function _View({
           <h3 className={styles.title}>{title}</h3>
           <div className={styles.desc}>{shortContent}</div>
           <div className={styles.actions}>
-            <ButtonLink href="/news/id">Read more</ButtonLink>
+            <ButtonLink href={`/news/${id}`}>Read more</ButtonLink>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ function CardItem() {
 export default function _View() {
   return (
     <div className={styles.container}>
-      <h3 className={styles.label}>Có thể bạn bỏ lỡ</h3>
+      <h3 className={styles.label}>More News From ADDA</h3>
       <div className={styles.items}>
         <div className={styles.row}>
           <CardItem />
