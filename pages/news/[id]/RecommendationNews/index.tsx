@@ -15,7 +15,11 @@ function CardItem() {
   );
 }
 
-export default function _View() {
+declare type ViewProps = {
+  id: number;
+};
+
+export default function _View({ id }: ViewProps) {
   return (
     <div className={styles.container}>
       <h3 className={styles.label}>More News From ADDA</h3>

@@ -17,13 +17,17 @@ function splitNewsToRows(newIds: number[]) {
     const currentRowIndex = result.length - 1;
     result[currentRowIndex].push(newIds[i]);
     const maxOfNewsInRow = rowsLength[currentRowIndex] || rowLengthDefault;
-    if (
-      result[currentRowIndex].length >= maxOfNewsInRow &&
-      i < result.length - 1
-    ) {
+    console.log(
+      "mylog maxOfNewsInRow: ",
+      i,
+      maxOfNewsInRow,
+      result[currentRowIndex].length
+    );
+    if (result[currentRowIndex].length >= maxOfNewsInRow) {
       result.push([]);
     }
   }
+
   return result;
 }
 

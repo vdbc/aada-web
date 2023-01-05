@@ -14,21 +14,21 @@ export interface NewsModel {
   createdAt: string;
   description: string;
   source: string;
-  squareImage: string;
   thumbnail: string;
+  wallpaper: string;
   tags: Tag[];
 }
 
 export const newsEmpty: NewsModel = {
   id: 0,
   title: "",
-  shotContent: "",
+  shortContent: "",
   content: "",
   author: "",
   createdAt: "",
   description: "",
   source: "",
-  squareImage: "",
-  rectangleImage: "",
+  thumbnail: "",
+  wallpaper: "",
   tags: [],
 };

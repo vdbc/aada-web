@@ -23,7 +23,7 @@ export default function _View({ id, className }: NewsCardProps) {
     <div className={[styles.container, className ?? ""].join(" ")}>
       <div className={styles.thumbnail}>
         <div>
-          <Image src={thumbnail} alt="Thumbnail" fill />
+          <Image src={thumbnail || ""} alt="Thumbnail" fill />
         </div>
       </div>
       <div className={styles.overview}>

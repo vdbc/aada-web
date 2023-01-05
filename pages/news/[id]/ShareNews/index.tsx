@@ -3,12 +3,11 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { ImFacebook } from "react-icons/im";
 import styles from "./styles.module.scss";
 
-const title =
-  "Thấy Gì Về Xu Hướng Thiết Kế Nội Thất Tại Milan Design Week 2022";
-const description =
-  "Qua Milan Design Week 2022, Hermes đã mang những xu hướng thiết kế nội thất mới bằng các sản phẩm độc đáo. Hãy cùng  tìm hiểu ngay!";
+declare type ViewProps = {
+  id: number;
+};
 
-export default function _View() {
+export default function _View({ id }: ViewProps) {
   return (
     <div className={styles.container}>
       <div className={styles.label}>Share</div>
