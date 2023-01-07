@@ -1,5 +1,5 @@
 import InputField from "../../../components/InputField";
-import { Organization } from "../../../models/Organization";
+import { Organization, organizationEmpty } from "../../../models/Organization";
 import { ValueChanged } from "../../../utils/interface";
 import styles from "./styles.module.scss";
 
@@ -8,7 +8,10 @@ declare type Props = {
   onChanged: ValueChanged<Organization>;
 };
 
-export default function _View({ organization, onChanged }: Props) {
+export default function _View({
+  organization = organizationEmpty,
+  onChanged,
+}: Props) {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Your Account</h2>

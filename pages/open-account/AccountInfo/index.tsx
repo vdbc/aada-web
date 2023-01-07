@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InputField from "../../../components/InputField";
-import { UserModel } from "../../../models/UserModel";
+import { userEmpty, UserModel } from "../../../models/UserModel";
 import { ValueChanged } from "../../../utils/interface";
 import styles from "./styles.module.scss";
 
@@ -9,7 +9,7 @@ declare type Props = {
   user: UserModel;
 };
 
-export default function _View({ user, onUserUpdated }: Props) {
+export default function _View({ user = userEmpty, onUserUpdated }: Props) {
   const [email, setEmail] = useState<string>("");
   const [reEmail, setReEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
