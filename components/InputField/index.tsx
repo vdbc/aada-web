@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ValueChanged } from "../../utils/interface";
 import styles from "./styles.module.scss";
 
@@ -10,7 +11,7 @@ export declare type InputProps = {
   className?: string;
   onChanged: ValueChanged<string>;
   disable?: boolean;
-  value: string;
+  value?: string;
 };
 
 export default function InputField({
@@ -24,6 +25,12 @@ export default function InputField({
   disable: disabled = false,
   value = "",
 }: InputProps) {
+  const [text, setText] = useState(value || "");
+
+  function handleChange(text: string) {
+    onChange(text);
+    setText(text);
+  }
   return (
     <div className={[styles.inputContainer, className].join(" ")}>
       <div className={styles.label}>{label + (required ? "*" : "")}</div>
@@ -31,9 +38,9 @@ export default function InputField({
       <div className={styles.input}>
         {prefix}
         <input
-          value={value || ""}
+          value={text}
           placeholder={placeholder}
-          onChange={(event) => onChange(event.target.value)}
+          onChange={(event) => handleChange(event.target.value)}
           type={secure ? "password" : "text"}
           disabled={disabled}
         />

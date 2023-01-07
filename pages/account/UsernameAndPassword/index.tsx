@@ -41,7 +41,7 @@ export default function _View() {
       <InputField
         label="Email Address"
         placeholder="Email Address"
-        value={email}
+        value={email ?? ""}
         onChanged={(value) => {}}
         disable
       />
