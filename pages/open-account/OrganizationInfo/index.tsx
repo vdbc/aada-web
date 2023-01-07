@@ -15,12 +15,14 @@ export default function _View({ organization, onChanged }: Props) {
       <InputField
         label="Organization name"
         placeholder="Please type your organization name here"
+        value={organization.name}
         onChanged={(value) => onChanged({ ...organization, name: value })}
         required
       />
       <InputField
         label="Country"
         placeholder="Select your Country"
+        value={organization.country}
         onChanged={(value) => onChanged({ ...organization, country: value })}
         required
       />
@@ -29,6 +31,7 @@ export default function _View({ organization, onChanged }: Props) {
           <InputField
             label="City"
             placeholder="Type your city"
+            value={organization.city}
             onChanged={(value) => onChanged({ ...organization, city: value })}
             required
           />
@@ -37,6 +40,7 @@ export default function _View({ organization, onChanged }: Props) {
           <InputField
             label="ZIP / Postal Code"
             placeholder="Your ZIP code"
+            value={organization.zipCode}
             onChanged={(value) =>
               onChanged({ ...organization, zipCode: value })
             }
@@ -47,18 +51,21 @@ export default function _View({ organization, onChanged }: Props) {
       <InputField
         label="Address"
         placeholder="Please type your address"
+        value={organization.address}
         onChanged={(value) => onChanged({ ...organization, address: value })}
         required
       />
       <InputField
         label="Email address"
         placeholder="Please type your organization email address"
+        value={organization.email ?? ""}
         onChanged={(value) => onChanged({ ...organization, email: value })}
         required
       />
       <InputField
         label="Facebook URL"
         placeholder="Please type your Facebook URL"
+        value={organization.facebookUrl ?? ""}
         onChanged={(value) =>
           onChanged({ ...organization, facebookUrl: value })
         }
@@ -67,6 +74,7 @@ export default function _View({ organization, onChanged }: Props) {
       <InputField
         label="Website URL"
         placeholder="Please type your Website URL"
+        value={organization.website ?? ""}
         onChanged={(value) => onChanged({ ...organization, website: value })}
         required
       />

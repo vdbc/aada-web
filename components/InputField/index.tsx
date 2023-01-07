@@ -10,7 +10,7 @@ export declare type InputProps = {
   className?: string;
   onChanged: ValueChanged<string>;
   disable?: boolean;
-  value?: string;
+  value: string;
 };
 
 export default function InputField({

@@ -101,9 +101,7 @@ export default function _View({
   onRemoveEntry,
 }: Props) {
   const [selected, setSelected] = useState<NominateEntry[]>([]);
-  const entriesToSelected = (entries ?? []).filter(
-    (entry) => !selected.includes(entry)
-  );
+  const entriesToSelected = entries ?? [];
 
   const unselectItem = (value: NominateEntry) => {
     onRemoveEntry(value.id);
