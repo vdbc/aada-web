@@ -80,14 +80,14 @@ export default function _View() {
       <InputField
         label="Email"
         placeholder="Please type your organization email address"
-        value={organization?.email}
+        value={organization?.email ?? ""}
         onChanged={(value) => onChanged({ ...organization, email: value })}
         required
       />
       <InputPhoneNumber
         label="Phone Number"
         placeholder="Enter your phone number"
-        value={organization?.phone}
+        value={organization?.phone ?? ""}
         onChanged={(value) => onChanged({ ...organization, phone: value })}
         className={styles.inputField}
       />
