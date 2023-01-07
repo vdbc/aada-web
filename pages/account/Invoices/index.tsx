@@ -53,7 +53,7 @@ export default function _View() {
       <InputField
         label="Address line 2"
         placeholder="Please type your address"
-        value={billing.address2}
+        value={billing.address2 ?? ""}
         onChanged={(address2) => onChanged({ ...billing, address2 })}
       />
       <div className={styles.wrapperRow}>
@@ -86,14 +86,14 @@ export default function _View() {
       <InputField
         label="Email"
         placeholder="Enter your email address"
-        value={billing.email}
+        value={billing.email ?? ""}
         onChanged={(email) => onChanged({ ...billing, email })}
         required
       />
       <InputPhoneNumber
         label="Phone Number"
         placeholder="Enter your phone number"
-        value={billing.phone}
+        value={billing.phone ?? ""}
         onChanged={(phone) => onChanged({ ...billing, phone })}
         className={styles.inputField}
       />
