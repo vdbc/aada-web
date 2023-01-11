@@ -11,12 +11,15 @@ function GroupContact() {
     <div className={styles.groupContacts}>
       <div className={styles.wrapper}>
         <div className={styles.socials}>
-          <Link href="#">
+          <Link
+            href="https://www.facebook.com/AsiaArchitectureDesignAwards"
+            target="_blank"
+          >
             <div className={styles.icon}>
               <ImFacebook size={20} />
             </div>
           </Link>
-          <Link href="#">
+          <Link href="https://www.instagram.com/asiaawards.co" target="_blank">
             <div className={styles.icon}>
               <BsInstagram size={20} />
             </div>
