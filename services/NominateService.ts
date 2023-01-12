@@ -16,7 +16,7 @@ export async function getAllNominate(token: string): Promise<Nominate[]> {
 export async function registerNominateEntries(
   entries: string[],
   token: string
-): Promise<Nominate[]> {
+): Promise<string> {
   const url = `${apiUrl}/nominate/register`;
   const resp = await axios.post(
     url,
@@ -28,7 +28,39 @@ export async function registerNominateEntries(
     }
   );
 
-  return resp.data.data;
+  const { id } = resp.data || {};
+  return id;
+}
+
+export async function getNominateEntriesRegistered(
+  token: string
+): Promise<string> {
+  const url = `${apiUrl}/nominate/registered`;
+  const resp = await axios.get(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const { id } = resp.data || {};
+  console.log("mylog id in service: ", id, resp.data);
+
+  return id;
+}
+
+export async function confirmPaymentNominateEntries(
+  data: any,
+  token: string
+): Promise<string> {
+  const url = `${apiUrl}/payment/nominate`;
+  const resp = await axios.post(url, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const { id } = resp.data.data || {};
+  return id;
 }
 
 export async function getProjectRegistered(
