@@ -127,7 +127,7 @@ export default function _View({
   onRemoveEntry,
 }: Props) {
   const check = keyBy(entries, (entry) => entry.id);
-  const selectIdsByEntry = selectIds.filter((id) => check[id] != null);
+  const selectIdsByEntry = (selectIds ?? []).filter((id) => check[id] != null);
 
   const [_selected, setSelected] = useState<string[]>(selectIdsByEntry);
   const selected = _selected.length > 0 ? _selected : selectIdsByEntry;
