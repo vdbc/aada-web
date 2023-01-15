@@ -7,7 +7,11 @@ import {
 import { debounce, flatMap, keyBy, map } from "lodash";
 import moment from "moment";
 import { RootState, store } from "../..";
-import { Nominate, ProjectNominate } from "../../../models/NominateModel";
+import {
+  MyProjectNominateResponse,
+  Nominate,
+  ProjectNominate,
+} from "../../../models/NominateModel";
 import {
   getAllNominate,
   getProjectRegistered,
@@ -22,16 +26,18 @@ export interface NominateState {
   projectDetails: {
     [key: number]: ProjectNominate;
   };
+  isPaid: boolean;
 }
 
 const initialState: NominateState = {
   nominateList: [],
   projectDetails: {},
   projectIds: [],
+  isPaid: false,
 };
 
 export const fetchProjectNominate = createAsyncThunk<
-  ProjectNominate[],
+  MyProjectNominateResponse,
   void,
   { state: RootState }
 >("nominate/fetchProjectNomintate", async (_, store) => {
@@ -78,11 +84,12 @@ export const nominateSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchProjectNominate.fulfilled, (state, action) => {
-        state.projectIds = action.payload.map((item) => item.id);
+        state.projectIds = action.payload.projects.map((item) => item.id);
         state.projectDetails = {
           ...state.projectDetails,
-          ...keyBy(action.payload, (item) => item.id),
+          ...keyBy(action.payload.projects, (item) => item.id),
         };
+        state.isPaid = action.payload.isPaid || false;
       })
       .addCase(fetchAllNominate.fulfilled, (state, action) => {
         state.nominateList = action.payload;
@@ -142,6 +149,12 @@ export const selectProjectIdsGroupByEntry = createSelector(
   }
 );
 
+export const selectEntryIdsRegistered = createSelector(
+  selectProjectNomintateIds,
+  selectProjectNomintateDetails,
+  (projectIds, details) => projectIds.map((id) => details[id]?.entryId)
+);
+
 const defaultDeadline = "2023-02-15";
 
 const _selectDeadline = (state: RootState) => {
@@ -154,6 +167,7 @@ const _selectDeadline = (state: RootState) => {
 export const selectDeadline = createSelector(_selectDeadline, (deadline) => {
   return moment(deadline, "YYYY-MM-DD").toDate();
 });
+export const selectIsNominatePaid = (state: RootState) => state.nominate.isPaid;
 
 listenerMiddleware.startListening({
   actionCreator: nominateSlice.actions.projectUpdated,

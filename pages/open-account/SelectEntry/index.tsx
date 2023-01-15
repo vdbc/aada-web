@@ -1,8 +1,11 @@
 import { Theme } from "@mui/material";
+import { keyBy } from "lodash";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { NominateEntry } from "../../../models/NominateModel";
-import { ValueChanged } from "../../../utils/interface";
+import { useAppSelector } from "../../../store";
+import { selectNomintateEntryDetail } from "../../../store/modules/nominate";
+import { ValueChanged, VoidCallback } from "../../../utils/interface";
 import styles from "./styles.module.scss";
 
 declare type LabelBoxProps = {
@@ -59,17 +62,6 @@ export function TotalEntriesOverview({
   );
 }
 
-declare type Props = {
-  title: string;
-  label: string;
-  description: string;
-  feePerEntry: number;
-  entries: NominateEntry[];
-  onSelectEntry: ValueChanged<string>;
-  onRemoveEntry: ValueChanged<string>;
-  required?: boolean;
-};
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -90,21 +82,59 @@ function getStyles(name: string, personName: string[], theme: Theme) {
   };
 }
 
+declare type EntryItemProps = {
+  entryId: string;
+  onUnselectItem: VoidCallback;
+};
+
+function EntryItem({ entryId, onUnselectItem }: EntryItemProps) {
+  const entry = useAppSelector(selectNomintateEntryDetail(entryId));
+  return (
+    <div className={styles.wrapperSelectEntry}>
+      <LabelBox>
+        <div className={styles.selectItem}>
+          <span>{entry.name}</span>
+          <button onClick={onUnselectItem}>
+            <MdClose />
+          </button>
+        </div>
+      </LabelBox>
+    </div>
+  );
+}
+
+declare type Props = {
+  title: string;
+  label: string;
+  description: string;
+  feePerEntry: number;
+  entries: NominateEntry[];
+  selectIds: string[];
+  onSelectEntry: ValueChanged<string>;
+  onRemoveEntry: ValueChanged<string>;
+  required?: boolean;
+};
+
 export default function _View({
   title,
   label,
   description,
   feePerEntry,
   entries,
+  selectIds,
   required = true,
   onSelectEntry,
   onRemoveEntry,
 }: Props) {
-  const [selected, setSelected] = useState<NominateEntry[]>([]);
+  const check = keyBy(entries, (entry) => entry.id);
+  const selectIdsByEntry = selectIds.filter((id) => check[id] != null);
+
+  const [_selected, setSelected] = useState<string[]>(selectIdsByEntry);
+  const selected = _selected.length > 0 ? _selected : selectIdsByEntry;
   const entriesToSelected = entries ?? [];
 
-  const unselectItem = (value: NominateEntry) => {
-    onRemoveEntry(value.id);
+  const unselectItem = (value: string) => {
+    onRemoveEntry(value);
     setSelected((selected ?? []).filter((item) => item != value));
   };
 
@@ -114,17 +144,12 @@ export default function _View({
       <div className={styles.groupInput}>
         <div className={styles.entries}>
           <ColumnContent label={label} description={description}>
-            {selected.map((item) => (
-              <div key={item.id} className={styles.wrapperSelectEntry}>
-                <LabelBox>
-                  <div className={styles.selectItem}>
-                    <span>{item.name}</span>
-                    <button onClick={() => unselectItem(item)}>
-                      <MdClose />
-                    </button>
-                  </div>
-                </LabelBox>
-              </div>
+            {selected.map((id) => (
+              <EntryItem
+                key={id}
+                entryId={id}
+                onUnselectItem={() => unselectItem(id)}
+              />
             ))}
             {entriesToSelected.length > 0 && (
               <select
@@ -136,7 +161,7 @@ export default function _View({
                     (item) => item.id == entryId
                   );
                   onSelectEntry(entryId);
-                  if (entry) setSelected([...selected, entry]);
+                  if (entry) setSelected([...selected, entry.id]);
                 }}
               >
                 <option value="1" disabled>

@@ -36,3 +36,13 @@ export interface ProjectNominate {
   createdAt: Date;
   deadline: string;
 }
+
+export interface MyProjectNominateResponse {
+  projects: ProjectNominate[];
+  isPaid: boolean;
+}
+
+export const projectNominateResponseEmpty: MyProjectNominateResponse = {
+  projects: [],
+  isPaid: false,
+};

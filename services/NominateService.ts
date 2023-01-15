@@ -1,6 +1,10 @@
 import axios from "axios";
 import { apiUrl } from "../models/AppConfig";
-import { Nominate, ProjectNominate } from "../models/NominateModel";
+import {
+  MyProjectNominateResponse,
+  Nominate,
+  ProjectNominate,
+} from "../models/NominateModel";
 
 export async function getAllNominate(token: string): Promise<Nominate[]> {
   const url = `${apiUrl}/nominate`;
@@ -65,7 +69,7 @@ export async function confirmPaymentNominateEntries(
 
 export async function getProjectRegistered(
   token: string
-): Promise<ProjectNominate[]> {
+): Promise<MyProjectNominateResponse> {
   const url = `${apiUrl}/nominate/projects`;
   const resp = await axios.get(url, {
     headers: {
@@ -73,7 +77,7 @@ export async function getProjectRegistered(
     },
   });
 
-  return resp.data.data;
+  return resp.data;
 }
 
 export async function saveProject(

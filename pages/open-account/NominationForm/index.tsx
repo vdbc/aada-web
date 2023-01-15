@@ -6,6 +6,7 @@ import {
 } from "@paypal/paypal-js";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useEffect, useState } from "react";
+import { paypalClientId } from "../../../models/AppConfig";
 import {
   confirmPaymentNominateEntries,
   getNominateEntriesRegistered,
@@ -14,9 +15,12 @@ import {
 import { store, useAppDispatch, useAppSelector } from "../../../store";
 import {
   fetchAllNominate,
+  fetchProjectNominate,
+  selectEntryIdsRegistered,
+  selectIsNominatePaid,
   selectNominates,
 } from "../../../store/modules/nominate";
-import { selectToken } from "../../../store/modules/user";
+import { selectToken, selectUserId } from "../../../store/modules/user";
 import SelectEntry, { TotalEntriesOverview } from "../SelectEntry";
 import styles from "./styles.module.scss";
 
@@ -27,12 +31,21 @@ declare type Props = {
 const feePerEntry = 180;
 
 function _View({ onRegisterSuccess }: Props) {
-  const [selectedEntries, setSelectedEntries] = useState<string[]>([]);
+  const entryIdsRegistered = useAppSelector(selectEntryIdsRegistered);
+
+  const [_selectedEntries, setSelectedEntries] =
+    useState<string[]>(entryIdsRegistered);
+  const selectedEntries =
+    _selectedEntries.length > 0 ? _selectedEntries : entryIdsRegistered;
   const dispatch = useAppDispatch();
+  const userId = useAppSelector(selectUserId);
+
+  console.log("mylog selected: ", selectedEntries);
 
   useEffect(() => {
     dispatch(fetchAllNominate());
-  }, [dispatch]);
+    dispatch(fetchProjectNominate());
+  }, [dispatch, userId]);
 
   const allNominate = useAppSelector(selectNominates);
 
@@ -72,6 +85,8 @@ function _View({ onRegisterSuccess }: Props) {
     onRegisterSuccess();
   }
 
+  const isPaid = useAppSelector(selectIsNominatePaid);
+
   return (
     <div className={styles.container}>
       <div>
@@ -83,6 +98,7 @@ function _View({ onRegisterSuccess }: Props) {
               onRemoveEntry={_onRemoveEntry}
               title="NOMINATE YOUR ENTRY"
               label={item.name}
+              selectIds={selectedEntries}
               description={item.description}
               feePerEntry={feePerEntry}
               entries={item.entries}
@@ -95,30 +111,23 @@ function _View({ onRegisterSuccess }: Props) {
         <div className={styles.paymentButton}>
           <PayPalScriptProvider
             options={{
-              "client-id":
-                "AfgrW0mm_yV8Qel8gPzmD_zbIQQqmVILqiIe-AA0Las9nWdtkwD1R-TUFoxYBSwJuadjK__zjN4z4KnU",
+              "client-id": paypalClientId,
             }}
           >
             <PayPalButtons
-              disabled={toalEntries <= 0}
+              disabled={isPaid || toalEntries <= 0}
               style={{
                 layout: "horizontal",
                 label: "buynow",
                 color: "gold",
                 tagline: false,
               }}
-              forceReRender={[toalEntries]}
+              forceReRender={[toalEntries, isPaid]}
               createOrder={handleCreateOrder}
               onApprove={onApprove}
             />
           </PayPalScriptProvider>
         </div>
-        {/* <div className={styles.footerAction}>
-          <button onClick={handleRegister}>
-            Payment
-            <MdArrowForwardIos />
-          </button>
-        </div> */}
       </div>
     </div>
   );
