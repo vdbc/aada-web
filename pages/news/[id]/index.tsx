@@ -19,7 +19,7 @@ export default function _View() {
 
   useEffect(() => {
     if (id) dispatch(getNewsDetail(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <div className={styles.container}>
