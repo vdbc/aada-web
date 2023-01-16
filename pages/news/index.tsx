@@ -1,3 +1,4 @@
+import { keyBy } from "lodash";
 import Head from "next/head";
 import { useEffect } from "react";
 import Footer from "../../components/Footer";
@@ -5,27 +6,53 @@ import Header from "../../components/Header";
 import NewsCard from "../../components/NewsCard";
 import { NewsTopBanner } from "../../components/TopBanner";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { getAllNews, selectNewsIds } from "../../store/modules/news";
+import {
+  getAllHighlightNews,
+  getAllNews,
+  selectHighlightNewsIds,
+  selectNewsIds,
+} from "../../store/modules/news";
 import styles from "./styles.module.scss";
 
-const rowsLength = [3, 4, 3, 3, 4];
+const highlightMaxtrix = [
+  [1, 1, 1],
+  [0, 0, 0, 0],
+  [1, 0, 0],
+  [0, 0, 1],
+];
+
 const rowLengthDefault = 4;
 
-function splitNewsToRows(newIds: number[]) {
-  const result: number[][] = [[]];
-  for (let i = 0; i < newIds.length; i++) {
-    const currentRowIndex = result.length - 1;
-    result[currentRowIndex].push(newIds[i]);
-    const maxOfNewsInRow = rowsLength[currentRowIndex] || rowLengthDefault;
-    console.log(
-      "mylog maxOfNewsInRow: ",
-      i,
-      maxOfNewsInRow,
-      result[currentRowIndex].length
-    );
-    if (result[currentRowIndex].length >= maxOfNewsInRow) {
-      result.push([]);
+function splitNewsToRows(_newIds: number[], _highlightIds: number[]) {
+  const highlightIds = [..._highlightIds];
+  const check = keyBy(highlightIds);
+  const newIds = _newIds.filter((id) => !check[id]);
+
+  const result: number[][] = [];
+  highlightMaxtrix.forEach((row) => {
+    const rowIds: number[] = [];
+    row.forEach((isHighlight) => {
+      if (isHighlight && highlightIds.length > 0) {
+        rowIds.push(highlightIds.shift()!);
+        return;
+      }
+      if (newIds.length > 0) {
+        rowIds.push(newIds.shift()!);
+        return;
+      }
+      if (highlightIds.length > 0) {
+        rowIds.push(highlightIds.shift()!);
+      }
+    });
+    if (rowIds.length > 0) result.push(rowIds);
+  });
+  while (newIds.length > 0) {
+    const rowIds = [];
+    for (let i = 0; i < rowLengthDefault; i++) {
+      const id = newIds.shift() || -1;
+      rowIds.push(id);
     }
+    result.push(rowIds);
   }
 
   return result;
@@ -35,10 +62,15 @@ export default function Home() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getAllNews());
-  }, []);
+    dispatch(getAllHighlightNews());
+  }, [dispatch]);
 
   const newsIds = useAppSelector(selectNewsIds);
-  const [row1, row2, row3, row4, ...rows] = splitNewsToRows(newsIds);
+  const highlightIds = useAppSelector(selectHighlightNewsIds);
+  const [row1, row2, row3, row4, ...rows] = splitNewsToRows(
+    newsIds,
+    highlightIds
+  );
 
   return (
     <div className={styles.container}>
