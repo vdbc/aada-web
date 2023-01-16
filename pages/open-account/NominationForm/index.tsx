@@ -111,6 +111,7 @@ function _View({ onRegisterSuccess }: Props) {
         <div className={styles.paymentButton}>
           <PayPalScriptProvider
             options={{
+              locale: "en_GB",
               "client-id": paypalClientId,
             }}
           >
