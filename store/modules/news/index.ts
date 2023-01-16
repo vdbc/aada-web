@@ -2,9 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { keyBy } from "lodash";
 import { RootState } from "../..";
 import { NewsModel } from "../../../models/NewsModel";
-import { fetchAllNews, fetchNewsDetail } from "../../../services/NewsService";
+import {
+  fetchAllHighlight,
+  fetchAllNews,
+  fetchNewsDetail,
+} from "../../../services/NewsService";
 
 export interface NewsState {
+  highlightIds: number[];
   newIds: number[];
   newsDetails: {
     [key: number]: NewsModel;
@@ -14,6 +19,7 @@ export interface NewsState {
 const initialState: NewsState = {
   newsDetails: {},
   newIds: [],
+  highlightIds: [],
 };
 
 export const getAllNews = createAsyncThunk<
@@ -22,6 +28,14 @@ export const getAllNews = createAsyncThunk<
   { state: RootState }
 >("news/getAllNews", async (_, store) => {
   return fetchAllNews();
+});
+
+export const getAllHighlightNews = createAsyncThunk<
+  NewsModel[],
+  void,
+  { state: RootState }
+>("news/getAllHighlightNews", async (_, store) => {
+  return fetchAllHighlight();
 });
 
 export const getNewsDetail = createAsyncThunk<
@@ -45,6 +59,13 @@ export const newsSlice = createSlice({
           ...keyBy(action.payload, (item) => item.id),
         };
       })
+      .addCase(getAllHighlightNews.fulfilled, (state, action) => {
+        state.highlightIds = action.payload.map((item) => item.id);
+        state.newsDetails = {
+          ...state.newsDetails,
+          ...keyBy(action.payload, (item) => item.id),
+        };
+      })
       .addCase(getNewsDetail.fulfilled, (state, action) => {
         state.newsDetails = {
           ...state.newsDetails,
@@ -55,6 +76,8 @@ export const newsSlice = createSlice({
 });
 
 export const selectNewsIds = (state: RootState) => state.news.newIds;
+export const selectHighlightNewsIds = (state: RootState) =>
+  state.news.highlightIds;
 export const selectNewsDetails = (state: RootState) => state.news.newsDetails;
 
 export const selectNewsDetail = (id: number) => (state: RootState) =>

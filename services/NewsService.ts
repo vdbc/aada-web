@@ -15,6 +15,19 @@ export async function fetchAllNews(): Promise<NewsModel[]> {
   return resp.data.data;
 }
 
+export async function fetchAllHighlight(): Promise<NewsModel[]> {
+  const url = `${apiUrl}/news/highlights`;
+  const params = {
+    page: 0,
+    pageSize: 10000,
+  };
+  const resp = await axios.get(url, {
+    params,
+  });
+
+  return resp.data.data;
+}
+
 export async function fetchNewsDetail(id: number): Promise<NewsModel> {
   const url = `${apiUrl}/news/${id}`;
   const resp = await axios.get(url);

@@ -6,6 +6,7 @@ import {
   GetInvolvedHomeBanner,
   TheAwardHomeBanner,
 } from "../components/HomeBanner";
+import NewsOnHomePage from "../components/NewsOnHomePage";
 import { DefaultTopBanner } from "../components/OldTopBanner";
 import WhyYouShouldSubmitHomeBanner from "../components/WhyYouShouldSubmitHomeBanner";
 import styles from "./styles.module.css";
@@ -37,6 +38,7 @@ export default function Home() {
           alt="AADA Partners"
           src="/home/aada_partners.svg"
         />
+        <NewsOnHomePage />
       </main>
 
       <Footer />
