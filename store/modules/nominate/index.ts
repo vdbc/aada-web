@@ -149,10 +149,22 @@ export const selectProjectIdsGroupByEntry = createSelector(
   }
 );
 
-export const selectEntryIdsRegistered = createSelector(
+export const selectEntryIdsRegisteredGroupByCategory = createSelector(
   selectProjectNomintateIds,
   selectProjectNomintateDetails,
-  (projectIds, details) => projectIds.map((id) => details[id]?.entryId)
+  selectNominateEntryDetails,
+  (projectIds, details, entryDetails) => {
+    const entryIds = projectIds.map((id) => details[id]?.entryId);
+    const result: { [key: string]: string[] } = {};
+    entryIds.forEach((id) => {
+      const entry = entryDetails[id];
+      if (!entry) return;
+
+      result[entry.id] ??= [];
+      result[entry.id].push(id);
+    });
+    return result;
+  }
 );
 
 const defaultDeadline = "2023-02-15";

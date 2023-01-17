@@ -5,6 +5,7 @@ import {
   OnApproveData,
 } from "@paypal/paypal-js";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { flatMap, isEmpty } from "lodash";
 import { useEffect, useState } from "react";
 import { paypalClientId } from "../../../models/AppConfig";
 import {
@@ -16,7 +17,7 @@ import { store, useAppDispatch, useAppSelector } from "../../../store";
 import {
   fetchAllNominate,
   fetchProjectNominate,
-  selectEntryIdsRegistered,
+  selectEntryIdsRegisteredGroupByCategory,
   selectIsNominatePaid,
   selectNominates,
 } from "../../../store/modules/nominate";
@@ -31,12 +32,15 @@ declare type Props = {
 const feePerEntry = 180;
 
 function _View({ onRegisterSuccess }: Props) {
-  const entryIdsRegistered = useAppSelector(selectEntryIdsRegistered);
-
-  const [_selectedEntries, setSelectedEntries] =
-    useState<string[]>(entryIdsRegistered);
-  const selectedEntries =
-    _selectedEntries.length > 0 ? _selectedEntries : entryIdsRegistered;
+  const entryIdsRegistered = useAppSelector(
+    selectEntryIdsRegisteredGroupByCategory
+  );
+  const [_selectedEntries, setSelectedEntries] = useState<{
+    [key: string]: string[];
+  }>({});
+  const selectedEntries = !isEmpty(_selectedEntries)
+    ? _selectedEntries
+    : entryIdsRegistered;
   const dispatch = useAppDispatch();
   const userId = useAppSelector(selectUserId);
 
@@ -47,10 +51,16 @@ function _View({ onRegisterSuccess }: Props) {
 
   const allNominate = useAppSelector(selectNominates);
 
-  const toalEntries = selectedEntries.length;
+  const selectEntryIds = flatMap(selectedEntries);
 
-  const _onEntriesChanged = (entryIds: string[]) =>
-    setSelectedEntries(entryIds);
+  const toalEntries = selectEntryIds.length;
+
+  const _onEntriesChanged = (entryIds: string[], id: string) => {
+    setSelectedEntries({
+      ...selectedEntries,
+      [id]: entryIds,
+    });
+  };
 
   async function handleCreateOrder(
     data: CreateOrderData,
@@ -58,7 +68,7 @@ function _View({ onRegisterSuccess }: Props) {
   ) {
     const token = selectToken(store.getState());
     const referenceId = await registerNominateEntries(
-      selectedEntries,
+      selectEntryIds,
       token
     ).catch((err) => getNominateEntriesRegistered(token));
 
@@ -90,10 +100,10 @@ function _View({ onRegisterSuccess }: Props) {
           allNominate.map((item) => (
             <SelectEntry
               key={item.id}
-              onEntriesChanged={_onEntriesChanged}
+              onEntriesChanged={(ids) => _onEntriesChanged(ids, item.id)}
               title="NOMINATE YOUR ENTRY"
               label={item.name}
-              selectIds={selectedEntries}
+              selectIds={selectedEntries[item.id]}
               description={item.description}
               feePerEntry={feePerEntry}
               entries={item.entries}
