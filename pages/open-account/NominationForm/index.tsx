@@ -35,6 +35,8 @@ function _View({ onRegisterSuccess }: Props) {
   const entryIdsRegistered = useAppSelector(
     selectEntryIdsRegisteredGroupByCategory
   );
+  const canEdit = isEmpty(entryIdsRegistered);
+
   const [_selectedEntries, setSelectedEntries] = useState<{
     [key: string]: string[];
   }>({});
@@ -107,6 +109,7 @@ function _View({ onRegisterSuccess }: Props) {
               description={item.description}
               feePerEntry={feePerEntry}
               entries={item.entries}
+              canEdit={canEdit}
             />
           ))}
         <TotalEntriesOverview

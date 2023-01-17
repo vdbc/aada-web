@@ -1,5 +1,6 @@
 import { createTheme, ThemeOptions, ThemeProvider } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { login } from "../../services/UserService";
 import { useAppDispatch } from "../../store";
@@ -46,6 +47,7 @@ export default function _View({ dismiss }: Props) {
   const [isLoading, setLoading] = useState<boolean>(false);
   const canLogin = username && password && !isLoading;
   const dispatch = useAppDispatch();
+  const route = useRouter();
 
   const handleLogin = async () => {
     if (isLoading) return;
@@ -55,6 +57,7 @@ export default function _View({ dismiss }: Props) {
       dispatch(userSlice.actions.setUser(authModel.user));
       dispatch(userSlice.actions.setToken(authModel.token));
       dismiss();
+      route.push("/dashboard");
     } catch (err: any) {
       alert(err?.message ?? "");
     }

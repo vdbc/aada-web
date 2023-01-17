@@ -76,7 +76,7 @@ export default function _View(props: HeaderProps) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Link href="/">
+        <Link href={isLogged ? "/dashboard" : "/"}>
           <Image
             className={styles.logo}
             src="/logo.svg"

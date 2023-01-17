@@ -31,7 +31,7 @@ export default function _View() {
         </div>
       )}
       <div className={styles.wrapperLink}>
-        <Link className={styles.link} href="#">
+        <Link className={styles.link} href="/account">
           Change your information
         </Link>
       </div>

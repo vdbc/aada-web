@@ -1,4 +1,3 @@
-import { Theme } from "@mui/material";
 import { keyBy } from "lodash";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
@@ -73,30 +72,28 @@ const MenuProps = {
   },
 };
 
-function getStyles(name: string, personName: string[], theme: Theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
 declare type EntryItemProps = {
+  canEdit?: boolean;
   entryId: string;
   onUnselectItem: VoidCallback;
 };
 
-function EntryItem({ entryId, onUnselectItem }: EntryItemProps) {
+function EntryItem({
+  canEdit = true,
+  entryId,
+  onUnselectItem,
+}: EntryItemProps) {
   const entry = useAppSelector(selectNomintateEntryDetail(entryId));
   return (
     <div className={styles.wrapperSelectEntry}>
       <LabelBox>
         <div className={styles.selectItem}>
           <span>{entry.name}</span>
-          <button onClick={onUnselectItem}>
-            <MdClose />
-          </button>
+          {canEdit && (
+            <button onClick={onUnselectItem}>
+              <MdClose />
+            </button>
+          )}
         </div>
       </LabelBox>
     </div>
@@ -112,6 +109,7 @@ declare type Props = {
   selectIds: string[];
   onEntriesChanged: ValueChanged<string[]>;
   required?: boolean;
+  canEdit?: boolean;
 };
 
 export default function _View({
@@ -122,6 +120,7 @@ export default function _View({
   entries,
   selectIds,
   required = true,
+  canEdit = true,
   onEntriesChanged,
 }: Props) {
   const check = keyBy(entries, (entry) => entry.id);
@@ -149,9 +148,10 @@ export default function _View({
                 key={index}
                 entryId={id}
                 onUnselectItem={() => unselectItem(index)}
+                canEdit={canEdit}
               />
             ))}
-            {entriesToSelected.length > 0 && (
+            {canEdit && entriesToSelected.length > 0 && (
               <select
                 value="1"
                 className={styles.select}

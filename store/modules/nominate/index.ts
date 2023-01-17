@@ -159,15 +159,14 @@ export const selectEntryIdsRegisteredGroupByCategory = createSelector(
     entryIds.forEach((id) => {
       const entry = entryDetails[id];
       if (!entry) return;
-
-      result[entry.id] ??= [];
-      result[entry.id].push(id);
+      result[entry.nominateId] ??= [];
+      result[entry.nominateId].push(id);
     });
     return result;
   }
 );
 
-const defaultDeadline = "2023-02-15";
+const defaultDeadline = "2023-04-30";
 
 const _selectDeadline = (state: RootState) => {
   const projectIds = selectProjectNomintateIds(state);
