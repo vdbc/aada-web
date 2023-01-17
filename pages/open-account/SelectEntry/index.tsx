@@ -110,8 +110,7 @@ declare type Props = {
   feePerEntry: number;
   entries: NominateEntry[];
   selectIds: string[];
-  onSelectEntry: ValueChanged<string>;
-  onRemoveEntry: ValueChanged<string>;
+  onEntriesChanged: ValueChanged<string[]>;
   required?: boolean;
 };
 
@@ -123,8 +122,7 @@ export default function _View({
   entries,
   selectIds,
   required = true,
-  onSelectEntry,
-  onRemoveEntry,
+  onEntriesChanged,
 }: Props) {
   const check = keyBy(entries, (entry) => entry.id);
   const selectIdsByEntry = (selectIds ?? []).filter((id) => check[id] != null);
@@ -133,9 +131,11 @@ export default function _View({
   const selected = _selected.length > 0 ? _selected : selectIdsByEntry;
   const entriesToSelected = entries ?? [];
 
-  const unselectItem = (value: string) => {
-    onRemoveEntry(value);
-    setSelected((selected ?? []).filter((item) => item != value));
+  const unselectItem = (index: number) => {
+    const _selected = [...selected];
+    _selected.splice(index, 1);
+    onEntriesChanged(_selected);
+    setSelected(_selected);
   };
 
   return (
@@ -144,11 +144,11 @@ export default function _View({
       <div className={styles.groupInput}>
         <div className={styles.entries}>
           <ColumnContent label={label} description={description}>
-            {selected.map((id) => (
+            {selected.map((id, index) => (
               <EntryItem
-                key={id}
+                key={index}
                 entryId={id}
-                onUnselectItem={() => unselectItem(id)}
+                onUnselectItem={() => unselectItem(index)}
               />
             ))}
             {entriesToSelected.length > 0 && (
@@ -160,8 +160,11 @@ export default function _View({
                   const entry = entriesToSelected.find(
                     (item) => item.id == entryId
                   );
-                  onSelectEntry(entryId);
-                  if (entry) setSelected([...selected, entry.id]);
+                  if (entry) {
+                    const _selected = [...selected, entry.id];
+                    onEntriesChanged(_selected);
+                    setSelected([...selected, entry.id]);
+                  }
                 }}
               >
                 <option value="1" disabled>

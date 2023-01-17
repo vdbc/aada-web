@@ -59,6 +59,9 @@ export const userSlice = createSlice({
     organizationUpdated: (state, action: PayloadAction<Organization>) => {
       state.organization = action.payload;
     },
+    logout: (state, action: PayloadAction) => {
+      state = initialState;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchOrganizationRegistered.fulfilled, (state, action) => {

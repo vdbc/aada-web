@@ -47,7 +47,6 @@ export async function getNominateEntriesRegistered(
   });
 
   const { id } = resp.data || {};
-  console.log("mylog id in service: ", id, resp.data);
 
   return id;
 }

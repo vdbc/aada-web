@@ -14,7 +14,7 @@ export default function _View({
 }: Props) {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Your Account</h2>
+      <h2 className={styles.title}>Organization</h2>
       <InputField
         label="Organization name"
         placeholder="Please type your organization name here"
@@ -53,7 +53,7 @@ export default function _View({
       </div>
       <InputField
         label="Address"
-        placeholder="Please type your address"
+        placeholder="Please type your organization address"
         value={organization.address}
         onChanged={(value) => onChanged({ ...organization, address: value })}
         required
@@ -72,14 +72,12 @@ export default function _View({
         onChanged={(value) =>
           onChanged({ ...organization, facebookUrl: value })
         }
-        required
       />
       <InputField
         label="Website URL"
         placeholder="Please type your Website URL"
         value={organization.website ?? ""}
         onChanged={(value) => onChanged({ ...organization, website: value })}
-        required
       />
     </div>
   );

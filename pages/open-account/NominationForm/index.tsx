@@ -40,8 +40,6 @@ function _View({ onRegisterSuccess }: Props) {
   const dispatch = useAppDispatch();
   const userId = useAppSelector(selectUserId);
 
-  console.log("mylog selected: ", selectedEntries);
-
   useEffect(() => {
     dispatch(fetchAllNominate());
     dispatch(fetchProjectNominate());
@@ -51,10 +49,8 @@ function _View({ onRegisterSuccess }: Props) {
 
   const toalEntries = selectedEntries.length;
 
-  const _onSelectEntry = (entryId: string) =>
-    setSelectedEntries([...selectedEntries, entryId]);
-  const _onRemoveEntry = (entryId: string) =>
-    setSelectedEntries(selectedEntries.filter((id) => id != entryId));
+  const _onEntriesChanged = (entryIds: string[]) =>
+    setSelectedEntries(entryIds);
 
   async function handleCreateOrder(
     data: CreateOrderData,
@@ -94,8 +90,7 @@ function _View({ onRegisterSuccess }: Props) {
           allNominate.map((item) => (
             <SelectEntry
               key={item.id}
-              onSelectEntry={_onSelectEntry}
-              onRemoveEntry={_onRemoveEntry}
+              onEntriesChanged={_onEntriesChanged}
               title="NOMINATE YOUR ENTRY"
               label={item.name}
               selectIds={selectedEntries}

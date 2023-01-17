@@ -12,7 +12,7 @@ export default function _View({ id }: ViewProps) {
     useAppSelector(selectNewsDetail(id)) || {};
   return (
     <div className={styles.container}>
-      <Image src={wallpaper || "/wallpaper.jpg"} alt="Wallpaper" fill />
+      <Image src={wallpaper} alt="Wallpaper" fill />
       <div className={styles.box}>
         <h1>{title}</h1>
         <div className={styles.desc}>{description}</div>
