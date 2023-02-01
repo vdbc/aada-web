@@ -5,10 +5,10 @@ import { combineReducers } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { listenerMiddleware } from "./listener-middleware";
-import billingSlice from "./modules/billing";
-import newsSlice from "./modules/news";
-import nominateSlice from "./modules/nominate";
-import userSlice from "./modules/user";
+import billingSlice, { BillingState } from "./modules/billing";
+import newsSlice, { NewsState } from "./modules/news";
+import nominateSlice, { NominateState } from "./modules/nominate";
+import userSlice, { UserState } from "./modules/user";
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -17,6 +17,13 @@ const persistConfig = {
   key: "root",
   storage,
   whitelist: ["user"],
+};
+
+export declare type RootState = {
+  user: UserState;
+  nominate: NominateState;
+  billing: BillingState;
+  news: NewsState;
 };
 
 const rootReducer = (state: any, action: any) => {
@@ -48,7 +55,6 @@ persistor.persist();
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
