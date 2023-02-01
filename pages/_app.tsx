@@ -1,11 +1,10 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Fragment } from "react";
-import { Provider } from "react-redux";
-import { store } from "../store";
+import { wrapper } from "../store";
 import "../styles/globals.css";
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <Fragment>
       <Head>
@@ -55,10 +54,10 @@ export default function App({ Component, pageProps }: AppProps) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
+        <Component {...pageProps} />
       </main>
     </Fragment>
   );
 }
+
+export default wrapper.withRedux(App);

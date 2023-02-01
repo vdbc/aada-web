@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
-import { useAppDispatch } from "../../../store";
-import { getNewsDetail } from "../../../store/modules/news";
+import { useAppSelector, wrapper } from "../../../store";
+import { getNewsDetail, selectNewsDetail } from "../../../store/modules/news";
 import NewsContent from "./NewsContent";
 import NewsDetailHeader from "./NewsDetailHeader";
 import RecommendationNews from "./RecommendationNews";
@@ -15,16 +14,14 @@ import Tags from "./Tags";
 export default function _View() {
   const route = useRouter();
   const id = parseInt(route.query["id"]?.toString() || "");
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (id) dispatch(getNewsDetail(id));
-  }, [id, dispatch]);
+  const news = useAppSelector(selectNewsDetail(id));
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>News</title>
+        <title>{news?.title || "News"}</title>
+        <meta name="og:image" content={news?.wallpaper} />
+        <meta name="description" content={news?.description} />
       </Head>
 
       <main className={styles.main}>
@@ -41,3 +38,14 @@ export default function _View() {
     </div>
   );
 }
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    const id = parseInt(context.query["id"]?.toString() || "");
+    await store.dispatch(getNewsDetail(id));
+
+    return {
+      props: {},
+    };
+  }
+);

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { removeCookies, setCookies } from "cookies-next";
 import { debounce } from "lodash";
 import { RootState, store } from "../..";
 import { Organization, organizationEmpty } from "../../../models/Organization";
@@ -55,12 +56,14 @@ export const userSlice = createSlice({
     },
     setToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
+      setCookies("token", action.payload);
     },
     organizationUpdated: (state, action: PayloadAction<Organization>) => {
       state.organization = action.payload;
     },
     logout: (state, action: PayloadAction) => {
       state = initialState;
+      removeCookies("token");
     },
   },
   extraReducers: (builder) => {
