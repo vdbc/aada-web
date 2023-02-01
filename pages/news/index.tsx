@@ -1,11 +1,10 @@
 import { keyBy } from "lodash";
 import Head from "next/head";
-import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import NewsCard from "../../components/NewsCard";
 import { NewsTopBanner } from "../../components/TopBanner";
-import { useAppDispatch, useAppSelector } from "../../store";
+import { useAppSelector, wrapper } from "../../store";
 import {
   getAllHighlightNews,
   getAllNews,
@@ -59,12 +58,6 @@ function splitNewsToRows(_newIds: number[], _highlightIds: number[]) {
 }
 
 export default function Home() {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(getAllNews());
-    dispatch(getAllHighlightNews());
-  }, [dispatch]);
-
   const newsIds = useAppSelector(selectNewsIds);
   const highlightIds = useAppSelector(selectHighlightNewsIds);
   const [row1, row2, row3, row4, ...rows] = splitNewsToRows(
@@ -125,3 +118,16 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async () => {
+    await Promise.all([
+      store.dispatch(getAllNews()),
+      store.dispatch(getAllHighlightNews()),
+    ]);
+
+    return {
+      props: {},
+    };
+  }
+);

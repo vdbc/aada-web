@@ -30,7 +30,7 @@ const rootReducer = (state: any, action: any) => {
     })
   )(state, action);
   if (action.type == HYDRATE) {
-    return { ...newState, ...action.payload };
+    return { ...newState, ...action.payload, user: newState.user };
   }
   return newState;
 };
