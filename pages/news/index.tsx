@@ -68,7 +68,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>News</title>
+        <title>Latest Update</title>
       </Head>
 
       <main className={styles.main}>

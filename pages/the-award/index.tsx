@@ -20,6 +20,7 @@ export default function Home() {
         <TheAwardTopBanner />
         <ContentCard title={"\\\nAsia\nArchitecture\nDesign\nAward"}>
           <h2>THE ORIGINS</h2>
+          <br />
           <div>
             The Asia Architecture Design Awards (AADA) is born with a desire to
             honor excellences and creativities in a varied range of Architecture
@@ -60,6 +61,7 @@ export default function Home() {
         </ContentCard>
         <ContentCard title={"\\\n2023 AADA\nImpactful Asia"}>
           <h2>FOR AN IMPACTFUL ASIA</h2>
+          <br />
           <div>
             AADA seeks to promote an Impactful Asia in architecture design and
             construction industry that influences not just within Asian
@@ -82,6 +84,7 @@ export default function Home() {
         </ContentCard>
         <ContentCard title={"\\\nThe Value"}>
           <h2>DISCOVER THE WORTH</h2>
+          <br />
           <div>
             Winning the 2023 ASIA ARCHITECTURE DESIGN AWARDS is a prestigious
             accolade, giving you an enhanced branding identity on an
@@ -93,6 +96,7 @@ export default function Home() {
         </ContentCard>
         <ContentCard title={"\\\n2023 AADA\nWinners’ Gala Night"}>
           <h2>A NIGHT TO REMEMBER</h2>
+          <br />
           <div>
             The 2023 AADA Winners Gala Night celebrates the outstanding works of
             the 6-month competition, yet brings about the networking

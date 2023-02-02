@@ -43,7 +43,7 @@ export function TheAwardHomeBanner() {
       </div>
       <div style={{ height: 60 }} />
       <div className={styles.wrapperLink}>
-        <_ButtonLink href={"/categories"}>EXPLORE</_ButtonLink>
+        {/* <_ButtonLink href={"/categories"}>EXPLORE</_ButtonLink> */}
         <div className={styles.spacer} />
       </div>
       <div style={{ height: 10 }} />

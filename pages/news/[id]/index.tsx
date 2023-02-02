@@ -6,7 +6,6 @@ import { useAppSelector, wrapper } from "../../../store";
 import { getNewsDetail, selectNewsDetail } from "../../../store/modules/news";
 import NewsContent from "./NewsContent";
 import NewsDetailHeader from "./NewsDetailHeader";
-import RecommendationNews from "./RecommendationNews";
 import ShareNews from "./ShareNews";
 import styles from "./styles.module.scss";
 import Tags from "./Tags";
@@ -31,7 +30,7 @@ export default function _View() {
           <ShareNews id={id} />
           <NewsContent id={id} />
           <Tags id={id} />
-          <RecommendationNews id={id} />
+          {/* <RecommendationNews id={id} /> */}
         </div>
       </main>
       <Footer />

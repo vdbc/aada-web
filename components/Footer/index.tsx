@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BsInstagram, BsYoutube } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
 import { ImFacebook } from "react-icons/im";
 import { MdArrowForward } from "react-icons/md";
@@ -24,16 +24,19 @@ function GroupContact() {
               <BsInstagram size={20} />
             </div>
           </Link>
-          <Link href="#">
+          <Link
+            href="https://www.linkedin.com/company/89923966"
+            target="_blank"
+          >
             <div className={styles.icon}>
               <FaLinkedinIn size={20} />
             </div>
           </Link>
-          <Link href="#">
+          {/* <Link href="#">
             <div className={styles.icon}>
               <BsYoutube size={20} />
             </div>
-          </Link>
+          </Link> */}
         </div>
         <div className={styles.groupMail}>
           <div className={styles.label}>Subscribe to our Newsletter</div>
@@ -82,6 +85,11 @@ function FooterMenu() {
           <div className={styles.item}>
             <Link href="/faqs">FAQs</Link>
           </div>
+          <div className={styles.item}>
+            <Link href="/documents/Submission_Guidelines.pdf" target="_blank">
+              Submission Guidelines
+            </Link>
+          </div>
         </div>
         <div className={styles.column}>
           <h3>Contact</h3>
@@ -95,7 +103,7 @@ function FooterMenu() {
 function Copyright() {
   return (
     <div className={styles.copyright}>
-      © 2023 - All rights reserved - Asia Awards Organization.
+      © 2023 - All rights reserved - Asia Awards Organization PTE. LTD.
     </div>
   );
 }

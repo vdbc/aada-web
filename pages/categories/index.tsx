@@ -42,6 +42,7 @@ export default function Home() {
         <CategoriesTopBanner />
         <ContentCard title={"\\\n2023 AADA\nDisciplines"}>
           <h2>DISCIPLINES</h2>
+          <br />
           <div>
             The appreciation of Architecture & Design works, ranging from
             independent work to full-serviced firms that has substantial

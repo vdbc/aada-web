@@ -140,6 +140,7 @@ export default function _View() {
         </div>
         <ContentCard title={"\\\nEntry Fee"}>
           <h2>AADA SPECIAL OFFERS</h2>
+          <br />
           <div>
             Take advantage of the Early Entry Discount to nominate your work
             before 31 December, 2022! The submission fees start at $180 per
