@@ -1,10 +1,21 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Fragment } from "react";
+import { Provider } from "react-redux";
 import { wrapper } from "../store";
 import "../styles/globals.css";
 
-function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, ...rest }: AppProps) {
+  // Component.getInitialProps = wrapper.getInitialPageProps(
+  //   (store) => async (context) => {
+  //     const token = getToken(context);
+  //     await store.dispatch(userSlice.actions.setToken(token));
+
+  //     return {};
+  //   }
+  // );
+
+  const { store } = wrapper.useWrappedStore(rest);
   return (
     <Fragment>
       <Head>
@@ -54,10 +65,10 @@ function App({ Component, pageProps }: AppProps) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <Component {...rest.pageProps} />
+        </Provider>
       </main>
     </Fragment>
   );
 }
-
-export default wrapper.withRedux(App);

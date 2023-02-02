@@ -17,6 +17,8 @@ import RegistrationProcessOverview, {
 } from "./RegistrationProcessOverview";
 import styles from "./styles.module.scss";
 
+export { getServerSideProps } from "../../utils/redux";
+
 export default function Home() {
   const lastName = useAppSelector(selectLastName);
   const dispatch = useAppDispatch();

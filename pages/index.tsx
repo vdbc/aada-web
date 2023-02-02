@@ -10,6 +10,7 @@ import NewsOnHomePage from "../components/NewsOnHomePage";
 import { DefaultTopBanner } from "../components/OldTopBanner";
 import WhyYouShouldSubmitHomeBanner from "../components/WhyYouShouldSubmitHomeBanner";
 import styles from "./styles.module.css";
+export { getServerSideProps } from "../utils/redux";
 
 export default function Home() {
   return (
