@@ -12,22 +12,19 @@ function GroupContact() {
       <div className={styles.wrapper}>
         <div className={styles.socials}>
           <Link
-            href="https://www.facebook.com/AsiaArchitectureDesignAwards"
+            href="https://facebook.com/AsiaArchitectureDesignAwards"
             target="_blank"
           >
             <div className={styles.icon}>
               <ImFacebook size={20} />
             </div>
           </Link>
-          <Link href="https://www.instagram.com/asiaawards.co" target="_blank">
+          <Link href="https://instagram.com/asiaawards.co" target="_blank">
             <div className={styles.icon}>
               <BsInstagram size={20} />
             </div>
           </Link>
-          <Link
-            href="https://www.linkedin.com/company/89923966"
-            target="_blank"
-          >
+          <Link href="https://linkedin.com/company/89923966" target="_blank">
             <div className={styles.icon}>
               <FaLinkedinIn size={20} />
             </div>
