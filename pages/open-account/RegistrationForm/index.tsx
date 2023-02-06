@@ -52,8 +52,8 @@ export default function _View({ onRegisterSuccess }: RegistrationProps) {
       dispatch(userSlice.actions.setOrganization(organizationCreated));
 
       onRegisterSuccess();
-    } catch (err) {
-      alert(err);
+    } catch (err: any) {
+      alert(err.message);
     }
     setLoading(false);
   }
