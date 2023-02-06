@@ -1,4 +1,9 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice,
+  isRejected,
+  PayloadAction,
+} from "@reduxjs/toolkit";
 import { debounce } from "lodash";
 import { RootState, store } from "../..";
 import { Organization, organizationEmpty } from "../../../models/Organization";
@@ -62,7 +67,7 @@ export const userSlice = createSlice({
       state.organization = action.payload;
     },
     logout: (state, action: PayloadAction) => {
-      state = initialState;
+      Object.assign(state, initialState);
       setToken();
     },
   },
@@ -88,6 +93,16 @@ listenerMiddleware.startListening({
     listenerApi.cancelActiveListeners();
 
     store.dispatch(saveOrganizationRegistered(action.payload));
+  },
+});
+
+listenerMiddleware.startListening({
+  matcher: isRejected,
+  effect: async (action, listenerApi) => {
+    listenerApi.cancelActiveListeners();
+    if (action.error.code == "AUTH-01") {
+      await store.dispatch(userSlice.actions.logout());
+    }
   },
 });
 

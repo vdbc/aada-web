@@ -2,8 +2,7 @@ import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import { createWrapper, HYDRATE } from "next-redux-wrapper";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { combineReducers } from "redux";
-import { persistReducer, persistStore } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { persistStore } from "redux-persist";
 import { isServer } from "../utils/common";
 import { listenerMiddleware } from "./listener-middleware";
 import billingSlice, { BillingState } from "./modules/billing";
@@ -14,11 +13,11 @@ import userSlice, { UserState } from "./modules/user";
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["user"],
-};
+// const persistConfig = {
+//   key: "root",
+//   storage,
+//   whitelist: ["user"],
+// };
 
 export declare type RootState = {
   user: UserState;
@@ -33,10 +32,10 @@ const reducer = combineReducers({
   billing: billingSlice.reducer,
   news: newsSlice.reducer,
 });
-const reducerWithPersist = persistReducer(persistConfig, reducer);
+// const reducerWithPersist = persistReducer(persistConfig, reducer);
 
 const rootReducer = (state: any, action: any) => {
-  const _reducer = isServer ? reducer : reducerWithPersist;
+  const _reducer = reducer;
   const newState = _reducer(state, action);
   if (action.type == HYDRATE) {
     const payload: RootState = action.payload;

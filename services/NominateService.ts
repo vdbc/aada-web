@@ -1,20 +1,20 @@
-import axios from "axios";
 import { apiUrl } from "../models/AppConfig";
 import {
   MyProjectNominateResponse,
   Nominate,
   ProjectNominate,
 } from "../models/NominateModel";
+import { get, post, put } from "./http";
 
 export async function getAllNominate(token: string): Promise<Nominate[]> {
   const url = `${apiUrl}/nominate`;
-  const resp = await axios.get(url, {
+  const resp = await get<{ data: Nominate[] }>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 
-  return resp.data.data;
+  return resp.data;
 }
 
 export async function registerNominateEntries(
@@ -22,7 +22,7 @@ export async function registerNominateEntries(
   token: string
 ): Promise<string> {
   const url = `${apiUrl}/nominate/register`;
-  const resp = await axios.post(
+  const resp = await post<{ id: string }>(
     url,
     { entries },
     {
@@ -32,7 +32,7 @@ export async function registerNominateEntries(
     }
   );
 
-  const { id } = resp.data || {};
+  const { id } = resp || {};
   return id;
 }
 
@@ -40,13 +40,13 @@ export async function getNominateEntriesRegistered(
   token: string
 ): Promise<string> {
   const url = `${apiUrl}/nominate/registered`;
-  const resp = await axios.get(url, {
+  const resp = await get<{ id: string }>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 
-  const { id } = resp.data || {};
+  const { id } = resp || {};
 
   return id;
 }
@@ -56,13 +56,13 @@ export async function confirmPaymentNominateEntries(
   token: string
 ): Promise<string> {
   const url = `${apiUrl}/payment/nominate`;
-  const resp = await axios.post(url, data, {
+  const resp = await post<any>(url, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 
-  const { id } = resp.data.data || {};
+  const { id } = resp.data;
   return id;
 }
 
@@ -70,13 +70,13 @@ export async function getProjectRegistered(
   token: string
 ): Promise<MyProjectNominateResponse> {
   const url = `${apiUrl}/nominate/projects`;
-  const resp = await axios.get(url, {
+  const resp = await get<MyProjectNominateResponse>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 
-  return resp.data;
+  return resp;
 }
 
 export async function saveProject(
@@ -84,11 +84,11 @@ export async function saveProject(
   token: string
 ): Promise<ProjectNominate> {
   const url = `${apiUrl}/nominate/projects/${project.id}`;
-  const resp = await axios.put(url, project, {
+  const resp = await put<{ data: ProjectNominate }>(url, project, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 
-  return resp.data.data;
+  return resp.data;
 }

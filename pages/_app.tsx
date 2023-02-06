@@ -7,15 +7,6 @@ import "../styles/globals.css";
 import { getInitialAppProps } from "../utils/redux";
 
 function App({ Component, ...rest }: AppProps) {
-  // Component.getInitialProps = wrapper.getInitialPageProps(
-  //   (store) => async (context) => {
-  //     const token = getToken(context);
-  //     await store.dispatch(userSlice.actions.setToken(token));
-
-  //     return {};
-  //   }
-  // );
-
   const { store } = wrapper.useWrappedStore(rest);
   return (
     <Fragment>
