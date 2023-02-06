@@ -4,8 +4,9 @@ import { Fragment } from "react";
 import { Provider } from "react-redux";
 import { wrapper } from "../store";
 import "../styles/globals.css";
+import { getInitialAppProps } from "../utils/redux";
 
-export default function App({ Component, ...rest }: AppProps) {
+function App({ Component, ...rest }: AppProps) {
   // Component.getInitialProps = wrapper.getInitialPageProps(
   //   (store) => async (context) => {
   //     const token = getToken(context);
@@ -72,3 +73,7 @@ export default function App({ Component, ...rest }: AppProps) {
     </Fragment>
   );
 }
+
+App.getInitialProps = getInitialAppProps;
+
+export default App;

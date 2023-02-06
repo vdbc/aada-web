@@ -1,13 +1,12 @@
 import Head from "next/head";
-import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { useAppDispatch, useAppSelector } from "../../store";
+import { useAppSelector, wrapper } from "../../store";
 import {
   fetchProjectNominate,
   selectDeadline,
 } from "../../store/modules/nominate";
-import { selectLastName, selectUserId } from "../../store/modules/user";
+import { selectLastName } from "../../store/modules/user";
 import AccountInfo from "./AccountInfo";
 import ContactSupport from "./ContactSupport";
 import OverviewBox from "./OverviewBox";
@@ -17,15 +16,8 @@ import RegistrationProcessOverview, {
 } from "./RegistrationProcessOverview";
 import styles from "./styles.module.scss";
 
-export { getServerSideProps } from "../../utils/redux";
-
 export default function Home() {
   const lastName = useAppSelector(selectLastName);
-  const dispatch = useAppDispatch();
-  const userId = useAppSelector(selectUserId);
-  useEffect(() => {
-    dispatch(fetchProjectNominate());
-  }, [dispatch, userId]);
 
   const totalCompleted = useAppSelector(selectTotalCompleteProjects);
   const totalProjects = useAppSelector(selectTotalProjects);
@@ -79,3 +71,13 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    await store.dispatch(fetchProjectNominate());
+
+    return {
+      props: {},
+    };
+  }
+);

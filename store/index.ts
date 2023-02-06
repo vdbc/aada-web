@@ -39,12 +39,13 @@ const rootReducer = (state: any, action: any) => {
   const _reducer = isServer ? reducer : reducerWithPersist;
   const newState = _reducer(state, action);
   if (action.type == HYDRATE) {
+    const payload: RootState = action.payload;
     return {
       ...newState,
       ...action.payload,
       user: {
         ...newState.user,
-        ...action.payload.user,
+        ...payload.user,
       },
     };
   }
