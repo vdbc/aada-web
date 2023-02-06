@@ -1,32 +1,28 @@
-import axios from "axios";
 import { apiUrl } from "../models/AppConfig";
 
 import { BillingModel } from "../models/BillingModel";
+import { get, post, put } from "./http";
 
 export async function requestCreateBillingInfo(
   billing: BillingModel,
   token: string
 ): Promise<BillingModel> {
   const url = `${apiUrl}/billing`;
-  const resp = await axios.post(url, billing, {
+  return post<BillingModel>(url, billing, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  return resp.data;
 }
 export async function getBillingInfoRegistered(
   token: string
 ): Promise<BillingModel> {
   const url = `${apiUrl}/billing`;
-  const resp = await axios.get(url, {
+  return get<BillingModel>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  return resp.data;
 }
 
 export async function updateBillingInfoRegistered(
@@ -34,11 +30,9 @@ export async function updateBillingInfoRegistered(
   token: string
 ): Promise<BillingModel> {
   const url = `${apiUrl}/billing/${billing.id}`;
-  const resp = await axios.put(url, billing, {
+  return put<BillingModel>(url, billing, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  return resp.data;
 }

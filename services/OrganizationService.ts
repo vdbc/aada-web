@@ -1,32 +1,28 @@
-import axios from "axios";
 import { apiUrl } from "../models/AppConfig";
 
 import { Organization } from "../models/Organization";
+import { get, post, put } from "./http";
 
 export async function registerOrganization(
   organization: Organization,
   token: string
 ): Promise<Organization> {
   const url = `${apiUrl}/organization`;
-  const resp = await axios.post(url, organization, {
+  return post<Organization>(url, organization, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  return resp.data;
 }
 export async function getOrganizationRegistered(
   token: string
 ): Promise<Organization> {
   const url = `${apiUrl}/organization`;
-  const resp = await axios.get(url, {
+  return get<Organization>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  return resp.data;
 }
 
 export async function updateOrganizationRegistered(
@@ -34,11 +30,9 @@ export async function updateOrganizationRegistered(
   token: string
 ): Promise<Organization> {
   const url = `${apiUrl}/organization/${organization.id}`;
-  const resp = await axios.put(url, organization, {
+  return put<Organization>(url, organization, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  return resp.data;
 }

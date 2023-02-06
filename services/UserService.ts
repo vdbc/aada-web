@@ -1,25 +1,21 @@
-import axios, { AxiosError } from "axios";
 import { apiUrl } from "../models/AppConfig";
 
 import { AuthModel } from "../models/AuthModel";
 import { UserModel } from "../models/UserModel";
+import { get, post, put } from "./http";
 
 export async function requestRegisterUser(user: UserModel): Promise<AuthModel> {
   const url = `${apiUrl}/users/register`;
-  const resp = await axios.post(url, user);
-
-  return resp.data;
+  return post<AuthModel>(url, user);
 }
 
 export async function getUserInfo(token: string): Promise<UserModel> {
   const url = `${apiUrl}/me`;
-  const resp = await axios.get(url, {
+  return get<UserModel>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  return resp.data;
 }
 
 export async function login(
@@ -27,9 +23,7 @@ export async function login(
   password: string
 ): Promise<AuthModel> {
   const url = `${apiUrl}/auth`;
-  const resp = await axios.post(url, { username, password });
-
-  return resp.data;
+  return post<AuthModel>(url, { username, password });
 }
 
 export async function requestUpdatePassword(
@@ -38,19 +32,13 @@ export async function requestUpdatePassword(
   token: string
 ): Promise<AuthModel> {
   const url = `${apiUrl}/auth/password`;
-  const resp = await axios
-    .put(
-      url,
-      { currentPassword, newPassword },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-    .catch((err: AxiosError) => {
-      throw err.response?.data;
-    });
-
-  return resp.data;
+  return put<AuthModel>(
+    url,
+    { currentPassword, newPassword },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 }

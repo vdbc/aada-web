@@ -1,6 +1,6 @@
-import axios from "axios";
 import { apiUrl } from "../models/AppConfig";
 import { NewsModel } from "../models/NewsModel";
+import { get } from "./http";
 
 export async function fetchAllNews(): Promise<NewsModel[]> {
   const url = `${apiUrl}/news`;
@@ -8,11 +8,11 @@ export async function fetchAllNews(): Promise<NewsModel[]> {
     page: 0,
     pageSize: 10000,
   };
-  const resp = await axios.get(url, {
+  const resp = await get<{ data: NewsModel[] }>(url, {
     params,
   });
 
-  return resp.data.data;
+  return resp.data;
 }
 
 export async function fetchAllHighlight(): Promise<NewsModel[]> {
@@ -21,16 +21,16 @@ export async function fetchAllHighlight(): Promise<NewsModel[]> {
     page: 0,
     pageSize: 10000,
   };
-  const resp = await axios.get(url, {
+  const resp = await get<any>(url, {
     params,
   });
 
-  return resp.data.data;
+  return resp.data;
 }
 
 export async function fetchNewsDetail(id: number): Promise<NewsModel> {
   const url = `${apiUrl}/news/${id}`;
-  const resp = await axios.get(url);
+  const resp = await get<any>(url);
 
-  return resp.data.data;
+  return resp.data;
 }
