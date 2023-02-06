@@ -63,7 +63,6 @@ export default function _View({
         placeholder="Please type your organization email address"
         value={organization.email ?? ""}
         onChanged={(value) => onChanged({ ...organization, email: value })}
-        required
       />
       <InputField
         label="Facebook URL"

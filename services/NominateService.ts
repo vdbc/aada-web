@@ -54,16 +54,13 @@ export async function getNominateEntriesRegistered(
 export async function confirmPaymentNominateEntries(
   data: any,
   token: string
-): Promise<string> {
+): Promise<any> {
   const url = `${apiUrl}/payment/nominate`;
-  const resp = await post<any>(url, data, {
+  return post<any>(url, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  const { id } = resp.data;
-  return id;
 }
 
 export async function getProjectRegistered(

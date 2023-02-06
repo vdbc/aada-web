@@ -10,7 +10,6 @@ export async function requestRegisterUser(user: UserModel): Promise<AuthModel> {
 }
 
 export async function fetchUserInfo(token: string): Promise<UserModel> {
-  console.log("mylog getUserInfo service: ", token);
   const url = `${apiUrl}/me`;
   return get<{ user: UserModel }>(url, {
     headers: {

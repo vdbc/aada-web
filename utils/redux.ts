@@ -7,7 +7,7 @@ export const getInitialAppProps = wrapper.getInitialAppProps(
     setCookieContext(context.ctx);
     const token = getToken(context.ctx);
     await store.dispatch(userSlice.actions.setToken(token));
-    await store.dispatch(getUserInfo());
+    if (token) await store.dispatch(getUserInfo());
 
     return {
       pageProps: {},
