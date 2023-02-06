@@ -3,8 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { useAppSelector } from "../../store";
-import { selectIsLogged, selectLastName } from "../../store/modules/user";
+import { useAppDispatch, useAppSelector } from "../../store";
+import userSlice, {
+  selectIsLogged,
+  selectLastName,
+} from "../../store/modules/user";
 import LoginForm from "../LoginForm";
 import styles from "./styles.module.scss";
 
@@ -99,7 +102,7 @@ export default function _View(props: HeaderProps) {
           </Link>
         ))}
         {isLogged ? (
-          <button className={styles.hello}>Hello {lastName}</button>
+          <UserMenu />
         ) : (
           <button
             className={styles.loginButton}
@@ -112,6 +115,37 @@ export default function _View(props: HeaderProps) {
       <Dialog open={isLogging} onClose={() => setLogging(false)}>
         <LoginForm dismiss={() => setLogging(false)} />
       </Dialog>
+    </div>
+  );
+}
+
+function UserMenu() {
+  const lastName = useAppSelector(selectLastName);
+  const dispatch = useAppDispatch();
+  const route = useRouter();
+
+  const [isActive, setActive] = useState(false);
+
+  return (
+    <div className={styles.userMenuContainer}>
+      <div className={isActive ? styles.active : styles.inactive}>
+        <button className={styles.title} onClick={() => setActive(!isActive)}>
+          Hello {lastName}
+        </button>
+        {isActive && (
+          <div className={styles.menus}>
+            <button
+              onClick={() => {
+                dispatch(userSlice.actions.logout());
+                setActive(false);
+                route.push("/");
+              }}
+            >
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

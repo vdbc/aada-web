@@ -1,5 +1,5 @@
 import { wrapper } from "../store";
-import userSlice from "../store/modules/user";
+import userSlice, { getUserInfo } from "../store/modules/user";
 import { getToken, setCookieContext } from "./cookies";
 
 export const getInitialAppProps = wrapper.getInitialAppProps(
@@ -7,6 +7,7 @@ export const getInitialAppProps = wrapper.getInitialAppProps(
     setCookieContext(context.ctx);
     const token = getToken(context.ctx);
     await store.dispatch(userSlice.actions.setToken(token));
+    await store.dispatch(getUserInfo());
 
     return {
       pageProps: {},

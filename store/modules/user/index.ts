@@ -12,6 +12,7 @@ import {
   getOrganizationRegistered,
   updateOrganizationRegistered,
 } from "../../../services/OrganizationService";
+import { fetchUserInfo } from "../../../services/UserService";
 import { setToken } from "../../../utils/cookies";
 import listenerMiddleware from "../../listener-middleware";
 
@@ -25,6 +26,14 @@ const initialState: UserState = {
   token: "",
   organization: organizationEmpty,
 };
+
+export const getUserInfo = createAsyncThunk<
+  UserModel,
+  void,
+  { state: RootState }
+>("user/getUserInfo", async (_, store) => {
+  return fetchUserInfo(selectToken(store.getState()));
+});
 
 export const fetchOrganizationRegistered = createAsyncThunk<
   Organization,
@@ -72,9 +81,13 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchOrganizationRegistered.fulfilled, (state, action) => {
-      state.organization = action.payload;
-    });
+    builder
+      .addCase(fetchOrganizationRegistered.fulfilled, (state, action) => {
+        state.organization = action.payload;
+      })
+      .addCase(getUserInfo.fulfilled, (state, action) => {
+        state.user = action.payload;
+      });
   },
 });
 

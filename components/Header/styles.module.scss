@@ -52,11 +52,49 @@
   color: white;
 }
 
-.hello {
+.userMenuContainer {
   margin-left: 40px;
-  font-weight: 500;
-  font-size: 15px;
-  color: #a67f56;
-  background-color: transparent;
-  border-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  button {
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  > div {
+    position: relative;
+
+    .title {
+      min-width: 120px;
+      padding: 10px 16px;
+      color: #a67f56;
+      background-color: transparent;
+      border-style: none;
+      width: 100%;
+    }
+
+    .menus {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+
+      > button {
+        width: 100%;
+        padding: 10px 0;
+        color: #a67f56;
+        background-color: white;
+        border-radius: 0;
+        border: 1px solid #a67f56;
+      }
+    }
+  }
+
+  .active {
+    .title {
+      background-color: #a67f56;
+      color: white;
+    }
+  }
 }

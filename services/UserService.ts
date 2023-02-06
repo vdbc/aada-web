@@ -9,13 +9,14 @@ export async function requestRegisterUser(user: UserModel): Promise<AuthModel> {
   return post<AuthModel>(url, user);
 }
 
-export async function getUserInfo(token: string): Promise<UserModel> {
+export async function fetchUserInfo(token: string): Promise<UserModel> {
+  console.log("mylog getUserInfo service: ", token);
   const url = `${apiUrl}/me`;
-  return get<UserModel>(url, {
+  return get<{ user: UserModel }>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  });
+  }).then((data) => data.user);
 }
 
 export async function login(
