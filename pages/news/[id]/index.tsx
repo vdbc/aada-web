@@ -4,6 +4,7 @@ import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
 import { useAppSelector, wrapper } from "../../../store";
 import { getNewsDetail, selectNewsDetail } from "../../../store/modules/news";
+import { getNewsFlugId, getNewsIdFromFlug } from "../../../utils/news";
 import NewsContent from "./NewsContent";
 import NewsDetailHeader from "./NewsDetailHeader";
 import ShareNews from "./ShareNews";
@@ -40,9 +41,24 @@ export default function _View() {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
-    const id = parseInt(context.query["id"]?.toString() || "");
+    const flugId = context.query["id"]?.toString() || "";
+    const id = parseInt(getNewsIdFromFlug(flugId));
     await store.dispatch(getNewsDetail(id));
+    const news = selectNewsDetail(id)(store.getState());
+    if (news == null)
+      return {
+        notFound: true,
+      };
 
+    const newFlugId = getNewsFlugId(news);
+    if (flugId != newFlugId) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: `/news/${newFlugId}`,
+        },
+      };
+    }
     return {
       props: {},
     };
