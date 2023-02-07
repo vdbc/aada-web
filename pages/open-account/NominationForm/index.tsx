@@ -17,7 +17,9 @@ import { store, useAppDispatch, useAppSelector } from "../../../store";
 import {
   fetchAllNominate,
   fetchProjectNominate,
+  getFeePerEntry,
   selectEntryIdsRegisteredGroupByCategory,
+  selectFeePerEntry,
   selectIsNominatePaid,
   selectNominates,
 } from "../../../store/modules/nominate";
@@ -28,8 +30,6 @@ import styles from "./styles.module.scss";
 declare type Props = {
   onRegisterSuccess: Function;
 };
-
-const feePerEntry = 180;
 
 function _View({ onRegisterSuccess }: Props) {
   const entryIdsRegistered = useAppSelector(
@@ -47,9 +47,12 @@ function _View({ onRegisterSuccess }: Props) {
   const userId = useAppSelector(selectUserId);
 
   useEffect(() => {
+    dispatch(getFeePerEntry());
     dispatch(fetchAllNominate());
     dispatch(fetchProjectNominate());
   }, [dispatch, userId]);
+
+  const feePerEntry = useAppSelector(selectFeePerEntry);
 
   const allNominate = useAppSelector(selectNominates);
 

@@ -137,6 +137,8 @@ export default function _View({
     setSelected(_selected);
   };
 
+  // const feePerEntry = useAppSelector(selectFeePerEntry);
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>{title + (required ? "*" : "")}</div>
@@ -190,7 +192,7 @@ export default function _View({
         <div className={styles.totalFee}>
           <ColumnContent
             label="Early bird entry fee"
-            description="Apply for single entry USD 180"
+            description={"Apply for single entry USD " + feePerEntry}
           >
             <LabelBox>USD {selected.length * feePerEntry}</LabelBox>
           </ColumnContent>

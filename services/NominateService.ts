@@ -6,6 +6,17 @@ import {
 } from "../models/NominateModel";
 import { get, post, put } from "./http";
 
+export async function fetchFeePerEntry(token: string): Promise<number> {
+  const url = `${apiUrl}/nominate/feePerEntry`;
+  const { feePerEntry } = await get<{ feePerEntry: number }>(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return feePerEntry;
+}
+
 export async function getAllNominate(token: string): Promise<Nominate[]> {
   const url = `${apiUrl}/nominate`;
   const resp = await get<{ data: Nominate[] }>(url, {

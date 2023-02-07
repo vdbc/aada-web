@@ -13,6 +13,7 @@ import {
   ProjectNominate,
 } from "../../../models/NominateModel";
 import {
+  fetchFeePerEntry,
   getAllNominate,
   getProjectRegistered,
   saveProject,
@@ -27,6 +28,7 @@ export interface NominateState {
     [key: number]: ProjectNominate;
   };
   isPaid: boolean;
+  feePerEntry: number;
 }
 
 const initialState: NominateState = {
@@ -34,6 +36,7 @@ const initialState: NominateState = {
   projectDetails: {},
   projectIds: [],
   isPaid: false,
+  feePerEntry: 180,
 };
 
 export const fetchProjectNominate = createAsyncThunk<
@@ -54,6 +57,16 @@ export const fetchAllNominate = createAsyncThunk<
   const state = store.getState();
   const token = selectToken(state);
   return getAllNominate(token);
+});
+
+export const getFeePerEntry = createAsyncThunk<
+  number,
+  void,
+  { state: RootState }
+>("nominate/getFeePerEntry", async (_, store) => {
+  const state = store.getState();
+  const token = selectToken(state);
+  return fetchFeePerEntry(token);
 });
 
 export const saveProjectNominate = createAsyncThunk<
@@ -93,12 +106,17 @@ export const nominateSlice = createSlice({
       })
       .addCase(fetchAllNominate.fulfilled, (state, action) => {
         state.nominateList = action.payload;
+      })
+      .addCase(getFeePerEntry.fulfilled, (state, action) => {
+        state.feePerEntry = action.payload;
       });
   },
 });
 
 export const selectNominates = (state: RootState) =>
   state.nominate.nominateList;
+export const selectFeePerEntry = (state: RootState) =>
+  state.nominate.feePerEntry;
 export const selectNominateDetails = createSelector(
   selectNominates,
   (nominateList) => {
