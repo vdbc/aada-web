@@ -1,7 +1,6 @@
 .container {
   width: 100%;
   min-height: calc(100vh - 100px);
-  // min-height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +8,13 @@
   padding: 50px;
   color: #fac47e;
   position: relative;
+
+  @media (max-width: 800px) {
+    padding: 10px;
+    min-height: unset;
+    height: 100vh;
+    max-height: 80vw;
+  }
 
   > * {
     z-index: 0;
@@ -44,6 +50,25 @@
     background-clip: text;
     white-space: pre-line;
     margin: 0;
+
+    @media (max-width: 960px) {
+      font-size: 80px;
+    }
+    @media (max-width: 800px) {
+      font-size: 70px;
+    }
+    @media (max-width: 700px) {
+      font-size: 60px;
+    }
+    @media (max-width: 600px) {
+      font-size: 50px;
+    }
+    @media (max-width: 500px) {
+      font-size: 40px;
+    }
+    @media (max-width: 400px) {
+      font-size: 30px;
+    }
   }
 
   > .subTitle {

@@ -5,12 +5,20 @@
   align-items: flex-start;
   white-space: pre-line;
   padding: 75px 0;
-  color: #A67F56;
+  color: #a67f56;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+    text-align: justify;
+    margin-bottom: 100px;
+  }
 }
 
 .title {
   flex: 1.2;
-  font-family: 'SuisseWorks';
+  font-family: "SuisseWorks";
   font-style: normal;
   font-weight: 400;
   font-size: 55px;
@@ -18,6 +26,16 @@
   align-items: center;
   position: sticky;
   top: 100px;
+  text-align: left;
+
+  @media (max-width: 800px) {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 40px;
+    margin-top: 30px;
+    width: 100%;
+    position: unset;
+    margin-top: 50px;
+  }
 }
 
 .wrapperConent {
@@ -26,9 +44,16 @@
   margin-top: 65px;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 800px) {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
   .content {
     width: 100%;
     > h2 {
+      text-align: left;
       font-weight: 500;
       font-size: 30px;
       margin: 0;
@@ -41,7 +66,8 @@
       line-height: 18px;
       margin-top: 15px;
     }
-    > div:first-of-type, h2:first-of-type {
+    > div:first-of-type,
+    h2:first-of-type {
       margin-top: 0;
     }
   }

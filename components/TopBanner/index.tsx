@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MdArrowForward, MdExpandMore } from "react-icons/md";
+import ButtonLink from "../ButtonLink";
 import styles from "./styles.module.scss";
 
 function _ButtonLink({ href, children }: any) {
@@ -41,7 +42,7 @@ export function TheAwardTopBanner() {
         construction industry that influences not just within Asian countries
         but also at a global arena.
       </div>
-      <_ButtonLink href="/categories">EXPLORE 2023 AADA CATEGORIES</_ButtonLink>
+      <ButtonLink href="/categories">EXPLORE 2023 AADA CATEGORIES</ButtonLink>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
         <div>Scroll down to learn more</div>
@@ -126,7 +127,9 @@ export default function _View({ bgUrl, children }: TopBannerProps) {
           <Image src={bgUrl} alt="Background" fill />
         </div>
       </div>
-      <Image src="/2023_logo.svg" alt="Logo" width={613} height={115} />
+      <div className={styles.logo}>
+        <Image src="/2023_logo.svg" alt="Logo" fill />
+      </div>
       {children}
     </div>
   );
