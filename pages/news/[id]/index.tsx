@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
 import { useAppSelector, wrapper } from "../../../store";
@@ -11,9 +10,7 @@ import ShareNews from "./ShareNews";
 import styles from "./styles.module.scss";
 import Tags from "./Tags";
 
-export default function _View() {
-  const route = useRouter();
-  const id = parseInt(route.query["id"]?.toString() || "");
+export default function _View({ id }: { id: number }) {
   const news = useAppSelector(selectNewsDetail(id));
 
   return (
@@ -60,7 +57,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
       };
     }
     return {
-      props: {},
+      props: { id },
     };
   }
 );
