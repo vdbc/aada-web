@@ -1,3 +1,3 @@
 export const apiUrl = "https://api.aadawards.com/api";
 export const paypalClientId =
-  "AVrSyyWVzpsMAVyum4Qr2dMYjDGMFAQffd-Q3vOjPFhoEW1a2JMauNYikDJyZdddfzbkZdkON-JtbXVz";
+  "AXGi-HsCUCIsdX0IZxFFsu9FYuBUXuw1NcaGDASwbsH2NcHOMDbuHpd7jbOYTqHMdGN_0iX8CUFnUqbB";

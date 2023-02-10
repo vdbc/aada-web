@@ -73,7 +73,7 @@ export default function _View({ projectId }: ViewProps) {
   if (!project) return <div />;
 
   return (
-    <div className={styles.container}>
+    <div key={project.id} className={styles.container}>
       <InputField
         className={styles.inputField}
         label="Your Entry Name"
