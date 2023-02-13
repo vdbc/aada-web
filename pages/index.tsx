@@ -7,7 +7,7 @@ import {
   TheAwardHomeBanner,
 } from "../components/HomeBanner";
 import NewsOnHomePage from "../components/NewsOnHomePage";
-import { DefaultTopBanner } from "../components/OldTopBanner";
+import { HomePageTopBanner } from "../components/TopBanner";
 import WhyYouShouldSubmitHomeBanner from "../components/WhyYouShouldSubmitHomeBanner";
 import styles from "./styles.module.css";
 
@@ -16,7 +16,7 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <Header />
-        <DefaultTopBanner />
+        <HomePageTopBanner />
         <img
           className={styles.overview}
           alt="Overview"

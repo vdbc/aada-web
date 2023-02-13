@@ -1,10 +1,11 @@
-import { Dialog } from "@mui/material";
+import { Dialog, SwipeableDrawer } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import { IoPersonCircleSharp } from "react-icons/io5";
+import { MdClose } from "react-icons/md";
 import { useAppDispatch, useAppSelector } from "../../store";
 import userSlice, {
   selectIsLogged,
@@ -29,7 +30,7 @@ declare type HeaderDetail = {
   title: string;
   link: string;
 };
-const noLoggedTab = [
+const noLoggedTab: HeaderDetail[] = [
   {
     title: "THE AWARD",
     link: "/the-award",
@@ -47,7 +48,7 @@ const noLoggedTab = [
     link: "/get-involved",
   },
 ];
-const loggedInTab = [
+const loggedInTab: HeaderDetail[] = [
   {
     title: "dashboard",
     link: "/dashboard",
@@ -66,10 +67,55 @@ const loggedInTab = [
   },
 ];
 
+function MenuItem({ title, link }: HeaderDetail) {
+  const router = useRouter();
+  return (
+    <Link
+      key={title}
+      className={[styles.link, router.route == link ? styles.active : ""].join(
+        " "
+      )}
+      href={link}
+    >
+      {title}
+    </Link>
+  );
+}
+
 function HeaderMobile() {
+  const [isOpen, setOpenMenu] = useState(false);
   return (
     <div className={styles.mobile}>
-      <button className={styles.button}>
+      <SwipeableDrawer
+        anchor="left"
+        open={isOpen}
+        onClose={() => setOpenMenu(false)}
+        onOpen={() => setOpenMenu(true)}
+        className={styles.leftMenu}
+      >
+        <div className={styles.leftMenuHeader}>
+          <Link href="/">
+            <Image
+              className={styles.logo}
+              src="/logo.svg"
+              alt="AADA Logo"
+              width={170}
+              height={56}
+            />
+          </Link>
+          <button
+            className={styles.buttonClose}
+            onClick={() => setOpenMenu(false)}
+          >
+            <MdClose size={24} />
+          </button>
+        </div>
+        <MenuItem title="Home page" link="/" />
+        {noLoggedTab.map((item) => (
+          <MenuItem key={item.link} {...item} />
+        ))}
+      </SwipeableDrawer>
+      <button className={styles.button} onClick={() => setOpenMenu(true)}>
         <HiMenu size={35} />
       </button>
       <Link href="/">

@@ -126,6 +126,14 @@ export function NewsTopBanner() {
   );
 }
 
+export function HomePageTopBanner() {
+  return (
+    <div className={styles.homePageTopBanner}>
+      <video src="/the_award.mp4" autoPlay muted loop />
+    </div>
+  );
+}
+
 declare type TopBannerProps = {
   bgUrl: string;
   children: any;

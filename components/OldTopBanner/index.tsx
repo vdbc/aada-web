@@ -30,25 +30,11 @@ function _ButtonLink({ href, children }: any) {
 
 export function DefaultTopBanner() {
   return (
-    <_View backgroundUrl="/the_award.mp4">
-      <_Header />
-      <div style={{ height: 24 }} />
-      <h1>2023</h1>
-      <h2>{"ASIA ARCHITECTURE\nDESIGN AWARDS"}</h2>
-      <div style={{ height: 40 }} />
-      <div>
-        The Asia Architecture Design Awards (AADA) is born with a desire to
-        honor excellences and creativities in a varied range of Architecture &
-        Design works, from regional to international scale.
+    <div className={styles.container}>
+      <div className={styles.background}>
+        <video src="/the_award.mp4" autoPlay muted loop />
       </div>
-      <div style={{ height: 40 }} />
-      <div className={styles.wrapperLink}>
-        <_ButtonLink href={"/the-award"}>EXPLORE 2023 AADA</_ButtonLink>
-        <div className={styles.spacer} />
-      </div>
-      <div style={{ height: 40 }} />
-      <h3>{"WINNERS’ GALA\nFAIRMONT SINGAPORE\nJUNE 2023"}</h3>
-    </_View>
+    </div>
   );
 }
 
