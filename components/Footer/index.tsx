@@ -49,26 +49,32 @@ function GroupContact() {
   );
 }
 
+function CompanyInfo({ className }: { className: string }) {
+  return (
+    <div className={[styles.box, className].join(" ")}>
+      <Image
+        className={styles.logo}
+        src="/logo_white.svg"
+        alt="Logo"
+        width={275}
+        height={90}
+      />
+      <div className={styles.companyInfo}>
+        ASIA AWARDS ORGANIZATION PTE. LTD.
+        <br />
+        <br />
+        470 North Bridge Road, #05-12 Bugis Cube, Singapore (188735)
+      </div>
+    </div>
+  );
+}
+
 function FooterMenu() {
   return (
     <div className={styles.footerMenu}>
       <div className={styles.wrapper}>
-        <div className={styles.column}>
-          <Image
-            className={styles.logo}
-            src="/logo_white.svg"
-            alt="Logo"
-            width={275}
-            height={90}
-          />
-          <div className={styles.companyInfo}>
-            ASIA AWARDS ORGANIZATION PTE. LTD.
-            <br />
-            <br />
-            470 North Bridge Road, #05-12 Bugis Cube, Singapore (188735)
-          </div>
-        </div>
-        <div className={styles.column}>
+        <CompanyInfo className={styles.companyForHorizoltal} />
+        <div className={styles.box}>
           <h3>General Information</h3>
           <div className={styles.item}>
             <Link href="#">About</Link>
@@ -77,7 +83,7 @@ function FooterMenu() {
             <Link href="#">Get Involved</Link>
           </div>
           <div className={styles.item}>
-            <Link href="#">Terms & Conditions</Link>
+            <Link href="/terms">Terms & Conditions</Link>
           </div>
           <div className={styles.item}>
             <Link href="/faqs">FAQs</Link>
@@ -88,7 +94,7 @@ function FooterMenu() {
             </Link>
           </div>
         </div>
-        <div className={styles.column}>
+        <div className={[styles.box, styles.contactForHorizoltal].join(" ")}>
           <h3>Contact</h3>
           <Link href="mailto:hello@aadawards.com">hello@aadawards.com</Link>
         </div>

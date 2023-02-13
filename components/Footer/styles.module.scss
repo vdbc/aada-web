@@ -97,6 +97,13 @@
   }
 }
 
+@media (max-width: 800px) {
+  .companyForHorizoltal,
+  .contactForHorizoltal {
+    display: none;
+  }
+}
+
 .footerMenu {
   display: flex;
   align-items: center;
@@ -111,7 +118,7 @@
     align-items: flex-start;
   }
 
-  .column {
+  .box {
     flex: 1;
   }
 

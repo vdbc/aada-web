@@ -98,6 +98,18 @@ export function FAQsTopBanner() {
   );
 }
 
+export function TermsTopBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.jpg">
+      <h1>Terms And Conditions</h1>
+      <div className={styles.scrollDown}>
+        <MdExpandMore size={15} />
+        <div>Scroll down to learn more</div>
+      </div>
+    </_View>
+  );
+}
+
 export function NewsTopBanner() {
   return (
     <_View bgUrl="/bg_the_award.jpg">
