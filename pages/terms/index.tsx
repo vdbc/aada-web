@@ -27,12 +27,12 @@ export default function Home() {
               Manufacturing and Retailing.
               <br />
               Submissions to the Asia Architecture & Design Awards – AADA 2023
-              are accepted through the award's official website:
+              are accepted through the award’s official website:
               https://aadawards.com/.
             </p>
             <p>
               Upon nominating your project to the 2023 AADA and confirming the
-              entry fees, the applicant consents to AADA's Terms and Conditions,
+              entry fees, the applicant consents to AADA’s Terms and Conditions,
               and gives permission to receive correspondence and information
               related to AADA.
             </p>
@@ -183,7 +183,7 @@ export default function Home() {
             <li>
               AADA ensures fairness and transparency in the judging process. The
               decision of the jury is final. AADA does not accept and is not
-              responsible for resolving any appeals against the jury's decision.
+              responsible for resolving any appeals against the jury’s decision.
             </li>
             <li>
               The winner for each category is the project with the highest
@@ -280,7 +280,7 @@ export default function Home() {
             <li>
               At any given time, AADA reserves the right to uphold its
               obligations as prescribed by these terms. To legally and validly
-              do so, all applicants must obtain AADA's written consent prior to
+              do so, all applicants must obtain AADA’s written consent prior to
               exercising their rights and responsibilities stated in these
               terms. AADA is not liable for failure to meet its obligations
               under these terms in case any circumstances arise without notice.
