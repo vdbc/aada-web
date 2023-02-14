@@ -21,60 +21,62 @@
   padding: 62px 95px;
   padding-bottom: 250px;
 }
+
 .images {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @media (max-width: 800px) {
+    width: calc(100vw - 40px);
+  }
 }
 
 .oneImage {
-  height: 16vw;
-  width: 32%;
+  height: 245px;
   position: relative;
 
+  @media (max-width: 800px) {
+    .badgeContent {
+      font-size: 20px;
+    }
+  }
+
   > img {
-    object-fit: contain;
+    object-fit: cover;
     z-index: -1;
   }
 
-  > div {
+  > .badgeContent {
     width: 100%;
     height: 100%;
-    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     word-break: break-word;
     text-align: center;
-    line-height: 1.2;
-    font-size: 1.5vw;
+    line-height: 113%;
+    font-size: 20px;
     z-index: 1;
-  }
-}
-.singleImage {
-  width: 100%;
-  height: 90px;
-  position: relative;
-
-  > img {
-    object-fit: contain;
+    text-transform: uppercase;
   }
 }
 
 .awardItemContainer {
   width: 100%;
-  height: 75px;
+  min-height: 75px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   position: relative;
   background-color: #a67f56;
+  padding: 8px;
 
   > .logo4 {
     position: absolute;
     left: 29px;
+
+    @media (max-width: 800px) {
+      display: none;
+    }
   }
 
   > .title {
@@ -82,11 +84,15 @@
     font-weight: 700;
     font-size: 19px;
     line-height: 1.2;
+    text-align: center;
   }
 
   > .spacer1 {
     flex: 1;
     min-width: 160px;
+    @media (max-width: 800px) {
+      min-width: 0;
+    }
   }
   > .spacer {
     flex: 1;

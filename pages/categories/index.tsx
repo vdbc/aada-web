@@ -1,5 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
+import { Grid, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
 import ContentCard from "../../components/ContentCard";
 import Footer from "../../components/Footer";
 import { RegistrationFooterBanner } from "../../components/FooterBanner";
@@ -10,8 +15,6 @@ import styles from "./styles.module.scss";
 declare type AwardItemProps = {
   children: string;
 };
-
-const defaultText = "";
 
 function AwardItem({ children }: AwardItemProps) {
   return (
@@ -26,6 +29,15 @@ function AwardItem({ children }: AwardItemProps) {
       <div className={styles.spacer1} />
       <div className={styles.title}>{children}</div>
       <div className={styles.spacer} />
+    </div>
+  );
+}
+
+function BoxContent({ children }: { children: any }) {
+  return (
+    <div className={styles.oneImage}>
+      <Image src="/square.svg" alt="Square" fill />
+      <div className={styles.badgeContent}>{children}</div>
     </div>
   );
 }
@@ -51,20 +63,60 @@ export default function Home() {
             studios, creative agencies or manufacturers, distributors…
           </div>
           <div className={styles.images}>
-            <div className={styles.oneImage}>
-              <Image src="/square.svg" alt="Square" fill />
-              <div className={styles.badgeContent}>ARCHITECTURE DESIGN</div>
-            </div>
-            <div className={styles.oneImage}>
-              <Image src="/square.svg" alt="Square" fill />
-              <div className={styles.badgeContent}>INTERIOR DESIGN</div>
-            </div>
-            <div className={styles.oneImage}>
-              <Image src="/square.svg" alt="Square" fill />
-              <div className={styles.badgeContent}>FURNITURE DESIGN</div>
-            </div>
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={1.4}
+              grid={{ rows: 1, fill: "row" }}
+              modules={[Grid, Pagination]}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                500: {
+                  slidesPerView: 2.4,
+                  grid: { rows: 1, fill: "row" },
+                },
+                650: {
+                  slidesPerView: 3.4,
+                  grid: { rows: 1, fill: "row" },
+                },
+                800: {
+                  slidesPerView: 1.4,
+                  grid: { rows: 1, fill: "row" },
+                },
+                900: {
+                  slidesPerView: 2.4,
+                  grid: { rows: 1, fill: "row" },
+                },
+                1000: {
+                  slidesPerView: 3,
+                  grid: { rows: 2, fill: "row" },
+                },
+              }}
+            >
+              <SwiperSlide>
+                <BoxContent>ARCHITECTURE DESIGN</BoxContent>
+              </SwiperSlide>
+              <SwiperSlide>
+                <BoxContent>INTERIOR DESIGN</BoxContent>
+              </SwiperSlide>
+              <SwiperSlide>
+                <BoxContent>FURNITURE DESIGN</BoxContent>
+              </SwiperSlide>
+              <SwiperSlide>
+                <BoxContent>FIRMS FOR ARCHITECTURE DESIGN</BoxContent>
+              </SwiperSlide>
+              <SwiperSlide>
+                <BoxContent>FIRMS FOR INTERIOR DESIGN</BoxContent>
+              </SwiperSlide>
+              <SwiperSlide>
+                <BoxContent>
+                  FIRMS IN FURNITURE MANUFACTURING & RETAILING
+                </BoxContent>
+              </SwiperSlide>
+            </Swiper>
           </div>
-          <div className={styles.images}>
+          {/* <div className={styles.images}>
             <div className={styles.oneImage}>
               <Image src="/square.svg" alt="Square" fill />
               <div className={styles.badgeContent}>
@@ -83,7 +135,7 @@ export default function Home() {
                 FIRMS IN FURNITURE MANUFACTURING & RETAILING
               </div>
             </div>
-          </div>
+          </div> */}
         </ContentCard>
         <ContentCard title={"\\\nBest\nArchitecture\nDesign"}>
           <h3>
@@ -315,6 +367,7 @@ export default function Home() {
             sustainability and functionality for furniture.
           </div>
         </ContentCard>
+        <div style={{ height: 100 }} />
         <RegistrationFooterBanner />
       </main>
       <Footer />
