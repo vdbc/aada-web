@@ -29,7 +29,7 @@ function TableCell({ children }: { children: any }) {
 }
 
 const cells = [
-  <TableCell>
+  <TableCell key={1}>
     <h2>DIRECT MEDIA APPROACH</h2>
     <p>
       Get published to AADA international media list upon winning 2023 AADA by a
@@ -37,7 +37,7 @@ const cells = [
       competition.
     </p>
   </TableCell>,
-  <TableCell>
+  <TableCell key={2}>
     <h2>EXCELLENT MARKETING OPPORTUNITIES</h2>
     <p>
       Customized pre and post-event marketing campaigns mentioning Sponsors
@@ -50,7 +50,7 @@ const cells = [
       Night.
     </p>
   </TableCell>,
-  <TableCell>
+  <TableCell key={3}>
     <h2>GLOBAL PROMOTION</h2>
     <p>
       Generate brand exposure to an expanded media list across and beyond Asia
@@ -58,7 +58,7 @@ const cells = [
       leadership and support within the architecture and design industry.
     </p>
   </TableCell>,
-  <TableCell>
+  <TableCell key={4}>
     <h2>RECOGNITION</h2>
     <p>
       Fostering recognition within and beyond the industry, by earning
@@ -67,7 +67,7 @@ const cells = [
       system for each and every criterion.
     </p>
   </TableCell>,
-  <TableCell>
+  <TableCell key={5}>
     <h2>INCREASED CREDIBILITY</h2>
     <p>
       Tailor-fit sponsorship opportunities are available for businesses to
@@ -75,7 +75,7 @@ const cells = [
       and design enthusiasts.
     </p>
   </TableCell>,
-  <TableCell>
+  <TableCell key={6}>
     <h2>networking</h2>
     <p>
       Connect with industry key players and experts whist forging new business
