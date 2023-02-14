@@ -51,19 +51,29 @@ function RegisterForm() {
       [field]: value,
     });
   };
+  const [isLoading, setLoading] = useState(false);
 
-  const submit = () => {
+  const submit = async () => {
     info["Created At"] = moment(new Date()).format("DD/MM/YYYY HH:mm:ss");
     const emptyFields = keys(info).filter((field) => !get(info, field));
-    console.log("mylog emptyFields: ", emptyFields, info);
     if (emptyFields.length > 0) {
       alert(`${emptyFields.join(", ")} is not empty!`);
       return;
     }
+    setLoading(true);
     post(
       "https://sheet.best/api/sheets/1807d521-c53d-49ec-bc18-03b725a3b991",
       info
-    );
+    )
+      .then(() => {
+        alert("Thankyou!");
+      })
+      .catch((err) => {
+        alert(`Error: ${err}`);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -100,7 +110,9 @@ function RegisterForm() {
           onChanged={setField("Date of Birth")}
         />
       </div>
-      <button onClick={() => submit()}>Register now</button>
+      <button onClick={isLoading ? undefined : () => submit()}>
+        {isLoading ? "Sending..." : "Register now"}
+      </button>
     </div>
   );
 }
