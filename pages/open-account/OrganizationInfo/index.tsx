@@ -1,5 +1,6 @@
 import InputField from "../../../components/InputField";
 import { Organization, organizationEmpty } from "../../../models/Organization";
+import { countries } from "../../../utils/countries";
 import { ValueChanged } from "../../../utils/interface";
 import styles from "./styles.module.scss";
 
@@ -22,13 +23,32 @@ export default function _View({
         onChanged={(value) => onChanged({ ...organization, name: value })}
         required
       />
-      <InputField
+      <div className={styles.selectInput}>
+        <label className={styles.label}>Country*</label>
+        <select
+          onChange={(event) => {
+            onChanged({ ...organization, country: event.target.value });
+          }}
+          value={organization?.country || "1"}
+          className={styles.select}
+        >
+          <option value="1" disabled>
+            Select your Country
+          </option>
+          {countries.map((country) => (
+            <option key={country} id={country}>
+              {country}
+            </option>
+          ))}
+        </select>
+      </div>
+      {/* <InputField
         label="Country"
         placeholder="Select your Country"
         value={organization.country}
         onChanged={(value) => onChanged({ ...organization, country: value })}
         required
-      />
+      /> */}
       <div className={styles.wrapperRow}>
         <div>
           <InputField

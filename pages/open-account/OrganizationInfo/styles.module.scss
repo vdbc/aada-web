@@ -1,3 +1,23 @@
+.selectInput {
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #a67f56;
+  width: 100%;
+
+  .label {
+  }
+
+  .select {
+    margin-top: 3px;
+    min-height: 37px;
+    color: #a67f56;
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
