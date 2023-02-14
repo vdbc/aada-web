@@ -5,11 +5,12 @@ import {
   MdPersonOutline,
 } from "react-icons/md";
 import { useAppSelector } from "../../../store";
-import { selectUser } from "../../../store/modules/user";
+import { selectOrganization, selectUser } from "../../../store/modules/user";
 import styles from "./styles.module.scss";
 
 export default function _View() {
   const user = useAppSelector(selectUser);
+  const organization = useAppSelector(selectOrganization);
   return (
     <div className={styles.container}>
       <h2>Account</h2>
@@ -18,7 +19,7 @@ export default function _View() {
       </div>
       <div className={styles.userInfoField}>
         <MdPersonOutline size={25} />
-        <div>Vietnam Design & Build Center</div>
+        <div>{organization?.name}</div>
       </div>
       <div className={styles.userInfoField}>
         <MdMailOutline size={25} />

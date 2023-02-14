@@ -6,7 +6,10 @@ import {
   fetchProjectNominate,
   selectDeadline,
 } from "../../store/modules/nominate";
-import { selectLastName } from "../../store/modules/user";
+import {
+  fetchOrganizationRegistered,
+  selectLastName,
+} from "../../store/modules/user";
 import AccountInfo from "./AccountInfo";
 import ContactSupport from "./ContactSupport";
 import OverviewBox from "./OverviewBox";
@@ -75,6 +78,7 @@ export default function Home() {
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
     await store.dispatch(fetchProjectNominate());
+    await store.dispatch(fetchOrganizationRegistered());
 
     return {
       props: {},
