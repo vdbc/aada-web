@@ -136,7 +136,7 @@ export default function Home() {
               The participation fee will be paid via wire transfer to the AADA
               official bank account or via a third-party payment gateway on the
               AADA website
-              <a href="https://aadawards.com" target="_blank">
+              <a href="https://aadawards.com" target="_blank" rel="noreferrer">
                 https://aadawards.com/
               </a>
               .
