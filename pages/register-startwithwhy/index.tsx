@@ -66,7 +66,7 @@ function RegisterForm() {
       info
     )
       .then(() => {
-        alert("Thankyou!");
+        alert("Thank you for your interest. We will be in touch shortly.");
       })
       .catch((err) => {
         alert(`Error: ${err}`);
