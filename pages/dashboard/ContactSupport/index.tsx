@@ -7,12 +7,14 @@ function ChatWithUs() {
     <div className={styles.chatWithUseContainer}>
       <div className={styles.label}>Or chat with us at</div>
       <div className={styles.iconWrapper}>
+        <a href="https://facebook.com/AsiaArchitectureDesignAwards">
         <SiMessenger size={20} />
+        </a>
       </div>
-      <div className={styles.iconWrapper}>
+      <div className={styles.hidden}>
         <SiViber size={20} />
       </div>
-      <div className={styles.iconWrapper}>
+      <div className={styles.hidden}>
         <SiWhatsapp size={20} />
       </div>
     </div>
