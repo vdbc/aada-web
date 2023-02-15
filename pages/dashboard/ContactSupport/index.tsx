@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MdMailOutline, MdOutlinePhoneIphone } from "react-icons/md";
 import { SiMessenger, SiViber, SiWhatsapp } from "react-icons/si";
 import styles from "./styles.module.scss";
@@ -27,14 +28,14 @@ export default function _View() {
       <h2>NEED HELP?</h2>
       <div className={styles.contactInfo}>
         <div className={styles.title}>Contact our support center</div>
-        <div className={styles.field}>
+        <Link className={styles.field} href={`mailto:submit@aadawards.com`}>
           <MdMailOutline size={25} />
           <div>submit@aadawards.com</div>
-        </div>
-        <div className={styles.field}>
+        </Link>
+        <Link className={styles.field} href={`tel:+65.729.1237`}>
           <MdOutlinePhoneIphone size={25} />
           <div>+65 729 1237</div>
-        </div>
+        </Link>
       </div>
       <ChatWithUs />
     </div>

@@ -36,8 +36,8 @@ export default function _View({
             Select your Country
           </option>
           {countries.map((country) => (
-            <option key={country} id={country}>
-              {country}
+            <option key={country.name} id={country.name}>
+              {country.name}
             </option>
           ))}
         </select>

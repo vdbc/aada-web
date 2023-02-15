@@ -1,4 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
+import Link from "next/link";
 import { Chart } from "react-google-charts";
 import ProgressBar from "../../../components/ProgressBar";
 import { RootState, useAppSelector } from "../../../store";
@@ -42,9 +43,9 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
         <div className={styles.percent}>
           {Math.floor((completed / totalEntries) * 100) + "%"}
         </div>
-        <div
-          className={styles.desc}
-        >{`${completed}/${totalEntries} entries completed`}</div>
+        <div className={styles.desc}>{`${completed}/${totalEntries} entr${
+          totalEntries > 1 ? "ies" : "y"
+        } completed`}</div>
       </div>
       <Chart
         chartType="PieChart"
@@ -113,6 +114,15 @@ function StatusOverview() {
       {data.map((item) => (
         <ProcessStatus key={item.name} {...item} />
       ))}
+      <div className={styles.actions}>
+        <Link href="/your-submission" className={styles.buttonComplete}>
+          COMPLETE YOUR SUBMISSION
+        </Link>
+        <Link href="/status-overview" className={styles.buttonDetail}>
+          Detail
+        </Link>
+      </div>
+      <div></div>
     </div>
   );
 }

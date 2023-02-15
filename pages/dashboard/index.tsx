@@ -48,11 +48,11 @@ export default function Home() {
               title="Submissions"
               subTitle="in total"
             />
-            <OverviewBox
+            {/* <OverviewBox
               number={4}
               title="updates"
               subTitle="in the last 7 days"
-            />
+            /> */}
             <OverviewBox
               number={daysLeft}
               title="Days left"

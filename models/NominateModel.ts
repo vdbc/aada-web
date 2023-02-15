@@ -22,6 +22,7 @@ export interface ProjectNominate {
   userId: string;
   entryId: string;
   name: string;
+  country: string;
   location: string;
   idea: string;
   impact: string;
