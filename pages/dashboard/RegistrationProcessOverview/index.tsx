@@ -43,9 +43,9 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
         <div className={styles.percent}>
           {Math.floor((completed / totalEntries) * 100) + "%"}
         </div>
-        <div
-          className={styles.desc}
-        >{`${completed}/${totalEntries} entries completed`}</div>
+        <div className={styles.desc}>{`${completed}/${totalEntries} entr${
+          totalEntries > 1 ? "ies" : "y"
+        } completed`}</div>
       </div>
       <Chart
         chartType="PieChart"
