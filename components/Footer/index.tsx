@@ -77,10 +77,10 @@ function FooterMenu() {
         <div className={styles.box}>
           <h3>General Information</h3>
           <div className={styles.item}>
-            <Link href="#">About</Link>
+            <Link href="/the-award">About</Link>
           </div>
           <div className={styles.item}>
-            <Link href="#">Get Involved</Link>
+            <Link href="/get-involved">Get Involved</Link>
           </div>
           <div className={styles.item}>
             <Link href="/terms">Terms & Conditions</Link>
