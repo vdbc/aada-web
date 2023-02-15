@@ -57,12 +57,13 @@ function RegisterForm() {
   const [isComplete, setComplete] = useState(false);
 
   const submit = async () => {
-    info["Created At"] = moment(new Date()).format("DD/MM/YYYY HH:mm:ss");
+    info["Created At"] = moment(new Date()).format("DD-MM-YYYY HH:mm:ss");
     const emptyFields = keys(info).filter((field) => !get(info, field));
     if (emptyFields.length > 0) {
       alert(`${emptyFields.join(", ")} is not empty!`);
       return;
     }
+    info["Date of Birth"] = info["Date of Birth"].replace("/", "-");
     setLoading(true);
     post(
       "https://sheet.best/api/sheets/1807d521-c53d-49ec-bc18-03b725a3b991",
