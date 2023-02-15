@@ -1,4 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
+import Link from "next/link";
 import { Chart } from "react-google-charts";
 import ProgressBar from "../../../components/ProgressBar";
 import { RootState, useAppSelector } from "../../../store";
@@ -113,6 +114,15 @@ function StatusOverview() {
       {data.map((item) => (
         <ProcessStatus key={item.name} {...item} />
       ))}
+      <div className={styles.actions}>
+        <Link href="/your-submission" className={styles.buttonComplete}>
+          COMPLETE YOUR SUBMISSION
+        </Link>
+        <Link href="/status-overview" className={styles.buttonDetail}>
+          Detail
+        </Link>
+      </div>
+      <div></div>
     </div>
   );
 }

@@ -28,6 +28,40 @@
         margin-bottom: 8px;
       }
     }
+
+    .actions {
+      margin-top: 28px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      > * {
+        flex: 1;
+        margin-left: 20px;
+        min-height: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+        white-space: nowrap;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
+
+      .buttonComplete {
+        background-color: #a67f56;
+        color: white;
+      }
+
+      .buttonDetail {
+        border: 0.5px solid #a67f56;
+      }
+    }
   }
 }
 

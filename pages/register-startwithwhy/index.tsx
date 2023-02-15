@@ -1,6 +1,8 @@
+import Dialog from "@mui/material/Dialog";
 import { get, keys } from "lodash";
 import moment from "moment";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { post } from "../../services/http";
 import { ValueChanged } from "../../utils/interface";
@@ -52,6 +54,7 @@ function RegisterForm() {
     });
   };
   const [isLoading, setLoading] = useState(false);
+  const [isComplete, setComplete] = useState(false);
 
   const submit = async () => {
     info["Created At"] = moment(new Date()).format("DD/MM/YYYY HH:mm:ss");
@@ -66,7 +69,7 @@ function RegisterForm() {
       info
     )
       .then(() => {
-        alert("Thank you for your interest. We will be in touch shortly.");
+        setComplete(true);
       })
       .catch((err) => {
         alert(`Error: ${err}`);
@@ -113,6 +116,16 @@ function RegisterForm() {
       <button onClick={isLoading ? undefined : () => submit()}>
         {isLoading ? "Sending..." : "Register now"}
       </button>
+      <Dialog open={isComplete} onClose={() => setComplete(false)}>
+        <div className={styles.completeDialog}>
+          <div className={styles.message}>
+            Thank you for your interest. We will be in touch shortly.
+          </div>
+          <Link className={styles.button} href="/">
+            Go to home page
+          </Link>
+        </div>
+      </Dialog>
     </div>
   );
 }
