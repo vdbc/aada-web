@@ -7,13 +7,15 @@ function ChatWithUs() {
   return (
     <div className={styles.chatWithUseContainer}>
       <div className={styles.label}>Or chat with us at</div>
-        <div className={styles.socials}>
-      <Link href="https://facebook.com/AsiaArchitectureDesignAwards"
-      target="_blank">
-      <div className={styles.iconWrapper}>
-        <SiMessenger size={20} /> 
-      </div>
-      </Link>
+      <div className={styles.socials}>
+        <Link
+          href="https://facebook.com/AsiaArchitectureDesignAwards"
+          target="_blank"
+        >
+          <div className={styles.iconWrapper}>
+            <SiMessenger size={20} />
+          </div>
+        </Link>
       </div>
       {/* <div className={styles.iconWrapper}>
         <SiViber size={20} />
