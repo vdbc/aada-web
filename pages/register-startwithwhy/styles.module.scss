@@ -25,7 +25,7 @@
     justify-content: center;
 
     .waveSignup {
-      z-index: 1000;
+      z-index: -1;
       position: absolute;
       top: -10px;
       width: 100vw;
@@ -88,6 +88,7 @@
     }
   }
   h2 {
+    padding: 0 20px;
     margin: 0;
     margin-top: 50px;
     margin-bottom: 25px;
