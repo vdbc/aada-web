@@ -1,22 +1,34 @@
-import Image from "next/image";
-import { IoIosArrowDown } from "react-icons/io";
+import Select from "react-select";
 import InputField from "../../../components/InputField";
 import ProgressBar from "../../../components/ProgressBar";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import nominateSlice, {
   selectProjectNomintateDetail,
 } from "../../../store/modules/nominate";
+import { countrieDetails, countries } from "../../../utils/countries";
 import { ValueChanged } from "../../../utils/interface";
 import { getProgressPercentField } from "../../../utils/project-nominate";
 import InputImages from "../InputImages";
 import styles from "./styles.module.scss";
 
-function SelectLocale() {
+declare type SelectLocaleProps = {
+  value: string;
+  placeholder: string;
+  onChanged: ValueChanged<string>;
+};
+
+function SelectLocale({ onChanged, value, placeholder }: SelectLocaleProps) {
   return (
     <div className={styles.selectLocaleContainer}>
-      <Image src="/flag_vn.svg" alt="Flag VN" width={33} height={22} />
-      <div className={styles.value}>Viet Nam</div>
-      <IoIosArrowDown />
+      <Select
+        className={styles.select}
+        onChange={(event) => onChanged(event?.name ?? "")}
+        placeholder={placeholder}
+        value={countrieDetails[value]}
+        getOptionLabel={(item) => `${item.flag} ${item.name}`}
+        getOptionValue={(item) => item.name}
+        options={countries}
+      />
     </div>
   );
 }
@@ -90,7 +102,20 @@ export default function _View({ projectId }: ViewProps) {
         required
       />
       <InputField
-        prefix={<SelectLocale />}
+        prefix={
+          <SelectLocale
+            placeholder="Country"
+            value={project.country}
+            onChanged={(country) =>
+              dispatch(
+                nominateSlice.actions.projectUpdated({
+                  ...project,
+                  country,
+                })
+              )
+            }
+          />
+        }
         className={styles.inputField}
         label="Location"
         placeholder="Type your city name"

@@ -34,8 +34,22 @@
   flex-direction: row;
   align-items: center;
 
-  .value {
+  .select {
+    min-width: 180px;
+  }
+
+  .flag {
+    font-size: 40px;
+  }
+
+  .country {
     margin: 0 12px;
+  }
+
+  select,
+  select:focus {
+    border-style: none;
+    font-size: 40px;
   }
 }
 
