@@ -6,6 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 9001",
+    "start:pm2": "pm2 start npm --name aada-web -- start",
+    "stop:pm2": "pm2 delete aada-web",
+    "restart": "npm run build && pm2 restart aada-web",
     "lint": "next lint"
   },
   "dependencies": {
