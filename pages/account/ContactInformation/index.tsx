@@ -32,7 +32,7 @@ export default function _View() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} key={organization?.id}>
       <h2 className={styles.title}>Organization contact</h2>
       <InputField
         label="Organization name"
