@@ -14,5 +14,5 @@ function SelectLocale() {
 }
 
 export default function _View(props: InputProps) {
-  return <InputField prefix={<SelectLocale />} {...props} />;
+  return <InputField {...props} />;
 }
