@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ValueChanged } from "../../utils/interface";
+import { TextInputValidator, ValueChanged } from "../../utils/interface";
 import styles from "./styles.module.scss";
 
 export declare type InputProps = {
@@ -9,9 +9,11 @@ export declare type InputProps = {
   secure?: boolean;
   prefix?: any;
   className?: string;
+  inputClassName?: string;
   onChanged: ValueChanged<string>;
   disable?: boolean;
   value?: string;
+  validator?: TextInputValidator;
 };
 
 export default function InputField({
@@ -22,8 +24,10 @@ export default function InputField({
   prefix,
   onChanged: onChange,
   className = "",
+  inputClassName = "",
   disable: disabled = false,
   value = "",
+  validator,
 }: InputProps) {
   const [text, setText] = useState(value || "");
 
@@ -31,11 +35,12 @@ export default function InputField({
     onChange(text);
     setText(text);
   }
+  const message = validator ? validator(text) : "";
   return (
     <div className={[styles.inputContainer, className].join(" ")}>
       <div className={styles.label}>{label + (required ? "*" : "")}</div>
 
-      <div className={styles.input}>
+      <div className={[styles.input, inputClassName].join(" ")}>
         {prefix}
         <input
           value={text}
@@ -45,6 +50,7 @@ export default function InputField({
           disabled={disabled}
         />
       </div>
+      {message && <div className={styles.errorMessage}>{message}</div>}
     </div>
   );
 }

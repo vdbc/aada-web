@@ -13,6 +13,7 @@ import {
   ProjectNominate,
 } from "../../../models/NominateModel";
 import {
+  confirmSubmitProject,
   fetchFeePerEntry,
   getAllNominate,
   getProjectRegistered,
@@ -83,6 +84,16 @@ export const saveProjectNominate = createAsyncThunk<
   }, 1000)
 );
 
+export const submitProject = createAsyncThunk<
+  ProjectNominate,
+  ProjectNominate,
+  { state: RootState }
+>("nominate/submitProject", async (project, store) => {
+  const state = store.getState();
+  const token = selectToken(state);
+  return confirmSubmitProject(project, token);
+});
+
 export const nominateSlice = createSlice({
   name: "nominate",
   initialState,
@@ -103,6 +114,12 @@ export const nominateSlice = createSlice({
           ...keyBy(action.payload.projects, (item) => item.id),
         };
         state.isPaid = action.payload.isPaid || false;
+      })
+      .addCase(submitProject.fulfilled, (state, action) => {
+        state.projectDetails = {
+          ...state.projectDetails,
+          [action.payload.id]: action.payload,
+        };
       })
       .addCase(fetchAllNominate.fulfilled, (state, action) => {
         state.nominateList = action.payload;

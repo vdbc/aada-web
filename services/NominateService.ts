@@ -100,3 +100,15 @@ export async function saveProject(
 
   return resp.data;
 }
+
+export async function confirmSubmitProject(
+  project: ProjectNominate,
+  token: string
+): Promise<ProjectNominate> {
+  const url = `${apiUrl}/nominate/projects/${project.id}/submit`;
+  return post<ProjectNominate>(url, project, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}

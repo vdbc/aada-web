@@ -12,7 +12,7 @@ export interface Nominate {
   entries: NominateEntry[];
 }
 
-enum ProjectNominateStatus {
+export enum ProjectNominateStatus {
   DRAFT = "DRAFT",
   SUBMITED = "SUBMITED",
 }
@@ -33,7 +33,7 @@ export interface ProjectNominate {
   manufacturer: string;
   owner: string;
   pictures: string[];
-  status: ProjectNominateStatus.DRAFT;
+  status: ProjectNominateStatus;
   createdAt: Date;
   deadline: string;
 }

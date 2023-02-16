@@ -6,6 +6,7 @@ import { login } from "../../services/UserService";
 import { useAppDispatch } from "../../store";
 import userSlice from "../../store/modules/user";
 import { VoidCallback } from "../../utils/interface";
+import { Toast } from "../../utils/toast";
 import styles from "./styles.module.scss";
 
 const lightTheme: ThemeOptions = createTheme({
@@ -59,7 +60,7 @@ export default function _View({ dismiss }: Props) {
       dismiss();
       route.push("/dashboard");
     } catch (err: any) {
-      alert(err?.message ?? "");
+      Toast.error(err?.message ?? "");
     }
 
     setLoading(false);

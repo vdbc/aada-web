@@ -13,7 +13,7 @@ import { IoMdClose } from "react-icons/io";
 import { useAppSelector } from "../../../store";
 import { selectUserId } from "../../../store/modules/user";
 import { storage } from "../../../utils/firebase";
-import { ValueChanged } from "../../../utils/interface";
+import { ImagesInputValidator, ValueChanged } from "../../../utils/interface";
 import styles from "./styles.module.scss";
 
 const MAX_OF_IMAGE = 10;
@@ -109,10 +109,11 @@ function getImageSrc({ url, base64 }: ImageItem) {
 
 declare type ImageItemProps = {
   image: ImageItem;
+  disable: boolean;
   onRemove: VoidFunction;
 };
 
-function ImageItemComponent({ image, onRemove }: ImageItemProps) {
+function ImageItemComponent({ image, disable, onRemove }: ImageItemProps) {
   const src = getImageSrc(image);
   const isActive = image.isUploaded;
   const progress = image.progress;
@@ -130,11 +131,13 @@ function ImageItemComponent({ image, onRemove }: ImageItemProps) {
           <CircularProgressWithLabel value={progress} />
         </div>
       )}
-      <div className={styles.removeContainer}>
-        <button onClick={onRemove}>
-          <IoMdClose size={15} />
-        </button>
-      </div>
+      {!disable && (
+        <div className={styles.removeContainer}>
+          <button onClick={onRemove}>
+            <IoMdClose size={15} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -142,9 +145,17 @@ function ImageItemComponent({ image, onRemove }: ImageItemProps) {
 declare type ViewProps = {
   label: string;
   value: string[];
+  disable: boolean;
   onChanged: ValueChanged<string[]>;
+  validator?: ImagesInputValidator;
 };
-export default function _View({ label, value, onChanged }: ViewProps) {
+export default function _View({
+  label,
+  value,
+  disable,
+  onChanged,
+  validator,
+}: ViewProps) {
   const ref = useRef<HTMLInputElement>(null);
   const [images, setImages] = useState<ImageItem[]>(
     (value || []).map((url) => ({
@@ -158,6 +169,9 @@ export default function _View({ label, value, onChanged }: ViewProps) {
   const canAddImage =
     images.length < MAX_OF_IMAGE &&
     images.findIndex((item) => !item.isUploaded) == -1;
+  const message = validator
+    ? validator(images.map((item) => item.url ?? ""))
+    : "";
 
   return (
     <div className={styles.container}>
@@ -229,6 +243,7 @@ export default function _View({ label, value, onChanged }: ViewProps) {
             <ImageItemComponent
               key={image.id}
               image={image}
+              disable={disable}
               onRemove={() => {
                 const allImages = images.filter((img) => img.id != image.id);
                 setImages(allImages);
@@ -242,7 +257,7 @@ export default function _View({ label, value, onChanged }: ViewProps) {
         <button
           className={styles.button}
           onClick={canAddImage ? () => ref.current?.click() : undefined}
-          disabled={!canAddImage}
+          disabled={!canAddImage || disable}
         >
           Upload
         </button>
@@ -252,6 +267,7 @@ export default function _View({ label, value, onChanged }: ViewProps) {
         <br />
         Only PNG, JPG & JPEGs formats are accepted.
       </div>
+      {message && <div className={styles.errorMessage}>{message}</div>}
     </div>
   );
 }

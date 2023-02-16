@@ -2,10 +2,11 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Fragment } from "react";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { wrapper } from "../store";
 import "../styles/globals.css";
 import { getInitialAppProps } from "../utils/redux";
-
 function App({ Component, ...rest }: AppProps) {
   const { store } = wrapper.useWrappedStore(rest);
   return (
@@ -60,6 +61,7 @@ function App({ Component, ...rest }: AppProps) {
         </noscript>
         <Provider store={store}>
           <Component {...rest.pageProps} />
+          <ToastContainer theme="colored" hideProgressBar autoClose={4000} />
         </Provider>
       </main>
     </Fragment>

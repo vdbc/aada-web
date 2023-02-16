@@ -6,6 +6,7 @@ import { persistStore } from "redux-persist";
 import { isServer } from "../utils/common";
 import { listenerMiddleware } from "./listener-middleware";
 import billingSlice, { BillingState } from "./modules/billing";
+import "./modules/common";
 import newsSlice, { NewsState } from "./modules/news";
 import nominateSlice, { NominateState } from "./modules/nominate";
 import userSlice, { UserState } from "./modules/user";
