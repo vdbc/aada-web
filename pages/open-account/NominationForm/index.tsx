@@ -77,7 +77,8 @@ function _View({ onRegisterSuccess }: Props) {
       token
     ).catch((err) => getNominateEntriesRegistered(token));
 
-    const orderId = await actions.order.create({
+    return actions.order.create({
+      intent: "CAPTURE",
       purchase_units: [
         {
           amount: {
@@ -88,10 +89,10 @@ function _View({ onRegisterSuccess }: Props) {
         },
       ],
     });
-    return orderId;
   }
   async function onApprove(data: OnApproveData, actions: OnApproveActions) {
     const token = selectToken(store.getState());
+    await actions.order?.capture();
     await confirmPaymentNominateEntries(data, token);
     onRegisterSuccess();
   }
@@ -122,7 +123,6 @@ function _View({ onRegisterSuccess }: Props) {
         <div className={styles.paymentButton}>
           <PayPalScriptProvider
             options={{
-              locale: "en_GB",
               "client-id": paypalClientId,
             }}
           >
@@ -133,6 +133,7 @@ function _View({ onRegisterSuccess }: Props) {
                 label: "buynow",
                 color: "gold",
                 tagline: false,
+                shape: "rect",
               }}
               forceReRender={[toalEntries, isPaid]}
               createOrder={handleCreateOrder}

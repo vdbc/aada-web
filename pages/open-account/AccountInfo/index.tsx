@@ -52,6 +52,7 @@ export default function _View({ user = userEmpty, onUserUpdated }: Props) {
           if (value == email) onUserUpdated({ ...user, email: value });
           else onUserUpdated({ ...user, email: "" });
         }}
+        validator={(text) => (text == email || !text ? "" : "Email not match!")}
         required
       />
       <InputField
@@ -75,6 +76,9 @@ export default function _View({ user = userEmpty, onUserUpdated }: Props) {
           if (value == password) onUserUpdated({ ...user, password: value });
           else onUserUpdated({ ...user, password: "" });
         }}
+        validator={(text) =>
+          text == password || !text ? "" : "Password not match!"
+        }
         required
         secure
       />
