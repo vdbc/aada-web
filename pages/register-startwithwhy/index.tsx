@@ -1,6 +1,7 @@
 import Dialog from "@mui/material/Dialog";
 import { get, keys } from "lodash";
 import moment from "moment";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -133,57 +134,57 @@ function RegisterForm() {
 
 export default function _View() {
   return (
-    <>
-      <title>Start With Why</title>
-      <meta name="description" content="Asia Architecture Design Awards" />
-      <div className={styles.container}>
-        <Image
-          className={styles.background}
-          src="/start_with_why/bg.jpg"
-          alt="Background"
-          fill
-        />
+    <div className={styles.container}>
+      <Head>
+        <title>Start With Why</title>
+        <meta name="description" content="Asia Architecture Design Awards" />
+      </Head>
+      <Image
+        className={styles.background}
+        src="/start_with_why/bg.jpg"
+        alt="Background"
+        fill
+      />
+      <img
+        className={styles.waveTop}
+        src="/start_with_why/wave_top.svg"
+        alt="Background"
+      />
+      <Image
+        className={styles.logo}
+        src="/start_with_why/aao_aada_logo.svg"
+        alt="Logo"
+        width={204}
+        height={48}
+      />
+      <h1 className={styles.title}>Start with why</h1>
+      <div className={styles.desc}>#01 - Why Architects</div>
+      <div className={styles.desc}>should really tell their stories?</div>
+      <img
+        className={styles.timeline}
+        src="/start_with_why/timeline.svg"
+        alt="Timeline"
+      />
+      <img
+        className={styles.timelineMobile}
+        src="/start_with_why/timeline_mobile.svg"
+        alt="Timeline"
+      />
+      <div className={styles.signupLabel}>
+        <h2>Sign up</h2>
         <img
-          className={styles.waveTop}
-          src="/start_with_why/wave_top.svg"
-          alt="Background"
-        />
-        <Image
-          className={styles.logo}
-          src="/start_with_why/aao_aada_logo.svg"
-          alt="Logo"
-          width={204}
-          height={48}
-        />
-        <h1 className={styles.title}>Start with why</h1>
-        <div className={styles.desc}>#01 - Why Architects</div>
-        <div className={styles.desc}>should really tell their stories?</div>
-        <img
-          className={styles.timeline}
-          src="/start_with_why/timeline.svg"
-          alt="Timeline"
-        />
-        <img
-          className={styles.timelineMobile}
-          src="/start_with_why/timeline_mobile.svg"
-          alt="Timeline"
-        />
-        <div className={styles.signupLabel}>
-          <h2>Sign up</h2>
-          <img
-            className={styles.waveSignup}
-            src="/start_with_why/wave_signup.svg"
-            alt="Background"
-          />
-        </div>
-
-        <RegisterForm />
-        <img
-          className={styles.waveBottom}
-          src="/start_with_why/wave_bottom.svg"
+          className={styles.waveSignup}
+          src="/start_with_why/wave_signup.svg"
           alt="Background"
         />
       </div>
-    </>
+
+      <RegisterForm />
+      <img
+        className={styles.waveBottom}
+        src="/start_with_why/wave_bottom.svg"
+        alt="Background"
+      />
+    </div>
   );
 }
