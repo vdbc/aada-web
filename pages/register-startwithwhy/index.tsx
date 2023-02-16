@@ -27,8 +27,8 @@ function InputField({ label, placeholder, onChanged }: InputFieldProps) {
 }
 
 declare type UserInfo = {
-  ["First Name"]: string;
-  ["Last Name"]: string;
+  ["Full Name"]: string;
+  ["Mobile"]: string;
   Email: string;
   Company: string;
   ["Job Title"]: string;
@@ -36,8 +36,8 @@ declare type UserInfo = {
   ["Created At"]: string;
 };
 const userInfoEmpty = {
-  "First Name": "",
-  "Last Name": "",
+  "Full Name": "",
+  Mobile: "",
   Email: "",
   Company: "",
   "Job Title": "",
@@ -84,32 +84,32 @@ function RegisterForm() {
     <div className={styles.formContainer}>
       <div className={styles.inputs}>
         <InputField
-          label="First name* "
-          placeholder="Your First Name"
-          onChanged={setField("First Name")}
+          label="Full Name*"
+          placeholder="Your Full Name"
+          onChanged={setField("Full Name")}
         />
         <InputField
-          label="Last name* "
-          placeholder="Your Last Name"
-          onChanged={setField("Last Name")}
+          label="Mobile*"
+          placeholder="Your Mobile"
+          onChanged={setField("Mobile")}
         />
         <InputField
-          label="Email* "
+          label="Email*"
           placeholder="Your Email"
           onChanged={setField("Email")}
         />
         <InputField
-          label="Company* "
+          label="Company*"
           placeholder="Your Company Name"
           onChanged={setField("Company")}
         />
         <InputField
-          label="Job Title* "
+          label="Job Title*"
           placeholder="Your Job Title"
           onChanged={setField("Job Title")}
         />
         <InputField
-          label="Date of Birth* "
+          label="Date of Birth*"
           placeholder="DD/MM/YYYY"
           onChanged={setField("Date of Birth")}
         />
