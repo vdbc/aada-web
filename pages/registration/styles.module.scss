@@ -120,12 +120,24 @@
 .offerCardContainer {
   position: relative;
   min-height: 245px;
-  flex: 1;
+  min-width: 245px;
+  width: 46%;
+  margin-top: 20px;
   background-color: #a67f56;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
+  @media (max-width: 800px) {
+    width: 47%;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 
   .logo {
     position: absolute;
@@ -149,12 +161,14 @@
     justify-self: center;
     line-height: 1.5;
     color: white;
+    padding: 12px;
 
     > h3 {
       font-weight: 700;
-      font-size: 45px;
+      font-size: 40px;
       margin: 0;
       text-transform: uppercase;
+      text-align: center;
     }
 
     > div {
@@ -166,5 +180,6 @@
 .offers {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
 }

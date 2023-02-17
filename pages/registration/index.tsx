@@ -105,7 +105,6 @@ export default function _View() {
               <h3>EARLY ENTRY</h3>
               <div>USD180 per entry</div>
             </OfferCard>
-            <div style={{ width: 20 }} />
             <OfferCard>
               <h3>Standard</h3>
               <div>USD200 per entry</div>
