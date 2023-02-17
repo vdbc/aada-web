@@ -6,6 +6,8 @@ import Footer from "../../components/Footer";
 import { RegistrationFooterBanner } from "../../components/FooterBanner";
 import Header from "../../components/Header";
 import { RegistrationTopBanner } from "../../components/TopBanner";
+import RegistrationProcess from "./RegistrationProcess";
+import RegistrationTimeline from "./RegistrationTimeline";
 import styles from "./styles.module.scss";
 
 const separator = (
@@ -32,6 +34,7 @@ function OfferCard({ children }: OfferCardProps) {
 }
 
 export default function _View() {
+  // return <RegistrationTimeline />;
   return (
     <div className={styles.container}>
       <Head>
@@ -78,63 +81,14 @@ export default function _View() {
             your business and project and eligibility of your submission.
           </div>
         </ContentCard>
-        <img
-          className={styles.registration_timeline}
-          alt="Registration Timeline"
-          src="/registration_timeline.svg"
-        />
+        <RegistrationTimeline />
         <div className={styles.groupProcess}>
           <div className={styles.registration_process}>
             <img alt="Registration Process" src="/registration_process.svg" />
           </div>
           <div className={styles.content}>
-            <ContentCard
-              title={"\\\nRegistration\nProcess"}
-              separator={separator}
-            >
-              <div className={styles.buttonProcess}>
-                <span>CREATE YOUR AADA ACCOUNT</span>
-                <div className={styles.dot} />
-              </div>
-              <div>
-                Fill the registration form for an official account on AADA
-                website. You may have to provide required information of
-                yourself and the participating business and non-mandatory fields
-                for additional terms that you can choose whether to fill or not.
-              </div>
-              <br />
-              <div className={styles.buttonProcess}>
-                <span>SELECT YOUR NOMINATION CATEGORY</span>
-                <div className={styles.dot} />
-              </div>
-              <div>
-                Choose the suitable discipline and category for your entry. The
-                number of nomination is not limited. The categories change
-                depending on chosen discipline.
-              </div>
-              <br />
-              <div className={styles.buttonProcess}>
-                <span>PAYMENT OF FEES</span>
-                <div className={styles.dot} />
-              </div>
-              <div>
-                All fees are charge per entry by 2023 AADA. Upon completion of
-                your submission, you will be directed to Paypal payment gateway.
-                An e-invoice will be send to your email to acknowledge receipt
-                your successful payment.
-              </div>
-              <br />
-              <div className={styles.buttonProcess}>
-                <span>SUBMIT YOUR ENTRY DOCUMENTS</span>
-                <div className={styles.dot} />
-              </div>
-              <div>
-                The 2023 AADA evaluation process is a judge-based scoring
-                procedure, hence you are required to provide detailed
-                description of your project and business. The documents needed
-                to complete your nomination include a Project Statement, Details
-                and at least 10 pictures (or video, if possible).
-              </div>
+            <ContentCard title={"\\\nRegistration\nProcess"}>
+              <RegistrationProcess />
             </ContentCard>
           </div>
         </div>
