@@ -233,12 +233,10 @@ export default function Home() {
             opportunity for businesses to garner prestigious accolades, hence a
             continual growth on an international level.
           </div>
-          <div className={styles.video}>
-            <video autoPlay muted loop>
-              <source src="/the_award.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <video className={styles.video} autoPlay muted loop>
+            <source src="/the_award.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </ContentCard>
         <ContentCard title={"\\\nThe Value"}>
           <h2>DISCOVER THE WORTH</h2>
