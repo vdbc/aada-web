@@ -1,4 +1,12 @@
-import { Chrono } from "react-chrono";
+import {
+  Timeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+  TimelineItem,
+  timelineItemClasses,
+  TimelineSeparator,
+} from "@mui/lab";
 import styles from "./styles.module.scss";
 
 const items = [
@@ -27,26 +35,47 @@ const items = [
 export default function View() {
   return (
     <div className={styles.container}>
-      <Chrono
-        mode="VERTICAL"
-        hideControls
-        useReadMore={false}
-        theme={{
-          cardBgColor: "transparent",
-          primary: "#FAC47E",
-          cardForeColor: "white",
+      <Timeline
+        sx={{
+          [`& .${timelineItemClasses.root}:before`]: {
+            flex: 0,
+            padding: 0,
+          },
         }}
-        activeItemIndex={-1}
-        disableClickOnCircle
-        lineWidth={0.5}
-        classNames={{
-          card: styles.card,
-          cardTitle: styles.title,
-          cardSubTitle: styles.subTitle,
-          cardText: styles.text,
-        }}
-        items={items}
-      />
+      >
+        {items.map((item, index) => (
+          <TimelineItem>
+            <TimelineSeparator className={styles.separator}>
+              <TimelineDot variant="outlined" color="secondary" />
+              <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
+            </TimelineSeparator>
+            <TimelineContent className={styles.card}>
+              <header className={styles.title}>{item.cardTitle}</header>
+              <div className={styles.text}>{item.cardDetailedText}</div>
+            </TimelineContent>
+          </TimelineItem>
+        ))}
+        {/* <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>Eat</TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>Code</TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot />
+          </TimelineSeparator>
+          <TimelineContent>Sleep</TimelineContent>
+        </TimelineItem> */}
+      </Timeline>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Fragment } from "react";
@@ -7,6 +8,18 @@ import "react-toastify/dist/ReactToastify.css";
 import { wrapper } from "../store";
 import "../styles/globals.css";
 import { getInitialAppProps } from "../utils/redux";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#a67f56",
+    },
+    secondary: {
+      main: "#FAC47E",
+    },
+  },
+});
+
 function App({ Component, ...rest }: AppProps) {
   const { store } = wrapper.useWrappedStore(rest);
   return (
@@ -60,7 +73,9 @@ function App({ Component, ...rest }: AppProps) {
           ></iframe>
         </noscript>
         <Provider store={store}>
-          <Component {...rest.pageProps} />
+          <ThemeProvider theme={theme}>
+            <Component {...rest.pageProps} />
+          </ThemeProvider>
           <ToastContainer theme="colored" hideProgressBar autoClose={4000} />
         </Provider>
       </main>
