@@ -43,8 +43,8 @@ export default function View() {
           },
         }}
       >
-        {items.map((item, index) => (
-          <TimelineItem>
+        {items.map((item) => (
+          <TimelineItem key={item.cardTitle}>
             <TimelineSeparator className={styles.separator}>
               <TimelineDot variant="outlined" color="secondary" />
               <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
