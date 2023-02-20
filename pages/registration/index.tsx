@@ -34,7 +34,6 @@ function OfferCard({ children }: OfferCardProps) {
 }
 
 export default function _View() {
-  // return <RegistrationTimeline />;
   return (
     <div className={styles.container}>
       <Head>
