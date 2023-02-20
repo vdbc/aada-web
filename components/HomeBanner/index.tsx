@@ -30,24 +30,26 @@ function _ButtonLink({ href, children }: any) {
 
 export function TheAwardHomeBanner() {
   return (
-    <HomeBannerLeftContent backgroundUrl="/home/bg_the_award.jpg">
-      <_Header>CATEGORIES</_Header>
-      <div style={{ height: 60 }} />
-      <h2>2023 AADA</h2>
-      <h2>CATEGORIES</h2>
-      <div style={{ height: 60 }} />
-      <div>
-        AADA aspires to curate and promote the efforts of talented designers and
-        companies in emerging Asia architecture and design industry, provides an
-        excellent platform to present their work on an international level.
+    <div className={styles.theAwardHomeBannerContainer}>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <Image
+            className={styles.logo}
+            src="/logo.svg"
+            alt="Logo"
+            width={239}
+            height={79}
+          />
+          <h2 className={styles.title}>2023 AADA Categories</h2>
+          <div className={styles.description}>
+            AADA aspires to curate and promote the efforts of talented designers
+            and companies in emerging Asia architecture and design industry,
+            provides an excellent platform to present their work on an
+            international level.
+          </div>
+        </div>
       </div>
-      <div style={{ height: 60 }} />
-      <div className={styles.wrapperLink}>
-        {/* <_ButtonLink href={"/categories"}>EXPLORE</_ButtonLink> */}
-        <div className={styles.spacer} />
-      </div>
-      <div style={{ height: 10 }} />
-    </HomeBannerLeftContent>
+    </div>
   );
 }
 
@@ -102,11 +104,8 @@ export function HomeBannerRightContent({
       <div className={styles.background}>
         <Image src={backgroundUrl} alt="Background" fill />
       </div>
-      <div className={styles.spacer} />
-      <div className={styles.spacer}>
-        <div className={styles.spacer} />
+      <div className={styles.wrapper}>
         <div className={styles.contentBox}>{children}</div>
-        <div className={styles.spacer} />
       </div>
     </div>
   );

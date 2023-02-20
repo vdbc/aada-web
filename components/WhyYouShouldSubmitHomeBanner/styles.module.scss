@@ -14,15 +14,19 @@
   position: relative;
   color: #a67f56;
   min-height: calc(100vh - 100px);
-  // min-height: 500px;
   padding: 0;
   padding-top: 76px;
+
+  @media (max-width: 800px) {
+    min-height: calc(100vh - 60px);
+  }
 
   > h1 {
     font-family: "SVN-MADE Coachella";
     font-weight: 100;
     font-size: 60px;
     margin: 0;
+    text-align: center;
   }
   > h2 {
     font-size: 40px;
@@ -50,9 +54,9 @@
     text-align: center;
   }
 
-  > .image {
+  > .table {
+    margin-top: 50px;
     width: 100%;
-    padding: 40px;
     background-color: #a67f56;
     display: flex;
     flex: 1;
@@ -79,5 +83,102 @@
 
   > .wrapper {
     margin-right: 45px;
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #fac47e80;
+}
+
+.discoverTheWorth {
+  background-color: #a67f56;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  table,
+  th,
+  td {
+    border: 1px solid #fac47e80;
+    border-collapse: collapse;
+  }
+
+  table {
+    max-width: 1200px;
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 20px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 5px;
+      background-color: white;
+      margin: 0 3px;
+    }
+
+    .active {
+      opacity: 1;
+    }
+
+    .inactive {
+      opacity: 0.5;
+    }
+  }
+
+  .fullTable {
+    @media (max-width: 1060px) {
+      display: none;
+    }
+  }
+
+  .swipeTable {
+    display: none;
+
+    @media (max-width: 1060px) {
+      display: flex;
+      max-width: 100vw;
+    }
+  }
+
+  .tableCell {
+    padding: 20px;
+
+    background-color: #a67f56;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > img {
+      position: absolute;
+    }
+
+    .content {
+      margin-left: 35px;
+
+      h2 {
+        margin-top: 0;
+        text-align: left;
+        font-weight: 250;
+        font-size: 33px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
   }
 }
