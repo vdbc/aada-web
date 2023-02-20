@@ -2,6 +2,7 @@
 import AwardCategoriesHomeBanner from "../components/AwardCategoriesHomeBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import HomepageOverview from "../components/home-page/HomepageOverview";
 import {
   GetInvolvedHomeBanner,
   TheAwardHomeBanner,
@@ -17,14 +18,8 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <HomePageTopBanner />
-        <img
-          className={styles.overview}
-          alt="Overview"
-          src="/home/overview.svg"
-        />
-
+        <HomepageOverview />
         <TheAwardHomeBanner />
-
         <AwardCategoriesHomeBanner />
         <img
           className={styles.timeline}
