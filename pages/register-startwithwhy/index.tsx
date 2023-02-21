@@ -66,10 +66,7 @@ function RegisterForm() {
     }
     info["Date of Birth"] = info["Date of Birth"].replaceAll("/", "-");
     setLoading(true);
-    post(
-      "https://sheet.best/api/sheets/1807d521-c53d-49ec-bc18-03b725a3b991",
-      info
-    )
+    post("https://api.aadawards.com/sheets/start-with-why", info)
       .then(() => {
         setComplete(true);
       })
