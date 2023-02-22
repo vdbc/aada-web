@@ -7,6 +7,78 @@ import Header from "../../components/Header";
 import { GetInvolvedTopBanner } from "../../components/TopBanner";
 import styles from "./styles.module.scss";
 
+declare type ItemContent = {
+  title: string;
+  description: string;
+};
+
+const nomineesContents: ItemContent[] = [
+  {
+    title: "BRAND DIFFERENTIATION",
+    description:
+      "Create a niche and stand-out by the recognition of 2023 AADA with the hard work to be valued and qualified.",
+  },
+  {
+    title: "INCREASED CREDIBILITY",
+    description:
+      "Winning 2023 AADA is a worthy opportunity to have a brand identity boost, not only on the brand’s direct marketing platforms, but also across various international and local media channels.",
+  },
+  {
+    title: "EXCELLENT MARKETING OPPORTUNITIES",
+    description:
+      "AADA supports promoting the brand’s projects and products to professionals and potential clients on an international scale. The follow-up upon achieving 2023 AADA shall create a remark to your brand identity.\nWinners are provided the exclusive 2023 AADA Winners’ Kit including collaterals in print and digital for marketing purposes: 2023 AADA Winner logo license; 2023 AADA Hall of Fame yearbook, trophy and certificate.",
+  },
+];
+
+const sponsorshipsContents: ItemContent[] = [
+  {
+    title: "DIRECT MEDIA APPROACH",
+    description:
+      "Get published to AADA international media list upon winning 2023 AADA by a bundle of press releases, interviews and spotlight videos throughout the competition.",
+  },
+  {
+    title: "EXCELLENT MARKETING OPPORTUNITIES",
+    description:
+      "Customized pre and post-event marketing campaigns mentioning Sponsors across various platforms, mainly newswires and website promotion.\nAADA provides core col lateral of 2023 AADA that contains both physical and digital assets for marketing purposes: Brand’s logo placement on all AADA POSM throughout the competition, exclusive exhibition in Winners’ Gala Night…",
+  },
+  {
+    title: "GLOBAL PROMOTION",
+    description:
+      "Generate brand exposure to an expanded media list across and beyond Asia and reach numerous audiences in the field yet demonstrate the brand’s leadership and support within the architecture and design industry.",
+  },
+  {
+    title: "RECOGNITION",
+    description:
+      "Fostering recognition within and beyond the industry, by earning credibility from industry leaders (from industry professionals, journalists, scholars, and entrepreneurs) based on a standardized scoring system for each and every criterion.",
+  },
+  {
+    title: "INCREASED CREDIBILITY",
+    description:
+      "Tailor-fit sponsorship opportunities are available for businesses to enhance their brand position and strengthen the bond between businesses and design enthusiasts.",
+  },
+  {
+    title: "NETWORKING",
+    description:
+      "Connect with industry key players and experts whist forging new business opportunities during the 2023 AADA Winners’ Gala night at Fairmont Singapore.",
+  },
+];
+
+function ListContent({ contents }: { contents: ItemContent[] }) {
+  return (
+    <div className={styles.listContentsContainer}>
+      {contents.map(({ title, description }) => (
+        <div className={styles.itemContentContainer}>
+          <div className={styles.titleContainer}>
+            <Image src="/brand_rect.svg" alt="Square" fill />
+            <div className={styles.title}>{title}</div>
+          </div>
+          <div className={styles.description}>{description}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -32,131 +104,11 @@ export default function Home() {
         </ContentCard>
         <ContentCard title={"\\\nNominate\nYour Work"}>
           <h2>FOR NOMINEES</h2>
-          <div className={styles.images}>
-            <div className={styles.groupImage}>
-              <div className={styles.oneImage}>
-                <Image src="/brand_rect.svg" alt="Square" fill />
-                <div className={styles.badgeContent}>BRAND DIFFERENTIATION</div>
-              </div>
-              <div className={styles.imageDesc}>
-                Create a niche and stand-out by the recognition of 2023 AADA
-                with the hard work to be valued and qualified.
-              </div>
-            </div>
-            <div className={styles.groupImage}>
-              <div className={styles.oneImage}>
-                <Image src="/brand_rect.svg" alt="Square" fill />
-                <div className={styles.badgeContent}>INCREASED CREDIBILITY</div>
-              </div>
-              <div className={styles.imageDesc}>
-                Winning 2023 AADA is a worthy opportunity to have a brand
-                identity boost, not only on the brand’s direct marketing
-                platforms, but also across various international and local media
-                channels.
-              </div>
-            </div>
-            <div className={styles.groupImage}>
-              <div className={styles.oneImage}>
-                <Image src="/brand_rect.svg" alt="Square" fill />
-                <div className={styles.badgeContent}>
-                  EXCELLENT MARKETING OPPORTUNITIES
-                </div>
-              </div>
-              <div className={styles.imageDesc}>
-                AADA supports promoting the brand’s projects and products to
-                professionals and potential clients on an international scale.
-                The follow-up upon achieving 2023 AADA shall create a remark to
-                your brand identity.
-                <br />
-                Winners are provided the exclusive 2023 AADA Winners’ Kit
-                including collaterals in print and digital for marketing
-                purposes: 2023 AADA Winner logo license; 2023 AADA Hall of Fame
-                yearbook, trophy and certificate.
-              </div>
-            </div>
-          </div>
+          <ListContent contents={nomineesContents} />
         </ContentCard>
         <ContentCard title={"\\\nSponsor\nThe Awards"}>
           <h2>SPONSORSHIP</h2>
-          <div className={styles.images}>
-            <div className={styles.groupImage}>
-              <div className={styles.oneImage}>
-                <Image src="/brand_rect.svg" alt="Square" fill />
-                <div className={styles.badgeContent}>DIRECT MEDIA APPROACH</div>
-              </div>
-              <div className={styles.imageDesc}>
-                Get published to AADA international media list upon winning 2023
-                AADA by a bundle of press releases, interviews and spotlight
-                videos throughout the competition.
-              </div>
-            </div>
-            <div className={styles.groupImage}>
-              <div className={styles.oneImage}>
-                <Image src="/brand_rect.svg" alt="Square" fill />
-                <div className={styles.badgeContent}>
-                  EXCELLENT MARKETING OPPORTUNITIES
-                </div>
-              </div>
-              <div className={styles.imageDesc}>
-                Customized pre and post-event marketing campaigns mentioning
-                Sponsors across various platforms, mainly newswires and website
-                promotion.
-                <br />
-                AADA provides core col lateral of 2023 AADA that contains both
-                physical and digital assets for marketing purposes: Brand’s logo
-                placement on all AADA POSM throughout the competition, exclusive
-                exhibition in Winners’ Gala Night…
-              </div>
-            </div>
-            <div className={styles.groupImage}>
-              <div className={styles.oneImage}>
-                <Image src="/brand_rect.svg" alt="Square" fill />
-                <div className={styles.badgeContent}>GLOBAL PROMOTION</div>
-              </div>
-              <div className={styles.imageDesc}>
-                Generate brand exposure to an expanded media list across and
-                beyond Asia and reach numerous audiences in the field yet
-                demonstrate the brand’s leadership and support within the
-                architecture and design industry.
-              </div>
-            </div>
-          </div>
-          <div className={styles.images}>
-            <div className={styles.groupImage}>
-              <div className={styles.oneImage}>
-                <Image src="/brand_rect.svg" alt="Square" fill />
-                <div className={styles.badgeContent}>RECOGNITION</div>
-              </div>
-              <div className={styles.imageDesc}>
-                Fostering recognition within and beyond the industry, by earning
-                credibility from industry leaders (from industry professionals,
-                journalists, scholars, and entrepreneurs) based on a
-                standardized scoring system for each and every criterion.
-              </div>
-            </div>
-            <div className={styles.groupImage}>
-              <div className={styles.oneImage}>
-                <Image src="/brand_rect.svg" alt="Square" fill />
-                <div className={styles.badgeContent}>INCREASED CREDIBILITY</div>
-              </div>
-              <div className={styles.imageDesc}>
-                Tailor-fit sponsorship opportunities are available for
-                businesses to enhance their brand position and strengthen the
-                bond between businesses and design enthusiasts.
-              </div>
-            </div>
-            <div className={styles.groupImage}>
-              <div className={styles.oneImage}>
-                <Image src="/brand_rect.svg" alt="Square" fill />
-                <div className={styles.badgeContent}>NETWORKING</div>
-              </div>
-              <div className={styles.imageDesc}>
-                Connect with industry key players and experts whist forging new
-                business opportunities during the 2023 AADA Winners’ Gala night
-                at Fairmont Singapore.
-              </div>
-            </div>
-          </div>
+          <ListContent contents={sponsorshipsContents} />
         </ContentCard>
         <ContentCard title={"\\\nSponsorship\nAdvantages"}>
           <h2>DIRECT ADVERTISEMENT</h2>

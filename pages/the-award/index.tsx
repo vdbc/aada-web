@@ -297,7 +297,6 @@ export default function Home() {
             initiators
           </div>
         </ContentCard>
-        <div style={{ height: 100 }} />
         <TheAwardFooterBanner />
       </main>
       <Footer />

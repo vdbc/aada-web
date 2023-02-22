@@ -116,26 +116,6 @@ export default function Home() {
               </SwiperSlide>
             </Swiper>
           </div>
-          {/* <div className={styles.images}>
-            <div className={styles.oneImage}>
-              <Image src="/square.svg" alt="Square" fill />
-              <div className={styles.badgeContent}>
-                FIRMS FOR ARCHITECTURE DESIGN
-              </div>
-            </div>
-            <div className={styles.oneImage}>
-              <Image src="/square.svg" alt="Square" fill />
-              <div className={styles.badgeContent}>
-                FIRMS FOR INTERIOR DESIGN
-              </div>
-            </div>
-            <div className={styles.oneImage}>
-              <Image src="/square.svg" alt="Square" fill />
-              <div className={styles.badgeContent}>
-                FIRMS IN FURNITURE MANUFACTURING & RETAILING
-              </div>
-            </div>
-          </div> */}
         </ContentCard>
         <ContentCard title={"\\\nBest\nArchitecture\nDesign"}>
           <h3>
@@ -367,7 +347,6 @@ export default function Home() {
             sustainability and functionality for furniture.
           </div>
         </ContentCard>
-        <div style={{ height: 100 }} />
         <RegistrationFooterBanner />
       </main>
       <Footer />
