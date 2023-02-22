@@ -28,19 +28,19 @@ declare type HeaderDetail = {
 };
 const noLoggedTab: HeaderDetail[] = [
   {
-    title: "THE AWARD",
+    title: "The Award",
     link: "/the-award",
   },
   {
-    title: "CATEGORIES",
+    title: "Categories",
     link: "/categories",
   },
   {
-    title: "REGISTRATION",
+    title: "Registration",
     link: "/registration",
   },
   {
-    title: "GET INVOLVED",
+    title: "Get Involved",
     link: "/get-involved",
   },
 ];

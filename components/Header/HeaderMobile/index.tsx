@@ -18,23 +18,23 @@ declare type HeaderDetail = {
 };
 const noLoggedTab: HeaderDetail[] = [
   {
-    title: "HOME PAGE",
+    title: "Home Page",
     link: "/the-award",
   },
   {
-    title: "THE AWARD",
+    title: "The Award",
     link: "/the-award",
   },
   {
-    title: "CATEGORIES",
+    title: "Categories",
     link: "/categories",
   },
   {
-    title: "REGISTRATION",
+    title: "Registration",
     link: "/registration",
   },
   {
-    title: "GET INVOLVED",
+    title: "Get Involved",
     link: "/get-involved",
   },
 ];
