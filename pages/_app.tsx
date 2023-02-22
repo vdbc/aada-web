@@ -29,6 +29,10 @@ function App({ Component, ...rest }: AppProps) {
         <title>2023 Asia Architecture Design Awards</title>
         <meta name="description" content="Asia Architecture Design Awards" />
         <link rel="icon" href="/favicon.svg" />
+        <meta
+          name="facebook-domain-verification"
+          content="6k5b82mtn33zrfrbhq22fo7x3lqmja"
+        />
         <link
           href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=optional"
           rel="stylesheet"
