@@ -34,8 +34,8 @@ export default function _View() {
         },
       }}
     >
-      {newsIds.map((newsId, index) => (
-        <SwiperSlide>
+      {newsIds.map((newsId) => (
+        <SwiperSlide key={newsId}>
           <NewsCard id={newsId} className={styles.newsCard} />
         </SwiperSlide>
       ))}
