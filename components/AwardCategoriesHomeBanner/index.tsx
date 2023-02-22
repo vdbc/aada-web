@@ -113,7 +113,10 @@ function Slider({ items }: SliderProps) {
       }}
     >
       {items.map((item, index) => (
-        <SwiperSlide className={index == page ? styles.activeSlide : undefined}>
+        <SwiperSlide
+          key={item.title}
+          className={index == page ? styles.activeSlide : undefined}
+        >
           <SliderItem {...item} />
         </SwiperSlide>
       ))}
