@@ -59,6 +59,7 @@ function App({ Component, ...rest }: AppProps) {
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '723036622468717');
             fbq('track', 'PageView');
+            fbq('track', 'Lead');
           `,
           }}
         ></script>
