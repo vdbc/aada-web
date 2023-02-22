@@ -10,6 +10,8 @@ import {
 import NewsOnHomePage from "../components/NewsOnHomePage";
 import { HomePageTopBanner } from "../components/TopBanner";
 import WhyYouShouldSubmitHomeBanner from "../components/WhyYouShouldSubmitHomeBanner";
+import { wrapper } from "../store";
+import { getAllHighlightNews } from "../store/modules/news";
 import styles from "./styles.module.css";
 
 export default function Home() {
@@ -40,3 +42,13 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    await store.dispatch(getAllHighlightNews());
+
+    return {
+      props: {},
+    };
+  }
+);
