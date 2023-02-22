@@ -11,13 +11,17 @@
   justify-content: center;
   overflow: hidden;
   width: 100%;
+  max-width: 1200px;
   position: relative;
   color: #a67f56;
   min-height: calc(100vh - 100px);
-  padding: 50px 100px;
+  padding: 50px 0;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1200px) {
     padding: 50px 20px;
+  }
+  @media (max-width: 700px) {
+    padding: 50px 0;
   }
 
   > h1 {
