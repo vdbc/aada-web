@@ -1,33 +1,23 @@
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import { EffectCoverflow, Navigation, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ButtonLink from "../ButtonLink";
 import styles from "./styles.module.scss";
-
 declare type SliderItemProps = {
-  isActive?: boolean;
-  isLeft?: boolean;
   title: any;
   description: any;
 };
 
-function SliderItem({
-  isActive = false,
-  isLeft = false,
-  title,
-  description,
-}: SliderItemProps) {
-  const logo = isActive
-    ? "/home/slider_active_logo.svg"
-    : "/home/slider_inactive_logo.svg";
-  const container = [
-    isActive ? styles.active : isLeft ? styles.left : styles.right,
-    styles.sliderItemContainer,
-  ].join(" ");
+function SliderItem({ title, description }: SliderItemProps) {
   return (
-    <div className={container}>
+    <div className={styles.sliderItemContainer}>
       <div className={styles.sliderLogo}>
-        <Image src={logo} alt="Logo" fill />
+        <Image src="/home/slider_inactive_logo.svg" alt="Logo" fill />
       </div>
       <h2>{title}</h2>
       <div>{description}</div>
@@ -50,46 +40,6 @@ function getSlideItems(children: any[], index: number): Item[] {
   if (i == 0) return [children[length - 1], children[0], children[1]];
   if (i == length - 1) return [children[i - 1], children[i], children[0]];
   return [children[i - 1], children[i], children[i + 1]];
-}
-
-function Slider({ items }: SliderProps) {
-  const [index, setIndex] = useState(1);
-  const length = items.length;
-  const itemsDisplay = getSlideItems(items, index);
-
-  return (
-    <div className={styles.sliders}>
-      <button
-        className={styles.button}
-        onClick={() => setIndex((index - 1) % length)}
-      >
-        <MdArrowBack size={25} />
-      </button>
-      <SliderItem
-        key={index - 1}
-        isLeft
-        title={itemsDisplay[0].title}
-        description={itemsDisplay[0].description}
-      />
-      <SliderItem
-        key={index}
-        isActive
-        title={itemsDisplay[1].title}
-        description={itemsDisplay[1].description}
-      />
-      <SliderItem
-        key={index + 1}
-        title={itemsDisplay[2].title}
-        description={itemsDisplay[2].description}
-      />
-      <button
-        className={styles.button}
-        onClick={() => setIndex((index + 1) % length)}
-      >
-        <MdArrowForward size={25} />
-      </button>
-    </div>
-  );
 }
 
 const sliderItems: Item[] = [
@@ -124,15 +74,50 @@ const sliderItems: Item[] = [
       "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
   },
 ];
+function Slider({ items }: SliderProps) {
+  const [page, setPage] = useState(1);
 
-function _ButtonLink({ href, children }: any) {
   return (
-    <Link href={href}>
-      <div className={styles.buttonLink}>
-        <div className={styles.wrapper}>{children}</div>
-        <MdArrowForward size={20} />
-      </div>
-    </Link>
+    <Swiper
+      spaceBetween={0}
+      slidesPerView={1.2}
+      centeredSlides
+      effect={"coverflow"}
+      grabCursor
+      loop
+      coverflowEffect={{
+        rotate: 0,
+        stretch: 0,
+        depth: 120,
+        modifier: 1,
+        scale: 0.8,
+        slideShadows: false,
+      }}
+      pagination={{
+        bulletActiveClass: styles.activeDot,
+      }}
+      modules={[EffectCoverflow, Pagination, Navigation]}
+      onActiveIndexChange={(swiper) => setPage(swiper.activeIndex)}
+      initialSlide={page}
+      className={styles.sliders}
+      breakpoints={{
+        500: {
+          slidesPerView: 1.5,
+        },
+        600: {
+          slidesPerView: 2,
+        },
+        700: {
+          slidesPerView: 2.6,
+        },
+      }}
+    >
+      {items.map((item, index) => (
+        <SwiperSlide className={index == page ? styles.activeSlide : undefined}>
+          <SliderItem {...item} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 }
 
@@ -147,13 +132,10 @@ export default function _View() {
       </div>
       <div className={styles.spacer} />
       <div className={styles.awardCategories}>
-        {/* <Image alt="Award Categories" src="/home/award_categories.svg" fill /> */}
         <Slider items={sliderItems} />
       </div>
       <div className={styles.spacer} />
-      <_ButtonLink href="/categories">
-        EXPLORE ALL AWARDS CATEGORIES
-      </_ButtonLink>
+      <ButtonLink href="/categories">EXPLORE ALL AWARDS CATEGORIES</ButtonLink>
     </div>
   );
 }
