@@ -67,7 +67,7 @@ function ListContent({ contents }: { contents: ItemContent[] }) {
   return (
     <div className={styles.listContentsContainer}>
       {contents.map(({ title, description }) => (
-        <div className={styles.itemContentContainer}>
+        <div key={title} className={styles.itemContentContainer}>
           <div className={styles.titleContainer}>
             <Image src="/brand_rect.svg" alt="Square" fill />
             <div className={styles.title}>{title}</div>
