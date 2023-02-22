@@ -4,12 +4,16 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
-  max-width: 100%;
+  max-width: 500px;
   height: 100vh;
   max-height: 500px;
   padding: 50px 0;
   background-color: #a67f56;
   color: white;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 
   > .wrapper {
     width: 85%;
