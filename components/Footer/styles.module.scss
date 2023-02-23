@@ -6,11 +6,22 @@
   align-items: center;
 
   .wrapper {
-    width: 80%;
+    width: 100%;
+    max-width: 1200px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+
+    > * {
+      padding-top: 20px;
+      min-width: 280px;
+    }
+
+    @media (max-width: 1200px) {
+      padding: 0 20px;
+    }
   }
 
   .item {
@@ -25,7 +36,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
 
   .socials {
     flex: 2;
@@ -97,18 +109,11 @@
   }
 }
 
-@media (max-width: 800px) {
-  .companyForHorizoltal,
-  .contactForHorizoltal {
-    display: none;
-  }
-}
-
 .footerMenu {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 46px 0;
+  padding-bottom: 46px;
   color: white;
   width: 100%;
   background-color: #c5a17b;
@@ -116,6 +121,11 @@
   .wrapper {
     flex-direction: row;
     align-items: flex-start;
+
+    > * {
+      margin-top: 26px;
+      padding: 0 5px;
+    }
   }
 
   .box {
@@ -149,4 +159,8 @@
   color: #e2c195;
   width: 100%;
   border-top: 1px solid #e2c195;
+
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
 }
