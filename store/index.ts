@@ -53,6 +53,7 @@ const rootReducer = (state: any, action: any) => {
 };
 
 export const store = configureStore({
+  devTools: process.env.NODE_ENV == "development",
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().prepend(listenerMiddleware.middleware),
