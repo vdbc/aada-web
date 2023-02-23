@@ -42,13 +42,6 @@ export default function _View({
           ))}
         </select>
       </div>
-      {/* <InputField
-        label="Country"
-        placeholder="Select your Country"
-        value={organization.country}
-        onChanged={(value) => onChanged({ ...organization, country: value })}
-        required
-      /> */}
       <div className={styles.wrapperRow}>
         <div>
           <InputField

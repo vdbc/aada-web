@@ -14,10 +14,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .buttonTab {
     flex: 1;
+    min-width: 260px;
     height: 40px;
     display: flex;
     flex-direction: row;
