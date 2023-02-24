@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { MdArrowForwardIos } from "react-icons/md";
+import { Events } from "../../../analytics/events";
+import { fbTrack } from "../../../analytics/tracking";
 import { Organization, organizationEmpty } from "../../../models/Organization";
 import { userEmpty, UserModel } from "../../../models/UserModel";
 import { registerOrganization } from "../../../services/OrganizationService";
@@ -43,6 +45,7 @@ export default function _View({ onRegisterSuccess }: RegistrationProps) {
     setLoading(true);
     try {
       const authModel = await requestRegisterUser(user);
+      fbTrack(Events.completeRegistration);
       dispatch(userSlice.actions.setUser(authModel.user));
       dispatch(userSlice.actions.setToken(authModel.token));
       const organizationCreated = await registerOrganization(
