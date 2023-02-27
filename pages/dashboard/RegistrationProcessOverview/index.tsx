@@ -34,14 +34,17 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
   };
   const data = [
     ["Entries", "Percentage"],
-    ["", totalEntries - completed],
+    ["", totalEntries > 0 ? totalEntries - completed : 1],
     ["", completed],
   ];
+
   return (
     <div className={styles.overviewChart}>
       <div className={styles.center}>
         <div className={styles.percent}>
-          {Math.floor((completed / totalEntries) * 100) + "%"}
+          {totalEntries > 0
+            ? Math.floor((completed / totalEntries) * 100)
+            : 0 + "%"}
         </div>
         <div className={styles.desc}>{`${completed}/${totalEntries} entr${
           totalEntries > 1 ? "ies" : "y"
