@@ -61,10 +61,10 @@ function RegisterForm() {
       return;
     }
     setLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 100));
     post("https://api.aadawards.com/sheets/start-with-why", info)
       .then(() => {
         setComplete(true);
-        open("/documents/START_WITH_WHY_Keynotes.zip", "_blank");
       })
       .catch((err) => {
         alert(`Error: ${err}`);
@@ -98,9 +98,13 @@ function RegisterForm() {
           onChanged={setField("Company")}
         />
       </div>
-      <button onClick={isLoading ? undefined : () => submit()}>
+      <Link
+        className={styles.button}
+        onClick={isLoading ? undefined : () => submit()}
+        href="/documents/START_WITH_WHY_Keynotes.zip"
+      >
         {isLoading ? "Sending..." : "DOWNLOAD KEYNOTE"}
-      </button>
+      </Link>
       <Dialog open={isComplete} onClose={() => setComplete(false)}>
         <div className={styles.completeDialog}>
           <div className={styles.message}>
