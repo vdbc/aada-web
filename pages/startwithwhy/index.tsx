@@ -141,13 +141,13 @@ export default function _View() {
           width={204}
           height={48}
         />
-        <h1 className={styles.title}>speakerS' keynotes</h1>
+        <h1 className={styles.title}>speakerS’ keynotes</h1>
         <div className={styles.desc}>
           The{" "}
           <b>
             START WITH WHY - WHY ARCHITECTS SHOULD REALLY TELL THEIR STORIES
           </b>{" "}
-          conference addressed one of the "pain-points" for local architects,
+          conference addressed one of the “pain-points” for local architects,
           designers, and business owners:{" "}
           <b>
             Why and How to efficiently Build Your Brand Credibility and Personal
