@@ -28,21 +28,17 @@ function InputField({ label, placeholder, onChanged }: InputFieldProps) {
 }
 
 declare type UserInfo = {
-  ["Full Name"]: string;
-  ["Mobile"]: string;
+  ["First Name"]: string;
+  ["Last Name"]: string;
   Email: string;
   Company: string;
-  ["Job Title"]: string;
-  ["Date of Birth"]: string;
   ["Created At"]: string;
 };
 const userInfoEmpty = {
-  "Full Name": "",
-  Mobile: "",
+  "First Name": "",
+  "Last Name": "",
   Email: "",
   Company: "",
-  "Job Title": "",
-  "Date of Birth": "",
   "Created At": "",
 };
 
@@ -64,11 +60,11 @@ function RegisterForm() {
       alert(`${emptyFields.join(", ")} is not empty!`);
       return;
     }
-    info["Date of Birth"] = info["Date of Birth"].replaceAll("/", "-");
     setLoading(true);
     post("https://api.aadawards.com/sheets/start-with-why", info)
       .then(() => {
         setComplete(true);
+        open("/documents/START_WITH_WHY_Keynotes.zip", "_blank");
       })
       .catch((err) => {
         alert(`Error: ${err}`);
@@ -82,14 +78,14 @@ function RegisterForm() {
     <div className={styles.formContainer}>
       <div className={styles.inputs}>
         <InputField
-          label="Full Name*"
-          placeholder="Your Full Name"
-          onChanged={setField("Full Name")}
+          label="First Name*"
+          placeholder="Your First Name"
+          onChanged={setField("First Name")}
         />
         <InputField
-          label="Mobile*"
-          placeholder="Your Mobile"
-          onChanged={setField("Mobile")}
+          label="Last Name*"
+          placeholder="Your Last Name"
+          onChanged={setField("Last Name")}
         />
         <InputField
           label="Email*"
@@ -101,24 +97,14 @@ function RegisterForm() {
           placeholder="Your Company Name"
           onChanged={setField("Company")}
         />
-        <InputField
-          label="Job Title*"
-          placeholder="Your Job Title"
-          onChanged={setField("Job Title")}
-        />
-        <InputField
-          label="Date of Birth*"
-          placeholder="DD/MM/YYYY"
-          onChanged={setField("Date of Birth")}
-        />
       </div>
       <button onClick={isLoading ? undefined : () => submit()}>
-        {isLoading ? "Sending..." : "Register now"}
+        {isLoading ? "Sending..." : "DOWNLOAD KEYNOTE"}
       </button>
       <Dialog open={isComplete} onClose={() => setComplete(false)}>
         <div className={styles.completeDialog}>
           <div className={styles.message}>
-            Thank you for your interest. We will be in touch shortly.
+            Thank you for your interest. Your download will begin shortly.
           </div>
           <Link className={styles.button} href="/">
             Go to home page
@@ -132,56 +118,71 @@ function RegisterForm() {
 export default function _View() {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Start With Why</title>
-        <meta name="description" content="Asia Architecture Design Awards" />
-      </Head>
-      <Image
-        className={styles.background}
-        src="/start_with_why/bg.jpg"
-        alt="Background"
-        fill
-      />
-      <img
-        className={styles.waveTop}
-        src="/start_with_why/wave_top.svg"
-        alt="Background"
-      />
-      <Image
-        className={styles.logo}
-        src="/start_with_why/aao_aada_logo.svg"
-        alt="Logo"
-        width={204}
-        height={48}
-      />
-      <h1 className={styles.title}>Start with why</h1>
-      <div className={styles.desc}>#01 - Why Architects</div>
-      <div className={styles.desc}>should really tell their stories?</div>
-      <img
-        className={styles.timeline}
-        src="/start_with_why/timeline.svg"
-        alt="Timeline"
-      />
-      <img
-        className={styles.timelineMobile}
-        src="/start_with_why/timeline_mobile.svg"
-        alt="Timeline"
-      />
-      <div className={styles.signupLabel}>
-        <h2>Sign up</h2>
+      <div>
+        <Head>
+          <title>Start With Why</title>
+          <meta name="description" content="Asia Architecture Design Awards" />
+        </Head>
+        <Image
+          className={styles.background}
+          src="/start_with_why/bg.jpg"
+          alt="Background"
+          fill
+        />
         <img
-          className={styles.waveSignup}
-          src="/start_with_why/wave_signup.svg"
+          className={styles.waveTop}
+          src="/start_with_why/wave_top.svg"
+          alt="Background"
+        />
+        <Image
+          className={styles.logo}
+          src="/start_with_why/aao_aada_logo.svg"
+          alt="Logo"
+          width={204}
+          height={48}
+        />
+        <h1 className={styles.title}>speakerS' keynotes</h1>
+        <div className={styles.desc}>
+          The{" "}
+          <b>
+            START WITH WHY - WHY ARCHITECTS SHOULD REALLY TELL THEIR STORIES
+          </b>{" "}
+          conference addressed one of the "pain-points" for local architects,
+          designers, and business owners:{" "}
+          <b>
+            Why and How to efficiently Build Your Brand Credibility and Personal
+            Branding Campaign.
+          </b>
+        </div>
+        <div className={styles.subTitle}>
+          Register to receive our speaker keynotes now!
+        </div>
+        <img
+          className={styles.timeline}
+          src="/start_with_why/timeline.svg"
+          alt="Timeline"
+        />
+        <img
+          className={styles.timelineMobile}
+          src="/start_with_why/timeline_mobile.svg"
+          alt="Timeline"
+        />
+        <div className={styles.signupLabel}>
+          <h2>Save the most important KEYNOTEs of START WITH WHY</h2>
+          <img
+            className={styles.waveSignup}
+            src="/start_with_why/wave_signup.svg"
+            alt="Background"
+          />
+        </div>
+
+        <RegisterForm />
+        <img
+          className={styles.waveBottom}
+          src="/start_with_why/wave_bottom.svg"
           alt="Background"
         />
       </div>
-
-      <RegisterForm />
-      <img
-        className={styles.waveBottom}
-        src="/start_with_why/wave_bottom.svg"
-        alt="Background"
-      />
     </div>
   );
 }
