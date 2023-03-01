@@ -148,7 +148,7 @@ export default function View() {
         <div className={styles.title}>MEET THE ADVISORS</div>
         <div className={styles.advisors}>
           {contents.map((item, index) => (
-            <AdvisorItem {...item} rtl={index % 2 == 1} />
+            <AdvisorItem key={item.name} {...item} rtl={index % 2 == 1} />
           ))}
         </div>
 
