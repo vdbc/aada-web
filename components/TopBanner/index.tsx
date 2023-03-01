@@ -68,6 +68,22 @@ export function GetInvolvedTopBanner() {
   );
 }
 
+export function AdvisorsTopBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.jpg">
+      <h1>Board of Advisors</h1>
+      <div className={styles.subTitle}>
+        Board of Advisors are of prominent profiles who craft the organization’s
+        direction to ensure our approaches are aligned with our purposes.
+      </div>
+      <div className={styles.scrollDown}>
+        <MdExpandMore size={15} />
+        <div>Scroll down to learn more</div>
+      </div>
+    </_View>
+  );
+}
+
 export function CategoriesTopBanner() {
   return (
     <_View bgUrl="/bg_the_award.jpg">

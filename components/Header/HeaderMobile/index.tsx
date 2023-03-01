@@ -37,6 +37,10 @@ const noLoggedTab: HeaderDetail[] = [
     title: "Get Involved",
     link: "/get-involved",
   },
+  {
+    title: "Advisors",
+    link: "/advisors",
+  },
 ];
 const loggedInTab: HeaderDetail[] = [
   {
