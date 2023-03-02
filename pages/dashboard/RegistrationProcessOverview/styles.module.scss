@@ -7,13 +7,22 @@
   align-items: flex-start;
   justify-content: center;
   width: 100%;
+  @media (max-width: 1100px) {
+    padding: 50px 40px;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .statusOverviewContainer {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
+    @media (max-width: 1100px) {
+      align-items: center;
+      margin-top: 20px;
+      width: 100%;
+    }
     > h2 {
       font-weight: 700;
       font-size: 35px;
@@ -52,7 +61,14 @@
           margin-left: 0;
         }
       }
-
+      @media (max-width: 1100px) {
+        flex-direction: column;
+        > * {
+          margin-left: 0;
+          width: 100%;
+          margin-top: 10px;
+        }
+      }
       .buttonComplete {
         background-color: #a67f56;
         color: white;
@@ -66,12 +82,14 @@
 }
 
 .overviewChart {
-  width: 350px;
   height: 350px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (min-width: 1100px) {
+    width: 350px;
+  }
 
   .center {
     z-index: 1;
