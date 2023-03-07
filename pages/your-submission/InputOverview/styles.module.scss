@@ -8,9 +8,7 @@
   border: 1px solid rgba(250, 196, 126, 0.5);
   box-shadow: 0px 4px 70px rgba(166, 127, 86, 0.1);
   padding: 28px 16px;
-  @media (max-width: 1100px) {
-    width: 90%;
-  }
+  
   .inputs {
     width: 100%;
     display: flex;
