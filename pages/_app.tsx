@@ -28,6 +28,7 @@ function App({ Component, ...rest }: AppProps) {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>2023 Asia Architecture Design Awards</title>
         <meta name="description" content="Asia Architecture Design Awards" />
+        <meta name="og:image" content="/image.webp" />
         <link rel="icon" href="/favicon.svg" />
         <meta
           name="facebook-domain-verification"
