@@ -347,7 +347,7 @@ export default function _View({ projectId }: ViewProps) {
           )
         }
       />
-      <div style={{ height: 20 }} />
+      <div style={{ height: 20 }} className={styles.completedBox}/>
       <FormControlLabel
         disabled={!canEdit}
         control={
