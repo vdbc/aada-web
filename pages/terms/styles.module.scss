@@ -33,6 +33,11 @@
         color: #a67f56;
         margin-top: 47px;
         margin-bottom: 42px;
+
+        @media (max-width: 960px) {
+          font-size: 30px;
+          text-align: left;
+        }
       }
       li {
         padding-left: 10px;
