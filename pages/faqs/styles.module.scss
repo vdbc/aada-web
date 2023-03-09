@@ -29,6 +29,9 @@
         color: #a67f56;
         margin-top: 47px;
         margin-bottom: 42px;
+        @media (max-width: 960px) {
+          font-size: 36px;
+        }
       }
       li {
         padding-left: 10px;
