@@ -1,12 +1,12 @@
 .selectLocaleContainer {
-  margin-left: 15px;
+  margin-left: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
   @media (max-width: 800px) {
     margin-left: 0;
   }
-  .value {
-    margin: 0 12px;
+  .values {
+    text-align: justify;
   }
 }

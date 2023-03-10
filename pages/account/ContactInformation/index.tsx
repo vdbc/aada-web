@@ -84,18 +84,14 @@ export default function _View() {
         onChanged={(value) => onChanged({ ...organization, email: value })}
         required
       />
-      {/* <InputPhoneNumber
+      <InputPhoneNumber
         label="Phone Number"
         placeholder="Enter your phone number"
         value={organization?.phone ?? ""}
         onChanged={(value) => onChanged({ ...organization, phone: value })}
         className={styles.inputField}
-      /> */}
-      <select>
-        {countries.map((countrie) => {
-          return <option key={countrie.flag}>{countrie.flag}</option>;
-        })}
-      </select>
+      />
+     
 
       <div style={{ height: 12 }} />
       <h2 className={styles.title}>Marketing contact</h2>
