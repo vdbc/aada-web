@@ -6,7 +6,27 @@
   @media (max-width: 800px) {
     margin-left: 0;
   }
-  .values {
-    text-align: justify;
-  }
+}
+.phoneInput {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px 10px 5px;
+  width: 100%;
+}
+
+.countryCode {
+  padding: 10px 0px 10px 5px;
+  border: none;
+  background: #fff;
+  outline: none;  
+}
+
+.phoneNumber {
+  flex-grow: 1;
+  padding: 10px 0px 10px 5px;
+  border: none;
+  background: #fff;
+  outline: none;
 }

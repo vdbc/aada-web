@@ -10,7 +10,6 @@ import userSlice, {
 import { ValueChanged } from "../../../utils/interface";
 import InputPhoneNumber from "../InputPhoneNumber";
 import styles from "./styles.module.scss";
-import { countries } from "../../../utils/countries";
 export default function _View() {
   const organization = useAppSelector(selectOrganization);
   const { marketingContact } = organization;
