@@ -9,7 +9,7 @@ export const countries: CountryInfo[] = [
   { name: "Russia", flag: "🇷🇺", value: "+7" },
   { name: "China", flag: "🇨🇳", value: "+86" },
   { name: "India", flag: "🇮🇳", value: "+91" },
-  { name: "Kazakhstan", flag: "🇰🇿", value: "+7" },
+  { name: "Kazakhstan", flag: "🇰🇿", value: "+997" },
   { name: "Saudi Arabia", flag: "🇸🇦", value: "+966" },
   { name: "Iran", flag: "🇮🇷", value: "+98" },
   { name: "Mongolia", flag: "🇲🇳", value: "+976" },
@@ -54,21 +54,9 @@ export const countries: CountryInfo[] = [
   { name: "Cyprus", flag: "🇨🇾", value: "+357" },
   { name: "Palestine", flag: "🇵🇸", value: "+970" },
   { name: "Brunei", flag: "🇧🇳", value: "+673" },
-  {
-    name: "Bahrain",
-    flag: "🇧🇭",
-    value: "+973",
-  },
-  {
-    name: "Singapore",
-    flag: "🇸🇬",
-    value: "+65",
-  },
-  {
-    name: "Maldives",
-    flag: "🇲🇻",
-    value: "+960",
-  },
+  { name: "Bahrain", flag: "🇧🇭", value: "+973" },
+  { name: "Singapore", flag: "🇸🇬", value: "+65" },
+  { name: "Maldives", flag: "🇲🇻", value: "+960" },
 ];
 
 export const countrieDetails = keyBy(countries, "name");
