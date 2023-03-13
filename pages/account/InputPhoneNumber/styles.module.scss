@@ -3,8 +3,32 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  @media (max-width: 800px) {
+    margin-left: 0;
+  }
   .value {
     margin: 0 12px;
+  }
+}
+.phoneInput {
+  background-color: #fff;
+  padding: 10px 15px;
+  font-size: 15px;
+  .countryCode {
+    border: none;
+    background-color: #fff;
+    color:rgba(166, 127, 86, 1);
+    
+
+  }
+  .phoneNumber {
+    border: none;
+    
+  }
+}
+.wrapper {
+  width: 100%;
+  >p {
+    font-size: 14px;
   }
 }

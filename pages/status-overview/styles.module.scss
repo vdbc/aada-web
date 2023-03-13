@@ -28,4 +28,8 @@
   font-size: 45px;
   margin: 0;
   margin-top: 70px;
+  @media (max-width: 1100px) {
+    text-align: center;
+    font-size: 40px;
+  }
 }
