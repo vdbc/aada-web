@@ -168,18 +168,30 @@ export default function Home() {
               </tr>
             </table>
             <table className={styles.mobileTable}>
-              <tr>
-                <th>Official Open for Registration</th>
-                <td>1 December 2022</td>
-              </tr>
-              <tr>
-                <th>Early Entry Deadlines</th>
-                <td>28 February 2023</td>
-              </tr>
-              <tr>
-                <th>Standard Entry Deadlines</th>
-                <td>30 April 2023</td>
-              </tr>
+              <div>
+                <tr>
+                  <th>Official Open for Registration</th>
+                </tr>
+                <tr>
+                  <td>1 December 2022</td>
+                </tr>
+              </div>
+              <div>
+                <tr>
+                  <th>Early Entry Deadlines</th>
+                </tr>
+                <tr>
+                  <td>28 February 2023</td>
+                </tr>
+              </div>
+              <div>
+                <tr>
+                  <th>Standard Entry Deadlines</th>
+                </tr>
+                <tr>
+                  <td>30 April 2023</td>
+                </tr>
+              </div>
             </table>
           </ol>
           <ol>
