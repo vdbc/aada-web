@@ -26,14 +26,20 @@ export default function _View({
   validator,
 }: InputProps) {
   const [countryCodeIndex, setCountryCodeIndex] = useState(
-    countries.findIndex((country) => country.value == value.slice(0, 3))
+    countries.findIndex((country) => {
+      const matchResult = value.match(/\((.*?)\)/);
+      if (matchResult && matchResult.length > 1) {
+        return country.value === matchResult[1];
+      }
+      return false;
+    })
   );
   const [selectedCountry, setSelectedCountry] = useState(
     countries[countryCodeIndex > 0 ? countryCodeIndex : 0].value
   );
-  const [text, setText] = useState(value || "");
+  const [text, setText] = useState(value.split(")")[1] || "");
   function handleChange(text: string) {
-    onChange(selectedCountry + text);
+    onChange("(" + selectedCountry + ")" + text);
     setText(text);
   }
 
