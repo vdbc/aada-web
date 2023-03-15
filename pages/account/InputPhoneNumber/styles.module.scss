@@ -1,34 +1,59 @@
-.selectLocaleContainer {
-  margin-left: 15px;
+.inputPhoneContainer {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  @media (max-width: 800px) {
-    margin-left: 0;
-  }
-  .value {
-    margin: 0 12px;
-  }
-}
-.phoneInput {
-  background-color: #fff;
-  padding: 10px 15px;
-  font-size: 15px;
-  .countryCode {
-    border: none;
-    background-color: #fff;
-    color:rgba(166, 127, 86, 1);
-    
-
-  }
-  .phoneNumber {
-    border: none;
-    
-  }
-}
-.wrapper {
+  flex-direction: column;
+  align-items: flex-start;
+  color: #a67f56;
   width: 100%;
-  >p {
-    font-size: 14px;
+  margin-top: 9px;
+}
+.countryCode {
+  padding: 10px 0px 10px 5px;
+  border: none;
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+  @media (max-width: 500px) {
+    font-size: 9px;
   }
+  .selectLocaleContainer {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    @media (max-width: 800px) {
+      margin-left: 0;
+    }
+  }
+}
+
+.phoneInput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-style: none;
+  outline: none;
+  margin-top: 3px;
+  input {
+    flex: 1;
+    outline: none;
+    border-style: none;
+    padding: 10px 15px;
+    font-size: 15px;
+    @media (max-width: 800px) {
+      padding: 10px 0 10px 5px;
+    }
+    &::placeholder {
+      color: #b0b0b0;
+    }
+    @media (max-width: 500px) {
+      font-size: 10px;
+    }
+  }
+}
+.errorMessage {
+  margin-top: 6px;
+  font-size: 10px;
+  font-style: italic;
+  color: red;
 }
