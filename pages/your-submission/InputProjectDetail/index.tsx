@@ -1,9 +1,11 @@
 import { FormControlLabel } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from "react";
 import Select from "react-select";
 import InputField from "../../../components/InputField";
 import ProgressBar from "../../../components/ProgressBar";
+import { paypalClientId } from "../../../models/AppConfig";
 import { ProjectNominateStatus } from "../../../models/NominateModel";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import nominateSlice, {
@@ -16,6 +18,7 @@ import {
   canSubmitProject,
   getProgressPercentField,
 } from "../../../utils/project-nominate";
+import { selectIsNominatePaid } from "../../../store/modules/nominate";
 import { requiredValidator } from "../../../utils/validators";
 import InputImages from "../InputImages";
 import styles from "./styles.module.scss";
@@ -111,6 +114,7 @@ declare type ViewProps = {
 const defaultRequiredMessage = "Please fill out this field before submitting.";
 
 export default function _View({ projectId }: ViewProps) {
+  const isPaid = useAppSelector(selectIsNominatePaid);
   const project = useAppSelector(selectProjectNomintateDetail(projectId));
   const dispatch = useAppDispatch();
   const [isForceValidate, setForceValidate] = useState(false);
@@ -347,7 +351,32 @@ export default function _View({ projectId }: ViewProps) {
           )
         }
       />
-      <div style={{ height: 20 }} className={styles.completedBox}/>
+      <div style={{ height: 20 }} className={styles.completedBox} />
+      <div
+        className={[
+          styles.paymentButton,
+          canSubmit ? styles.active : styles.inactive,
+        ].join(" ")}
+      >
+        <PayPalScriptProvider
+          options={{
+            "client-id": paypalClientId,
+          }}
+        >
+          <PayPalButtons
+            disabled={!isPaid}
+            style={{
+              layout: "horizontal",
+              color: "gold",
+              tagline: false,
+              shape: "rect",
+            }}
+          />
+        </PayPalScriptProvider>
+        <div>
+          <p>Please complete the entry fees before submitting</p>
+        </div>
+      </div>
       <FormControlLabel
         disabled={!canEdit}
         control={
