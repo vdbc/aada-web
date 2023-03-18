@@ -1,7 +1,7 @@
 import { createTheme, ThemeOptions, ThemeProvider } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { login } from "../../services/UserService";
 import { useAppDispatch } from "../../store";
 import userSlice from "../../store/modules/user";
@@ -50,7 +50,8 @@ export default function _View({ dismiss }: Props) {
   const dispatch = useAppDispatch();
   const route = useRouter();
 
-  const handleLogin = async () => {
+  const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (isLoading) return;
     setLoading(true);
     try {
@@ -69,17 +70,19 @@ export default function _View({ dismiss }: Props) {
   return (
     <ThemeProvider theme={lightTheme}>
       <div className={styles.container}>
-        <div className={styles.wrapper}>
+        <form className={styles.wrapper} onSubmit={handleLogin}>
           <div className={styles.title}>SIGN IN WITH YOUR AADA ACCOUNT</div>
           <input
             placeholder="Email"
             className={styles.input}
+            value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
           <input
             placeholder="Password"
             className={styles.input}
             type="password"
+            value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
           <button
@@ -87,7 +90,8 @@ export default function _View({ dismiss }: Props) {
               styles.button,
               canLogin ? styles.active : styles.inactive,
             ].join("")}
-            onClick={canLogin ? handleLogin : undefined}
+            disabled={!canLogin}
+            type="submit"
           >
             Sign in
           </button>
@@ -104,7 +108,7 @@ export default function _View({ dismiss }: Props) {
           >
             Create your account
           </Link>
-        </div>
+        </form>
       </div>
     </ThemeProvider>
   );

@@ -111,16 +111,18 @@ function ContentTable() {
         </div>
       </div>
       <table className={styles.fullTable}>
-        <tr>
-          <td>{cells[0]}</td>
-          <td>{cells[1]}</td>
-          <td>{cells[2]}</td>
-        </tr>
-        <tr>
-          <td>{cells[3]}</td>
-          <td>{cells[4]}</td>
-          <td>{cells[5]}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>{cells[0]}</td>
+            <td>{cells[1]}</td>
+            <td>{cells[2]}</td>
+          </tr>
+          <tr>
+            <td>{cells[3]}</td>
+            <td>{cells[4]}</td>
+            <td>{cells[5]}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );

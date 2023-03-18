@@ -6,13 +6,14 @@ import {
 } from "@reduxjs/toolkit";
 import { debounce } from "lodash";
 import { RootState, store } from "../..";
+import { AuthModel } from "../../../models/AuthModel";
 import { Organization, organizationEmpty } from "../../../models/Organization";
 import { UserModel } from "../../../models/UserModel";
 import {
   getOrganizationRegistered,
   updateOrganizationRegistered,
 } from "../../../services/OrganizationService";
-import { fetchUserInfo } from "../../../services/UserService";
+import { fetchUserInfo, login } from "../../../services/UserService";
 import { setToken } from "../../../utils/cookies";
 import listenerMiddleware from "../../listener-middleware";
 
@@ -33,6 +34,14 @@ export const getUserInfo = createAsyncThunk<
   { state: RootState }
 >("user/getUserInfo", async (_, store) => {
   return fetchUserInfo(selectToken(store.getState()));
+});
+
+export const loginAccount = createAsyncThunk<
+  AuthModel,
+  AuthModel,
+  { state: RootState }
+>("user/loginAccount", async (username, password) => {
+  return login( username , password);
 });
 
 export const fetchOrganizationRegistered = createAsyncThunk<
