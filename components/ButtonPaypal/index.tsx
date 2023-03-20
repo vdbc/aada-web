@@ -27,11 +27,10 @@ import { selectToken, selectUserId } from "../../store/modules/user";
 import styles from "./styles.module.scss";
 
 declare type Props = {
-  onRegisterSuccess: Function;
   disabled: any;
 };
 
-function _View({ onRegisterSuccess, disabled }: Props) {
+function _View({ disabled }: Props) {
   const entryIdsRegistered = useAppSelector(
     selectEntryIdsRegisteredGroupByCategory
   );
@@ -89,7 +88,6 @@ function _View({ onRegisterSuccess, disabled }: Props) {
     const token = selectToken(store.getState());
     await actions.order?.capture();
     await confirmPaymentNominateEntries(data, token);
-    onRegisterSuccess();
   }
 
   const isPaid = useAppSelector(selectIsNominatePaid);
@@ -104,10 +102,9 @@ function _View({ onRegisterSuccess, disabled }: Props) {
             }}
           >
             <PayPalButtons
-              disabled
+              disabled={disabled}
               style={{
                 layout: "horizontal",
-                label: "buynow",
                 color: "gold",
                 tagline: false,
                 shape: "rect",

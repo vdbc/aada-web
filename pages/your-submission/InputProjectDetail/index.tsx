@@ -22,6 +22,7 @@ import { selectIsNominatePaid } from "../../../store/modules/nominate";
 import { requiredValidator } from "../../../utils/validators";
 import InputImages from "../InputImages";
 import styles from "./styles.module.scss";
+import ButtonPaypal from "../../../components/ButtonPaypal";
 
 declare type SelectLocaleProps = {
   value: string;
@@ -358,21 +359,7 @@ export default function _View({ projectId }: ViewProps) {
           canSubmit ? styles.active : styles.inactive,
         ].join(" ")}
       >
-        <PayPalScriptProvider
-          options={{
-            "client-id": paypalClientId,
-          }}
-        >
-          <PayPalButtons
-            disabled={!isPaid}
-            style={{
-              layout: "horizontal",
-              color: "gold",
-              tagline: false,
-              shape: "rect",
-            }}
-          />
-        </PayPalScriptProvider>
+        <ButtonPaypal disabled={!isPaid} />
         <div>
           <p>Please complete the entry fees before submitting</p>
         </div>

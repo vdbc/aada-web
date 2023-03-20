@@ -7,6 +7,7 @@ import {
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { flatMap, isEmpty } from "lodash";
 import { useEffect, useState } from "react";
+import ButtonPaypal from "../../../components/ButtonPaypal";
 import { paypalClientId } from "../../../models/AppConfig";
 import {
   confirmPaymentNominateEntries,
@@ -120,26 +121,8 @@ function _View({ onRegisterSuccess }: Props) {
           totalEntries={toalEntries}
           totalFee={toalEntries * feePerEntry}
         />
-        <div className={styles.paymentButton}>
-          <PayPalScriptProvider
-            options={{
-              "client-id": paypalClientId,
-            }}
-          >
-            <PayPalButtons
-              disabled={isPaid || toalEntries <= 0}
-              style={{
-                layout: "horizontal",
-                color: "gold",
-                tagline: false,
-                shape: "rect",
-              }}
-              forceReRender={[toalEntries, isPaid]}
-              createOrder={handleCreateOrder}
-              onApprove={onApprove}
-            />
-          </PayPalScriptProvider>
-        </div>
+
+        <ButtonPaypal disabled={isPaid || toalEntries <= 0} />
       </div>
     </div>
   );
