@@ -37,7 +37,7 @@ export default function Home() {
         />
         <NewsOnHomePage />
       </main>
-
+      console.log(AuthModel);
       <Footer />
     </div>
   );

@@ -22,7 +22,10 @@ export interface UserState {
   organization: Organization;
   token: string;
 }
-
+ interface LoginRequest {
+  username: string,
+  password: string
+}
 const initialState: UserState = {
   token: "",
   organization: organizationEmpty,
@@ -38,10 +41,10 @@ export const getUserInfo = createAsyncThunk<
 
 export const loginAccount = createAsyncThunk<
   AuthModel,
-  AuthModel,
+  LoginRequest,
   { state: RootState }
->("user/loginAccount", async (username, password) => {
-  return login( username , password);
+>("user/login", async (loginRequest, password) => {
+  return login(loginRequest.username, loginRequest.password)
 });
 
 export const fetchOrganizationRegistered = createAsyncThunk<
@@ -67,6 +70,7 @@ export const saveOrganizationRegistered = createAsyncThunk<
     updateOrganizationRegistered(organization, token);
   }, 1000)
 );
+
 export const userSlice = createSlice({
   name: "user",
   initialState,
@@ -113,7 +117,6 @@ listenerMiddleware.startListening({
   actionCreator: userSlice.actions.organizationUpdated,
   effect: async (action, listenerApi) => {
     listenerApi.cancelActiveListeners();
-
     store.dispatch(saveOrganizationRegistered(action.payload));
   },
 });

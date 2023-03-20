@@ -18,9 +18,9 @@ export async function fetchUserInfo(token: string): Promise<UserModel> {
   }).then((data) => data.user);
 }
 
-export async function login(
+export async function login (
   username: string,
-  password: string
+  password: string,
 ): Promise<AuthModel> {
   const url = `${apiUrl}/auth`;
   return post<AuthModel>(url, { username, password });
