@@ -353,7 +353,7 @@ export default function _View({ projectId }: ViewProps) {
         }
       />
       <div style={{ height: 20 }} className={styles.completedBox} />
-      <div
+      {/* <div
         className={[
           styles.paymentButton,
           canSubmit ? styles.active : styles.inactive,
@@ -363,7 +363,15 @@ export default function _View({ projectId }: ViewProps) {
         <div>
           <p>Please complete the entry fees before submitting</p>
         </div>
-      </div>
+      </div> */}
+      <form
+        className={styles.buttonPayment}
+        action="https://aadawards.com/open-account"
+      >
+        <button type="submit" className={styles.buttonPayment}>
+          Payment
+        </button>
+      </form>
       <FormControlLabel
         disabled={!canEdit}
         control={
