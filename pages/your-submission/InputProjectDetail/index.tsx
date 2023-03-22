@@ -347,7 +347,15 @@ export default function _View({ projectId }: ViewProps) {
           )
         }
       />
-      <div style={{ height: 20 }} className={styles.completedBox}/>
+      <div style={{ height: 20 }} className={styles.completedBox} />
+      <form
+        className={styles.buttonPayment}
+        action="https://aadawards.com/open-account"
+      >
+        <button type="submit" className={styles.buttonPayment}>
+          Payment
+        </button>
+      </form>
       <FormControlLabel
         disabled={!canEdit}
         control={

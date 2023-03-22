@@ -30,6 +30,18 @@
     font-size: 15px;
   }
 
+  .buttonPayment {
+    width: 100%;
+    min-height: 20px;
+    background-color: #a67f56;
+    color: white;
+    border-style: none;
+    text-transform: uppercase;
+    > button {
+      padding: 12px 0;
+      color: white;
+    }
+  }
   .buttonSubmit {
     width: 100%;
     min-height: 40px;
