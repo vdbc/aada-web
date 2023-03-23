@@ -350,7 +350,7 @@ export default function _View({ projectId }: ViewProps) {
       />
       <div style={{ height: 20 }} className={styles.completedBox} />
       <Link className={styles.buttonPayment} href="/open-account">
-        <button className={styles.buttonPayment}>Payment</button>
+        Payment
       </Link>
       <FormControlLabel
         disabled={!canEdit}
