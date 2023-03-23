@@ -1,5 +1,6 @@
 import { FormControlLabel } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
+import Link from "next/link";
 import { useState } from "react";
 import Select from "react-select";
 import InputField from "../../../components/InputField";
@@ -347,7 +348,10 @@ export default function _View({ projectId }: ViewProps) {
           )
         }
       />
-      <div style={{ height: 20 }} className={styles.completedBox}/>
+      <div style={{ height: 20 }} className={styles.completedBox} />
+      <Link className={styles.buttonPayment} href="/open-account">
+        <button className={styles.buttonPayment}>Payment</button>
+      </Link>
       <FormControlLabel
         disabled={!canEdit}
         control={
