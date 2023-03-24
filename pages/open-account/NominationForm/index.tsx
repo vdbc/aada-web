@@ -130,7 +130,6 @@ function _View({ onRegisterSuccess }: Props) {
               disabled={isPaid || toalEntries <= 0}
               style={{
                 layout: "horizontal",
-                label: "buynow",
                 color: "gold",
                 tagline: false,
                 shape: "rect",
