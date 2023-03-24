@@ -39,7 +39,6 @@ export default function InputField({
   return (
     <div className={[styles.inputContainer, className].join(" ")}>
       <div className={styles.label}>{label + (required ? "*" : "")}</div>
-
       <div className={[styles.input, inputClassName].join(" ")}>
         {prefix}
         <input

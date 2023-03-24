@@ -155,7 +155,7 @@ export default function Home() {
           </ol>
           <ol>
             <h1>7. REGISTRATION TIMELINE</h1>
-            <table>
+            <table className={styles.pcTable}>
               <tr>
                 <th>Official Open for Registration</th>
                 <th>Early Entry Deadlines</th>
@@ -166,6 +166,32 @@ export default function Home() {
                 <td>28 February 2023</td>
                 <td>30 April 2023</td>
               </tr>
+            </table>
+            <table className={styles.mobileTable}>
+              <div>
+                <tr>
+                  <th>Official Open for Registration</th>
+                </tr>
+                <tr>
+                  <td>1 December 2022</td>
+                </tr>
+              </div>
+              <div>
+                <tr>
+                  <th>Early Entry Deadlines</th>
+                </tr>
+                <tr>
+                  <td>28 February 2023</td>
+                </tr>
+              </div>
+              <div>
+                <tr>
+                  <th>Standard Entry Deadlines</th>
+                </tr>
+                <tr>
+                  <td>30 April 2023</td>
+                </tr>
+              </div>
             </table>
           </ol>
           <ol>

@@ -10,7 +10,6 @@ import userSlice, {
 import { ValueChanged } from "../../../utils/interface";
 import InputPhoneNumber from "../InputPhoneNumber";
 import styles from "./styles.module.scss";
-
 export default function _View() {
   const organization = useAppSelector(selectOrganization);
   const { marketingContact } = organization;
@@ -91,6 +90,8 @@ export default function _View() {
         onChanged={(value) => onChanged({ ...organization, phone: value })}
         className={styles.inputField}
       />
+     
+
       <div style={{ height: 12 }} />
       <h2 className={styles.title}>Marketing contact</h2>
       <div className={styles.wrapperRow}>
