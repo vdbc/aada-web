@@ -8,6 +8,7 @@ import ProgressBar from "../../../components/ProgressBar";
 import { ProjectNominateStatus } from "../../../models/NominateModel";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import nominateSlice, {
+  selectIsNominatePaid,
   selectProjectNomintateDetail,
   submitProject,
 } from "../../../store/modules/nominate";
@@ -117,7 +118,7 @@ export default function _View({ projectId }: ViewProps) {
   const [isForceValidate, setForceValidate] = useState(false);
   const canEdit = project?.status != ProjectNominateStatus.SUBMITED;
   const [isApprove, setApprove] = useState(!canEdit);
-
+  const isPaid = useAppSelector(selectIsNominatePaid);
   if (!project) return <div />;
 
   function imagesValidator(images: string[]) {
@@ -349,7 +350,13 @@ export default function _View({ projectId }: ViewProps) {
         }
       />
       <div style={{ height: 20 }} className={styles.completedBox} />
-      <Link className={styles.buttonPayment} href="/open-account">
+      <Link
+        href="/open-account"
+        className={[
+          styles.buttonPayment,
+          isPaid ? styles.hide : styles.display,
+        ].join(" ")}
+      >
         Payment
       </Link>
       <FormControlLabel
