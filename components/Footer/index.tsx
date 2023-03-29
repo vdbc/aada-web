@@ -89,7 +89,10 @@ function FooterMenu() {
             <Link href="/faqs">FAQs</Link>
           </div>
           <div className={styles.item}>
-            <Link href="/documents/Submission_Guidelines.pdf" target="_blank">
+            <Link
+              href="/documents/2023 AADA Guidebook - EN.pdf"
+              target="_blank"
+            >
               Submission Guidelines
             </Link>
           </div>
