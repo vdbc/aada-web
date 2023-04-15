@@ -100,6 +100,9 @@ export const userSlice = createSlice({
       })
       .addCase(getUserInfo.fulfilled, (state, action) => {
         state.user = action.payload;
+      })
+      .addCase(loginAccount.fulfilled, (state, action) => {
+        state.token = action.payload;
       });
   },
 });
@@ -131,4 +134,13 @@ listenerMiddleware.startListening({
   },
 });
 
+listenerMiddleware.startListening({
+  matcher: isRejected,
+  effect: async(action, listenerApi) => {
+    listenerApi.cancelActiveListeners();
+    if(action.error.code == "AUTH-01"){
+      await store.dispatch(userSlide.actions.logout());
+    }
+  }
+})
 export default userSlice;
