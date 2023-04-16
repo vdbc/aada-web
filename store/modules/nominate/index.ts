@@ -37,7 +37,7 @@ const initialState: NominateState = {
   projectDetails: {},
   projectIds: [],
   isPaid: false,
-  feePerEntry: 180,
+  feePerEntry: 0,
 };
 
 export const fetchProjectNominate = createAsyncThunk<
