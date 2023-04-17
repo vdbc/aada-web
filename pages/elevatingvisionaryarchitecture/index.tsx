@@ -115,13 +115,9 @@ function RegisterForm() {
           onChanged={setField("Title")}
         />
       </div>
-      <Link
-        className={styles.button}
-        onClick={isLoading ? undefined : () => submit()}
-        href="/documents/START_WITH_WHY_Keynotes.zip"
-      >
-        {isLoading ? "Sending..." : "REGISTER"}
-      </Link>
+      <button className={styles.button} onClick={(isLoading) => submit()}>
+        Register
+      </button>
       <Dialog open={isComplete} onClose={() => setComplete(false)}>
         <div className={styles.completeDialog}>
           <div className={styles.message}>
@@ -159,8 +155,8 @@ export default function _View() {
           className={styles.logo}
           src="/elevating/Logo.svg"
           alt="Logo"
-          width={204}
-          height={48}
+          width={300}
+          height={150}
         />
         <h1 className={styles.title}>elevating visionary architecture</h1>
         <h3 className={styles.subTitle}>
@@ -190,7 +186,7 @@ export default function _View() {
           />
           <img
             className={styles.timeline}
-            src="/elevating/agenda.svg"
+            src="/elevating/timelineupdate.svg"
             alt="Timeline"
           />
         </div>
@@ -206,7 +202,7 @@ export default function _View() {
         />
         <img
           className={styles.timelineMobile}
-          src="/elevating/timelineMobile.svg"
+          src="/elevating/timelinembupdate.svg"
           alt="Timeline"
         />
         <img
