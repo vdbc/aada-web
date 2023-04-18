@@ -142,14 +142,9 @@ export default function _View() {
         </Head>
         <Image
           className={styles.background}
-          src="/elevating/bg.jpg"
+          src="/elevating/landing.jpg"
           alt="Background"
           fill
-        />
-        <img
-          className={styles.waveTop}
-          src="/elevating/wave_top.svg"
-          alt="Background"
         />
         <Image
           className={styles.logo}
@@ -192,7 +187,7 @@ export default function _View() {
         </div>
         <img
           className={styles.timeline}
-          src="/elevating/timeline1.svg"
+          src="/elevating/dateTime.svg"
           alt="Timeline"
         />
         <img
@@ -202,12 +197,12 @@ export default function _View() {
         />
         <img
           className={styles.timelineMobile}
-          src="/elevating/timelineMb.svg"
+          src="/elevating/dateTimeMb.svg"
           alt="Timeline"
         />
         <img
           className={styles.timelineMobile}
-          src="/elevating/timeline1Mobile.svg"
+          src="/elevating/dateTimeMb.svg"
           alt="Timeline"
         />
         <div className={styles.signupLabel}>
@@ -219,11 +214,6 @@ export default function _View() {
           />
         </div>
         <RegisterForm />
-        <img
-          className={styles.waveBottom}
-          src="/elevating/wave_bottom.svg"
-          alt="Background"
-        />
         <img
           className={styles.footer}
           src="/elevating/footer.svg"
