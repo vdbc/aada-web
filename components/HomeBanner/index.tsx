@@ -58,24 +58,18 @@ export function GetInvolvedHomeBanner() {
     <HomeBannerRightContent backgroundUrl="/home/backgroundRegister.jpg">
       <_Header>GET INVOLVED</_Header>
       <div style={{ height: 60 }} />
-      <h2>ELEVATING</h2>
-      <h2>VISIONARY</h2>
-      <h2>ARCHITECTURE</h2>
+      <h2>GET INVOLVED</h2>
+      <h2>WITH AADA</h2>
       <div style={{ height: 60 }} />
-      <div className={styles.titleRegister}>
-        Elevate your understanding of visionary architecture’s role in driving
-        real estate investment in Vietnam by joining the Asia Awards
-        Organization for the <b>Elevating Visionary Architecture</b> event.
-      </div>
       <div>
-        Join investors, architects, and enthusiasts for an afternoon of
-        insightful presentations, networking, and discussions!
+        AADA supports to promote brand’s projects and products to professionals
+        and potential clients on an international scale. The follow-up upon
+        achieving 2023 AADA shall create a remark to your brand identity.
       </div>
-      <div style={{ height: 20 }} />
+
+      <div style={{ height: 60 }} />
       <div className={styles.wrapperLink}>
-        <_ButtonLink href={"/elevatingvisionaryarchitecture"}>
-          REGISTER NOW
-        </_ButtonLink>
+        <_ButtonLink href={"/get-involved"}>EXPLORE</_ButtonLink>
         <div className={styles.spacer} />
       </div>
       <div style={{ height: 10 }} />
