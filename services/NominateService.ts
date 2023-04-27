@@ -3,6 +3,7 @@ import {
   MyProjectNominateResponse,
   Nominate,
   ProjectNominate,
+  RegisterNominateEntries,
 } from "../models/NominateModel";
 import { get, post, put } from "./http";
 
@@ -31,9 +32,9 @@ export async function getAllNominate(token: string): Promise<Nominate[]> {
 export async function registerNominateEntries(
   entries: string[],
   token: string
-): Promise<string> {
+): Promise<RegisterNominateEntries> {
   const url = `${apiUrl}/nominate/register`;
-  const resp = await post<{ id: string }>(
+  return post<RegisterNominateEntries>(
     url,
     { entries },
     {
@@ -42,24 +43,17 @@ export async function registerNominateEntries(
       },
     }
   );
-
-  const { id } = resp || {};
-  return id;
 }
 
 export async function getNominateEntriesRegistered(
   token: string
-): Promise<string> {
+): Promise<RegisterNominateEntries> {
   const url = `${apiUrl}/nominate/registered`;
-  const resp = await get<{ id: string }>(url, {
+  return get<RegisterNominateEntries>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  const { id } = resp || {};
-
-  return id;
 }
 
 export async function confirmPaymentNominateEntries(
