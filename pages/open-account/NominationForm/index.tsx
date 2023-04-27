@@ -72,10 +72,11 @@ function _View({ onRegisterSuccess }: Props) {
     actions: CreateOrderActions
   ) {
     const token = selectToken(store.getState());
-    const referenceId = await registerNominateEntries(
+    const orderCreated = await registerNominateEntries(
       selectEntryIds,
       token
     ).catch((err) => getNominateEntriesRegistered(token));
+    const { id, totalFee } = orderCreated;
 
     return actions.order.create({
       intent: "CAPTURE",
@@ -83,9 +84,9 @@ function _View({ onRegisterSuccess }: Props) {
         {
           amount: {
             currency_code: "USD",
-            value: (toalEntries * feePerEntry).toString(),
+            value: totalFee.toString(),
           },
-          reference_id: referenceId,
+          reference_id: id,
         },
       ],
     });
