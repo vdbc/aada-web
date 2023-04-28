@@ -122,6 +122,15 @@ export default function Home() {
               </div>
             </li>
             <li>
+              <b>Are there any winner fees?</b>
+              <div>
+                All winners must contribute an amount of $3,200 USD, granting
+                them 01 ticket to attend Winners’ Night, access to the winner’s
+                trophy, an award certificate, and the all-inclusive rights
+                associated with the award.
+              </div>
+            </li>
+            <li>
               <b>
                 Can I make changes to my entry category after processing
                 payment?
