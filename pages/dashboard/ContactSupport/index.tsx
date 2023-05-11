@@ -37,9 +37,9 @@ export default function _View() {
           <MdMailOutline size={25} />
           <div>submit@aadawards.com</div>
         </Link>
-        <Link className={styles.field} href={`tel:+65.729.1237`}>
+        <Link className={styles.field} href={`tel:+65.8805.7032`}>
           <MdOutlinePhoneIphone size={25} />
-          <div>+65 729 1237</div>
+          <div>+65 8805 7032</div>
         </Link>
       </div>
       <ChatWithUs />
