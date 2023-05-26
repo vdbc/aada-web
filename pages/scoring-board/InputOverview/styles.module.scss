@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid rgba(250, 196, 126, 0.5);
+  box-shadow: 0px 4px 70px rgba(166, 127, 86, 0.1);
+  padding: 28px 16px;
+.country{
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+}
+.city {
+  padding-left: 15px;
+}
+  .inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+    > * {
+      flex: 1;
+      margin-left: 8px;
+    }
+
+    *:first-of-type {
+      margin-left: 0;
+    }
+
+    input {
+      background-color: #f6f6f6;
+    > input {
+      font-size: 18px;
+    }
+    }
+  }
+
+  .progressContainer {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .progress {
+      flex: 1;
+      margin: 0 8px;
+    }
+  }
+}

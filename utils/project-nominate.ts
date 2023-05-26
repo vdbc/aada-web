@@ -3,9 +3,13 @@ import {
   ProjectNominate,
   ProjectNominateStatus,
 } from "../models/NominateModel";
+import { ProjectScoreBody } from "../services/ScoreService";
 
 export function getProjectName(project: ProjectNominate) {
   return project?.name ?? `Project ${project?.id ?? "--"}`;
+}
+export function getProjectImages(project: ProjectNominate) {
+  return project?.pictures || [];
 }
 
 export function getProgressPercentField(value?: string) {

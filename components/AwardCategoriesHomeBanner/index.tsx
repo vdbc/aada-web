@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { EffectCoverflow, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ButtonLink from "../ButtonLink";
 import styles from "./styles.module.scss";
+
 declare type SliderItemProps = {
   title: any;
   description: any;
@@ -76,7 +77,6 @@ const sliderItems: Item[] = [
 ];
 function Slider({ items }: SliderProps) {
   const [page, setPage] = useState(1);
-
   return (
     <Swiper
       spaceBetween={0}

@@ -22,6 +22,7 @@ import {
 import listenerMiddleware from "../../listener-middleware";
 import { selectToken } from "../user";
 import {
+  getAllNominateAdmin,
   NominateEntryAdmin,
   postProjectScore,
   ProjectScoreBody,
@@ -67,6 +68,16 @@ export const fetchAllNominate = createAsyncThunk<
   return getAllNominate(token);
 });
 
+export const fetchAllNominateAdmin = createAsyncThunk<
+  NominateEntryAdmin[],
+  void,
+  { state: RootState }
+>("nominate/fetchAllNominate", async (_, store) => {
+  const state = store.getState();
+  const token = selectToken(state);
+  return getAllNominateAdmin(token);
+});
+
 export const getFeePerEntry = createAsyncThunk<
   number,
   void,
@@ -99,16 +110,16 @@ export const submitProject = createAsyncThunk<
   const token = selectToken(state);
   return confirmSubmitProject(project, token);
 });
-export const scoreProject = createAsyncThunk<
-  ProjectScoreBody,
-  ProjectScoreBody,
-  { state: RootState }
->("nominate/scoreProject", async (body, { getState }) => {
-  const state = getState();
-  const token = selectToken(state);
-  const { projectId } = body;
-  return postProjectScore(projectId, body, token);
-});
+// export const scoreProject = createAsyncThunk<
+//   ProjectScoreBody,
+//   ProjectScoreBody,
+//   { state: RootState }
+// >("nominate/scoreProject", async (body, { getState }) => {
+//   const state = getState();
+//   const token = selectToken(state);
+//   const { projectId } = body;
+//   return postProjectScore(projectId, body, token);
+// });
 
 export const nominateSlice = createSlice({
   name: "nominate",
@@ -116,6 +127,9 @@ export const nominateSlice = createSlice({
   reducers: {
     setNominates: (state, action: PayloadAction<Nominate[]>) => {
       state.nominateList = action.payload;
+    },
+    setNominatesAdmin: (state, action: PayloadAction<NominateEntryAdmin[]>) => {
+      state.nominateListAdmin = action.payload;
     },
     projectUpdated: (state, action: PayloadAction<ProjectNominate>) => {
       state.projectDetails[action.payload.id] = action.payload;
@@ -140,6 +154,9 @@ export const nominateSlice = createSlice({
       .addCase(fetchAllNominate.fulfilled, (state, action) => {
         state.nominateList = action.payload;
       })
+      .addCase(fetchAllNominateAdmin.fulfilled, (state, action) => {
+        state.nominateListAdmin = action.payload;
+      })
       .addCase(getFeePerEntry.fulfilled, (state, action) => {
         state.feePerEntry = action.payload;
       });
@@ -148,12 +165,20 @@ export const nominateSlice = createSlice({
 
 export const selectNominates = (state: RootState) =>
   state.nominate.nominateList;
+export const selectNominatesAdmin = (state: RootState) =>
+  state.nominate.nominateListAdmin;
 export const selectFeePerEntry = (state: RootState) =>
   state.nominate.feePerEntry;
 export const selectNominateDetails = createSelector(
   selectNominates,
   (nominateList) => {
     return keyBy(nominateList, (item) => item.id);
+  }
+);
+export const selectNominateDetailsAdmin = createSelector(
+  selectNominatesAdmin,
+  (nominateListAdmin) => {
+    return keyBy(nominateListAdmin, (item) => item.id);
   }
 );
 export const selectNominateEntryDetails = createSelector(
@@ -165,9 +190,15 @@ export const selectNominateEntryDetails = createSelector(
     );
   }
 );
+export const selectNominateEntryDetailsAdmin = createSelector(
+  selectNominates,
+  (nominateList) => {
+    return keyBy(flatMap(nominateList, (item) => item.name));
+  }
+);
 
 export const selectNomintateEntryDetail = (id: string) => (state: RootState) =>
-  selectNominateEntryDetails(state)[id];
+  selectNominateEntryDetailsAdmin(state)[id];
 
 export const selectProjectNomintateDetails = (state: RootState) =>
   state.nominate.projectDetails;
