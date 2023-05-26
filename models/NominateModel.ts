@@ -42,6 +42,10 @@ export interface MyProjectNominateResponse {
   projects: ProjectNominate[];
   isPaid: boolean;
 }
+
+export interface AllProjectsResponse {
+  data: ProjectNominate[];
+}
 export interface RegisterNominateEntries {
   id: string;
   totalFee: number;

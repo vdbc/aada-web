@@ -8,6 +8,7 @@ import { debounce, flatMap, keyBy, map } from "lodash";
 import moment from "moment";
 import { RootState, store } from "../..";
 import {
+  AllProjectsResponse,
   MyProjectNominateResponse,
   Nominate,
   ProjectNominate,
@@ -16,6 +17,7 @@ import {
   confirmSubmitProject,
   fetchFeePerEntry,
   getAllNominate,
+  getAllProjects,
   getProjectRegistered,
   saveProject,
 } from "../../../services/NominateService";
@@ -25,6 +27,7 @@ import { selectToken } from "../user";
 export interface NominateState {
   nominateList: Nominate[];
   projectIds: number[];
+  allProjectIds: number[];
   projectDetails: {
     [key: number]: ProjectNominate;
   };
@@ -35,6 +38,7 @@ export interface NominateState {
 const initialState: NominateState = {
   nominateList: [],
   projectDetails: {},
+  allProjectIds: [],
   projectIds: [],
   isPaid: false,
   feePerEntry: 0,
@@ -48,6 +52,16 @@ export const fetchProjectNominate = createAsyncThunk<
   const state = store.getState();
   const token = selectToken(state);
   return getProjectRegistered(token);
+});
+
+export const fetchAllProjects = createAsyncThunk<
+  AllProjectsResponse,
+  void,
+  { state: RootState }
+>("nominate/fetchAllProjects", async (_, store) => {
+  const state = store.getState();
+  const token = selectToken(state);
+  return getAllProjects(token);
 });
 
 export const fetchAllNominate = createAsyncThunk<
@@ -115,6 +129,13 @@ export const nominateSlice = createSlice({
         };
         state.isPaid = action.payload.isPaid || false;
       })
+      .addCase(fetchAllProjects.fulfilled, (state, action) => {
+        state.allProjectIds = action.payload.data.map((item) => item.id);
+        state.projectDetails = {
+          ...state.projectDetails,
+          ...keyBy(action.payload.data, (item) => item.id),
+        };
+      })
       .addCase(submitProject.fulfilled, (state, action) => {
         state.projectDetails = {
           ...state.projectDetails,
@@ -163,9 +184,33 @@ export const selectProjectNomintateDetail =
 export const selectProjectNomintateIds = (state: RootState) =>
   state.nominate.projectIds;
 
+export const selectAllProjectIds = (state: RootState) =>
+  state.nominate.allProjectIds;
+
 export const selectProjectIdsGroupByEntry = createSelector(
   selectProjectNomintateDetails,
   selectProjectNomintateIds,
+  (details, ids) => {
+    const result: {
+      [key: string]: number[];
+    } = {};
+    ids.forEach((id) => {
+      const project = details[id];
+      if (result[project.entryId] == null) {
+        result[project.entryId] = [];
+      }
+      result[project.entryId].push(id);
+    });
+    return map(result, (projectIds, entryId) => ({
+      entryId,
+      projectIds,
+    }));
+  }
+);
+
+export const selectAllProjectIdsGroupByEntry = createSelector(
+  selectProjectNomintateDetails,
+  selectAllProjectIds,
   (details, ids) => {
     const result: {
       [key: string]: number[];

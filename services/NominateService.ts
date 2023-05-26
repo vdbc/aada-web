@@ -1,5 +1,6 @@
 import { apiUrl } from "../models/AppConfig";
 import {
+  AllProjectsResponse,
   MyProjectNominateResponse,
   Nominate,
   ProjectNominate,
@@ -73,6 +74,19 @@ export async function getProjectRegistered(
 ): Promise<MyProjectNominateResponse> {
   const url = `${apiUrl}/nominate/projects`;
   const resp = await get<MyProjectNominateResponse>(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return resp;
+}
+
+export async function getAllProjects(
+  token: string
+): Promise<AllProjectsResponse> {
+  const url = `${apiUrl}/projects`;
+  const resp = await get<AllProjectsResponse>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
