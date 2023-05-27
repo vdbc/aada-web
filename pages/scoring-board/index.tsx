@@ -2,20 +2,21 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import { useAppDispatch, useAppSelector } from "../../store";
 import {
   fetchAllNominate,
+  fetchAllNominateJudgement,
   fetchProjectNominate,
+  selectAdminEntries,
   selectProjectNomintateIds,
 } from "../../store/modules/nominate";
 import { selectUserId } from "../../store/modules/user";
 import InputProjectDetail from "./InputProjectDetail";
-import SelectNominateEntry from "./SelectNominateEntry";
 import styles from "./styles.module.scss";
 import { ScoringTopBanner } from "../../components/TopBanner";
 import InputOverview from "./InputOverview";
 import HeaderScore from "../../components/HeaderScore";
+import SelectNominateEntry from "./SelectNominateEntry";
 
 export default function _View(props: any) {
   const dispatch = useAppDispatch();
@@ -23,8 +24,10 @@ export default function _View(props: any) {
   useEffect(() => {
     dispatch(fetchProjectNominate());
     dispatch(fetchAllNominate());
+    dispatch(fetchAllNominateJudgement());
   }, [dispatch, userId]);
   const projectIds = useAppSelector(selectProjectNomintateIds);
+  const adminEntries = useAppSelector(selectAdminEntries);
   const route = useRouter();
   const paramProjectId = parseInt(route.query["project"]?.toString() ?? "0");
   const activeProjectId = projectIds.includes(paramProjectId)
@@ -33,6 +36,7 @@ export default function _View(props: any) {
   const [selectedProjectId, setActiveProject] = useState(activeProjectId);
   const _selectedProjectId = selectedProjectId || projectIds[0];
 
+  console.log(adminEntries);
   return (
     <div className={styles.container}>
       <Head>
@@ -43,15 +47,18 @@ export default function _View(props: any) {
         <HeaderScore />
         <ScoringTopBanner />
         <div className={styles.bodyPage}>
-          <div style={{ height: 72 }} />
-
           <div className={styles.detail}>
             <div className={styles.selectNominateEntry}>
-              <SelectNominateEntry
-                selectedProjectId={_selectedProjectId}
-                onChanged={setActiveProject}
-              />
+              <ul className={styles.item}>
+                {adminEntries.map((entry) => (
+                  <li key={entry.id}>{entry.name}</li>
+                ))}
+              </ul>
             </div>
+            <SelectNominateEntry
+              selectedProjectId={_selectedProjectId}
+              onChanged={setActiveProject}
+            />
             <div className={styles.inputDetail}>
               <InputOverview projectId={_selectedProjectId} />
               <InputProjectDetail projectId={_selectedProjectId} />

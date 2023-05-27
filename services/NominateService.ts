@@ -2,6 +2,7 @@ import { apiUrl } from "../models/AppConfig";
 import {
   MyProjectNominateResponse,
   Nominate,
+  NominateName,
   ProjectNominate,
   RegisterNominateEntries,
 } from "../models/NominateModel";
@@ -21,6 +22,18 @@ export async function fetchFeePerEntry(token: string): Promise<number> {
 export async function getAllNominate(token: string): Promise<Nominate[]> {
   const url = `${apiUrl}/nominate`;
   const resp = await get<{ data: Nominate[] }>(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return resp.data;
+}
+export async function getAllNominateJudgement(
+  token: string
+): Promise<NominateName[]> {
+  const url = `${apiUrl}/admin/entry`;
+  const resp = await get<{ data: NominateName[] }>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

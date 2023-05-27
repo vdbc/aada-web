@@ -85,7 +85,6 @@ declare type ViewProps = {
 
 export default function _View({ selectedProjectId, onChanged }: ViewProps) {
   const groupProjectIds = useAppSelector(selectProjectIdsGroupByEntry);
-
   return (
     <div className={styles.container}>
       {groupProjectIds.map((group) => (

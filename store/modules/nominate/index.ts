@@ -16,6 +16,7 @@ import {
   confirmSubmitProject,
   fetchFeePerEntry,
   getAllNominate,
+  getAllNominateJudgement,
   getProjectRegistered,
   saveProject,
 } from "../../../services/NominateService";
@@ -67,6 +68,15 @@ export const fetchAllNominate = createAsyncThunk<
   return getAllNominate(token);
 });
 
+export const fetchAllNominateJudgement = createAsyncThunk<
+  NominateEntryAdmin[],
+  void,
+  { state: RootState }
+>("nominate/getAllNominateJudgement", async (_, store) => {
+  const state = store.getState();
+  const token = selectToken(state);
+  return getAllNominateJudgement(token);
+});
 export const getFeePerEntry = createAsyncThunk<
   number,
   void,
@@ -142,12 +152,19 @@ export const nominateSlice = createSlice({
       })
       .addCase(getFeePerEntry.fulfilled, (state, action) => {
         state.feePerEntry = action.payload;
+      })
+      .addCase(fetchAllNominateJudgement.fulfilled, (state, action) => {
+        state.nominateListAdmin = action.payload;
       });
   },
 });
 
 export const selectNominates = (state: RootState) =>
   state.nominate.nominateList;
+
+export const selectAdminEntries = (state: RootState) =>
+  state.nominate.nominateListAdmin;
+
 export const selectFeePerEntry = (state: RootState) =>
   state.nominate.feePerEntry;
 export const selectNominateDetails = createSelector(

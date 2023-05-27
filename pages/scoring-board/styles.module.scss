@@ -3,7 +3,22 @@
   color: #a67f56;
   background-color: #f7f7f7;
 }
-
+.item {
+  width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 50px;
+      padding: 15px;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-family: 'Lato';
+      background-color: white;
+      color: #a67f56;
+      border: 0.5px solid #a67f56;
+      border-top-style: none;
+}
 .main {
   min-height: 100vh;
   padding: 0;

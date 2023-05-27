@@ -21,7 +21,6 @@ import styles from "./styles.module.scss";
 import SlideImage from "../SlideImage";
 import { useRouter } from "next/router";
 import { selectToken, selectUserId } from "../../../store/modules/user";
-import ScoreSelector from "../ScoreSelector";
 import {
   ProjectScoreState,
   differetiationSelector,
