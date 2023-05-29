@@ -1,7 +1,7 @@
 import { isEmpty, sum } from "lodash";
 import { ProjectScoreBody } from "../services/ScoreService";
 
-export function getProgressPercentField(value?: string) {
+export function getProgressPercent(value?: string) {
   const numOfWords = (value ?? "").trim().split(/\s+/).length;
   if (numOfWords <= 10) return 0;
   if (numOfWords <= 50) return 10;
@@ -21,7 +21,7 @@ export function canSubmitScore(score: ProjectScoreBody) {
     score.innovation.comment,
   ];
   for (let i = 0; i < commentFields.length; i++) {
-    if (getProgressPercentField(commentFields[i]) < 0) return false;
+    if (getProgressPercent(commentFields[i]) < 0) return false;
   }
   const scoreFields = [
     score.idea.score,

@@ -4,6 +4,7 @@ import { RegistrationFooterBanner } from "../../components/FooterBanner";
 import Header from "../../components/Header";
 import { TermsTopBanner } from "../../components/TopBanner";
 import styles from "./styles.module.scss";
+import ModalSuccess from "../../components/ModalSuccess";
 
 export default function Home() {
   return (

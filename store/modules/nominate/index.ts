@@ -10,6 +10,7 @@ import { RootState, store } from "../..";
 import {
   MyProjectNominateResponse,
   Nominate,
+  NominateName,
   ProjectNominate,
 } from "../../../models/NominateModel";
 import {
@@ -30,7 +31,7 @@ import {
 
 export interface NominateState {
   nominateList: Nominate[];
-  nominateListAdmin: NominateEntryAdmin[];
+  nominateName: NominateName[];
   projectIds: number[];
   projectDetails: {
     [key: number]: ProjectNominate;
@@ -41,7 +42,7 @@ export interface NominateState {
 
 const initialState: NominateState = {
   nominateList: [],
-  nominateListAdmin: [],
+  nominateName: [],
   projectDetails: {},
   projectIds: [],
   isPaid: false,
@@ -68,15 +69,6 @@ export const fetchAllNominate = createAsyncThunk<
   return getAllNominate(token);
 });
 
-export const fetchAllNominateJudgement = createAsyncThunk<
-  NominateEntryAdmin[],
-  void,
-  { state: RootState }
->("nominate/getAllNominateJudgement", async (_, store) => {
-  const state = store.getState();
-  const token = selectToken(state);
-  return getAllNominateJudgement(token);
-});
 export const getFeePerEntry = createAsyncThunk<
   number,
   void,
@@ -85,6 +77,16 @@ export const getFeePerEntry = createAsyncThunk<
   const state = store.getState();
   const token = selectToken(state);
   return fetchFeePerEntry(token);
+});
+
+export const fetchAllNominateJudgement = createAsyncThunk<
+  NominateName[],
+  void,
+  { state: RootState }
+>("nominate/getAllNominateJudgement", async (_, store) => {
+  const state = store.getState();
+  const token = selectToken(state);
+  return getAllNominateJudgement(token);
 });
 
 export const saveProjectNominate = createAsyncThunk<
@@ -109,16 +111,16 @@ export const submitProject = createAsyncThunk<
   const token = selectToken(state);
   return confirmSubmitProject(project, token);
 });
-export const scoreProject = createAsyncThunk<
-  ProjectScoreBody,
-  ProjectScoreBody,
-  { state: RootState }
->("nominate/scoreProject", async (body, { getState }) => {
-  const state = getState();
-  const token = selectToken(state);
-  const { projectId } = body;
-  return postProjectScore(projectId, body, token);
-});
+// export const scoreProject = createAsyncThunk<
+//   ProjectScoreBody,
+//   ProjectScoreBody,
+//   { state: RootState }
+// >("nominate/scoreProject", async (body, { getState }) => {
+//   const state = getState();
+//   const token = selectToken(state);
+//   const { projectId } = body;
+//   return postProjectScore(projectId, body, token);
+// });
 
 export const nominateSlice = createSlice({
   name: "nominate",
@@ -154,7 +156,7 @@ export const nominateSlice = createSlice({
         state.feePerEntry = action.payload;
       })
       .addCase(fetchAllNominateJudgement.fulfilled, (state, action) => {
-        state.nominateListAdmin = action.payload;
+        state.nominateName = action.payload;
       });
   },
 });
@@ -163,7 +165,7 @@ export const selectNominates = (state: RootState) =>
   state.nominate.nominateList;
 
 export const selectAdminEntries = (state: RootState) =>
-  state.nominate.nominateListAdmin;
+  state.nominate.nominateName;
 
 export const selectFeePerEntry = (state: RootState) =>
   state.nominate.feePerEntry;

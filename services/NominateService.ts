@@ -1,9 +1,11 @@
 import { apiUrl } from "../models/AppConfig";
 import {
+  IListProject,
   MyProjectNominateResponse,
   Nominate,
   NominateName,
   ProjectNominate,
+  ProjectNominateEntry,
   RegisterNominateEntries,
 } from "../models/NominateModel";
 import { get, post, put } from "./http";
@@ -94,6 +96,19 @@ export async function getProjectRegistered(
   return resp;
 }
 
+export async function getProjectbyEntryId(
+  token: string,
+  entryId: string
+): Promise<IListProject> {
+  const url = `${apiUrl}/project/${entryId}`;
+  const resp = await get<IListProject>(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return resp;
+}
 export async function saveProject(
   project: ProjectNominate,
   token: string

@@ -9,23 +9,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useAppSelector } from "../../../store";
-import { selectProjectNomintateDetail } from "../../../store/modules/nominate";
-import {
-  getProjectImages,
-  getProjectName,
-} from "../../../utils/project-nominate";
+
+import { getProjectImages } from "../../../utils/project-nominate";
 import styles from "./styles.module.scss";
+import { ProjectNominateEntry } from "../../../models/NominateModel";
 
 SwiperCore.use([Navigation, Pagination]);
 
 declare type ViewProps = {
-  projectId: number;
+  project: ProjectNominateEntry;
 };
 
-export default function _View({ projectId }: ViewProps) {
-  const project = useAppSelector(selectProjectNomintateDetail(projectId));
-
+export default function _View({ project }: ViewProps) {
   return (
     <div className={styles.container}>
       <Swiper

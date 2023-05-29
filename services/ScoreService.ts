@@ -22,10 +22,9 @@ export async function postProjectScore(
   projectId: number,
   body: ProjectScoreBody,
   token: string
-): Promise<any> {
+): Promise<ProjectScoreBody> {
   const url = `${apiUrl}/score/${projectId}`;
-  return post<any>(url, {
-    body: body,
+  return post<ProjectScoreBody>(url, body, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
