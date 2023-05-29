@@ -166,7 +166,7 @@ export const nominateSlice = createSlice({
 export const selectNominates = (state: RootState) =>
   state.nominate.nominateList;
 export const selectNominatesAdmin = (state: RootState) =>
-  state.nominate.nominateListAdmin;
+  state.nominate.nominateName;
 export const selectFeePerEntry = (state: RootState) =>
   state.nominate.feePerEntry;
 export const selectNominateDetails = createSelector(

@@ -38,17 +38,20 @@ import ModalSuccess from "../../../components/ModalSuccess";
 
 declare type Props = {
   onSetScore?: any;
+  value?: string;
+  validator?: TextInputValidator;
 };
 
-function NumberSelector({ onSetScore }: Props) {
+function NumberSelector({ onSetScore, value, validator }: Props) {
   const [selectedNumber, setSelectedNumber] = useState<number | null>(null);
   const numbers: number[] = [1, 2, 3, 4, 5];
-
+  const message = validator ? validator(value || "") : "";
   return (
     <div className={styles.inputAboutField}>
       <div className={styles.numberSelector}>
         {numbers.map((number) => (
           <button
+            value={value || ""}
             key={number}
             className={styles.score}
             onClick={() => {
@@ -63,6 +66,7 @@ function NumberSelector({ onSetScore }: Props) {
           </button>
         ))}
       </div>
+      {message && <div className={styles.errorMessage}>{message}</div>}
     </div>
   );
 }
@@ -155,9 +159,18 @@ function InputAboutField({
   const route = useRouter();
 
   const message = validator ? validator(value || "") : "";
+  const [isForceValidate, setForceValidate] = useState(false);
+  function requiredFieldValidator(text: string) {
+    if (!isForceValidate) return "";
+    return requiredValidator(text, defaultRequiredMessage);
+  }
   return (
     <div className={styles.inputAboutField}>
-      <NumberSelector onSetScore={onSetScore} />
+      <NumberSelector
+        onSetScore={onSetScore}
+        value={value || ""}
+        validator={requiredFieldValidator}
+      />
       <textarea
         placeholder="Please provide your comment in this field."
         value={value || ""}
@@ -186,17 +199,16 @@ export default function _View({ project }: ViewProps) {
   const functionSelect = useAppSelector(functionSelector);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const innovationSelect = useAppSelector(innovationSelector);
-
+  const [isValid, setIsValid] = useState<boolean>(false);
   if (!project) return <div />;
 
   function aboutFieldValidator(text: string) {
     if (!isForceValidate) return "";
-    return getProgressPercent(text) >= 30
-      ? ""
-      : "Please fill out at least 30% of this field before submitting.";
+    return getProgressPercent(text) >= 30 ? "" : "This field is required!";
   }
 
   const handleSubmit = () => {
+    setForceValidate(true);
     const token = selectToken(store.getState());
     const data: ProjectScoreState = {
       idea: ideaSelect,
@@ -205,6 +217,7 @@ export default function _View({ project }: ViewProps) {
       differentiation: differentiationSelect,
       function: functionSelect,
     };
+
     postProjectScore(project.id, data, token).then(() => setIsSuccess(true));
   };
   return (
@@ -335,7 +348,8 @@ export default function _View({ project }: ViewProps) {
       <button className={styles.buttonSubmit} onClick={handleSubmit}>
         Submit
       </button>
-      <ModalSuccess isOpen={isSuccess} onSetIsOpen={setIsSuccess} />
+
+      {/* <ModalSuccess isOpen={isSuccess} onSetIsOpen={setIsSuccess} /> */}
     </div>
   );
 }
