@@ -5,20 +5,18 @@
 }
 .item {
   width: 100%;
-      display: flex;
-      flex-direction: column;
-      min-height: 50px;
-      
-      font-size: 15px;
-      text-transform: uppercase;
-      font-family: 'Lato';
-      
-      color: #a67f56;
-      
-      border-top-style: none;
-      list-style-type: none;
-      
-      
+  display: flex;
+  flex-direction: column;
+  min-height: 50px;
+  padding: 0;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: "Lato";
+
+  color: #a67f56;
+
+  border-top-style: none;
+  list-style-type: none;
 }
 .main {
   min-height: 100vh;
@@ -43,7 +41,7 @@
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      
+
       @media (max-width: 800px) {
         flex-direction: column;
         align-items: center;
@@ -59,6 +57,7 @@
       .inputDetail {
         flex: 1.5;
         margin-left: 60px;
+        padding-top: 18px;
         @media (max-width: 800px) {
           margin-left: 0;
           padding: 0 20px;
@@ -78,16 +77,16 @@
   margin: 0;
   margin-top: 70px;
 }
-.discover{
-  font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 21px;
-line-height: 25px;
-display: flex;
-align-items: center;
+.discover {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
 
-/* AADA Colors/AADA - Gold */
+  /* AADA Colors/AADA - Gold */
 
-color: #A67F56;
+  color: #a67f56;
 }
