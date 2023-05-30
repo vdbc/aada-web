@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "rm -rf web.zip .next && next build && zip -9vr web.zip .next public next.config.js package.json package-lock.json",
-    "start:prod": "next start -p 9001",
-    "start:release": "rm -rf public web && npm i && unzip -o ./web.zip && next start -p 9002",
+    "start:release": "rm -rf public web && npm i && unzip -o ./web.zip && next start -p 9001",
     "start:pm2": "pm2 start npm --name aada-web -- run start:release",
     "stop:pm2": "pm2 delete aada-web",
     "start": "npm i && pm2 restart aada-web",
