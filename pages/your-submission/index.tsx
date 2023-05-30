@@ -1,27 +1,20 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { useAppDispatch, useAppSelector } from "../../store";
+import { useAppSelector, wrapper } from "../../store";
 import {
   fetchAllNominate,
   fetchProjectNominate,
   selectProjectNomintateIds,
 } from "../../store/modules/nominate";
-import { selectUserId } from "../../store/modules/user";
 import InputOverview from "./InputOverview";
 import InputProjectDetail from "./InputProjectDetail";
 import SelectNominateEntry from "./SelectNominateEntry";
 import styles from "./styles.module.scss";
 
 export default function _View(props: any) {
-  const dispatch = useAppDispatch();
-  const userId = useAppSelector(selectUserId);
-  useEffect(() => {
-    dispatch(fetchProjectNominate());
-    dispatch(fetchAllNominate());
-  }, [dispatch, userId]);
   const projectIds = useAppSelector(selectProjectNomintateIds);
   const route = useRouter();
   const paramProjectId = parseInt(route.query["project"]?.toString() ?? "0");
@@ -60,3 +53,13 @@ export default function _View(props: any) {
     </div>
   );
 }
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    await store.dispatch(fetchProjectNominate());
+    await store.dispatch(fetchAllNominate());
+
+    return {
+      props: {},
+    };
+  }
+);

@@ -1,5 +1,3 @@
-
-
 import { keyBy } from "lodash";
 
 declare type CountryInfo = {
@@ -10,6 +8,7 @@ declare type CountryInfo = {
 export const countries: CountryInfo[] = [
   { name: "Russia", flag: "🇷🇺", value: "+7" },
   { name: "China", flag: "🇨🇳", value: "+86" },
+  { name: "Hong Kong", flag: "🇭🇰", value: "+852" },
   { name: "India", flag: "🇮🇳", value: "+91" },
   { name: "Kazakhstan", flag: "🇰🇿", value: "+997" },
   { name: "Saudi Arabia", flag: "🇸🇦", value: "+966" },
