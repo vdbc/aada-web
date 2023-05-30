@@ -65,6 +65,21 @@ export default function _View({ dismiss }: Props) {
 
     setLoading(false);
   };
+  const handleLoginJudgement = async () => {
+    if (isLoading) return;
+    setLoading(true);
+    try {
+      const authModel = await login(username, password);
+      dispatch(userSlice.actions.setUser(authModel.user));
+      dispatch(userSlice.actions.setToken(authModel.token));
+      dismiss();
+      route.push("/scoring-board");
+    } catch (err: any) {
+      Toast.error(err?.message ?? "");
+    }
+
+    setLoading(false);
+  };
 
   return (
     <ThemeProvider theme={lightTheme}>
@@ -90,6 +105,15 @@ export default function _View({ dismiss }: Props) {
             onClick={canLogin ? handleLogin : undefined}
           >
             Sign in
+          </button>
+          <button
+            className={[
+              styles.button,
+              canLogin ? styles.active : styles.inactive,
+            ].join("")}
+            onClick={canLogin ? handleLoginJudgement : undefined}
+          >
+            Sign in with a judgement-verified account
           </button>
           <div className={styles.forgotPassword}>
             <Link href="#" className={styles.link}>

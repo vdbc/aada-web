@@ -16,6 +16,7 @@ declare type Props = {
 export default function _View({ entry, onSetProject }: Props) {
   const [listProject, setListProject] = useState<ProjectNominateEntry[]>([]);
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
+  const [selectedProjectId, setSelectedProjectId] = useState<number>(0);
   useEffect(() => {
     const state = store.getState();
     const token = selectToken(state);
@@ -23,22 +24,28 @@ export default function _View({ entry, onSetProject }: Props) {
       setListProject(res.data);
     });
   }, [listProject.length]);
-  console.log(listProject, entry.id);
+  // console.log(listProject, entry.id);
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.listNominate}>
+      <div
+        className={styles.listNominate}
+        onClick={() => setIsOpenMenu(!isOpenMenu)}
+      >
         <span>{entry.name}</span>
-        <IoIosArrowDown onClick={() => setIsOpenMenu(!isOpenMenu)} />
+        <IoIosArrowDown />
       </div>
       {isOpenMenu && (
         <ul className={styles.listProject}>
           {listProject.map((list) => (
             <li
-              className={styles.listName}
+              className={`${styles.listName} ${
+                selectedProjectId === list.id ? styles.listNameSelected : "" // Sử dụng selectedProjectId ở đây
+              }`}
               key={list.id}
               onClick={() => {
                 onSetProject(list);
+                setSelectedProjectId(list.id);
               }}
             >
               {list.name}
