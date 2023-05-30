@@ -12,10 +12,12 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
+  width: 800,
+  height: 500,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
+
   p: 4,
 };
 
@@ -40,9 +42,14 @@ export default function ModalSuccess({ isOpen, onSetIsOpen }: Props) {
         <Fade in={isOpen}>
           <Box sx={style} className={styles.modal}>
             <img src="/modal.svg" className={styles.img}></img>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
+            <Typography
+              className={styles.text}
+              id="transition-modal-title"
+              variant="h6"
+              component="h2"
+            >
               Thank you for your dedication and commitment to evaluating the
-              nominations for the Asia Architecture & Design Awards. We are very
+              nominations for the Asia Architecture Design Awards. We are very
               appreciative that you took the time to be part of the judging
               process.
             </Typography>
