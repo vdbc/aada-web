@@ -1,0 +1,93 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  @media (max-width: 1100px) {
+    padding: 0 20px;
+   }
+  .nominateContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .root {
+      background-color: #a67f56;
+      color: white;
+      border-style: none;
+      border-bottom: 0.5px solid white;
+      font-weight: 700;
+    }
+
+    .entry {
+      background-color: white;
+      color: #a67f56;
+      border: 0.5px solid #a67f56;
+      border-top-style: none;
+    }
+    .nameNominate{
+      font-family: 'Lato';
+    }
+    .active {
+      font-weight: 700;
+    }
+    .item {
+      width: 100%;
+      display: flex;
+      text-align: left;
+      background-color: #a67f56;
+      color: #ffff;
+      padding: 0 15px;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-family: 'Lato';
+      padding: 0;
+      > div {
+        flex: 1;
+        text-align: left;
+      }
+    }
+  }
+}
+.listProject {
+  list-style-type: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+padding:0;
+text-transform: uppercase;
+}
+.listName {
+  
+  border-top: 0.5px solid #a67f56;
+  padding: 10px 40px
+}
+.wrapper {
+  border-left: 0.5px solid #a67f56;
+    border-right: 0.5px solid;
+}
+.listNominate {
+  cursor:pointer;
+padding: 10px 15px;
+font-family: 'Lato';
+font-style: normal;
+font-size: 18px;
+justify-content: space-between;
+border-top: 0.5px solid;
+
+/* identical to box height */
+background: #A67F56;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+
+color: #FFFFFF;
+}

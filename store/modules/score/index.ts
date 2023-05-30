@@ -10,20 +10,19 @@ import { RootState, store } from "../..";
 import {
   MyProjectNominateResponse,
   Nominate,
-  NominateName,
   ProjectNominate,
 } from "../../../models/NominateModel";
 import {
   confirmSubmitProject,
   fetchFeePerEntry,
   getAllNominate,
-  getAllNominateJudgement,
   getProjectRegistered,
   saveProject,
 } from "../../../services/NominateService";
 import listenerMiddleware from "../../listener-middleware";
 import { selectToken } from "../user";
 import {
+  getAllNominateAdmin,
   NominateEntryAdmin,
   postProjectScore,
   ProjectScoreBody,
@@ -31,7 +30,7 @@ import {
 
 export interface NominateState {
   nominateList: Nominate[];
-  nominateName: NominateName[];
+  nominateListAdmin: NominateEntryAdmin[];
   projectIds: number[];
   projectDetails: {
     [key: number]: ProjectNominate;
@@ -42,7 +41,7 @@ export interface NominateState {
 
 const initialState: NominateState = {
   nominateList: [],
-  nominateName: [],
+  nominateListAdmin: [],
   projectDetails: {},
   projectIds: [],
   isPaid: false,
@@ -69,6 +68,16 @@ export const fetchAllNominate = createAsyncThunk<
   return getAllNominate(token);
 });
 
+export const fetchAllNominateAdmin = createAsyncThunk<
+  NominateEntryAdmin[],
+  void,
+  { state: RootState }
+>("nominate/fetchAllNominate", async (_, store) => {
+  const state = store.getState();
+  const token = selectToken(state);
+  return getAllNominateAdmin(token);
+});
+
 export const getFeePerEntry = createAsyncThunk<
   number,
   void,
@@ -77,16 +86,6 @@ export const getFeePerEntry = createAsyncThunk<
   const state = store.getState();
   const token = selectToken(state);
   return fetchFeePerEntry(token);
-});
-
-export const fetchAllNominateJudgement = createAsyncThunk<
-  NominateName[],
-  void,
-  { state: RootState }
->("nominate/getAllNominateJudgement", async (_, store) => {
-  const state = store.getState();
-  const token = selectToken(state);
-  return getAllNominateJudgement(token);
 });
 
 export const saveProjectNominate = createAsyncThunk<
@@ -129,6 +128,9 @@ export const nominateSlice = createSlice({
     setNominates: (state, action: PayloadAction<Nominate[]>) => {
       state.nominateList = action.payload;
     },
+    setNominatesAdmin: (state, action: PayloadAction<NominateEntryAdmin[]>) => {
+      state.nominateListAdmin = action.payload;
+    },
     projectUpdated: (state, action: PayloadAction<ProjectNominate>) => {
       state.projectDetails[action.payload.id] = action.payload;
     },
@@ -152,27 +154,31 @@ export const nominateSlice = createSlice({
       .addCase(fetchAllNominate.fulfilled, (state, action) => {
         state.nominateList = action.payload;
       })
+      .addCase(fetchAllNominateAdmin.fulfilled, (state, action) => {
+        state.nominateListAdmin = action.payload;
+      })
       .addCase(getFeePerEntry.fulfilled, (state, action) => {
         state.feePerEntry = action.payload;
-      })
-      .addCase(fetchAllNominateJudgement.fulfilled, (state, action) => {
-        state.nominateName = action.payload;
       });
   },
 });
 
 export const selectNominates = (state: RootState) =>
   state.nominate.nominateList;
-
-export const selectAdminEntries = (state: RootState) =>
+export const selectNominatesAdmin = (state: RootState) =>
   state.nominate.nominateName;
-
 export const selectFeePerEntry = (state: RootState) =>
   state.nominate.feePerEntry;
 export const selectNominateDetails = createSelector(
   selectNominates,
   (nominateList) => {
     return keyBy(nominateList, (item) => item.id);
+  }
+);
+export const selectNominateDetailsAdmin = createSelector(
+  selectNominatesAdmin,
+  (nominateListAdmin) => {
+    return keyBy(nominateListAdmin, (item) => item.id);
   }
 );
 export const selectNominateEntryDetails = createSelector(
@@ -184,9 +190,15 @@ export const selectNominateEntryDetails = createSelector(
     );
   }
 );
+export const selectNominateEntryDetailsAdmin = createSelector(
+  selectNominates,
+  (nominateList) => {
+    return keyBy(flatMap(nominateList, (item) => item.name));
+  }
+);
 
 export const selectNomintateEntryDetail = (id: string) => (state: RootState) =>
-  selectNominateEntryDetails(state)[id];
+  selectNominateEntryDetailsAdmin(state)[id];
 
 export const selectProjectNomintateDetails = (state: RootState) =>
   state.nominate.projectDetails;

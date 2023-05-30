@@ -5,7 +5,27 @@
     object-fit: cover;
   }
 }
+.title {
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 38px;
+line-height: 38px;
+text-align: center;
+width: 50%;
+}
+.content {
+  color: #A67F56;;
+width: 60%;
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+letter-spacing: 0.03em;
 
+}
 .topBanner {
   width: 100%;
   min-height: calc(100vh - 100px);

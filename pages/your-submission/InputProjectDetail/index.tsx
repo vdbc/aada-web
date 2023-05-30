@@ -369,9 +369,7 @@ export default function _View({ projectId }: ViewProps) {
         }
         label="I hereby consent that I have completed my submission and will not be permitted to do any adjustment thereafter."
       />
-      <Link
-        href="/thankyou-submission"
-        target="_blank"
+      <button
         className={[
           styles.buttonSubmit,
           canSubmit ? styles.active : styles.inactive,
@@ -379,7 +377,7 @@ export default function _View({ projectId }: ViewProps) {
         onClick={handleSubmit}
       >
         Submit
-      </Link>
+      </button>
     </div>
   );
 }

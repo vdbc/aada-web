@@ -1,11 +1,16 @@
 import { isEmpty, sum } from "lodash";
 import {
   ProjectNominate,
+  ProjectNominateEntry,
   ProjectNominateStatus,
 } from "../models/NominateModel";
+import { ProjectScoreBody } from "../services/ScoreService";
 
 export function getProjectName(project: ProjectNominate) {
   return project?.name ?? `Project ${project?.id ?? "--"}`;
+}
+export function getProjectImages(project: ProjectNominateEntry) {
+  return project?.pictures || [];
 }
 
 export function getProgressPercentField(value?: string) {
