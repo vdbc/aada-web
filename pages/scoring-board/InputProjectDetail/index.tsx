@@ -380,7 +380,7 @@ export default function _View({ project }: ViewProps) {
       <button className={styles.buttonSubmit} onClick={handleSubmit}>
         Submit
       </button>
-      <ModalSuccess isOpen={isSuccess} onSetIsOpen={setIsSuccess} />;
+      <ModalSuccess isOpen={isSuccess} onSetIsOpen={setIsSuccess} />
     </div>
   );
 }
