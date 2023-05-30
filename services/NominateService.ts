@@ -1,8 +1,11 @@
 import { apiUrl } from "../models/AppConfig";
 import {
+  IListProject,
   MyProjectNominateResponse,
   Nominate,
+  NominateName,
   ProjectNominate,
+  ProjectNominateEntry,
   RegisterNominateEntries,
 } from "../models/NominateModel";
 import { get, post, put } from "./http";
@@ -21,6 +24,18 @@ export async function fetchFeePerEntry(token: string): Promise<number> {
 export async function getAllNominate(token: string): Promise<Nominate[]> {
   const url = `${apiUrl}/nominate`;
   const resp = await get<{ data: Nominate[] }>(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return resp.data;
+}
+export async function getAllNominateJudgement(
+  token: string
+): Promise<NominateName[]> {
+  const url = `${apiUrl}/admin/entry`;
+  const resp = await get<{ data: NominateName[] }>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -81,6 +96,19 @@ export async function getProjectRegistered(
   return resp;
 }
 
+export async function getProjectbyEntryId(
+  token: string,
+  entryId: string
+): Promise<IListProject> {
+  const url = `${apiUrl}/project/${entryId}`;
+  const resp = await get<IListProject>(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return resp;
+}
 export async function saveProject(
   project: ProjectNominate,
   token: string

@@ -113,6 +113,30 @@ export function FAQsTopBanner() {
   );
 }
 
+export function ScoringTopBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.jpg">
+      <h1>Scoring Board</h1>
+      <h3 className={styles.title}>
+        Welcome Esteemed Judges to the prestigious <br /> 2023 Asia Architecture
+        Design Awards (AADA)!
+      </h3>
+      <p className={styles.content}>
+        It is with great honor that we welcome you to the Scoring Board where
+        this system serves as your indispensable companion in the meticulous
+        task of assigning scores to the exceptional nominees, allowing you to
+        carefully evaluate and appreciate their architectural prowess, shaping
+        the future of the industry and celebrating the pinnacle of design
+        excellence in the dynamic world of architecture.
+      </p>
+      <div className={styles.scrollDown}>
+        <MdExpandMore size={15} />
+        <div>Scroll down to learn more</div>
+      </div>
+    </_View>
+  );
+}
+
 export function TermsTopBanner() {
   return (
     <_View bgUrl="/bg_the_award.jpg">

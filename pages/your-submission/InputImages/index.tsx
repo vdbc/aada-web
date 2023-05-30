@@ -81,7 +81,7 @@ function uploadImage(
     const prefix = utc(new Date()).format("YYYYMMDD_hh:mm:ss");
     const storageRef = ref(storage, `files/${userId}/${prefix}${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
-
+    
     uploadTask.on(
       "state_changed",
       (snapshot) => {
