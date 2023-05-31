@@ -1,4 +1,5 @@
 import { apiUrl } from "../models/AppConfig";
+import { ProjectScore } from "../models/ProjectScoreModel";
 import { get, post } from "./http";
 
 export interface ScoreNominate {
@@ -41,4 +42,30 @@ export async function getAllNominateAdmin(
   });
 
   return resp.data;
+}
+
+export default class ScoreService {
+  static async saveProjectScore(projectScore: ProjectScore, token: string) {
+    const url = `${apiUrl}/score/project/${projectScore.projectId}`;
+    const resp = await post<ProjectScore>(url, projectScore, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return resp;
+  }
+  static async fetchProjectScore(
+    projectId: number,
+    token: string
+  ): Promise<ProjectScore> {
+    const url = `${apiUrl}/score/project/${projectId}`;
+    const resp = await get<ProjectScore>(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return resp;
+  }
 }

@@ -2,7 +2,7 @@ import { FormControlLabel } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import { useEffect, useState } from "react";
 import { ProjectNominateStatus } from "../../../models/NominateModel";
-import { store, useAppDispatch, useAppSelector } from "../../../store";
+import { useAppDispatch, useAppSelector } from "../../../store";
 import {
   fetchAllNominate,
   fetchProjectNominate,
@@ -10,24 +10,15 @@ import {
 import { TextInputValidator, ValueChanged } from "../../../utils/interface";
 
 import ModalSuccess from "../../../components/ModalSuccess";
-import { postProjectScore } from "../../../services/ScoreService";
-import { selectProjectNomintateDetail } from "../../../store/modules/nominate";
 import {
-  ProjectScoreState,
-  differetiationSelector,
-  functionSelector,
-  ideaSelector,
-  impactSelector,
-  innovationSelector,
-  setDifferentiation,
-  setFunction,
-  setIdea,
-  setImpact,
-  setInnovation,
-  setIsValidate,
-  validatorSelector,
-} from "../../../store/modules/scorecomment";
-import { selectToken, selectUserId } from "../../../store/modules/user";
+  ProjectScoreField,
+  projectScopeEmpty,
+} from "../../../models/ProjectScoreModel";
+import { selectProjectNomintateDetail } from "../../../store/modules/nominate";
+import scoreBoardSlice, {
+  selectProjectScoreDetail,
+} from "../../../store/modules/score-board";
+import { selectUserId } from "../../../store/modules/user";
 import { getProgressPercent } from "../../../utils/score";
 import SlideImage from "../SlideImage";
 import styles from "./styles.module.scss";
@@ -71,7 +62,7 @@ function NumberSelector({ onSetScore, value, validator }: Props) {
     </div>
   );
 }
-declare type AboutField = {
+declare type AboutFieldProps = {
   label: string;
   desc: string;
   descScore: string;
@@ -89,7 +80,7 @@ function AboutField({
   placeholder,
   required = true,
   disable,
-}: AboutField) {
+}: AboutFieldProps) {
   return (
     <div className={styles.inputAboutField}>
       <div className={styles.label}>{label + (required ? "*" : "")}</div>
@@ -145,12 +136,17 @@ function ViewGallery({ label, desc, required = true }: ViewGallery) {
 
 function InputAboutField({ value, onChanged, validator }: InputAboutField) {
   const message = validator ? validator(value || "") : "";
+  const [v, setValue] = useState(value ?? "");
+
   return (
     <div className={styles.inputAboutField}>
       <textarea
         placeholder="Please provide your comment in this field."
-        value={value || ""}
-        onChange={(event) => onChanged(event.target.value)}
+        value={v}
+        onChange={(event) => {
+          setValue(event.target.value);
+          onChanged(event.target.value);
+        }}
         className={styles.input}
       />
       {message && <div className={styles.errorMessage}>{message}</div>}
@@ -168,14 +164,14 @@ export default function _View({ projectId }: ViewProps) {
   const [isForceValidate, setForceValidate] = useState(false);
   const canEdit = project?.status != ProjectNominateStatus.SUBMITED;
   const [isApprove, setApprove] = useState(!canEdit);
-  const ideaSelect = useAppSelector(ideaSelector);
-  const impactSelect = useAppSelector(impactSelector);
-  const differentiationSelect = useAppSelector(differetiationSelector);
-  const functionSelect = useAppSelector(functionSelector);
+  const projectScore = useAppSelector(selectProjectScoreDetail(projectId)) ?? {
+    ...projectScopeEmpty,
+    projectId,
+  };
+
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const innovationSelect = useAppSelector(innovationSelector);
-  const [isValid, setIsValid] = useState<boolean>(false);
-  const isValidate = useAppSelector(validatorSelector);
+  // const [isValid, setIsValid] = useState<boolean>(false);
+  const isValidate = true;
   function scoreValidator(score: number | undefined) {
     if (!isValidate) return "";
     return score === 0 ? "Please select a score." : "";
@@ -189,34 +185,57 @@ export default function _View({ projectId }: ViewProps) {
   }
 
   const handleSubmit = () => {
-    dispatch(setIsValidate(true));
     setForceValidate(true);
-    const token = selectToken(store.getState());
-    const data: ProjectScoreState = {
-      idea: ideaSelect,
-      impact: impactSelect,
-      innovation: innovationSelect,
-      differentiation: differentiationSelect,
-      function: functionSelect,
-    };
-    if (
-      ideaSelect.score !== 0 &&
-      ideaSelect.comment !== "" &&
-      impactSelect.score !== 0 &&
-      impactSelect.comment !== "" &&
-      differentiationSelect.score !== 0 &&
-      differentiationSelect.comment !== "" &&
-      functionSelect.score !== 0 &&
-      functionSelect.comment !== "" &&
-      innovationSelect.score !== 0 &&
-      innovationSelect.comment !== ""
-    ) {
-      postProjectScore(project.id, data, token).then(() => setIsSuccess(true));
-    } else {
-    }
+    // const token = selectToken(store.getState());
+    // const data: ProjectScoreState = {
+    //   idea: ideaSelect,
+    //   impact: impactSelect,
+    //   innovation: innovationSelect,
+    //   differentiation: differentiationSelect,
+    //   function: functionSelect,
+    // };
+    // if (
+    //   ideaSelect.score !== 0 &&
+    //   ideaSelect.comment !== "" &&
+    //   impactSelect.score !== 0 &&
+    //   impactSelect.comment !== "" &&
+    //   differentiationSelect.score !== 0 &&
+    //   differentiationSelect.comment !== "" &&
+    //   functionSelect.score !== 0 &&
+    //   functionSelect.comment !== "" &&
+    //   innovationSelect.score !== 0 &&
+    //   innovationSelect.comment !== ""
+    // ) {
+    //   postProjectScore(project.id, data, token).then(() => setIsSuccess(true));
+    // } else {
+    // }
+  };
+
+  const onScoreChanged = (field: ProjectScoreField) => (value: number) => {
+    dispatch(
+      scoreBoardSlice.actions.projectScoreUpdated({
+        ...projectScore,
+        [field]: {
+          ...projectScore[field],
+          score: value,
+        },
+      })
+    );
+  };
+
+  const onCommentChanged = (field: ProjectScoreField) => (value: string) => {
+    dispatch(
+      scoreBoardSlice.actions.projectScoreUpdated({
+        ...projectScore,
+        [field]: {
+          ...projectScore[field],
+          comment: value,
+        },
+      })
+    );
   };
   return (
-    <div key={project.id} className={styles.container}>
+    <div key={projectId} className={styles.container}>
       <ViewGallery
         disable={!canEdit}
         label="Photo Gallery"
@@ -234,18 +253,14 @@ export default function _View({ projectId }: ViewProps) {
         placeholder={project?.idea?.toString()}
       />
       <NumberSelector
-        onSetScore={(idea: number) => {
-          dispatch(setIdea({ ...ideaSelect, score: idea }));
-        }}
-        value={ideaSelect.score}
+        onSetScore={onScoreChanged("idea")}
+        value={projectScore.idea.score}
         validator={scoreValidator}
       />
       <InputAboutField
-        value={ideaSelect.comment}
+        value={projectScore.idea.comment}
         validator={aboutFieldValidator}
-        onChanged={(idea) =>
-          dispatch(setIdea({ ...ideaSelect, comment: idea }))
-        }
+        onChanged={onCommentChanged("idea")}
       />
       <AboutField
         disable={!canEdit}
@@ -256,18 +271,14 @@ export default function _View({ projectId }: ViewProps) {
         placeholder={project?.impact?.toString()}
       />
       <NumberSelector
-        onSetScore={(impact: number) => {
-          dispatch(setImpact({ ...impactSelect, score: impact }));
-        }}
-        value={impactSelect.score}
+        onSetScore={onScoreChanged("impact")}
+        value={projectScore.impact.score}
         validator={scoreValidator}
       />
       <InputAboutField
-        value={impactSelect.comment}
+        value={projectScore.impact.comment}
         validator={aboutFieldValidator}
-        onChanged={(impact) =>
-          dispatch(setImpact({ ...impactSelect, comment: impact }))
-        }
+        onChanged={onCommentChanged("impact")}
       />
       <AboutField
         disable={!canEdit}
@@ -278,28 +289,14 @@ export default function _View({ projectId }: ViewProps) {
         placeholder={project?.differentiation?.toString()}
       />
       <NumberSelector
-        onSetScore={(differentiation: number) => {
-          dispatch(
-            setDifferentiation({
-              ...differentiationSelect,
-              score: differentiation,
-            })
-          );
-        }}
-        value={differentiationSelect.score}
+        onSetScore={onScoreChanged("differentiation")}
+        value={projectScore.differentiation.score}
         validator={scoreValidator}
       />
       <InputAboutField
-        value={differentiationSelect.comment}
+        value={projectScore.differentiation.comment}
         validator={aboutFieldValidator}
-        onChanged={(differentiation) =>
-          dispatch(
-            setDifferentiation({
-              ...differentiationSelect,
-              comment: differentiation,
-            })
-          )
-        }
+        onChanged={onCommentChanged("differentiation")}
       />
       <AboutField
         disable={!canEdit}
@@ -310,18 +307,14 @@ export default function _View({ projectId }: ViewProps) {
         placeholder={project?.function?.toString()}
       />
       <NumberSelector
-        onSetScore={(value: number) => {
-          dispatch(setFunction({ ...functionSelect, score: value }));
-        }}
-        value={functionSelect.score}
+        onSetScore={onScoreChanged("function")}
+        value={projectScore.function.score}
         validator={scoreValidator}
       />
       <InputAboutField
-        value={functionSelect.comment}
+        value={projectScore.function.comment}
         validator={aboutFieldValidator}
-        onChanged={(value) =>
-          dispatch(setFunction({ ...functionSelect, comment: value }))
-        }
+        onChanged={onCommentChanged("function")}
       />
       <AboutField
         disable={!canEdit}
@@ -332,18 +325,14 @@ export default function _View({ projectId }: ViewProps) {
         placeholder={project?.innovation?.toString()}
       />
       <NumberSelector
-        onSetScore={(innovation: number) => {
-          dispatch(setInnovation({ ...innovationSelect, score: innovation }));
-        }}
-        value={innovationSelect.score}
+        onSetScore={onScoreChanged("innovation")}
+        value={projectScore.innovation.score}
         validator={scoreValidator}
       />
       <InputAboutField
-        value={innovationSelect.comment}
+        value={projectScore.innovation.comment}
         validator={aboutFieldValidator}
-        onChanged={(innovation) =>
-          dispatch(setInnovation({ ...innovationSelect, comment: innovation }))
-        }
+        onChanged={onCommentChanged("innovation")}
       />
       <div style={{ height: 20 }} className={styles.completedBox} />
       <FormControlLabel

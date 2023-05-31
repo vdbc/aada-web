@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import HeaderScore from "../../components/HeaderScore";
 import { ScoringTopBanner } from "../../components/TopBanner";
-import { useAppSelector, wrapper } from "../../store";
+import { useAppDispatch, useAppSelector, wrapper } from "../../store";
 import {
   fetchAllNominate,
   fetchAllNominateJudgement,
@@ -15,6 +15,7 @@ import InputOverview from "./InputOverview";
 import InputProjectDetail from "./InputProjectDetail";
 import styles from "./styles.module.scss";
 
+import { fetchProjectScore } from "../../store/modules/score-board";
 import SelectNominateEntry from "./SelectNominateEntry";
 
 export default function _View(props: any) {
@@ -26,6 +27,10 @@ export default function _View(props: any) {
     : projectIds[0];
   const [selectedProjectId, setActiveProject] = useState(activeProjectId);
   const _selectedProjectId = selectedProjectId || projectIds[0];
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchProjectScore(_selectedProjectId));
+  }, [_selectedProjectId]);
 
   return (
     <div className={styles.container}>
