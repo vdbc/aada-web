@@ -1,11 +1,11 @@
 import { apiUrl } from "../models/AppConfig";
 import {
+  AllProjectsResponse,
   IListProject,
   MyProjectNominateResponse,
   Nominate,
   NominateName,
   ProjectNominate,
-  ProjectNominateEntry,
   RegisterNominateEntries,
 } from "../models/NominateModel";
 import { get, post, put } from "./http";
@@ -102,6 +102,18 @@ export async function getProjectbyEntryId(
 ): Promise<IListProject> {
   const url = `${apiUrl}/project/${entryId}`;
   const resp = await get<IListProject>(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return resp;
+}
+export async function getAllProjects(
+  token: string
+): Promise<AllProjectsResponse> {
+  const url = `${apiUrl}/projects`;
+  const resp = await get<AllProjectsResponse>(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

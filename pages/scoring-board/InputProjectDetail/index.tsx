@@ -1,27 +1,17 @@
 import { FormControlLabel } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import {
-  ProjectNominateEntry,
-  ProjectNominateStatus,
-} from "../../../models/NominateModel";
+import { ProjectNominateStatus } from "../../../models/NominateModel";
 import { store, useAppDispatch, useAppSelector } from "../../../store";
-import nominateSlice, {
+import {
   fetchAllNominate,
   fetchProjectNominate,
 } from "../../../store/modules/nominate";
-import {
-  ScoreValidator,
-  TextInputValidator,
-  ValueChanged,
-} from "../../../utils/interface";
+import { TextInputValidator, ValueChanged } from "../../../utils/interface";
 
-import { requiredValidator } from "../../../utils/validators";
-import styles from "./styles.module.scss";
-import SlideImage from "../SlideImage";
-import { useRouter } from "next/router";
-import { selectToken, selectUserId } from "../../../store/modules/user";
+import ModalSuccess from "../../../components/ModalSuccess";
+import { postProjectScore } from "../../../services/ScoreService";
+import { selectProjectNomintateDetail } from "../../../store/modules/nominate";
 import {
   ProjectScoreState,
   differetiationSelector,
@@ -37,10 +27,10 @@ import {
   setIsValidate,
   validatorSelector,
 } from "../../../store/modules/scorecomment";
-import React from "react";
-import { postProjectScore } from "../../../services/ScoreService";
+import { selectToken, selectUserId } from "../../../store/modules/user";
 import { getProgressPercent } from "../../../utils/score";
-import ModalSuccess from "../../../components/ModalSuccess";
+import SlideImage from "../SlideImage";
+import styles from "./styles.module.scss";
 
 declare type Props = {
   onSetScore?: any;
@@ -53,9 +43,7 @@ function NumberSelector({ onSetScore, value, validator }: Props) {
   const numbers: number[] = [1, 2, 3, 4, 5];
   const [isSelected, setIsSelected] = useState<boolean>(false);
   const message = validator(value || 0);
-  const dispatch = useAppDispatch();
 
-  const [isForceValidate, setForceValidate] = useState(false);
   return (
     <div className={styles.inputAboutField}>
       <div className={styles.numberSelector}>
@@ -156,16 +144,6 @@ function ViewGallery({ label, desc, required = true }: ViewGallery) {
 }
 
 function InputAboutField({ value, onChanged, validator }: InputAboutField) {
-  const dispatch = useAppDispatch();
-  const userId = useAppSelector(selectUserId);
-
-  useEffect(() => {
-    dispatch(fetchProjectNominate());
-    dispatch(fetchAllNominate());
-  }, [dispatch, userId]);
-
-  const route = useRouter();
-
   const message = validator ? validator(value || "") : "";
   return (
     <div className={styles.inputAboutField}>
@@ -181,12 +159,11 @@ function InputAboutField({ value, onChanged, validator }: InputAboutField) {
 }
 
 declare type ViewProps = {
-  project: ProjectNominateEntry;
+  projectId: number;
 };
 
-const defaultRequiredMessage = "Please fill out this field before submitting.";
-
-export default function _View({ project }: ViewProps) {
+export default function _View({ projectId }: ViewProps) {
+  const project = useAppSelector(selectProjectNomintateDetail(projectId));
   const dispatch = useAppDispatch();
   const [isForceValidate, setForceValidate] = useState(false);
   const canEdit = project?.status != ProjectNominateStatus.SUBMITED;
@@ -373,7 +350,10 @@ export default function _View({ project }: ViewProps) {
         className={styles.checkBox}
         disabled={canEdit}
         control={
-          <Checkbox onChange={(event) => setApprove(event.target.checked)} />
+          <Checkbox
+            value={isApprove}
+            onChange={(event) => setApprove(event.target.checked)}
+          />
         }
         label="By confirming this statement, I hereby acknowledge that my evaluation for this project has been completed."
       />
