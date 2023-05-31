@@ -31,11 +31,11 @@ export default function _View(props: any) {
   useEffect(() => {});
 
   const adminEntries = useAppSelector(selectAdminEntries);
+  const reversedAdminEntries = adminEntries.slice().reverse();
   const route = useRouter();
 
   const [project, setProject] = useState<ProjectNominateEntry>();
 
-  console.log(adminEntries);
   return (
     <div className={styles.container}>
       <Head>
@@ -52,7 +52,7 @@ export default function _View(props: any) {
           <div className={styles.detail}>
             <div className={styles.selectNominateEntry}>
               <ul className={styles.item}>
-                {adminEntries.map((item) => (
+                {reversedAdminEntries.map((item) => (
                   <MenuProject
                     onSetProject={(project: ProjectNominateEntry) => {
                       setProject(project);

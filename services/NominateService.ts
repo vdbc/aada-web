@@ -7,6 +7,7 @@ import {
   ProjectNominate,
   ProjectNominateEntry,
   RegisterNominateEntries,
+  StatusProject,
 } from "../models/NominateModel";
 import { get, post, put } from "./http";
 
@@ -109,6 +110,20 @@ export async function getProjectbyEntryId(
 
   return resp;
 }
+export async function getStatusByProjectId(
+  project: StatusProject,
+  token: string
+): Promise<StatusProject> {
+  const url = `${apiUrl}/api/score/project/${project.projectId}`;
+  const resp = await get<StatusProject>(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return resp;
+}
+
 export async function saveProject(
   project: ProjectNominate,
   token: string

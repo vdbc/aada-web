@@ -7,7 +7,7 @@ import {
   ProjectNominateStatus,
 } from "../../../models/NominateModel";
 import { store, useAppDispatch, useAppSelector } from "../../../store";
-import nominateSlice, {
+import {
   fetchAllNominate,
   fetchProjectNominate,
 } from "../../../store/modules/nominate";
