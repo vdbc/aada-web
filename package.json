@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && rm -rf web.zip && zip -9vr web.zip .next",
+    "build": "next build",
     "start:prod": "next start -p 9001",
     "start:pm2": "pm2 start npm --name aada-web -- run start:prod",
     "stop:pm2": "pm2 delete aada-web",
@@ -51,6 +51,7 @@
     "react-toastify": "^9.1.1",
     "recharts": "^2.1.16",
     "redux-persist": "^6.0.0",
+    "sharp": "^0.32.1",
     "swiper": "^9.3.2",
     "typescript": "4.8.4"
   },
