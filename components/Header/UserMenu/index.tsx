@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppSelector } from "../../../store";
-import { selectLastName } from "../../../store/modules/user";
+import { selectFirstName, selectLastName } from "../../../store/modules/user";
 import { VoidCallback } from "../../../utils/interface";
 import styles from "./styles.module.scss";
 
@@ -10,6 +10,7 @@ declare type UserMenuProps = {
 
 export default function UserMenu({ onLogout }: UserMenuProps) {
   const lastName = useAppSelector(selectLastName);
+  const firstName = useAppSelector(selectFirstName);
 
   const [isActive, setActive] = useState(false);
 
@@ -17,7 +18,7 @@ export default function UserMenu({ onLogout }: UserMenuProps) {
     <div className={styles.container}>
       <div className={isActive ? styles.active : styles.inactive}>
         <button className={styles.title} onClick={() => setActive(!isActive)}>
-          Hello {lastName}
+          Hello {firstName} {lastName}
         </button>
         {isActive && (
           <div className={styles.menus}>

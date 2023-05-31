@@ -63,6 +63,15 @@ export interface ProjectNominateEntry {
   createdAt: Date;
   deadline: string;
 }
+export enum ProjectNominateEntryStatus {
+  DRAFT = "DRAFT",
+  SUBMITED = "SUBMITED",
+}
+export interface StatusProject {
+  userId: string;
+  projectId: number;
+  status: ProjectNominateEntryStatus;
+}
 export interface IListProject {
   total: number;
   data: ProjectNominateEntry[];
