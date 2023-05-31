@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && rm -rf web.zip && zip -9vr web.zip .next",
     "start:prod": "next start -p 9001",
     "start:pm2": "pm2 start npm --name aada-web -- run start:prod",
     "stop:pm2": "pm2 delete aada-web",
