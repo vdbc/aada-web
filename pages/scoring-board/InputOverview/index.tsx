@@ -1,5 +1,4 @@
 import InputField from "../../../components/InputField";
-import { ProjectNominateEntry } from "../../../models/NominateModel";
 import { useAppSelector } from "../../../store";
 import { selectProjectNomintateDetail } from "../../../store/modules/nominate";
 import { getProjectName } from "../../../utils/project-nominate";
@@ -8,9 +7,10 @@ import styles from "./styles.module.scss";
 function _onChangeDefault(value: string) {}
 
 declare type ViewProps = {
-  project: ProjectNominateEntry;
+  projectId: number;
 };
-export default function _View({ project }: ViewProps) {
+export default function _View({ projectId }: ViewProps) {
+  const project = useAppSelector(selectProjectNomintateDetail(projectId));
   return (
     <div className={styles.container}>
       <div className={styles.inputs}>

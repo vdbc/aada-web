@@ -1,41 +1,32 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "../../components/Footer";
-import { useAppDispatch, useAppSelector } from "../../store";
+import HeaderScore from "../../components/HeaderScore";
+import { ScoringTopBanner } from "../../components/TopBanner";
+import { useAppSelector, wrapper } from "../../store";
 import {
   fetchAllNominate,
   fetchAllNominateJudgement,
-  fetchProjectNominate,
-  selectAdminEntries,
+  fetchAllProjects,
+  selectAllProjectIds,
 } from "../../store/modules/nominate";
-import { selectUserId } from "../../store/modules/user";
+import InputOverview from "./InputOverview";
 import InputProjectDetail from "./InputProjectDetail";
 import styles from "./styles.module.scss";
-import { ScoringTopBanner } from "../../components/TopBanner";
-import InputOverview from "./InputOverview";
-import HeaderScore from "../../components/HeaderScore";
 
-import MenuProject from "../../components/MenuProject";
-import { ProjectNominateEntry } from "../../models/NominateModel";
+import SelectNominateEntry from "./SelectNominateEntry";
 
 export default function _View(props: any) {
-  const dispatch = useAppDispatch();
-  const userId = useAppSelector(selectUserId);
-  useEffect(() => {
-    dispatch(fetchProjectNominate());
-    dispatch(fetchAllNominate());
-    dispatch(fetchAllNominateJudgement());
-  }, [dispatch, userId]);
-  const [listProject, setListProject] = useState([]);
-  useEffect(() => {});
-
-  const adminEntries = useAppSelector(selectAdminEntries);
+  const projectIds = useAppSelector(selectAllProjectIds);
   const route = useRouter();
+  const paramProjectId = parseInt(route.query["project"]?.toString() ?? "0");
+  const activeProjectId = projectIds.includes(paramProjectId)
+    ? paramProjectId
+    : projectIds[0];
+  const [selectedProjectId, setActiveProject] = useState(activeProjectId);
+  const _selectedProjectId = selectedProjectId || projectIds[0];
 
-  const [project, setProject] = useState<ProjectNominateEntry>();
-
-  console.log(adminEntries);
   return (
     <div className={styles.container}>
       <Head>
@@ -51,28 +42,15 @@ export default function _View(props: any) {
           </div>
           <div className={styles.detail}>
             <div className={styles.selectNominateEntry}>
-              <ul className={styles.item}>
-                {adminEntries.map((item) => (
-                  <MenuProject
-                    onSetProject={(project: ProjectNominateEntry) => {
-                      setProject(project);
-                    }}
-                    key={item.id}
-                    entry={item}
-                  />
-                ))}
-              </ul>
+              <SelectNominateEntry
+                selectedProjectId={_selectedProjectId}
+                onChanged={setActiveProject}
+              />
             </div>
-            {/* <SelectNominateEntry
-              selectedProjectId={_selectedProjectId}
-              onChanged={setActiveProject}
-            /> */}
-            {project && (
-              <div className={styles.inputDetail}>
-                <InputOverview project={project} />
-                <InputProjectDetail project={project} />
-              </div>
-            )}
+            <div className={styles.inputDetail}>
+              <InputOverview projectId={_selectedProjectId} />
+              <InputProjectDetail projectId={_selectedProjectId} />
+            </div>
           </div>
         </div>
       </main>
@@ -80,3 +58,14 @@ export default function _View(props: any) {
     </div>
   );
 }
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    await store.dispatch(fetchAllProjects());
+    await store.dispatch(fetchAllNominate());
+    await store.dispatch(fetchAllNominateJudgement());
+    return {
+      props: {},
+    };
+  }
+);
