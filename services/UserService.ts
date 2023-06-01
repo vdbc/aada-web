@@ -42,11 +42,3 @@ export async function requestUpdatePassword(
     }
   );
 }
-export const authService = {
-  storeAccessToken(accessToken: string) {
-    localStorage.save("accessToken", accessToken);
-  },
-  getAccessToken(): string | null {
-    return localStorage.get("accessToken");
-  },
-};

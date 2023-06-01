@@ -46,6 +46,7 @@ export default function _View({ dismiss }: Props) {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isLoading, setLoading] = useState<boolean>(false);
+  const [role, setRole] = useState<string>("");
   const canLogin = username && password && !isLoading;
   const dispatch = useAppDispatch();
   const route = useRouter();

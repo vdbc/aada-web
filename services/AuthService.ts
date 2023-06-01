@@ -14,20 +14,11 @@ export async function getRole(token: string): Promise<RoleModel> {
     },
   }).then((data) => data.user);
 }
-const ROLES = {
-  admin: "ADMIN",
-  user: "USER",
-  judgement: "JUDGEMENT",
+export const authService = {
+  storeAccessToken(accessToken: string) {
+    localStorage.save("accessToken", accessToken);
+  },
+  getAccessToken(): string | null {
+    return localStorage.get("accessToken");
+  },
 };
-type AuthContextType = {
-  user: User | null;
-  login: (user: User) => void;
-  logout: () => void;
-};
-
-const AuthContext = createContext<AuthContextType>({
-  user: null,
-  login: () => {},
-  logout: () => {},
-});
-export const useAuth = () => useContext(AuthContext);
