@@ -4,7 +4,6 @@ import {
   ProjectNominateEntry,
   ProjectNominateStatus,
 } from "../models/NominateModel";
-import { ProjectScoreBody } from "../services/ScoreService";
 
 export function getProjectName(project: ProjectNominate) {
   return project?.name ?? `Project ${project?.id ?? "--"}`;
