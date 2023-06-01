@@ -11,14 +11,12 @@ import {
   AllProjectsResponse,
   MyProjectNominateResponse,
   Nominate,
-  NominateName,
   ProjectNominate,
 } from "../../../models/NominateModel";
 import {
   confirmSubmitProject,
   fetchFeePerEntry,
   getAllNominate,
-  getAllNominateJudgement,
   getAllProjects,
   getProjectRegistered,
   saveProject,
@@ -28,7 +26,6 @@ import { selectToken } from "../user";
 
 export interface NominateState {
   nominateList: Nominate[];
-  nominateName: NominateName[];
   projectIds: number[];
   allProjectIds: number[];
   projectDetails: {
@@ -40,7 +37,6 @@ export interface NominateState {
 
 const initialState: NominateState = {
   nominateList: [],
-  nominateName: [],
   projectDetails: {},
   allProjectIds: [],
   projectIds: [],
@@ -86,16 +82,6 @@ export const getFeePerEntry = createAsyncThunk<
   const state = store.getState();
   const token = selectToken(state);
   return fetchFeePerEntry(token);
-});
-
-export const fetchAllNominateJudgement = createAsyncThunk<
-  NominateName[],
-  void,
-  { state: RootState }
->("nominate/getAllNominateJudgement", async (_, store) => {
-  const state = store.getState();
-  const token = selectToken(state);
-  return getAllNominateJudgement(token);
 });
 
 export const saveProjectNominate = createAsyncThunk<
@@ -170,18 +156,12 @@ export const nominateSlice = createSlice({
       })
       .addCase(getFeePerEntry.fulfilled, (state, action) => {
         state.feePerEntry = action.payload;
-      })
-      .addCase(fetchAllNominateJudgement.fulfilled, (state, action) => {
-        state.nominateName = action.payload;
       });
   },
 });
 
 export const selectNominates = (state: RootState) =>
   state.nominate.nominateList;
-
-export const selectAdminEntries = (state: RootState) =>
-  state.nominate.nominateName;
 
 export const selectFeePerEntry = (state: RootState) =>
   state.nominate.feePerEntry;
@@ -198,6 +178,12 @@ export const selectNominateEntryDetails = createSelector(
       flatMap(nominateList, (item) => item.entries),
       (item) => item.id
     );
+  }
+);
+export const selectAllEntries = createSelector(
+  selectNominates,
+  (nominateList) => {
+    return flatMap(nominateList, (item) => item.entries);
   }
 );
 
@@ -241,7 +227,8 @@ export const selectProjectIdsGroupByEntry = createSelector(
 export const selectAllProjectIdsGroupByEntry = createSelector(
   selectProjectNomintateDetails,
   selectAllProjectIds,
-  (details, ids) => {
+  selectAllEntries,
+  (details, ids, entries) => {
     const result: {
       [key: string]: number[];
     } = {};
@@ -252,10 +239,14 @@ export const selectAllProjectIdsGroupByEntry = createSelector(
       }
       result[project.entryId].push(id);
     });
+    const entryIndex: { [key: string]: number } = {};
+    entries.forEach((item, index) => (entryIndex[item.id] = index));
     return map(result, (projectIds, entryId) => ({
       entryId,
       projectIds,
-    }));
+    })).sort((a, b) => {
+      return (entryIndex[a.entryId] ?? 0) - (entryIndex[b.entryId] ?? 0);
+    });
   }
 );
 
