@@ -9,8 +9,8 @@ import billingSlice, { BillingState } from "./modules/billing";
 import "./modules/common";
 import newsSlice, { NewsState } from "./modules/news";
 import nominateSlice, { NominateState } from "./modules/nominate";
+import { scoreBoardSlice, ScoreBoardState } from "./modules/score-board";
 import userSlice, { UserState } from "./modules/user";
-import { ProjectScoreState, scoreSlice } from "./modules/scorecomment";
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -26,7 +26,7 @@ export declare type RootState = {
   nominate: NominateState;
   billing: BillingState;
   news: NewsState;
-  score: ProjectScoreState;
+  scoreBoard: ScoreBoardState;
 };
 
 const reducer = combineReducers({
@@ -34,7 +34,7 @@ const reducer = combineReducers({
   nominate: nominateSlice.reducer,
   billing: billingSlice.reducer,
   news: newsSlice.reducer,
-  score: scoreSlice.reducer,
+  scoreBoard: scoreBoardSlice.reducer,
 });
 // const reducerWithPersist = persistReducer(persistConfig, reducer);
 

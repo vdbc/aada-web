@@ -11,12 +11,6 @@ export interface Nominate {
   description: string;
   entries: NominateEntry[];
 }
-export interface NominateName {
-  id: string;
-  name: string;
-  description: string;
-}
-
 export enum ProjectNominateStatus {
   DRAFT = "DRAFT",
   SUBMITED = "SUBMITED",

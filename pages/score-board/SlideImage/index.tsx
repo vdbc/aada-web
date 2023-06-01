@@ -1,36 +1,24 @@
 import SwiperCore, {
-  Keyboard,
-  Mousewheel,
   Navigation,
   Pagination,
+  Autoplay,
+  Mousewheel,
+  Keyboard,
 } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-import { ProjectNominateEntry } from "../../../models/NominateModel";
 import { getProjectImages } from "../../../utils/project-nominate";
 import styles from "./styles.module.scss";
+import { ProjectNominateEntry } from "../../../models/NominateModel";
 
 SwiperCore.use([Navigation, Pagination]);
 
 declare type ViewProps = {
   project: ProjectNominateEntry;
 };
-
-const fileServices = [
-  "https://files-uat.aadawards.com",
-  "https://files.aadawards.com",
-];
-
-function getImageUrl(url: string): string {
-  for (let index = 0; index < fileServices.length; index++) {
-    const fileService = fileServices[index];
-    if (url.startsWith(fileService)) return `${url}?format=webp&size=w1000`;
-  }
-  return url;
-}
 
 export default function _View({ project }: ViewProps) {
   return (
@@ -47,7 +35,7 @@ export default function _View({ project }: ViewProps) {
         {getProjectImages(project).map((imageUrl, index) => (
           <SwiperSlide key={index}>
             <img
-              src={getImageUrl(imageUrl)}
+              src={imageUrl}
               alt={`Project image ${index}`}
               className={styles.swiperImg}
             />
