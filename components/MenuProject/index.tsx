@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getProjectbyEntryId } from "../../services/NominateService";
 import { store } from "../../store";
 import { selectToken } from "../../store/modules/user";
+import { useDispatch } from "react-redux";
 import { IoIosArrowDown } from "react-icons/io";
 declare type Props = {
   entry: NominateName;
@@ -23,13 +24,12 @@ export default function _View({ entry, onSetProject }: Props) {
       setListProject(res.data);
     });
   }, [listProject.length]);
+  // console.log(listProject, entry.id);
 
   return (
     <div className={styles.wrapper}>
       <div
-        className={`${styles.listNominate} ${
-          !listProject.length ? styles.hide : styles.display
-        }`}
+        className={styles.listNominate}
         onClick={() => setIsOpenMenu(!isOpenMenu)}
       >
         <span>{entry.name}</span>
@@ -40,7 +40,7 @@ export default function _View({ entry, onSetProject }: Props) {
           {listProject.map((list) => (
             <li
               className={`${styles.listName} ${
-                selectedProjectId === list.id ? styles.listNameSelected : ""
+                selectedProjectId === list.id ? styles.listNameSelected : "" // Sử dụng selectedProjectId ở đây
               }`}
               key={list.id}
               onClick={() => {

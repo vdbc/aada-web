@@ -7,7 +7,6 @@ import { ScoringTopBanner } from "../../components/TopBanner";
 import { useAppDispatch, useAppSelector, wrapper } from "../../store";
 import {
   fetchAllNominate,
-  fetchAllNominateJudgement,
   fetchAllProjects,
   selectAllProjectIds,
 } from "../../store/modules/nominate";
@@ -68,7 +67,6 @@ export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
     await store.dispatch(fetchAllProjects());
     await store.dispatch(fetchAllNominate());
-    await store.dispatch(fetchAllNominateJudgement());
     return {
       props: {},
     };

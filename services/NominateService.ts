@@ -4,7 +4,6 @@ import {
   IListProject,
   MyProjectNominateResponse,
   Nominate,
-  NominateName,
   ProjectNominate,
   RegisterNominateEntries,
   StatusProject,
@@ -32,19 +31,6 @@ export async function getAllNominate(token: string): Promise<Nominate[]> {
 
   return resp.data;
 }
-export async function getAllNominateJudgement(
-  token: string
-): Promise<NominateName[]> {
-  const url = `${apiUrl}/admin/entry`;
-  const resp = await get<{ data: NominateName[] }>(url, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  return resp.data;
-}
-
 export async function registerNominateEntries(
   entries: string[],
   token: string
