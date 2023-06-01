@@ -1,7 +1,7 @@
 import { apiUrl } from "../models/AppConfig";
 
 import { AuthModel } from "../models/AuthModel";
-import { RoleModel, UserModel } from "../models/UserModel";
+import { UserModel } from "../models/UserModel";
 import { get, post, put } from "./http";
 
 export async function requestRegisterUser(user: UserModel): Promise<AuthModel> {
@@ -41,12 +41,4 @@ export async function requestUpdatePassword(
       },
     }
   );
-}
-export async function getRole(token: string): Promise<RoleModel> {
-  const url = `${apiUrl}/api/users/permission`;
-  return get<{ user: RoleModel }>(url, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }).then((data) => data.user);
 }

@@ -15,6 +15,3 @@ export const userEmpty: UserModel = {
   password: "",
   address: "",
 };
-export interface RoleModel {
-  data: string;
-}
