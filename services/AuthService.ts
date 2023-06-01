@@ -14,7 +14,11 @@ export async function getRole(token: string): Promise<RoleModel> {
     },
   }).then((data) => data.user);
 }
-
+const ROLES = {
+  admin: "ADMIN",
+  user: "USER",
+  judgement: "JUDGEMENT",
+};
 type AuthContextType = {
   user: User | null;
   login: (user: User) => void;
