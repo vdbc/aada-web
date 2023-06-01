@@ -5,6 +5,11 @@ export interface FieldScore {
 
 const fieldScoreEmpty: FieldScore = { comment: "" };
 
+export enum ProjectScoreStatus {
+  DRAFT = "DRAFT",
+  SUBMITED = "SUBMITED",
+}
+
 export declare type ProjectScoreField =
   | "idea"
   | "impact"
@@ -13,6 +18,7 @@ export declare type ProjectScoreField =
   | "innovation";
 export interface ProjectScore {
   projectId: number;
+  status: ProjectScoreStatus;
   idea: FieldScore;
   impact: FieldScore;
   innovation: FieldScore;
@@ -22,6 +28,7 @@ export interface ProjectScore {
 
 export const projectScopeEmpty: ProjectScore = {
   projectId: 0,
+  status: ProjectScoreStatus.DRAFT,
   idea: fieldScoreEmpty,
   impact: fieldScoreEmpty,
   innovation: fieldScoreEmpty,

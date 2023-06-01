@@ -1,7 +1,6 @@
 import { FormControlLabel } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import { useEffect, useState } from "react";
-import { ProjectNominateStatus } from "../../../models/NominateModel";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import {
   fetchAllNominate,
@@ -9,14 +8,18 @@ import {
 } from "../../../store/modules/nominate";
 import { TextInputValidator, ValueChanged } from "../../../utils/interface";
 
+import { find } from "lodash";
 import ModalSuccess from "../../../components/ModalSuccess";
 import {
+  ProjectScore,
   ProjectScoreField,
+  ProjectScoreStatus,
   projectScopeEmpty,
 } from "../../../models/ProjectScoreModel";
 import { selectProjectNomintateDetail } from "../../../store/modules/nominate";
 import scoreBoardSlice, {
   selectProjectScoreDetail,
+  submitProjectScore,
 } from "../../../store/modules/score-board";
 import { selectUserId } from "../../../store/modules/user";
 import { getProgressPercent } from "../../../utils/score";
@@ -27,10 +30,15 @@ declare type Props = {
   onSetScore?: any;
   value?: string | number;
   validator?: any;
+  readOnly?: boolean;
 };
 
-function NumberSelector({ onSetScore, value, validator }: Props) {
-  const [selectedNumber, setSelectedNumber] = useState<number | null>(null);
+function NumberSelector({
+  onSetScore,
+  value,
+  validator,
+  readOnly = false,
+}: Props) {
   const numbers: number[] = [1, 2, 3, 4, 5];
   const [isSelected, setIsSelected] = useState<boolean>(false);
   const message = validator(value || 0);
@@ -44,12 +52,12 @@ function NumberSelector({ onSetScore, value, validator }: Props) {
             key={number}
             className={styles.score}
             onClick={() => {
-              setSelectedNumber(number);
+              if (readOnly) return;
               onSetScore(number);
               setIsSelected(true);
             }}
             style={{
-              backgroundColor: selectedNumber === number ? "#a67f56" : "white",
+              backgroundColor: value === number ? "#a67f56" : "white",
             }}
           >
             {number}
@@ -92,7 +100,6 @@ function AboutField({
         disabled={disable}
         value={value || ""}
         readOnly
-        // onChange={(event) => onChanged(event.target.value)}
         className={styles.input}
       />
       <div className={styles.descAndOverview}>
@@ -101,10 +108,11 @@ function AboutField({
     </div>
   );
 }
-declare type InputAboutField = {
+declare type InputAboutFieldProps = {
   value?: string;
   onChanged: ValueChanged<string>;
   validator?: TextInputValidator;
+  readOnly?: boolean;
 };
 
 declare type ViewGallery = {
@@ -134,17 +142,22 @@ function ViewGallery({ label, desc, required = true }: ViewGallery) {
   );
 }
 
-function InputAboutField({ value, onChanged, validator }: InputAboutField) {
+function InputAboutField({
+  value,
+  onChanged,
+  validator,
+  readOnly = false,
+}: InputAboutFieldProps) {
   const message = validator ? validator(value || "") : "";
-  const [v, setValue] = useState(value ?? "");
 
   return (
     <div className={styles.inputAboutField}>
       <textarea
         placeholder="Please provide your comment in this field."
-        value={v}
+        value={value}
+        readOnly={readOnly}
         onChange={(event) => {
-          setValue(event.target.value);
+          if (readOnly) return;
           onChanged(event.target.value);
         }}
         className={styles.input}
@@ -152,6 +165,22 @@ function InputAboutField({ value, onChanged, validator }: InputAboutField) {
       {message && <div className={styles.errorMessage}>{message}</div>}
     </div>
   );
+}
+
+function canSubmitProjectScore(projectScore: ProjectScore): boolean {
+  const fields = [
+    projectScore.idea,
+    projectScore.impact,
+    projectScore.function,
+    projectScore.innovation,
+    projectScore.differentiation,
+  ];
+
+  const fieldUnCompltete = find(fields, (field) => {
+    return !field.comment || !field.score;
+  });
+
+  return !fieldUnCompltete;
 }
 
 declare type ViewProps = {
@@ -162,12 +191,14 @@ export default function _View({ projectId }: ViewProps) {
   const project = useAppSelector(selectProjectNomintateDetail(projectId));
   const dispatch = useAppDispatch();
   const [isForceValidate, setForceValidate] = useState(false);
-  const canEdit = project?.status != ProjectNominateStatus.SUBMITED;
-  const [isApprove, setApprove] = useState(!canEdit);
   const projectScore = useAppSelector(selectProjectScoreDetail(projectId)) ?? {
     ...projectScopeEmpty,
     projectId,
   };
+  const canEdit = projectScore.status != ProjectScoreStatus.SUBMITED;
+  console.log("mylog can edit: ", canEdit, projectScore.status);
+
+  const [isApprove, setApprove] = useState(true);
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   // const [isValid, setIsValid] = useState<boolean>(false);
@@ -184,31 +215,13 @@ export default function _View({ projectId }: ViewProps) {
     return getProgressPercent(text) >= 10 ? "" : "This field is required!";
   }
 
+  const canSubmit = isApprove && canEdit && canSubmitProjectScore(projectScore);
+
   const handleSubmit = () => {
     setForceValidate(true);
-    // const token = selectToken(store.getState());
-    // const data: ProjectScoreState = {
-    //   idea: ideaSelect,
-    //   impact: impactSelect,
-    //   innovation: innovationSelect,
-    //   differentiation: differentiationSelect,
-    //   function: functionSelect,
-    // };
-    // if (
-    //   ideaSelect.score !== 0 &&
-    //   ideaSelect.comment !== "" &&
-    //   impactSelect.score !== 0 &&
-    //   impactSelect.comment !== "" &&
-    //   differentiationSelect.score !== 0 &&
-    //   differentiationSelect.comment !== "" &&
-    //   functionSelect.score !== 0 &&
-    //   functionSelect.comment !== "" &&
-    //   innovationSelect.score !== 0 &&
-    //   innovationSelect.comment !== ""
-    // ) {
-    //   postProjectScore(project.id, data, token).then(() => setIsSuccess(true));
-    // } else {
-    // }
+    if (canSubmit) {
+      dispatch(submitProjectScore(projectScore));
+    }
   };
 
   const onScoreChanged = (field: ProjectScoreField) => (value: number) => {
@@ -234,6 +247,7 @@ export default function _View({ projectId }: ViewProps) {
       })
     );
   };
+
   return (
     <div key={projectId} className={styles.container}>
       <ViewGallery
@@ -256,11 +270,13 @@ export default function _View({ projectId }: ViewProps) {
         onSetScore={onScoreChanged("idea")}
         value={projectScore.idea.score}
         validator={scoreValidator}
+        readOnly={!canEdit}
       />
       <InputAboutField
         value={projectScore.idea.comment}
         validator={aboutFieldValidator}
         onChanged={onCommentChanged("idea")}
+        readOnly={!canEdit}
       />
       <AboutField
         disable={!canEdit}
@@ -274,11 +290,13 @@ export default function _View({ projectId }: ViewProps) {
         onSetScore={onScoreChanged("impact")}
         value={projectScore.impact.score}
         validator={scoreValidator}
+        readOnly={!canEdit}
       />
       <InputAboutField
         value={projectScore.impact.comment}
         validator={aboutFieldValidator}
         onChanged={onCommentChanged("impact")}
+        readOnly={!canEdit}
       />
       <AboutField
         disable={!canEdit}
@@ -292,11 +310,13 @@ export default function _View({ projectId }: ViewProps) {
         onSetScore={onScoreChanged("differentiation")}
         value={projectScore.differentiation.score}
         validator={scoreValidator}
+        readOnly={!canEdit}
       />
       <InputAboutField
         value={projectScore.differentiation.comment}
         validator={aboutFieldValidator}
         onChanged={onCommentChanged("differentiation")}
+        readOnly={!canEdit}
       />
       <AboutField
         disable={!canEdit}
@@ -310,11 +330,13 @@ export default function _View({ projectId }: ViewProps) {
         onSetScore={onScoreChanged("function")}
         value={projectScore.function.score}
         validator={scoreValidator}
+        readOnly={!canEdit}
       />
       <InputAboutField
         value={projectScore.function.comment}
         validator={aboutFieldValidator}
         onChanged={onCommentChanged("function")}
+        readOnly={!canEdit}
       />
       <AboutField
         disable={!canEdit}
@@ -328,25 +350,33 @@ export default function _View({ projectId }: ViewProps) {
         onSetScore={onScoreChanged("innovation")}
         value={projectScore.innovation.score}
         validator={scoreValidator}
+        readOnly={!canEdit}
       />
       <InputAboutField
         value={projectScore.innovation.comment}
         validator={aboutFieldValidator}
         onChanged={onCommentChanged("innovation")}
+        readOnly={!canEdit}
       />
       <div style={{ height: 20 }} className={styles.completedBox} />
       <FormControlLabel
         className={styles.checkBox}
-        disabled={canEdit}
+        disabled={!canEdit}
         control={
           <Checkbox
-            value={isApprove}
+            checked={isApprove}
             onChange={(event) => setApprove(event.target.checked)}
           />
         }
         label="By confirming this statement, I hereby acknowledge that my evaluation for this project has been completed."
       />
-      <button className={styles.buttonSubmit} onClick={handleSubmit}>
+      <button
+        className={[
+          styles.buttonSubmit,
+          canSubmit ? styles.active : styles.inactive,
+        ].join(" ")}
+        onClick={handleSubmit}
+      >
         Submit
       </button>
       <ModalSuccess isOpen={isSuccess} onSetIsOpen={setIsSuccess} />
