@@ -4,7 +4,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
-import userSlice, { selectIsLogged } from "../../store/modules/user";
+import userSlice, {
+  selectIsLogged,
+  selectRole,
+} from "../../store/modules/user";
 import LoginForm from "../LoginForm";
 import HeaderMobile from "./HeaderMobile";
 import styles from "./styles.module.scss";
@@ -74,9 +77,9 @@ declare type HeaderProps = {
 export default function _View(props: HeaderProps) {
   const [isLogging, setLogging] = useState(false);
   const router = useRouter();
-
+  const role = useAppSelector(selectRole);
   const isLogged = useAppSelector(selectIsLogged);
-  const tabs = isLogged ? loggedInTab : noLoggedTab;
+  const tabs = role === "USER" ? loggedInTab : noLoggedTab;
   const dispatch = useAppDispatch();
 
   function logout() {
