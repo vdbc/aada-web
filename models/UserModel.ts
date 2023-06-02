@@ -1,4 +1,5 @@
 export interface UserModel {
+  role: string;
   id: string;
   firstName: string;
   lastName: string;
@@ -14,4 +15,5 @@ export const userEmpty: UserModel = {
   email: "",
   password: "",
   address: "",
+  role: "",
 };
