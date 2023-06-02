@@ -96,6 +96,7 @@ export const selectUserId = (state: RootState) => state.user.user?.id;
 export const selectUserEmail = (state: RootState) => state.user.user?.email;
 export const selectFirstName = (state: RootState) => state.user.user?.firstName;
 export const selectLastName = (state: RootState) => state.user.user?.lastName;
+export const selectRole = (state: RootState) => state.user.user?.role;
 export const selectIsLogged = (state: RootState) => !!state.user.token;
 export const selectToken = (state: RootState) => state.user.token;
 export const selectOrganization = (state: RootState) => state.user.organization;

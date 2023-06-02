@@ -6,6 +6,7 @@ import {
   Nominate,
   ProjectNominate,
   RegisterNominateEntries,
+  StatusProject,
 } from "../models/NominateModel";
 import { get, post, put } from "./http";
 
