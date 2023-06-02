@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
 import styles from "./styles.module.scss";
-import { NominateName, ProjectNominateEntry } from "../../models/NominateModel";
+import { Nominate, ProjectNominateEntry } from "../../models/NominateModel";
 import { useEffect, useState } from "react";
 import { getProjectbyEntryId } from "../../services/NominateService";
 import { store } from "../../store";
@@ -9,7 +9,7 @@ import { selectToken } from "../../store/modules/user";
 import { useDispatch } from "react-redux";
 import { IoIosArrowDown } from "react-icons/io";
 declare type Props = {
-  entry: NominateName;
+  entry: Nominate;
   onSetProject: any;
 };
 
