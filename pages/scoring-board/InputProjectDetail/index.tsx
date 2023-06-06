@@ -180,7 +180,9 @@ function canSubmitProjectScore(projectScore: ProjectScore): boolean {
     return !field.comment || !field.score;
   });
 
-  return !fieldUnCompltete;
+  return (
+    !fieldUnCompltete && fields.every((field) => field.score !== undefined)
+  );
 }
 
 declare type ViewProps = {
@@ -221,6 +223,7 @@ export default function _View({ projectId }: ViewProps) {
     setForceValidate(true);
     if (canSubmit) {
       dispatch(submitProjectScore(projectScore));
+      setIsSuccess(true);
     }
   };
 
