@@ -15,7 +15,6 @@ import {
 import { fetchUserInfo } from "../../../services/UserService";
 import { setToken } from "../../../utils/cookies";
 import listenerMiddleware from "../../listener-middleware";
-
 export interface UserState {
   user?: UserModel;
   organization: Organization;
