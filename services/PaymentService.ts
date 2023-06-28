@@ -27,10 +27,9 @@ export interface OrderModel {
 
   export async function createOrder(
     order: OrderModel,
-    token: string
   ): Promise<OrderModel> {
-    const url = `${apiUrl}/organization`;
+    const url = `${apiUrl}/paypal/create-order`;
     return post<OrderModel>(url, order, {
-      
     });
   }
+  

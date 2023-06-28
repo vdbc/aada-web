@@ -19,18 +19,17 @@ const initialState: OrderState = {
   
 };
 
-// export const createOrdered = createAsyncThunk<
-//   void,
-//   OrderModel,
-//   { state: RootState }
-// >(
-//   "order/saveInfoWinner",
-//   debounce(async (order: OrderModel, { dispatch }: any) => {
-//     const state = store.getState();
-//     const token = selectToken(state);
-//     createOrder(order,token);
-//   }, 1000)
-// );
+export const createOrdered = createAsyncThunk<
+  void,
+  OrderModel,
+  { state: RootState }
+>(
+  "order/saveInfoWinner",
+  debounce(async (order: OrderModel, { dispatch }: any) => {
+    const state = store.getState();
+    createOrder(order);
+  }, 1000)
+);
 
 
 export const orderSlice = createSlice({
@@ -40,22 +39,14 @@ export const orderSlice = createSlice({
     orderUpdated: (state, action: PayloadAction<OrderModel>) => {
       state.order = action.payload;
     },
+    
   },
   // extraReducers: (builder) => {
   //   builder
-  //     .addCase(submitOrder.fulfilled, (state, action) => {
+  //     .addCase(createOrdered.fulfilled, (state, action) => {
   //       state.order = action.payload;
   //     });
   // },
-});
-export const submitOrder = createAsyncThunk<
-  OrderModel,
-  OrderModel,
-  { state: RootState }
->("order/saveInfoWinner", async (order, store) => {
-  const state = store.getState();
-  const token = selectToken(state);
-  return createOrder(order, token);
 });
 
 
@@ -76,7 +67,7 @@ listenerMiddleware.startListening({
   effect: async (action, listenerApi) => {
     listenerApi.cancelActiveListeners();
 
-    store.dispatch(submitOrder(action.payload));
+    store.dispatch(createOrdered(action.payload));
   },
 });
 
