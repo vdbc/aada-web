@@ -1,16 +1,17 @@
+import { Checkbox, FormControlLabel } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
-import moment from "moment";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import {
+  WinnerNightOrderModel,
+  createOrder,
+  orderEmpty,
+} from "../../services/WinnerNightService";
 import { TextInputValidator, ValueChanged } from "../../utils/interface";
-import styles from "./styles.module.scss";
-import { Checkbox, FormControlLabel } from "@mui/material";
 import { requiredValidator } from "../../utils/validators";
-import { OrderModel, orderEmpty } from "../../services/PaymentService";
-import  { createOrdered, orderSlice, selectOrder } from "../../store/modules/winner";
-import { useAppDispatch, useAppSelector } from "../../store";
+import styles from "./styles.module.scss";
 
 declare type InputFieldProps = {
   label: string;
@@ -20,7 +21,13 @@ declare type InputFieldProps = {
   validator?: TextInputValidator;
 };
 
-function InputField({ label, placeholder,value, onChanged,validator }: InputFieldProps) {
+function InputField({
+  label,
+  placeholder,
+  value,
+  onChanged,
+  validator,
+}: InputFieldProps) {
   const message = validator ? validator(value || "") : "";
   return (
     <div className={styles.inputFieldContainer}>
@@ -36,158 +43,121 @@ function InputField({ label, placeholder,value, onChanged,validator }: InputFiel
 }
 
 const defaultRequiredMessage = "Please complete this field.";
+
+function getReturnUrl() {
+  return `${window.location.origin}/winners-night/success`;
+}
+
+const PRICE = 350;
+
 function RegisterForm() {
   const [isForceValidate, setForceValidate] = useState(false);
   const [isApprove, setApprove] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isComplete, setComplete] = useState(false);
-  const [selectedCount, setSelectedCount] = useState(1);
-  const [selectedAmount, setSelectedAmount] = useState(350);
-  const [order, setOrder] = useState<OrderModel>(orderEmpty);
-  const ordered = useAppSelector(selectOrder);
-  const dispatch = useAppDispatch();
-
+  const [order, setOrder] = useState<WinnerNightOrderModel>(orderEmpty);
 
   function requiredFieldValidator(text: string) {
     if (!isForceValidate) return "";
     return requiredValidator(text, defaultRequiredMessage);
   }
   const handleIncrement = () => {
-    setSelectedCount((prevCount) => prevCount + 1);
-    setSelectedAmount((prevAmount) => prevAmount + 350);
+    setOrder({
+      ...order,
+      attendees: order.attendees + 1,
+    });
   };
   const handleDecrement = () => {
-    if(selectedCount > 1) {
-      setSelectedCount((prevCount) => prevCount - 1);
-      setSelectedAmount((prevAmount) => prevAmount - 350);
-    }
-  };
-  const handleSubmit = () => {     
-  dispatch(createOrdered(order));
-  dispatch(
-    createOrdered({
+    if (order.attendees <= 1) return;
+    setOrder({
       ...order,
-      createAt: moment(new Date()).format("DD-MM-YYYY HH:mm:ss"),
-      attendee: selectedCount,
-      amount: selectedAmount,
-    })
-  );
-  setForceValidate(true);
-  dispatch(createOrdered(order));
+      attendees: order.attendees - 1,
+    });
   };
- 
+  const handleSubmit = async () => {
+    const returnUrl = getReturnUrl();
+    const cancelUrl = window.location.href;
+
+    const paymentUrl = await createOrder(order, returnUrl, cancelUrl);
+    console.log("mylog paymentUrl: ", paymentUrl);
+
+    window.open(paymentUrl, "_self");
+    setForceValidate(true);
+  };
+
   return (
     <div className={styles.formContainer}>
       <div className={styles.inputs}>
         <InputField
           label="First Name*"
           placeholder="Your First Name"
-          value={ordered?.firstName}
-          onChanged={(firstName) =>
-            dispatch(
-              orderSlice.actions.orderUpdated({
-                ...order,
-                firstName,
-              })
-            )
-          }
+          value={order.firstName}
+          onChanged={(value) => setOrder({ ...order, firstName: value })}
           // validator={requiredFieldValidator}
         />
         <InputField
           label="Last Name*"
           placeholder="Your Last Name"
-          value={ordered?.lastName}
-          onChanged={(lastName) =>
-            dispatch(
-              orderSlice.actions.orderUpdated({
-                ...order,
-                lastName,
-              })
-            )
-          }
+          value={order.lastName}
+          onChanged={(value) => setOrder({ ...order, lastName: value })}
           // validator={requiredFieldValidator}
         />
         <InputField
           label="Email*"
           placeholder="Your Email"
-          value={ordered?.email}
-          onChanged={(email) =>
-            dispatch(
-              orderSlice.actions.orderUpdated({
-                ...order,
-                email,
-              })
-            )
-          }
+          value={order.email}
+          onChanged={(value) => setOrder({ ...order, email: value })}
           // validator={requiredFieldValidator}
         />
         <InputField
           label="Phone Number*"
           placeholder="Your Your Phone Number"
-
-          value={ordered?.phoneNumber}
-          onChanged={(phoneNumber) =>
-            dispatch(
-              orderSlice.actions.orderUpdated({
-                ...order,
-                phoneNumber,
-              })
-            )
-          }
-          // validator={requiredFieldValidator}
+          value={order.phoneNumber}
+          onChanged={(value) => setOrder({ ...order, phoneNumber: value })}
         />
         <InputField
           label="Company*"
           placeholder="Your Company Name"
-          value={ordered?.company}
-          onChanged={(company) =>
-            dispatch(
-              orderSlice.actions.orderUpdated({
-                ...order,
-                company,
-              })
-            )
-          }
+          value={order.company}
+          onChanged={(value) => setOrder({ ...order, company: value })}
           // validator={requiredFieldValidator}
         />
         <InputField
           label="Title*"
           placeholder="Your Title"
-          value={ordered?.title}
-          onChanged={(title) =>
-            dispatch(
-              orderSlice.actions.orderUpdated({
-                ...order,
-                title,
-              })
-            )
-          }
+          value={order.title}
+          onChanged={(value) => setOrder({ ...order, title: value })}
           // validator={requiredFieldValidator}
         />
         <div className={styles.number}>
           <p>
-            <span className={styles.textNumber}>Number of Attendee(s)</span> 
+            <span className={styles.textNumber}>Number of Attendee(s)</span>
             <span className={styles.counter}>
-            <span className={styles.count}>{selectedCount}</span>
-            <span className={styles.amount}>{selectedAmount} USD</span>
+              <span className={styles.count}>{order.attendees}</span>
+              <span className={styles.amount}>
+                {order.attendees * PRICE} USD
+              </span>
             </span>
-            <button className={styles.incre} onClick={handleIncrement}>+</button>
-            <button className={styles.decre} onClick={handleDecrement}>-</button>
+            <button className={styles.incre} onClick={handleIncrement}>
+              +
+            </button>
+            <button className={styles.decre} onClick={handleDecrement}>
+              -
+            </button>
           </p>
         </div>
         <FormControlLabel
-        className={styles.checkBox}
-        control={
-          <Checkbox
-          className={styles.tickBox}
-            checked={isApprove}
-            onChange={(event) => setApprove(event.target.checked)}
-          />
-        }
-        label="By confirming this statement, I hereby acknowledge the accuracy of my information and agree to complete my payment fee."
-      />
+          className={styles.checkBox}
+          control={
+            <Checkbox
+              className={styles.tickBox}
+              checked={isApprove}
+              onChange={(event) => setApprove(event.target.checked)}
+            />
+          }
+          label="By confirming this statement, I hereby acknowledge the accuracy of my information and agree to complete my payment fee."
+        />
       </div>
-    
 
       <button className={styles.button} onClick={(isLoading) => handleSubmit()}>
         PAYMENT
@@ -207,7 +177,6 @@ function RegisterForm() {
 }
 
 export default function _View() {
-  
   return (
     <div className={styles.container}>
       <div>
@@ -235,19 +204,27 @@ export default function _View() {
         </h3>
         <h1 className={styles.title}>WINNERS' NIGHT</h1>
 
-
         <div className={styles.desc}>
-          Step into the world of architectural excellence at the highly anticipated 2023 Asia Architecture
-          <br /> Design Awards, an extraordinary red carpet event set to dazzle at the iconic Marina Bay Sands in
-          <br /> Singapore. This prestigious gathering will attract the crème de la crème of the design and build
-          <br /> industry, including renowned industry experts, visionary real estate developers, and
+          Step into the world of architectural excellence at the highly
+          anticipated 2023 Asia Architecture
+          <br /> Design Awards, an extraordinary red carpet event set to dazzle
+          at the iconic Marina Bay Sands in
+          <br /> Singapore. This prestigious gathering will attract the crème de
+          la crème of the design and build
+          <br /> industry, including renowned industry experts, visionary real
+          estate developers, and
           <br /> distinguished professionals in the world of architecture.
           <div className={styles.descBottom}>
-            Against the backdrop of Marina Bay Sands' breathtaking elegance, this star-studded affair will
-            <br /> recognize and honor outstanding achievements architecture throughout Asia. Showcasing
-            <br /> innovative designs, sustainable practices, and groundbreaking concepts, this red carpet event
-            <br /> promises to be an unforgettable celebration of creativity and ingenuity. Get ready to be inspired,
-            <br /> as we roll out the red carpet and shine a spotlight on the remarkable visionaries shaping the
+            Against the backdrop of Marina Bay Sands' breathtaking elegance,
+            this star-studded affair will
+            <br /> recognize and honor outstanding achievements architecture
+            throughout Asia. Showcasing
+            <br /> innovative designs, sustainable practices, and groundbreaking
+            concepts, this red carpet event
+            <br /> promises to be an unforgettable celebration of creativity and
+            ingenuity. Get ready to be inspired,
+            <br /> as we roll out the red carpet and shine a spotlight on the
+            remarkable visionaries shaping the
             <br /> future of our built environment.
           </div>
         </div>
@@ -308,7 +285,8 @@ export default function _View() {
           alt="Background"
         />
         <h4 className={styles.textFooter}>
-        COPYRIGHT © 2023 - All rights reserved - Asia Awards Organization PTE. LTD.
+          COPYRIGHT © 2023 - All rights reserved - Asia Awards Organization PTE.
+          LTD.
         </h4>
       </div>
     </div>
