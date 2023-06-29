@@ -1,17 +1,15 @@
 import Dialog from "@mui/material/Dialog";
-import { get, keys } from "lodash";
 import moment from "moment";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { post } from "../../services/http";
 import { TextInputValidator, ValueChanged } from "../../utils/interface";
 import styles from "./styles.module.scss";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { requiredValidator } from "../../utils/validators";
-import { OrderModel, createOrder, orderEmpty } from "../../services/PaymentService";
-import winnerSlice, { orderSlice, selectOrder } from "../../store/modules/winner";
+import { OrderModel, orderEmpty } from "../../services/PaymentService";
+import  { createOrdered, orderSlice, selectOrder } from "../../store/modules/winner";
 import { useAppDispatch, useAppSelector } from "../../store";
 
 declare type InputFieldProps = {
@@ -37,44 +35,17 @@ function InputField({ label, placeholder,value, onChanged,validator }: InputFiel
   );
 }
 
-declare type UserInfo = {
-  ["First Name"]: string;
-  ["Last Name"]: string;
-  Email: string;
-  ["Phone Number"]: string;
-  Company: string;
-  Title: string;
-  ["Registration Date"]: string;
-  ["Number of Attendee"]: number;
-  Amount: number;
-};
-const userInfoEmpty = {
-  "First Name": "",
-  "Last Name": "",
-  Email: "",
-  ["Phone Number"]: "",
-  Company: "",
-  Title: "",
-  "Registration Date": "",
-  "Number of Attendee": 0,
-  Amount:0,
-};
 const defaultRequiredMessage = "Please complete this field.";
 function RegisterForm() {
   const [isForceValidate, setForceValidate] = useState(false);
-  const [info, setInfo] = useState<UserInfo>(userInfoEmpty);
-  const setField = (field: string) => (value: string) => {
-    setInfo({
-      ...info,
-      [field]: value,
-    });
-  };
   const [isApprove, setApprove] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isComplete, setComplete] = useState(false);
   const [selectedCount, setSelectedCount] = useState(1);
   const [selectedAmount, setSelectedAmount] = useState(350);
   const [order, setOrder] = useState<OrderModel>(orderEmpty);
+  const ordered = useAppSelector(selectOrder);
+  const dispatch = useAppDispatch();
 
 
   function requiredFieldValidator(text: string) {
@@ -91,44 +62,20 @@ function RegisterForm() {
       setSelectedAmount((prevAmount) => prevAmount - 350);
     }
   };
-
-  // const submit = async () => {
-    
-  //   info["Registration Date"] = moment(new Date()).format("DD-MM-YYYY HH:mm:ss");
-  //   info["Number of Attendee"] = selectedCount;
-  //   info["Amount"] = selectedAmount;
-  //   const emptyFields = keys(info).filter((field) => !get(info, field));
-  //   if (emptyFields.length > 0) {
-  //     setForceValidate(true);
-  //     return;
-  //   }
-  //   setLoading(true);
-    
-  //   // await new Promise((resolve) => setTimeout(resolve, 100));
-  //   // post(
-  //   //   "https://api.aadawards.com/sheets/1hNmk_3WwF7SCEfoWSYjP2UF_vTax0DRoYFz6fz3kOAc/edit?sheetName=DATA",
-  //   //   info
-  //   // )
-  //   //   .then(() => {
-  //   //     setComplete(true);
-  //   //   })
-  //   //   // .catch((err) => {
-  //   //   //   alert(`Error: ${err}`);
-  //   //   // })
-  //   //   .finally(() => {
-  //   //     setLoading(false);
-  //   //   });
-  // };
-  const handleSubmit = () => {
-    setForceValidate(true);
-  
-    dispatch(createOrder(order));
+  const handleSubmit = () => {     
+  dispatch(createOrdered(order));
+  dispatch(
+    createOrdered({
+      ...order,
+      createAt: moment(new Date()).format("DD-MM-YYYY HH:mm:ss"),
+      attendee: selectedCount,
+      amount: selectedAmount,
+    })
+  );
+  setForceValidate(true);
+  dispatch(createOrdered(order));
   };
-  const ordered = useAppSelector(selectOrder);
-  const dispatch = useAppDispatch();
-  const onChanged: ValueChanged<OrderModel> = (order) => {
-    dispatch(winnerSlice.actions.orderUpdated(order));
-  };
+ 
   return (
     <div className={styles.formContainer}>
       <div className={styles.inputs}>
@@ -144,7 +91,7 @@ function RegisterForm() {
               })
             )
           }
-          validator={requiredFieldValidator}
+          // validator={requiredFieldValidator}
         />
         <InputField
           label="Last Name*"
@@ -158,7 +105,7 @@ function RegisterForm() {
               })
             )
           }
-          validator={requiredFieldValidator}
+          // validator={requiredFieldValidator}
         />
         <InputField
           label="Email*"
@@ -172,7 +119,7 @@ function RegisterForm() {
               })
             )
           }
-          validator={requiredFieldValidator}
+          // validator={requiredFieldValidator}
         />
         <InputField
           label="Phone Number*"
@@ -187,7 +134,7 @@ function RegisterForm() {
               })
             )
           }
-                    validator={requiredFieldValidator}
+          // validator={requiredFieldValidator}
         />
         <InputField
           label="Company*"
@@ -201,7 +148,7 @@ function RegisterForm() {
               })
             )
           }
-          validator={requiredFieldValidator}
+          // validator={requiredFieldValidator}
         />
         <InputField
           label="Title*"
@@ -215,7 +162,7 @@ function RegisterForm() {
               })
             )
           }
-          validator={requiredFieldValidator}
+          // validator={requiredFieldValidator}
         />
         <div className={styles.number}>
           <p>
