@@ -63,3 +63,16 @@ export async function createOrder(
   );
   return getPaypalPaymentUrl(result);
 }
+
+export async function captureOrder(orderId: string) {
+  const url = `${winnerNightApiUrl}/paypal/capture`;
+  return post(
+    url,
+    { orderId },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+}
