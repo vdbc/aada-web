@@ -39,6 +39,9 @@
     }
   }
 
+  .createAt {
+    display: none;
+  }
   .waveTop {
     width: 60vw;
     position: absolute;
@@ -121,6 +124,7 @@ line-height: 120%;
     font-size: 25px;
     color: #fac47e;
     text-transform: uppercase;
+    font-family: "Lato";
   }
   .descBottom {
     padding-top: 40px;

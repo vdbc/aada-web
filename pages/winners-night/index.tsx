@@ -56,10 +56,28 @@ function RegisterForm() {
   const [isLoading, setLoading] = useState(false);
   const [isComplete, setComplete] = useState(false);
   const [order, setOrder] = useState<WinnerNightOrderModel>(orderEmpty);
-
+const phoneValid = true;
+  function requiredPhoneValidator(text: string) {
+    if (!phoneValid) return "";
+    if (text.trim() === "") {
+      return defaultRequiredMessage;
+    } else if (!/^\+?\d{9,15}$/.test(text)) {
+      return "Please enter a valid phone number.";
+    }
+    return "";
+  }
+  const emailValid = true;
+  function requiredEmailValidator(text: string) {
+    if (!emailValid) return "";
+    if (text.trim() === "") {
+      return defaultRequiredMessage;
+    } else if (!/^\S+@\S+\.\S+$/.test(text)) {
+      return "Please enter a valid email address.";
+    }
+    return "";
+  }
   function requiredFieldValidator(text: string) {
-    if (!isForceValidate) return "";
-    return requiredValidator(text, defaultRequiredMessage);
+    return text.trim() === "" ? defaultRequiredMessage : "";
   }
   const handleIncrement = () => {
     setOrder({
@@ -76,15 +94,25 @@ function RegisterForm() {
   };
   const handleSubmit = async () => {
     const returnUrl = getReturnUrl();
+    if (!isApprove) {
+      alert("Please agree to the terms and conditions.");
+      return;
+    }
     const cancelUrl = window.location.href;
-
+    setLoading(false);
+    localStorage.setItem("firstName", order.firstName);
+    localStorage.setItem("lastName", order.lastName);
+    localStorage.setItem("email", order.email);
+    localStorage.setItem("phoneNumber", order.phoneNumber);
+    localStorage.setItem("company", order.company);
+    localStorage.setItem("title", order.title);
+    localStorage.setItem("attendees", order.attendees.toString());
     const paymentUrl = await createOrder(order, returnUrl, cancelUrl);
     console.log("mylog paymentUrl: ", paymentUrl);
-
     window.open(paymentUrl, "_self");
-    setForceValidate(true);
-  };
+        setForceValidate(true);
 
+  };
   return (
     <div className={styles.formContainer}>
       <div className={styles.inputs}>
@@ -93,41 +121,42 @@ function RegisterForm() {
           placeholder="Your First Name"
           value={order.firstName}
           onChanged={(value) => setOrder({ ...order, firstName: value })}
-          // validator={requiredFieldValidator}
+          validator={requiredFieldValidator}
         />
         <InputField
           label="Last Name*"
           placeholder="Your Last Name"
           value={order.lastName}
           onChanged={(value) => setOrder({ ...order, lastName: value })}
-          // validator={requiredFieldValidator}
+          validator={requiredFieldValidator}
         />
         <InputField
           label="Email*"
           placeholder="Your Email"
           value={order.email}
           onChanged={(value) => setOrder({ ...order, email: value })}
-          // validator={requiredFieldValidator}
+          validator={requiredEmailValidator}
         />
         <InputField
           label="Phone Number*"
           placeholder="Your Your Phone Number"
           value={order.phoneNumber}
           onChanged={(value) => setOrder({ ...order, phoneNumber: value })}
+          validator={requiredPhoneValidator}
         />
         <InputField
           label="Company*"
           placeholder="Your Company Name"
           value={order.company}
           onChanged={(value) => setOrder({ ...order, company: value })}
-          // validator={requiredFieldValidator}
+          validator={requiredFieldValidator}
         />
         <InputField
           label="Title*"
           placeholder="Your Title"
           value={order.title}
           onChanged={(value) => setOrder({ ...order, title: value })}
-          // validator={requiredFieldValidator}
+          validator={requiredFieldValidator}
         />
         <div className={styles.number}>
           <p>
@@ -242,7 +271,7 @@ export default function _View() {
         </div>
         <img
           className={styles.timeline}
-          src="/winnernight/dateTime.svg"
+          src="/winnernight/dateTime1.svg"
           alt="Timeline"
         />
         <img
@@ -252,7 +281,7 @@ export default function _View() {
         />
         <img
           className={styles.timelineMobile}
-          src="/winnernight/timelineMb.svg"
+          src="/winnernight/timelineMb1.svg"
           alt="Timeline"
         />
         <img
