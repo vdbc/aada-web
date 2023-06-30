@@ -72,10 +72,8 @@ const PRICE = 350;
 function RegisterForm() {
   const [isForceValidate, setForceValidate] = useState(false);
   const [isApprove, setApprove] = useState(false);
-  const [isLoading, setLoading] = useState(false);
   const [isComplete, setComplete] = useState(false);
   const [order, setOrder] = useState<WinnerNightOrderModel>(orderEmpty);
-const phoneValid = true;
   function requiredPhoneValidator(text: string) {
     if (!isForceValidate) return "";
     if (text.trim() === "") {
@@ -85,7 +83,6 @@ const phoneValid = true;
     }
     return "";
   }
-  const emailValid = true;
   function requiredEmailValidator(text: string) {
     if (!isForceValidate) return "";
     if (text.trim() === "") {
@@ -113,7 +110,7 @@ const phoneValid = true;
     });
   };
   const handleSubmit = async () => {
-    setForceValidate(true); // Bật cờ kiểm tra xác thực
+    setForceValidate(true); 
   const returnUrl = getReturnUrl();
   if (!isApprove) {
     alert("Please agree to the terms and conditions.");
@@ -124,7 +121,7 @@ const phoneValid = true;
   }
   const cancelUrl = window.location.href;
   const paymentUrl = await createOrder(order, returnUrl, cancelUrl);
-  console.log("mylog paymentUrl: ", paymentUrl);
+  // console.log("mylog paymentUrl: ", paymentUrl);
   window.open(paymentUrl, "_self");
 
   };
@@ -225,7 +222,7 @@ export default function _View() {
     <div className={styles.container}>
       <div>
         <Head>
-          <title>Winners' Night</title>
+          <title>Winners’ Night</title>
           <meta name="description" content="Asia Architecture Design Awards" />
         </Head>
 
@@ -246,7 +243,7 @@ export default function _View() {
         <h3 className={styles.subTitle}>
           2023 ASIA ARCHITECTURE DESIGN AWARDS
         </h3>
-        <h1 className={styles.title}>WINNERS' NIGHT</h1>
+        <h1 className={styles.title}>WINNERS’ NIGHT</h1>
 
         <div className={styles.desc}>
           Step into the world of architectural excellence at the highly
@@ -259,7 +256,7 @@ export default function _View() {
           estate developers, and
           <br /> distinguished professionals in the world of architecture.
           <div className={styles.descBottom}>
-            Against the backdrop of Marina Bay Sands' breathtaking elegance,
+            Against the backdrop of Marina Bay Sands’ breathtaking elegance,
             this star-studded affair will
             <br /> recognize and honor outstanding achievements architecture
             throughout Asia. Showcasing
