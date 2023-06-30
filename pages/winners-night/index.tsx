@@ -3,7 +3,7 @@ import Dialog from "@mui/material/Dialog";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   WinnerNightOrderModel,
   createOrder,
@@ -19,6 +19,7 @@ declare type InputFieldProps = {
   value?: string;
   onChanged: ValueChanged<string>;
   validator?: TextInputValidator;
+  isRequired?: boolean;
 };
 
 function InputField({
@@ -27,7 +28,25 @@ function InputField({
   value,
   onChanged,
   validator,
+  isRequired = true,
 }: InputFieldProps) {
+  const [errorMessage, setErrorMessage] = useState("");
+  useEffect(() => {
+    if (isRequired && validator) {
+      const message = validator(value || "");
+      setErrorMessage(message);
+    }
+  }, [isRequired, validator, value]);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    if (isRequired && validator) {
+      const message = validator(newValue);
+      setErrorMessage(message);
+    }
+    onChanged(newValue);
+  };
+  const hasError = isRequired && errorMessage !== "";
+
   const message = validator ? validator(value || "") : "";
   return (
     <div className={styles.inputFieldContainer}>
@@ -35,9 +54,9 @@ function InputField({
       <input
         className={styles.input}
         placeholder={placeholder}
-        onChange={(event) => onChanged(event.target.value)}
+        onChange={handleChange}
       />
-      {message && <div className={styles.errorMessage}>{message}</div>}
+      {hasError && <div className={styles.errorMessage}>{errorMessage}</div>}
     </div>
   );
 }
@@ -58,7 +77,7 @@ function RegisterForm() {
   const [order, setOrder] = useState<WinnerNightOrderModel>(orderEmpty);
 const phoneValid = true;
   function requiredPhoneValidator(text: string) {
-    if (!phoneValid) return "";
+    if (!isForceValidate) return "";
     if (text.trim() === "") {
       return defaultRequiredMessage;
     } else if (!/^\+?\d{9,15}$/.test(text)) {
@@ -68,7 +87,7 @@ const phoneValid = true;
   }
   const emailValid = true;
   function requiredEmailValidator(text: string) {
-    if (!emailValid) return "";
+    if (!isForceValidate) return "";
     if (text.trim() === "") {
       return defaultRequiredMessage;
     } else if (!/^\S+@\S+\.\S+$/.test(text)) {
@@ -77,7 +96,8 @@ const phoneValid = true;
     return "";
   }
   function requiredFieldValidator(text: string) {
-    return text.trim() === "" ? defaultRequiredMessage : "";
+    if (!isForceValidate) return "";
+    return requiredValidator(text, defaultRequiredMessage);
   }
   const handleIncrement = () => {
     setOrder({
@@ -93,24 +113,16 @@ const phoneValid = true;
     });
   };
   const handleSubmit = async () => {
+    setForceValidate(true);
     const returnUrl = getReturnUrl();
     if (!isApprove) {
       alert("Please agree to the terms and conditions.");
       return;
     }
     const cancelUrl = window.location.href;
-    setLoading(false);
-    localStorage.setItem("firstName", order.firstName);
-    localStorage.setItem("lastName", order.lastName);
-    localStorage.setItem("email", order.email);
-    localStorage.setItem("phoneNumber", order.phoneNumber);
-    localStorage.setItem("company", order.company);
-    localStorage.setItem("title", order.title);
-    localStorage.setItem("attendees", order.attendees.toString());
     const paymentUrl = await createOrder(order, returnUrl, cancelUrl);
     console.log("mylog paymentUrl: ", paymentUrl);
     window.open(paymentUrl, "_self");
-        setForceValidate(true);
 
   };
   return (
