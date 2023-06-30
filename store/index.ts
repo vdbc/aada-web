@@ -12,7 +12,7 @@ import nominateSlice, { NominateState } from "./modules/nominate";
 import { scoreBoardSlice, ScoreBoardState } from "./modules/score-board";
 import userSlice, { UserState } from "./modules/user";
 import orderSlice, { OrderState } from "./modules/winner";
-import { DataState } from "./modules/data";
+
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -30,7 +30,6 @@ export declare type RootState = {
   news: NewsState;
   scoreBoard: ScoreBoardState;
   order: OrderState;
-  data: DataState;
 
 };
 
