@@ -191,6 +191,9 @@ function RegisterForm() {
           className={styles.checkBox}
           control={
             <Checkbox
+              style={{
+                color: "white",
+              }}
               className={styles.tickBox}
               checked={isApprove}
               onChange={(event) => setApprove(event.target.checked)}
