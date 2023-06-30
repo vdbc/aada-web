@@ -113,16 +113,19 @@ const phoneValid = true;
     });
   };
   const handleSubmit = async () => {
-    setForceValidate(true);
-    const returnUrl = getReturnUrl();
-    if (!isApprove) {
-      alert("Please agree to the terms and conditions.");
-      return;
-    }
-    const cancelUrl = window.location.href;
-    const paymentUrl = await createOrder(order, returnUrl, cancelUrl);
-    console.log("mylog paymentUrl: ", paymentUrl);
-    window.open(paymentUrl, "_self");
+    setForceValidate(true); // Bật cờ kiểm tra xác thực
+  const returnUrl = getReturnUrl();
+  if (!isApprove) {
+    alert("Please agree to the terms and conditions.");
+    return;
+  }
+  if (order.firstName.trim() === "" || order.lastName.trim() === "" || order.email.trim() === "" || order.phoneNumber.trim() === "" || order.company.trim() === "" || order.title.trim() === "") {
+    return;
+  }
+  const cancelUrl = window.location.href;
+  const paymentUrl = await createOrder(order, returnUrl, cancelUrl);
+  console.log("mylog paymentUrl: ", paymentUrl);
+  window.open(paymentUrl, "_self");
 
   };
   return (
