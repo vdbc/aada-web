@@ -58,18 +58,21 @@ export function GetInvolvedHomeBanner() {
     <HomeBannerRightContent backgroundUrl="/home/backgroundRegister.jpg">
       <_Header>GET INVOLVED</_Header>
       <div style={{ height: 60 }} />
-      <h2>GET INVOLVED</h2>
-      <h2>WITH AADA</h2>
+      <h2>THE 2023 AADA</h2>
+      <h2>WINNERS’ NIGHT</h2>
       <div style={{ height: 60 }} />
       <div>
-        AADA supports to promote brand’s projects and products to professionals
-        and potential clients on an international scale. The follow-up upon
-        achieving 2023 AADA shall create a remark to your brand identity.
+      Step into the world of architectural excellence at the highly anticipated <b>Winners’ Night of 2023 Asia Architecture Design Awards</b>, an extraordinary red carpet event set to dazzle at the iconic <b>Marina Bay Sands</b> in Singapore.
       </div>
+      <div style={{ height: 20 }} />
+      <div>
+      Join investors, architects, and enthusiasts for an ceremony of insightful presentations, networking, and celebration!
 
+      </div>
+      
       <div style={{ height: 60 }} />
       <div className={styles.wrapperLink}>
-        <_ButtonLink href={"/get-involved"}>EXPLORE</_ButtonLink>
+        <_ButtonLink href={"/winners-night"}>REGISTER NOW</_ButtonLink>
         <div className={styles.spacer} />
       </div>
       <div style={{ height: 10 }} />

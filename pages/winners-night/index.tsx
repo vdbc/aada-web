@@ -286,7 +286,7 @@ export default function _View() {
         </div>
         <img
           className={styles.timeline}
-          src="/winnernight/dateTime1.svg"
+          src="/winnernight/dateTime.svg"
           alt="Timeline"
         />
         <img
