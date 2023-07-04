@@ -33,7 +33,12 @@ export default function Home() {
         <img
           className={styles.aada_partners}
           alt="AADA Partners"
-          src="/home/sponsor.svg"
+          src="/home/logoPartner.svg"
+        />
+        <img
+          className={styles.aada_partnersMb}
+          alt="AADA Partners"
+          src="/home/logoPartnerMb.svg"
         />
         <NewsOnHomePage />
       </main>
