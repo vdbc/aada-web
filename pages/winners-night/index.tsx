@@ -286,7 +286,7 @@ export default function _View() {
         </div>
         <img
           className={styles.timeline}
-          src="/winnernight/dateTime.svg"
+          src="/winnernight/dateTime1.svg"
           alt="Timeline"
         />
         <img
@@ -297,12 +297,12 @@ export default function _View() {
         <img
           className={styles.timelineMobile}
           src="/winnernight/timelineMb1.svg"
-          alt="Timeline"
+          alt="Timelineeee"
         />
         <img
           className={styles.timelineMobile}
           src="/winnernight/dateTimeMb.svg"
-          alt="Timeline"
+          alt="Timelineqq"
         />
         <div className={styles.signupLabel}>
           <h2>Register today to secure your spot!</h2>
@@ -320,7 +320,7 @@ export default function _View() {
         />
         <img
           className={styles.footerPartners}
-          src="/winnernight/partnersFooter.svg"
+          src="/winnernight/partners.svg"
           alt="Background"
         />
         <img
