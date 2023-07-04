@@ -23,6 +23,11 @@
     padding: 30px 50px;
     position: absolute;
     bottom: 90px;
+    @media (max-width: 600px) {
+      bottom: 40px;
+      padding: 10px 20px;
+      width: 90%;
+    }
 
     h1 {
       font-weight: 800;
