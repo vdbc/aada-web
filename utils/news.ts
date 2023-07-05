@@ -1,6 +1,8 @@
 import { NewsModel } from "../models/NewsModel";
 
-export function getNewsFlugId({ id, title }: NewsModel) {
+export function getNewsFlugId(news: NewsModel) {
+  const { id, title = "" } = news;
+
   return title.trim().replace(/\s+/g, "_").replaceAll(/\W/g, "") + "-tid" + id;
 }
 
