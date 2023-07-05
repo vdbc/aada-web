@@ -1,3 +1,4 @@
+import { isEmpty } from "lodash";
 import Image from "next/image";
 import { useAppSelector } from "../../store";
 import { selectNewsDetail } from "../../store/modules/news";
@@ -13,8 +14,8 @@ declare type NewsCardProps = {
 export default function _View({ id, className }: NewsCardProps) {
   const news = useAppSelector(selectNewsDetail(id)) ?? {};
   const { title, shortContent, thumbnail } = news;
-  useAppSelector(selectNewsDetail(id)) ?? {};
-  if (!id)
+
+  if (isEmpty(news))
     return (
       <div
         className={[styles.container, className ?? "", styles.hidden].join(" ")}
