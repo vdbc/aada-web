@@ -52,14 +52,14 @@ export default function Home() {
         </Link>
         <h3 className={styles.text}>GOLD SPONSOR</h3>
         <div>
-        <Link href="https://vdbc.vn/">
+        <Link href="https://vdbc.vn">
         <img
           className={styles.aada_vdbc}
           alt="AADA Partners"
           src="/logo_home/logoVdbc.svg"
         />
         </Link>
-        <Link href="https://xuanthaomyyen.com//">
+        <Link href="https://xuanthaomyyen.com">
         <img
           className={styles.aada}
           alt="AADA Partners"
