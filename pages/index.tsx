@@ -67,6 +67,12 @@ export default function Home() {
         />
         </Link>
         </div>
+        <h3 className={styles.text}>SILVER SPONSOR</h3>
+        <img
+          className={styles.aada}
+          alt="AADA Partners"
+          src="/logo_home/logoSilver.svg"
+        />
         <h3 className={styles.text}>OFFICIAL PARTNERS</h3>
         <img
           className={styles.aada_partners}
@@ -75,7 +81,7 @@ export default function Home() {
         />
         <h3 className={styles.text}>MEDIA PARTNERS</h3>
         <img
-          className={styles.aada_partners}
+          className={styles.aada_media}
           alt="AADA Partners"
           src="/logo_home/mediaPartners.svg"
         />

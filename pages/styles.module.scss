@@ -20,7 +20,14 @@
   margin-bottom: 50px;
 }
 .aada_partners {
-  width: 73%;
+  width: 55%;
+  margin-bottom: 40px;
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+.aada_media {
+  width: 40%;
   margin-bottom: 40px;
   @media (max-width: 600px) {
     display: none;
