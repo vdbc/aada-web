@@ -47,6 +47,10 @@ const noLoggedTab: HeaderDetail[] = [
     link: "/get-involved",
   },
   {
+    title: "News",
+    link: "/news",
+  },
+  {
     title: "Advisors",
     link: "/advisors",
   },

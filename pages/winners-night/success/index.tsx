@@ -26,7 +26,6 @@ export const getServerSideProps = wrapper.getServerSideProps(
     const { token: orderId } = context.query ?? {};
     const res = await captureOrder(orderId?.toString() ?? "");
     console.log("Winner's Night Capture: ", orderId, res);
-
     return {
       props: {},
     };

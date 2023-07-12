@@ -23,13 +23,14 @@ export default function Home() {
         <HomePageTopBanner />
         <HomepageOverview />
         <TheAwardHomeBanner />
-        <AwardCategoriesHomeBanner />
+        <GetInvolvedHomeBanner />
         <img
           className={styles.timeline}
           alt="Timeline"
           src="/home/timeline.svg"
         />
-        <GetInvolvedHomeBanner />
+
+        <AwardCategoriesHomeBanner />
         <WhyYouShouldSubmitHomeBanner />
         {/* <img
           className={styles.aada_partners}
@@ -43,48 +44,157 @@ export default function Home() {
         />
         <h1 className={styles.title}>AADA PARTNERS</h1>
         <h3 className={styles.text}>DIAMOND SPONSOR</h3>
-        <Link href="https://italianfitout.com/it">
-        <img
-          className={styles.aada}
-          alt="AADA Partners"
-          src="/logo_home/logoIfo.svg"
-        />
+        <Link href="https://italianfitout.com/en ">
+          <img
+            className={styles.aada}
+            alt="AADA Partners"
+            src="/logo_home/logoIfo.svg"
+          />
         </Link>
         <h3 className={styles.text}>GOLD SPONSOR</h3>
         <div>
-        <Link href="https://vdbc.vn">
-        <img
-          className={styles.aada_vdbc}
-          alt="AADA Partners"
-          src="/logo_home/logoVdbc.svg"
-        />
-        </Link>
-        <Link href="https://xuanthaomyyen.com">
-        <img
-          className={styles.aada}
-          alt="AADA Partners"
-          src="/logo_home/logoXt.svg"
-        />
-        </Link>
+          <Link href="https://vdbc.vn">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/logoVdbc.svg"
+            />
+          </Link>
+          <Link href="https://xuanthaomyyen.com">
+            <img
+              className={styles.aada}
+              alt="AADA Partners"
+              src="/logo_home/logoXt.svg"
+            />
+          </Link>
         </div>
         <h3 className={styles.text}>SILVER SPONSOR</h3>
-        <img
-          className={styles.aada}
-          alt="AADA Partners"
-          src="/logo_home/logoSilver.svg"
-        />
+        <div>
+
+          <img
+            className={styles.aada_vdbc}
+            alt="AADA Partners"
+            src="/logo_home/artuae.svg"
+          />
+          <img
+            className={styles.aada_vdbc}
+            alt="AADA Partners"
+            src="/logo_home/forest.svg"
+          />
+
+          <Link href="https://vacons.com.vn/">
+            <img
+              className={styles.aada}
+              alt="AADA Partners"
+              src="/logo_home/vacons.svg"
+            />
+          </Link>
+        </div>
         <h3 className={styles.text}>OFFICIAL PARTNERS</h3>
-        <img
-          className={styles.aada_partners}
-          alt="AADA Partners"
-          src="/logo_home/officialPartners.svg"
-        />
+        <div>
+          <Link href="https://rsp.sg/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/rsp.svg"
+            />
+          </Link>
+          <Link href="https://italianatelier.it/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/italian.svg"
+            />
+          </Link>
+          <Link href="http://www.chiuteng.com.sg/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/chiuteng.svg"
+            />
+          </Link>
+          <Link href="https://www.padartisan.com/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/space.svg"
+            />
+          </Link>
+          <Link href="https://kingsmen.com.vn/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/kingsmen.svg"
+            />
+          </Link>
+          <Link href="https://www.mulpha.com.au/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/mulpha.svg"
+            />
+          </Link>
+          <Link href="https://www.cmd.sg/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/creativemind.svg"
+            />
+          </Link>
+          <Link href="https://www.cmd.sg/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/salad.svg"
+            />
+          </Link>
+
+        </div>
         <h3 className={styles.text}>MEDIA PARTNERS</h3>
-        <img
-          className={styles.aada_media}
-          alt="AADA Partners"
-          src="/logo_home/mediaPartners.svg"
-        />
+        <div>
+
+          <img
+            className={styles.aada_vdbc}
+            alt="AADA Partners"
+            src="/logo_home/amazing.svg"
+          />
+
+
+          <img
+            className={styles.aada_vdbc}
+            alt="AADA Partners"
+            src="/logo_home/designer.svg"
+          />
+
+
+          <img
+            className={styles.aada_vdbc}
+            alt="AADA Partners"
+            src="/logo_home/metropolitan.svg"
+          />
+
+
+          <img
+            className={styles.aada_vdbc}
+            alt="AADA Partners"
+            src="/logo_home/commercial.svg"
+          />
+
+          <Link href="https://acg-media.com/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/acg.svg"
+            />
+          </Link>
+          <Link href="https://www.designspeak.asia/">
+            <img
+              className={styles.aada_vdbc}
+              alt="AADA Partners"
+              src="/logo_home/design.svg"
+            />
+          </Link>
+        </div>
         <NewsOnHomePage />
       </main>
 
