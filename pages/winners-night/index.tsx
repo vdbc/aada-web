@@ -12,6 +12,7 @@ import {
 import { TextInputValidator, ValueChanged } from "../../utils/interface";
 import { requiredValidator } from "../../utils/validators";
 import styles from "./styles.module.scss";
+import { useRouter } from "next/router";
 
 declare type InputFieldProps = {
   label: string;
@@ -70,10 +71,14 @@ function getReturnUrl() {
 const PRICE = 350;
 
 function RegisterForm() {
+  const router = useRouter();
+  const [isPaymentSuccess, setPaymentSuccess] = useState(false);
   const [isForceValidate, setForceValidate] = useState(false);
   const [isApprove, setApprove] = useState(false);
   const [isComplete, setComplete] = useState(false);
+  const [isPaymentComplete, setPaymentComplete] = useState(false);
   const [order, setOrder] = useState<WinnerNightOrderModel>(orderEmpty);
+
   function requiredPhoneValidator(text: string) {
     if (!isForceValidate) return "";
     if (text.trim() === "") {
@@ -110,20 +115,34 @@ function RegisterForm() {
     });
   };
   const handleSubmit = async () => {
-    setForceValidate(true); 
-  const returnUrl = getReturnUrl();
-  if (!isApprove) {
-    alert("Please agree to the terms and conditions.");
-    return;
-  }
-  if (order.firstName.trim() === "" || order.lastName.trim() === "" || order.email.trim() === "" || order.phoneNumber.trim() === "" || order.company.trim() === "" || order.title.trim() === "") {
-    return;
-  }
-  const cancelUrl = window.location.href;
-  const paymentUrl = await createOrder(order, returnUrl, cancelUrl);
-  // console.log("mylog paymentUrl: ", paymentUrl);
-  window.open(paymentUrl, "_self");
 
+    setForceValidate(true);
+    const returnUrl = getReturnUrl();
+    if (!isApprove) {
+      alert("Please agree to the terms and conditions.");
+      return;
+    }
+    if (order.firstName.trim() === "" || order.lastName.trim() === "" || order.email.trim() === "" || order.phoneNumber.trim() === "" || order.company.trim() === "" || order.title.trim() === "") {
+      return;
+    }
+    const cancelUrl = window.location.href;
+    const paymentUrl = await createOrder(order, returnUrl, cancelUrl);
+    // console.log("mylog paymentUrl: ", paymentUrl);
+    // window.open(paymentUrl, "_self");
+    const paymentWindow = window.open(paymentUrl, "_self");
+    window.addEventListener("message", (event) => {
+      if (event.origin !== window.location.origin) return;
+      if (event.data.type === "payment_success") {
+        setPaymentSuccess(true);
+        setComplete(true);
+        router.push("/winners-night/success");
+
+      } else if (event.data.type === "payment_failure") {
+        setPaymentSuccess(false);
+        setComplete(true);
+        router.push("/winners-night");;
+      }
+    });
   };
   return (
     <div className={styles.formContainer}>
@@ -206,16 +225,7 @@ function RegisterForm() {
       <button className={styles.button} onClick={(isLoading) => handleSubmit()}>
         PAYMENT
       </button>
-      <Dialog open={isComplete} onClose={() => setComplete(false)}>
-        <div className={styles.completeDialog}>
-          <div className={styles.message}>
-            Thank you for your interest. Your download will begin shortly.
-          </div>
-          <Link className={styles.button} href="/">
-            Go to home page
-          </Link>
-        </div>
-      </Dialog>
+
     </div>
   );
 }
