@@ -128,7 +128,7 @@ function RegisterForm() {
     const cancelUrl = window.location.href;
     const paymentUrl = await createOrder(order, returnUrl, cancelUrl);
     // console.log("mylog paymentUrl: ", paymentUrl);
-    // window.open(paymentUrl, "_self");
+    window.open(paymentUrl, "_self");
     const paymentWindow = window.open(paymentUrl, "_self");
     window.addEventListener("message", (event) => {
       if (event.origin !== window.location.origin) return;

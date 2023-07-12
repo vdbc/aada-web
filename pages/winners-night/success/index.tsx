@@ -21,14 +21,13 @@ export default function Home() {
   );
 }
 
-// export const getServerSideProps = wrapper.getServerSideProps(
-//   (store) => async (context) => {
-//     const { token: orderId } = context.query ?? {};
-//     const res = await captureOrder(orderId?.toString() ?? "");
-//     console.log("Winner's Night Capture: ", orderId, res);
-
-//     return {
-//       props: {},
-//     };
-//   }
-// );
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    const { token: orderId } = context.query ?? {};
+    const res = await captureOrder(orderId?.toString() ?? "");
+    console.log("Winner's Night Capture: ", orderId, res);
+    return {
+      props: {},
+    };
+  }
+);
