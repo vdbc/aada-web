@@ -14,10 +14,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  > .term {
+
+  >.term {
     margin: 20px 0;
     width: 100%;
-    max-width: 380px;
+
     font-size: 12px;
     text-align: center;
     color: #a67f56;
@@ -28,7 +29,7 @@
     }
   }
 
-  > button {
+  >button {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -42,7 +43,7 @@
     font-size: 15px;
     text-transform: uppercase;
 
-    > span {
+    >span {
       margin-right: 10px;
     }
   }

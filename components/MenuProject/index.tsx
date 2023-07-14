@@ -23,7 +23,7 @@ export default function _View({ entry, onSetProject }: Props) {
     getProjectbyEntryId(token, entry.id).then((res) => {
       setListProject(res.data);
     });
-  }, [listProject.length]);
+  }, [listProject.length, entry.id]);
   // console.log(listProject, entry.id);
 
   return (
@@ -39,9 +39,8 @@ export default function _View({ entry, onSetProject }: Props) {
         <ul className={styles.listProject}>
           {listProject.map((list) => (
             <li
-              className={`${styles.listName} ${
-                selectedProjectId === list.id ? styles.listNameSelected : "" // Sử dụng selectedProjectId ở đây
-              }`}
+              className={`${styles.listName} ${selectedProjectId === list.id ? styles.listNameSelected : "" // Sử dụng selectedProjectId ở đây
+                }`}
               key={list.id}
               onClick={() => {
                 onSetProject(list);

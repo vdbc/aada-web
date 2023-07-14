@@ -19,6 +19,7 @@ export default function _View({ user = userEmpty, onUserUpdated }: Props) {
     <div className={styles.container}>
       <h2 className={styles.title}>Your Account</h2>
       <InputField
+
         label="First name"
         placeholder="Please type your first name here"
         value={user.firstName}

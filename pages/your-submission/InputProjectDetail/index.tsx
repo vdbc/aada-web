@@ -131,7 +131,7 @@ export default function _View({ projectId }: ViewProps) {
   }
   function aboutFieldValidator(text: string) {
     if (!isForceValidate) return "";
-    return getProgressPercentField(text) >= 30
+    return getProgressPercentField(text) <= 0
       ? ""
       : "Please fill out at least 30% of this field before submitting.";
   }
