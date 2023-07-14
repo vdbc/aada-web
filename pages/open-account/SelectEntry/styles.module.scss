@@ -20,7 +20,7 @@
     margin-top: 25px;
     width: 100%;
 
-    > .entries {
+    >.entries {
       flex: 2;
     }
 
@@ -41,14 +41,14 @@
   min-height: 140px;
   color: #a67f56;
 
-  > h2 {
+  >h2 {
     margin: 0;
     font-weight: 700;
     font-size: 17px;
     text-transform: uppercase;
   }
 
-  > .descriptionContent {
+  >.descriptionContent {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -58,7 +58,7 @@
     font-size: 15px;
   }
 
-  > .children {
+  >.children {
     margin-top: 8px;
     width: 100%;
     font-size: 25px;
@@ -74,6 +74,7 @@
   color: #a67f56;
   text-transform: uppercase;
   border-color: #a67f56;
+  background-color: #fff;
 
   &::after {
     position: absolute;
@@ -101,6 +102,7 @@
 .wrapperSelectEntry {
   margin-bottom: 8px;
   background-color: #a67f56;
+
   .labelBox {
     color: white;
     font-size: 19px;
@@ -113,12 +115,12 @@
     justify-content: center;
     width: 100%;
 
-    > span {
+    >span {
       flex: 1;
       text-align: center;
     }
 
-    > button {
+    >button {
       background-color: transparent;
       border-style: none;
       color: unset;

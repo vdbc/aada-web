@@ -11,6 +11,7 @@ import userSlice from "../../../store/modules/user";
 import AccountInfo from "../AccountInfo";
 import OrganizationInfo from "../OrganizationInfo";
 import styles from "./styles.module.scss";
+import { Checkbox, Link } from "@mui/material";
 
 declare type RegistrationProps = {
   onRegisterSuccess: Function;
@@ -38,6 +39,8 @@ export default function _View({ onRegisterSuccess }: RegistrationProps) {
   const [user, setUser] = useState<UserModel>(userEmpty);
   const [organization, setOrganization] =
     useState<Organization>(organizationEmpty);
+  const [isApprove, setApprove] = useState(false);
+
 
   const [isLoading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
@@ -61,7 +64,7 @@ export default function _View({ onRegisterSuccess }: RegistrationProps) {
     setLoading(false);
   }
 
-  const canContinue = !isLoading && checkCanContinue(user, organization);
+  const canContinue = isApprove && !isLoading && checkCanContinue(user, organization);
 
   return (
     <div className={styles.registration}>
@@ -72,8 +75,9 @@ export default function _View({ onRegisterSuccess }: RegistrationProps) {
       />
       <div className={styles.footerPage}>
         <div className={styles.term}>
+          <Checkbox className={styles.checkbox} checked={isApprove} onChange={(event) => setApprove(event.target.checked)} />
           By proceeding, you agree to ASIA ARCHITECTURE DESIGN AWARD{" "}
-          <a href="#">Terms of use</a> and <a href="#">Privacy Policy</a> and
+          <Link href="#">Terms of use</Link> and <a href="#">Privacy Policy</a> and
           agree to receive newsletters from Asia Architecture Design Awards.
         </div>
         <button

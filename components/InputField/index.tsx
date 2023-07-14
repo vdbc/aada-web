@@ -42,6 +42,7 @@ export default function InputField({
       <div className={[styles.input, inputClassName].join(" ")}>
         {prefix}
         <input
+          className={styles.inputfield}
           value={text}
           placeholder={placeholder}
           onChange={(event) => handleChange(event.target.value)}

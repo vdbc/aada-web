@@ -15,6 +15,8 @@ import { selectUserId } from "../../../store/modules/user";
 import { storage } from "../../../utils/firebase";
 import { ImagesInputValidator, ValueChanged } from "../../../utils/interface";
 import styles from "./styles.module.scss";
+import { fileUrl } from "../../../models/AppConfig";
+import axios from "axios";
 
 const MAX_OF_IMAGE = 10;
 const MAX_OF_SIZE = 5 * 1024 * 1024;
@@ -69,38 +71,33 @@ async function getBase64(file: File) {
   });
 }
 
-function uploadImage(
+async function uploadImage(
   item: ImageItem,
   userId: string,
   onProgressChanged: ValueChanged<number>
 ): Promise<ImageItem> {
-  return new Promise((resolve, reject) => {
-    if (!item.file) reject("Item is empty");
+  if (!item.file) throw new Error("Item is empty");
 
-    const file = item.file!;
-    const prefix = utc(new Date()).format("YYYYMMDD_hh:mm:ss");
-    const storageRef = ref(storage, `files/${userId}/${prefix}${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-    
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        onProgressChanged(progress);
-      },
-      reject,
-      async () => {
-        const url = await getDownloadURL(storageRef);
-        resolve({
-          ...item,
-          progress: 1,
-          isUploaded: true,
-          url,
-        });
-      }
-    );
+  const file = item.file!;
+  console.log("mylog upload file: ", file);
+  const formData = new FormData();
+  formData.append("file", file);
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  };
+  const url = `${fileUrl}/upload`;
+  const resp = await axios.post<{ url: string }>(url, formData, {
+    ...config,
+    onUploadProgress: (event) => onProgressChanged((event.progress ?? 0) * 100),
   });
+  return {
+    ...item,
+    progress: 100,
+    isUploaded: true,
+    url: resp.data.url,
+  };
 }
 
 function getImageSrc({ url, base64 }: ImageItem) {
