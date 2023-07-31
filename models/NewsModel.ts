@@ -32,3 +32,20 @@ export const newsEmpty: NewsModel = {
   wallpaper: "",
   tags: [],
 };
+
+export interface WinnersModel {
+  id: number;
+  projectId: number;
+  author: string;
+  thumbnail: string;
+  status: string;
+  wallpaper: string;
+}
+export const winnersEmpty: WinnersModel = {
+  id: 0,
+  projectId: 0,
+  author: "",
+  thumbnail: "",
+  status: "",
+  wallpaper: "",
+};

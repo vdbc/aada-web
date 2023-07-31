@@ -12,6 +12,7 @@ import nominateSlice, { NominateState } from "./modules/nominate";
 import { scoreBoardSlice, ScoreBoardState } from "./modules/score-board";
 import userSlice, { UserState } from "./modules/user";
 import orderSlice, { OrderState } from "./modules/winner";
+import winnersSlice, { WinnersState } from "./modules/winnersNews";
 
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -30,6 +31,7 @@ export declare type RootState = {
   news: NewsState;
   scoreBoard: ScoreBoardState;
   order: OrderState;
+  winners: WinnersState;
 
 };
 
@@ -40,6 +42,7 @@ const reducer = combineReducers({
   news: newsSlice.reducer,
   scoreBoard: scoreBoardSlice.reducer,
   order: orderSlice.reducer,
+  winners: winnersSlice.reducer,
 });
 // const reducerWithPersist = persistReducer(persistConfig, reducer);
 

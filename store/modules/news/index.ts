@@ -1,16 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { keyBy } from "lodash";
 import { RootState } from "../..";
-import { NewsModel } from "../../../models/NewsModel";
+import { NewsModel, WinnersModel } from "../../../models/NewsModel";
 import {
   fetchAllHighlight,
   fetchAllNews,
+
   fetchNewsDetail,
 } from "../../../services/NewsService";
 
 export interface NewsState {
+
+
   highlightIds: number[];
   newIds: number[];
+
   newsDetails: {
     [key: number]: NewsModel;
   };
@@ -19,6 +23,7 @@ export interface NewsState {
 const initialState: NewsState = {
   newsDetails: {},
   newIds: [],
+
   highlightIds: [],
 };
 
@@ -29,6 +34,7 @@ export const getAllNews = createAsyncThunk<
 >("news/getAllNews", async (_, store) => {
   return fetchAllNews();
 });
+
 
 export const getAllHighlightNews = createAsyncThunk<
   NewsModel[],
@@ -59,6 +65,7 @@ export const newsSlice = createSlice({
           ...keyBy(action.payload, (item) => item.id),
         };
       })
+
       .addCase(getAllHighlightNews.fulfilled, (state, action) => {
         state.highlightIds = action.payload.map((item) => item.id);
         state.newsDetails = {
@@ -82,5 +89,7 @@ export const selectNewsDetails = (state: RootState) => state.news.newsDetails;
 
 export const selectNewsDetail = (id: number) => (state: RootState) =>
   selectNewsDetails(state)[id];
+
+
 
 export default newsSlice;

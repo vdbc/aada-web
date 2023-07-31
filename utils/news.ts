@@ -1,4 +1,4 @@
-import { NewsModel } from "../models/NewsModel";
+import { NewsModel, WinnersModel } from "../models/NewsModel";
 
 export function getNewsFlugId(news: NewsModel) {
   const { id, title = "" } = news;
@@ -9,3 +9,4 @@ export function getNewsIdFromFlug(flugId: string) {
   const match = flugId.match(/(-tid(\w+))$/);
   return match?.at(2) || flugId;
 }
+
