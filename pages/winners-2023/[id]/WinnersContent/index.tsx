@@ -1,3 +1,4 @@
+import HtmlView from "../../../../components/HtmlView";
 import { useAppSelector } from "../../../../store";
 import { selectWinnersDetail } from "../../../../store/modules/winnersNews";
 import styles from "./styles.module.scss";
@@ -11,12 +12,7 @@ export default function _View({ id }: ViewProps) {
   console.log("content" + content);
   return (
     <div className={styles.container}>
-      <div
-        className={styles.content}
-        dangerouslySetInnerHTML={{
-          __html: content,
-        }}
-      />
+      <HtmlView content={content} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { debounce, keyBy } from "lodash";
 import { RootState, store } from "../..";
-import { WinnersModel, AllWinnersResponse, } from "../../../models/NewsModel";
+import { AllWinnersResponse, WinnerNewsModel, } from "../../../models/NewsModel";
 import { fetchAllWinners, fetchWinnersDetail } from "../../../services/WinnersService";
 import { selectToken } from "../user";
 
@@ -9,7 +9,7 @@ export interface WinnersState {
 
   winnerIds: number[];
   winnersDetails: {
-    [key: number]: WinnersModel;
+    [key: number]: WinnerNewsModel;
   };
 
 }
@@ -30,7 +30,7 @@ export const getAllWinners = createAsyncThunk<
 });
 
 export const getWinnersDetail = createAsyncThunk<
-  WinnersModel,
+  WinnerNewsModel,
   number,
   { state: RootState }
 >("winners/getWinnersDetail", async (id, { getState }) => {

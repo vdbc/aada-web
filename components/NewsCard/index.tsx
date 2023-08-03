@@ -6,12 +6,12 @@ import { getNewsFlugId } from "../../utils/news";
 import ButtonLink from "../ButtonLink";
 import styles from "./styles.module.scss";
 
-declare type CardNewsWinnerProps = {
+declare type CardNewsProps = {
   id: number;
   className?: string;
 };
 
-export default function _View({ id, className }: CardNewsWinnerProps) {
+export default function _View({ id, className }: CardNewsProps) {
   const news = useAppSelector(selectNewsDetail(id)) ?? {};
   const { title, shortContent, thumbnail } = news;
 
@@ -21,7 +21,6 @@ export default function _View({ id, className }: CardNewsWinnerProps) {
         className={[styles.container, className ?? "", styles.hidden].join(" ")}
       />
     );
-  console.log(thumbnail)
   return (
     <div className={[styles.container, className ?? ""].join(" ")}>
       <div className={styles.thumbnail}>

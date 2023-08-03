@@ -1,4 +1,4 @@
-import { NewsModel, WinnersModel } from "../models/NewsModel";
+import { NewsModel, WinnerNewsModel } from "../models/NewsModel";
 
 export function getNewsFlugId(news: NewsModel) {
   const { id, title = "" } = news;
@@ -11,7 +11,7 @@ export function getNewsIdFromFlug(flugId: string) {
 }
 
 
-export function getWinnersFlugId(winners: WinnersModel) {
+export function getWinnersFlugId(winners: WinnerNewsModel) {
   const { id, projectName = "" } = winners;
   return projectName.trim().replace(/\s+/g, "_").replaceAll(/\W/g, "") + "-tid" + winners.id;
 }

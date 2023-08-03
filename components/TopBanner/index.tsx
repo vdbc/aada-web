@@ -164,7 +164,7 @@ export function NewsTopBanner() {
     </_View>
   );
 }
-export function NewsTopBannerWinners() {
+export function WinnersNewsTopBanner() {
   return (
     <_View bgUrl="/bg_the_award.jpg">
       <h1>

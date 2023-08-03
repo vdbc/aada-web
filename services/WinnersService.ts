@@ -1,6 +1,6 @@
 
 import { apiUrl } from "../models/AppConfig";
-import { AllWinnersResponse, NewsModel, WinnersModel } from "../models/NewsModel";
+import { AllWinnersResponse, NewsModel, WinnerNewsModel } from "../models/NewsModel";
 import { get } from "./http";
 
 export async function fetchAllWinners(
@@ -20,9 +20,9 @@ export async function fetchAllWinners(
 
     return resp;
 }
-export async function fetchWinnersDetail(id: number, token: string): Promise<WinnersModel> {
+export async function fetchWinnersDetail(id: number, token: string): Promise<WinnerNewsModel> {
     const url = `${apiUrl}/winners-2023/${id}`;
-    const resp = await get<WinnersModel>(url, {
+    const resp = await get<WinnerNewsModel>(url, {
         headers: {
             Authorization: `Bearer ${token}`,
         },

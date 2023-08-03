@@ -2,7 +2,7 @@
 import Head from "next/head";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { NewsTopBanner } from "../../components/TopBanner";
+import { NewsTopBanner, WinnersNewsTopBanner } from "../../components/TopBanner";
 import { useAppSelector, wrapper } from "../../store";
 
 import styles from "./styles.module.scss";
@@ -43,7 +43,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Header />
-        <NewsTopBanner />
+        <WinnersNewsTopBanner />
         <div className={styles.content}>
           <h1>UNCOVER <br /> ALL THE WINNERS</h1>
           <h3 className={styles.text}>2023 ASIA ARCHITECTURE DESIGN AWARDS</h3>

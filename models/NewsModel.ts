@@ -33,7 +33,7 @@ export const newsEmpty: NewsModel = {
   tags: [],
 };
 
-export interface WinnersModel {
+export interface WinnerNewsModel {
   id: number;
   projectId: number;
   author: string;
@@ -44,7 +44,7 @@ export interface WinnersModel {
   projectName: string;
   nominateName: string;
 }
-export const winnersEmpty: WinnersModel = {
+export const winnersEmpty: WinnerNewsModel = {
   id: 0,
   projectId: 0,
   author: "",
@@ -56,5 +56,5 @@ export const winnersEmpty: WinnersModel = {
   nominateName: "",
 };
 export interface AllWinnersResponse {
-  data: WinnersModel[];
+  data: WinnerNewsModel[];
 }

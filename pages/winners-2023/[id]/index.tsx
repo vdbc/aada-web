@@ -8,7 +8,6 @@ import NewsContent from "./WinnersContent";
 import NewsDetailHeader from "./WinnersDetailHeader";
 import ShareNews from "./ShareNewsWinner";
 import styles from "./styles.module.scss";
-import Tags from "./Tags";
 import { getWinnersDetail, selectWinnersDetail } from "../../../store/modules/winnersNews";
 import WinnersContent from "./WinnersContent";
 import WinnersDetailHeader from "./WinnersDetailHeader";
@@ -16,13 +15,24 @@ import ShareNewsWinner from "./ShareNewsWinner";
 
 export default function _View({ id }: { id: number }) {
   const winners = useAppSelector(selectWinnersDetail(id));
+  const MAX_WORDS = 100;
+
+  function truncateContent(content: string): string {
+    const words = content.split(" ");
+    if (words.length > MAX_WORDS) {
+      return words.slice(0, MAX_WORDS).join(" ") + "...";
+    } else {
+      return content;
+    }
+  }
+  const truncatedContent = truncateContent(winners?.content || "");
 
   return (
     <div className={styles.container}>
       <Head>
         <title>{winners?.projectName || "Winners"}</title>
         <meta name="og:image" content={winners?.wallpaper} />
-        {/* <meta name="description" content={winners?.description} /> */}
+        <meta name="description" content={truncatedContent} />
       </Head>
 
       <main className={styles.main}>
@@ -31,8 +41,6 @@ export default function _View({ id }: { id: number }) {
         <div className={styles.body}>
           <ShareNewsWinner id={id} />
           <WinnersContent id={id} />
-          {/* <Tags id={id} /> */}
-          {/* <RecommendationNews id={id} /> */}
         </div>
       </main>
       <Footer />

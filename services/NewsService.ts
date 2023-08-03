@@ -1,5 +1,5 @@
 import { apiUrl } from "../models/AppConfig";
-import { NewsModel, WinnersModel } from "../models/NewsModel";
+import { NewsModel, } from "../models/NewsModel";
 import { get } from "./http";
 
 export async function fetchAllNews(): Promise<NewsModel[]> {
