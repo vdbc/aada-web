@@ -10,12 +10,15 @@ declare type ViewProps = {
 export default function _View({ id }: ViewProps) {
   const { wallpaper, projectName, nominateName } =
     useAppSelector(selectWinnersDetail(id)) || {};
+  const title = nominateName?.includes("2023 BEST")
+    ? nominateName.replace("2023 BEST", "")
+    : nominateName;
   return (
     <div className={styles.container}>
       <Image src={wallpaper || "/wallpaper.jpg"} alt="Wallpaper" fill />
       <div className={styles.box}>
         <h3 className={styles.best}>2023 BEST</h3>
-        <h2 className={styles.title}>{nominateName}</h2>
+        <h2 className={styles.title}>{title}</h2>
         <div className={styles.desc}>{projectName}</div>
       </div>
     </div>

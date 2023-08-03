@@ -39,7 +39,7 @@ export default function _View({ id, className }: WinnersCardProps) {
           </div>
           <div className={styles.subTitle}>
             <h5>Project</h5>
-            <h3>{projectName}</h3>
+            <h5 className={styles.projectName}>{projectName}</h5>
           </div>
         </div>
       </Link>
