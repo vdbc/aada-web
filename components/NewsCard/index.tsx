@@ -6,12 +6,12 @@ import { getNewsFlugId } from "../../utils/news";
 import ButtonLink from "../ButtonLink";
 import styles from "./styles.module.scss";
 
-declare type NewsCardProps = {
+declare type CardNewsWinnerProps = {
   id: number;
   className?: string;
 };
 
-export default function _View({ id, className }: NewsCardProps) {
+export default function _View({ id, className }: CardNewsWinnerProps) {
   const news = useAppSelector(selectNewsDetail(id)) ?? {};
   const { title, shortContent, thumbnail } = news;
 

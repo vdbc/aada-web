@@ -53,7 +53,6 @@ function splitNewsToRows(_newIds: number[], _highlightIds: number[]) {
     }
     result.push(rowIds);
   }
-
   return result;
 }
 
@@ -64,7 +63,6 @@ export default function Home() {
     newsIds,
     highlightIds
   );
-
   return (
     <div className={styles.container}>
       <Head>
@@ -125,9 +123,9 @@ export const getServerSideProps = wrapper.getServerSideProps(
       store.dispatch(getAllNews()),
       store.dispatch(getAllHighlightNews()),
     ]);
-
     return {
       props: {},
     };
   }
 );
+

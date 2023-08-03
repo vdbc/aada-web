@@ -39,7 +39,7 @@ export default function _View({ entry, onSetProject }: Props) {
         <ul className={styles.listProject}>
           {listProject.map((list) => (
             <li
-              className={`${styles.listName} ${selectedProjectId === list.id ? styles.listNameSelected : "" // Sử dụng selectedProjectId ở đây
+              className={`${styles.listName} ${selectedProjectId === list.id ? styles.listNameSelected : ""
                 }`}
               key={list.id}
               onClick={() => {

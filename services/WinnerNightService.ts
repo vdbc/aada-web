@@ -53,7 +53,7 @@ export async function createOrder(
       ...order,
       returnUrl,
       cancelUrl,
-      amount: order.attendees * 350, // TODO: Remove after backend fix
+      amount: order.attendees * 350,
     },
     {
       headers: {

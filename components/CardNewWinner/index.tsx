@@ -4,6 +4,8 @@ import { useAppSelector } from "../../store";
 
 import styles from "./styles.module.scss";
 import { selectWinnersDetail } from "../../store/modules/winnersNews";
+import Link from "next/link";
+import { getNewsFlugId, getWinnersFlugId } from "../../utils/news";
 
 declare type WinnersCardProps = {
   id: number;
@@ -12,8 +14,8 @@ declare type WinnersCardProps = {
 
 export default function _View({ id, className }: WinnersCardProps) {
   const winners = useAppSelector(selectWinnersDetail(id)) ?? {};
-  const { projectId, thumbnail, wallpaper, status } = winners;
-  console.log("124");
+  const { projectId, thumbnail, wallpaper, projectName, nominateName } = winners;
+
   if (isEmpty(winners))
     return (
       <div
@@ -21,18 +23,23 @@ export default function _View({ id, className }: WinnersCardProps) {
       />
     );
 
-
   return (
     <div className={[styles.container, className ?? ""].join(" ")}>
-      <div className={styles.thumbnail}>
-        <div>
-          <Image src={thumbnail || "/default-thumbnail.jpg"} alt="Thumbnail" fill />
+      <Link href={`/winners-2023/${getWinnersFlugId(winners)}`}>
+        <div className={styles.thumbnail}>
+          <div>
+            <Image src={thumbnail || "/default-thumbnail.jpg"} alt="Thumbnail" fill />
+            <div className={styles.title}>
+              <h3>2023 BEST</h3>
+              <div>{nominateName}</div>
+            </div>
+          </div>
+          <div className={styles.subTitle}>
+            <h5>Project</h5>
+            <h3>{projectName}</h3>
+          </div>
         </div>
-        <div className={styles.subTitle}>
-          <h5>Project</h5>
-          <h1>{projectId}</h1>
-        </div>
-      </div>
+      </Link>
     </div>
   );
 }

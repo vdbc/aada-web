@@ -34,3 +34,4 @@ export async function fetchNewsDetail(id: number): Promise<NewsModel> {
 
   return resp.data;
 }
+

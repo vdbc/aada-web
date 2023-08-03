@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../../../store";
-import { selectNewsDetail } from "../../../../store/modules/news";
+import { selectWinnersDetail } from "../../../../store/modules/winnersNews";
 import styles from "./styles.module.scss";
 
 declare type ViewProps = {
@@ -7,7 +7,8 @@ declare type ViewProps = {
 };
 
 export default function _View({ id }: ViewProps) {
-  const { content } = useAppSelector(selectNewsDetail(id)) || {};
+  const { content } = useAppSelector(selectWinnersDetail(id)) || {};
+  console.log("content" + content);
   return (
     <div className={styles.container}>
       <div

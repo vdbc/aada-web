@@ -14,7 +14,7 @@ export default function _View({ id }: ViewProps) {
     <div className={styles.container}>
       <Image src={wallpaper || "/wallpaper.jpg"} alt="Wallpaper" fill />
       <div className={styles.box}>
-        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.title}>{title}</h2>
         <div className={styles.desc}>{description}</div>
       </div>
     </div>

@@ -40,6 +40,9 @@ export interface WinnersModel {
   thumbnail: string;
   status: string;
   wallpaper: string;
+  content: string;
+  projectName: string;
+  nominateName: string;
 }
 export const winnersEmpty: WinnersModel = {
   id: 0,
@@ -48,4 +51,10 @@ export const winnersEmpty: WinnersModel = {
   thumbnail: "",
   status: "",
   wallpaper: "",
+  content: "",
+  projectName: "",
+  nominateName: "",
 };
+export interface AllWinnersResponse {
+  data: WinnersModel[];
+}
