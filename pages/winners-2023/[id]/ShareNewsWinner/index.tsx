@@ -7,14 +7,19 @@ import {
   TwitterShareButton,
 } from "react-share";
 import styles from "./styles.module.scss";
+import { useAppSelector } from "../../../../store";
+import { selectWinnersDetail } from "../../../../store/modules/winnersNews";
+import { getWinnersFlugId } from "../../../../utils/news";
 
 declare type ViewProps = {
   id: number;
 };
 
 export default function _View({ id }: ViewProps) {
+  const winners = useAppSelector(selectWinnersDetail(id)) ?? {};
+
   // TODO update link
-  const url = "https://aadawards.com";
+  const url = `https://aadawards.com//winners-2023/${getWinnersFlugId(winners)}`;
   return (
     <div className={styles.container}>
       <div className={styles.label}>Share</div>
