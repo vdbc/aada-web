@@ -32,6 +32,9 @@ export default function _View({ id, className }: WinnersCardProps) {
             <div className={styles.title}>
               <h3>2023 BEST</h3>
               <div>{nominateName}</div>
+              {nominateName === "2023 BEST RESIDENTIAL ARCHITECTURE DESIGN-LANDED HOUSING" ? (
+                <p className={styles.textLanded}>Landed Housing</p>
+              ) : null}
             </div>
           </div>
           <div className={styles.subTitle}>
