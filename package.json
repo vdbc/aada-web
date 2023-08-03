@@ -21,7 +21,6 @@
     "@mui/material": "^5.10.15",
     "@next/font": "^13.0.3",
     "@paypal/react-paypal-js": "^7.8.2",
-    "@phntms/react-share": "^1.0.2-rc1",
     "@reduxjs/toolkit": "^1.9.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
