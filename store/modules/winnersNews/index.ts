@@ -68,8 +68,8 @@ export const winnersSlice = createSlice({
 
 
 export const selectWinnerIds = (state: RootState) => state.winners.winnerIds;
-export const selectWinnersDetails = (state: RootState) => state.winners.winnersDetails;
-export const selectWinnersDetail = (id: number) => (state: RootState) =>
-  selectWinnersDetails(state)[id];
+export const selectWinnerNewsDetails = (state: RootState) => state.winners.winnersDetails;
+export const selectWinnerNewsDetail = (id: number) => (state: RootState) =>
+  selectWinnerNewsDetails(state)[id];
 
 export default winnersSlice;

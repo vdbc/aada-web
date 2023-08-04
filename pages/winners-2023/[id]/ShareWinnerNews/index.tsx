@@ -8,7 +8,7 @@ import {
 } from "react-share";
 import styles from "./styles.module.scss";
 import { useAppSelector } from "../../../../store";
-import { selectWinnersDetail } from "../../../../store/modules/winnersNews";
+import { selectWinnerNewsDetail } from "../../../../store/modules/winnersNews";
 import { getWinnersFlugId } from "../../../../utils/news";
 
 declare type ViewProps = {
@@ -16,9 +16,9 @@ declare type ViewProps = {
 };
 
 export default function _View({ id }: ViewProps) {
-  const winnerNews = useAppSelector(selectWinnersDetail(id)) ?? {};
+  const winnerNews = useAppSelector(selectWinnerNewsDetail(id)) ?? {};
 
-  const url = `https:/aadawards.com//winners-2023/${getWinnersFlugId(winnerNews)}`;
+  const url = location.href;
   return (
     <div className={styles.container}>
       <div className={styles.label}>Share</div>
