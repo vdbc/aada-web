@@ -15,6 +15,9 @@ declare type WinnerNewsCardProps = {
 export default function _View({ id, className }: WinnerNewsCardProps) {
   const winners = useAppSelector(selectWinnersDetail(id)) ?? {};
   const { thumbnail, projectName, nominateName } = winners;
+  const title = nominateName?.includes("2023 BEST")
+    ? nominateName.replace("2023 BEST", "")
+    : nominateName;
 
   if (isEmpty(winners))
     return (
@@ -31,7 +34,7 @@ export default function _View({ id, className }: WinnerNewsCardProps) {
             <Image src={thumbnail || "/default-thumbnail.jpg"} alt="Thumbnail" fill />
             <div className={styles.title}>
               <h3>2023 BEST</h3>
-              <div>{nominateName}</div>
+              <div>{title}</div>
               {nominateName === "2023 BEST RESIDENTIAL ARCHITECTURE DESIGN-LANDED HOUSING" ? (
                 <p className={styles.textLanded}>Landed Housing</p>
               ) : null}

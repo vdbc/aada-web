@@ -11,6 +11,7 @@ import ShareNewsWinner from "./ShareNewsWinner";
 
 export default function _View({ id }: { id: number }) {
   const winners = useAppSelector(selectWinnersDetail(id));
+  const { thumbnail, projectName, nominateName } = winners;
   const desc = winners.projectName + " - " + winners.nominateName;
 
   return (
