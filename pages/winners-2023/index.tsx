@@ -6,8 +6,8 @@ import { NewsTopBanner, WinnersNewsTopBanner } from "../../components/TopBanner"
 import { useAppSelector, wrapper } from "../../store";
 
 import styles from "./styles.module.scss";
-import CardNewWinner from "../../components/CardNewWinner";
 import { getAllWinners, selectWinnerIds } from "../../store/modules/winnersNews";
+import WinnerNewsCard from "../../components/WinnerNewsCard";
 
 const rowLengthDefault = 4;
 
@@ -35,7 +35,6 @@ function splitNewsToRows(_allWinnersIds: number[], rowLengthDefault: number) {
 export default function Home() {
   const allWinnersIds = useAppSelector(selectWinnerIds);
   const rows = splitNewsToRows(allWinnersIds, rowLengthDefault);
-  console.log(rows);
   return (
     <div className={styles.container}>
       <Head>
@@ -50,7 +49,7 @@ export default function Home() {
           {rows.map((ids, index) => (
             <div key={index} className={styles.row}>
               {ids.map((id) => (
-                <CardNewWinner key={id} id={id} className={styles.item} />
+                <WinnerNewsCard key={id} id={id} className={styles.item} />
               ))}
             </div>
           ))}
@@ -67,9 +66,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
       await Promise.all([
         store.dispatch(getAllWinners()),
       ]);
-    } catch (error) {
-      console.error("Error fetching winners: ", error);
-    }
+    } catch (error) { }
     return {
       props: {},
     };

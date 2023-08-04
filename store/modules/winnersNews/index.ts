@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { debounce, keyBy } from "lodash";
 import { RootState, store } from "../..";
 import { AllWinnersResponse, WinnerNewsModel, } from "../../../models/NewsModel";
-import { fetchAllWinners, fetchWinnersDetail } from "../../../services/WinnersService";
+import { fetchAllWinners, fetchWinnersDetail } from "../../../services/WinnerNewsService";
 import { selectToken } from "../user";
 
 export interface WinnersState {

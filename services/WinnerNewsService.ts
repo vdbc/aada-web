@@ -1,6 +1,6 @@
 
 import { apiUrl } from "../models/AppConfig";
-import { AllWinnersResponse, NewsModel, WinnerNewsModel } from "../models/NewsModel";
+import { AllWinnersResponse, WinnerNewsModel } from "../models/NewsModel";
 import { get } from "./http";
 
 export async function fetchAllWinners(

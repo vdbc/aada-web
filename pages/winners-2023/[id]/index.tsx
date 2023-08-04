@@ -2,11 +2,7 @@ import Head from "next/head";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
 import { useAppSelector, wrapper } from "../../../store";
-import { getNewsDetail, selectNewsDetail } from "../../../store/modules/news";
-import { getNewsFlugId, getNewsIdFromFlug, getWinnersFlugId, getWinnersIdFromFlug } from "../../../utils/news";
-import NewsContent from "./WinnersContent";
-import NewsDetailHeader from "./WinnersDetailHeader";
-import ShareNews from "./ShareNewsWinner";
+import { getWinnersFlugId, getWinnersIdFromFlug } from "../../../utils/news";
 import styles from "./styles.module.scss";
 import { getWinnersDetail, selectWinnersDetail } from "../../../store/modules/winnersNews";
 import WinnersContent from "./WinnersContent";
@@ -54,13 +50,13 @@ export const getServerSideProps = wrapper.getServerSideProps(
     const id = parseInt(getWinnersIdFromFlug(flugIdwinner));
 
     await store.dispatch(getWinnersDetail(id));
-    const winners = selectWinnersDetail(id)(store.getState());
-    if (winners == null)
+    const winnerNews = selectWinnersDetail(id)(store.getState());
+    if (winnerNews == null)
       return {
         notFound: true,
       };
 
-    const newFlugId = getWinnersFlugId(winners);
+    const newFlugId = getWinnersFlugId(winnerNews);
     if (flugIdwinner != newFlugId) {
       return {
         redirect: {

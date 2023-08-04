@@ -32,11 +32,6 @@ export default function Home() {
 
         <AwardCategoriesHomeBanner />
         <WhyYouShouldSubmitHomeBanner />
-        {/* <img
-          className={styles.aada_partners}
-          alt="AADA Partners"
-          src="/home/logoPartner.svg"
-        /> */}
         <img
           className={styles.aada_partnersMb}
           alt="AADA Partners"

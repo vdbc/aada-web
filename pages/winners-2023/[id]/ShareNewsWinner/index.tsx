@@ -16,10 +16,10 @@ declare type ViewProps = {
 };
 
 export default function _View({ id }: ViewProps) {
-  const winners = useAppSelector(selectWinnersDetail(id)) ?? {};
+  const winnerNews = useAppSelector(selectWinnersDetail(id)) ?? {};
 
   // TODO update link
-  const url = `https://aadawards.com//winners-2023/${getWinnersFlugId(winners)}`;
+  const url = `https://aadawards.com//winners-2023/${getWinnersFlugId(winnerNews)}`;
   return (
     <div className={styles.container}>
       <div className={styles.label}>Share</div>

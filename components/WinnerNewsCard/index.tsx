@@ -7,12 +7,12 @@ import { selectWinnersDetail } from "../../store/modules/winnersNews";
 import Link from "next/link";
 import { getNewsFlugId, getWinnersFlugId } from "../../utils/news";
 
-declare type WinnersCardProps = {
+declare type WinnerNewsCardProps = {
   id: number;
   className?: string;
 };
 
-export default function _View({ id, className }: WinnersCardProps) {
+export default function _View({ id, className }: WinnerNewsCardProps) {
   const winners = useAppSelector(selectWinnersDetail(id)) ?? {};
   const { projectId, thumbnail, wallpaper, projectName, nominateName } = winners;
 

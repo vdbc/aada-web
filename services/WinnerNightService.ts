@@ -36,8 +36,6 @@ interface PaypalResponse {
 
 function getPaypalPaymentUrl(resp: PaypalResponse): string {
   const link = resp.links.find((link) => link.rel == "approve");
-  console.log("mylog get paypal payment: ", resp, link, link?.href);
-
   return link?.href ?? "";
 }
 

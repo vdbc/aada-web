@@ -196,7 +196,6 @@ export default function _View({ projectId }: ViewProps) {
     projectId,
   };
   const canEdit = projectScore.status != ProjectScoreStatus.SUBMITED;
-  console.log("mylog can edit: ", canEdit, projectScore.status);
 
   const [isApprove, setApprove] = useState(true);
 

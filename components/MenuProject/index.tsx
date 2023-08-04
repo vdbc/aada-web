@@ -24,7 +24,6 @@ export default function _View({ entry, onSetProject }: Props) {
       setListProject(res.data);
     });
   }, [listProject.length, entry.id]);
-  // console.log(listProject, entry.id);
 
   return (
     <div className={styles.wrapper}>

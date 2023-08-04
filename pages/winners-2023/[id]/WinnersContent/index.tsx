@@ -9,7 +9,6 @@ declare type ViewProps = {
 
 export default function _View({ id }: ViewProps) {
   const { content } = useAppSelector(selectWinnersDetail(id)) || {};
-  console.log("content" + content);
   return (
     <div className={styles.container}>
       <HtmlView content={content} />

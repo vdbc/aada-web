@@ -11,7 +11,7 @@ import newsSlice, { NewsState } from "./modules/news";
 import nominateSlice, { NominateState } from "./modules/nominate";
 import { scoreBoardSlice, ScoreBoardState } from "./modules/score-board";
 import userSlice, { UserState } from "./modules/user";
-import orderSlice, { OrderState } from "./modules/winner";
+import orderSlice, { OrderState } from "./modules/winnerNight";
 import winnersSlice, { WinnersState } from "./modules/winnersNews";
 
 
