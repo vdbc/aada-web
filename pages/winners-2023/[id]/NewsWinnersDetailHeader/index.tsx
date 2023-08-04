@@ -10,6 +10,7 @@ declare type ViewProps = {
 export default function _View({ id }: ViewProps) {
   const { wallpaper, projectName, nominateName } =
     useAppSelector(selectWinnersDetail(id)) || {};
+
   const title = nominateName?.includes("2023 BEST")
     ? nominateName.replace("2023 BEST", "")
     : nominateName;

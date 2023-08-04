@@ -5,8 +5,8 @@ import { useAppSelector, wrapper } from "../../../store";
 import { getNewsWinnerIdFromFlug, getWinnersFlugId } from "../../../utils/news";
 import styles from "./styles.module.scss";
 import { getWinnersDetail, selectWinnersDetail } from "../../../store/modules/winnersNews";
-import WinnersContent from "./WinnersContent";
-import WinnersDetailHeader from "./WinnersDetailHeader";
+import WinnersContent from "./NewsWinnerContent";
+import WinnersDetailHeader from "./NewsWinnersDetailHeader";
 import ShareNewsWinner from "./ShareNewsWinner";
 
 export default function _View({ id }: { id: number }) {

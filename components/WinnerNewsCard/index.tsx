@@ -13,13 +13,13 @@ declare type WinnerNewsCardProps = {
 };
 
 export default function _View({ id, className }: WinnerNewsCardProps) {
-  const winners = useAppSelector(selectWinnersDetail(id)) ?? {};
-  const { thumbnail, projectName, nominateName } = winners;
+  const winnerNews = useAppSelector(selectWinnersDetail(id)) ?? {};
+  const { thumbnail, projectName, nominateName } = winnerNews;
   const title = nominateName?.includes("2023 BEST")
     ? nominateName.replace("2023 BEST", "")
     : nominateName;
 
-  if (isEmpty(winners))
+  if (isEmpty(winnerNews))
     return (
       <div
         className={[styles.container, className ?? "", styles.hidden].join(" ")}
@@ -28,7 +28,7 @@ export default function _View({ id, className }: WinnerNewsCardProps) {
 
   return (
     <div className={[styles.container, className ?? ""].join(" ")}>
-      <Link href={`/winners-2023/${getWinnersFlugId(winners)}`}>
+      <Link href={`/winners-2023/${getWinnersFlugId(winnerNews)}`}>
         <div className={styles.thumbnail}>
           <div>
             <Image src={thumbnail || "/default-thumbnail.jpg"} alt="Thumbnail" fill />

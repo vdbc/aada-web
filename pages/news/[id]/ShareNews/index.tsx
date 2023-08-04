@@ -18,9 +18,7 @@ declare type ViewProps = {
 
 export default function _View({ id }: ViewProps) {
   const news = useAppSelector(selectNewsDetail(id)) ?? {};
-
-  // TODO update link
-  const url = `https://aadawards.com/news/${getNewsFlugId(news)}`;
+  const url = `https:/aadawards.com/news/${getNewsFlugId(news)}`;
   return (
     <div className={styles.container}>
       <div className={styles.label}>Share</div>
