@@ -5,7 +5,7 @@ import { useAppSelector } from "../../store";
 import styles from "./styles.module.scss";
 import { selectWinnersDetail } from "../../store/modules/winnersNews";
 import Link from "next/link";
-import { getNewsFlugId, getWinnersFlugId } from "../../utils/news";
+import { getWinnersFlugId } from "../../utils/news";
 
 declare type WinnerNewsCardProps = {
   id: number;
@@ -14,7 +14,7 @@ declare type WinnerNewsCardProps = {
 
 export default function _View({ id, className }: WinnerNewsCardProps) {
   const winners = useAppSelector(selectWinnersDetail(id)) ?? {};
-  const { projectId, thumbnail, wallpaper, projectName, nominateName } = winners;
+  const { thumbnail, projectName, nominateName } = winners;
 
   if (isEmpty(winners))
     return (

@@ -16,7 +16,7 @@ export function getWinnersFlugId(winners: WinnerNewsModel) {
   return projectName.trim().replace(/\s+/g, "_").replaceAll(/\W/g, "") + "-tid" + winners.id;
 }
 
-export function getWinnersIdFromFlug(flugIdwinner: string) {
+export function getNewsWinnerIdFromFlug(flugIdwinner: string) {
   const match = flugIdwinner.match(/(-tid(\w+))$/);
   return match?.at(2) || flugIdwinner;
 }
