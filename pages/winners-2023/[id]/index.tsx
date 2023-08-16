@@ -4,13 +4,13 @@ import Header from "../../../components/Header";
 import { useAppSelector, wrapper } from "../../../store";
 import { getNewsWinnerIdFromFlug, getWinnersFlugId } from "../../../utils/news";
 import styles from "./styles.module.scss";
-import { getWinnersDetail, selectWinnersDetail } from "../../../store/modules/winnersNews";
-import WinnersContent from "./NewsWinnerContent";
-import WinnersDetailHeader from "./NewsWinnersDetailHeader";
-import ShareNewsWinner from "./ShareNewsWinner";
+import { getWinnersDetail, selectWinnerNewsDetail } from "../../../store/modules/winnersNews";
+import ShareWinnerNews from "./ShareWinnerNews";
+import WinnersNewsDetailHeader from "./WinnersNewsDetailHeader";
+import WinnerNewsContent from "./WinnerNewsContent";
 
 export default function _View({ id }: { id: number }) {
-  const winners = useAppSelector(selectWinnersDetail(id));
+  const winners = useAppSelector(selectWinnerNewsDetail(id));
   const { thumbnail, projectName, nominateName } = winners;
   const desc = winners.projectName + " - " + winners.nominateName;
 
@@ -24,10 +24,10 @@ export default function _View({ id }: { id: number }) {
 
       <main className={styles.main}>
         <Header />
-        <WinnersDetailHeader id={id} />
+        <WinnersNewsDetailHeader id={id} />
         <div className={styles.body}>
-          <ShareNewsWinner id={id} />
-          <WinnersContent id={id} />
+          <ShareWinnerNews id={id} />
+          <WinnerNewsContent id={id} />
         </div>
       </main>
       <Footer />
@@ -41,7 +41,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     const id = parseInt(getNewsWinnerIdFromFlug(flugIdwinner));
 
     await store.dispatch(getWinnersDetail(id));
-    const winnerNews = selectWinnersDetail(id)(store.getState());
+    const winnerNews = selectWinnerNewsDetail(id)(store.getState());
     if (winnerNews == null)
       return {
         notFound: true,

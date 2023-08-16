@@ -1,6 +1,5 @@
 import { useAppSelector } from "../../../../store";
 import { selectNewsDetail } from "../../../../store/modules/news";
-import { selectWinnersDetail } from "../../../../store/modules/winnersNews";
 import styles from "./styles.module.scss";
 
 declare type ViewProps = {

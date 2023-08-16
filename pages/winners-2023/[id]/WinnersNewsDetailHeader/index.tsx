@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useAppSelector } from "../../../../store";
 import styles from "./styles.module.scss";
-import { selectWinnersDetail } from "../../../../store/modules/winnersNews";
+import { selectWinnerNewsDetail } from "../../../../store/modules/winnersNews";
 
 declare type ViewProps = {
   id: number;
@@ -9,7 +9,7 @@ declare type ViewProps = {
 
 export default function _View({ id }: ViewProps) {
   const { wallpaper, projectName, nominateName } =
-    useAppSelector(selectWinnersDetail(id)) || {};
+    useAppSelector(selectWinnerNewsDetail(id)) || {};
 
   const title = nominateName?.includes("2023 BEST")
     ? nominateName.replace("2023 BEST", "")

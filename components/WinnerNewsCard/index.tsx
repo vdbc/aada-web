@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useAppSelector } from "../../store";
 
 import styles from "./styles.module.scss";
-import { selectWinnersDetail } from "../../store/modules/winnersNews";
+import { selectWinnerNewsDetail } from "../../store/modules/winnersNews";
 import Link from "next/link";
 import { getWinnersFlugId } from "../../utils/news";
 
@@ -13,7 +13,7 @@ declare type WinnerNewsCardProps = {
 };
 
 export default function _View({ id, className }: WinnerNewsCardProps) {
-  const winnerNews = useAppSelector(selectWinnersDetail(id)) ?? {};
+  const winnerNews = useAppSelector(selectWinnerNewsDetail(id)) ?? {};
   const { thumbnail, projectName, nominateName } = winnerNews;
   const title = nominateName?.includes("2023 BEST")
     ? nominateName.replace("2023 BEST", "")
