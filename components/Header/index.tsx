@@ -87,7 +87,7 @@ export default function _View(props: HeaderProps) {
   const router = useRouter();
   const role = useAppSelector(selectRole);
   const isLogged = useAppSelector(selectIsLogged);
-  const tabs = role === "USER" ? loggedInTab : noLoggedTab;
+  const tabs = role === "USER" && isLogged ? loggedInTab : noLoggedTab;
   const dispatch = useAppDispatch();
 
   function logout() {

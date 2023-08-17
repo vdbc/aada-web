@@ -8,7 +8,6 @@ import {
 } from "react-share";
 import styles from "./styles.module.scss";
 import { useAppSelector } from "../../../../store";
-import { getNewsFlugId, getWinnersFlugId } from "../../../../utils/news";
 import { selectNewsDetail } from "../../../../store/modules/news";
 
 declare type ViewProps = {
