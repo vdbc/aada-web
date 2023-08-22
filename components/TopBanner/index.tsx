@@ -184,7 +184,7 @@ export function HomePageTopBanner() {
   return (
     <div className={styles.homePageTopBanner}>
       <video
-        src="https://files.aadawards.com/assets/804edb6c13fe110aa95826a36c22f480.mp4"
+        src="https://files.aadawards.com/assets/e98b7960cb1e79a8567d3b6825b2c8bb.mp4"
         autoPlay
         muted
         loop
