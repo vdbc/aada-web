@@ -1,5 +1,5 @@
 import { apiUrl } from "../models/AppConfig";
-import { NewsModel } from "../models/NewsModel";
+import { NewsModel, } from "../models/NewsModel";
 import { get } from "./http";
 
 export async function fetchAllNews(): Promise<NewsModel[]> {
@@ -34,3 +34,4 @@ export async function fetchNewsDetail(id: number): Promise<NewsModel> {
 
   return resp.data;
 }
+

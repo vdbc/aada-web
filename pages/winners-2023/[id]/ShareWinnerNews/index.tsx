@@ -8,15 +8,15 @@ import {
 } from "react-share";
 import styles from "./styles.module.scss";
 import { useAppSelector } from "../../../../store";
-import { selectNewsDetail } from "../../../../store/modules/news";
+import { selectWinnerNewsDetail } from "../../../../store/modules/winnersNews";
+import { getWinnersFlugId } from "../../../../utils/news";
 
 declare type ViewProps = {
   id: number;
 };
 
 export default function _View({ id }: ViewProps) {
-  const news = useAppSelector(selectNewsDetail(id)) ?? {};
-
+  const winnerNews = useAppSelector(selectWinnerNewsDetail(id)) ?? {};
 
   const url = location.href;
   return (

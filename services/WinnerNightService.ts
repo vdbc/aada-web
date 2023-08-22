@@ -36,8 +36,6 @@ interface PaypalResponse {
 
 function getPaypalPaymentUrl(resp: PaypalResponse): string {
   const link = resp.links.find((link) => link.rel == "approve");
-  console.log("mylog get paypal payment: ", resp, link, link?.href);
-
   return link?.href ?? "";
 }
 
@@ -53,7 +51,7 @@ export async function createOrder(
       ...order,
       returnUrl,
       cancelUrl,
-      amount: order.attendees * 350, // TODO: Remove after backend fix
+      amount: order.attendees * 350,
     },
     {
       headers: {

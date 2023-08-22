@@ -28,7 +28,7 @@ export default function _View({ id }: { id: number }) {
           <ShareNews id={id} />
           <NewsContent id={id} />
           <Tags id={id} />
-          {/* <RecommendationNews id={id} /> */}
+          
         </div>
       </main>
       <Footer />

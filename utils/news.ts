@@ -1,4 +1,4 @@
-import { NewsModel } from "../models/NewsModel";
+import { NewsModel, WinnerNewsModel } from "../models/NewsModel";
 
 export function getNewsFlugId(news: NewsModel) {
   const { id, title = "" } = news;
@@ -8,4 +8,15 @@ export function getNewsFlugId(news: NewsModel) {
 export function getNewsIdFromFlug(flugId: string) {
   const match = flugId.match(/(-tid(\w+))$/);
   return match?.at(2) || flugId;
+}
+
+
+export function getWinnersFlugId(winners: WinnerNewsModel) {
+  const { id, projectName = "" } = winners;
+  return projectName.trim().replace(/\s+/g, "_").replaceAll(/\W/g, "") + "-tid" + winners.id;
+}
+
+export function getNewsWinnerIdFromFlug(flugIdwinner: string) {
+  const match = flugIdwinner.match(/(-tid(\w+))$/);
+  return match?.at(2) || flugIdwinner;
 }

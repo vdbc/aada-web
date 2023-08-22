@@ -5,7 +5,6 @@ declare type ContentCardProps = {
   children: any;
   separator?: any;
 };
-
 export default function _View({
   title,
   children,

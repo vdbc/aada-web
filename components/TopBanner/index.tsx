@@ -164,7 +164,22 @@ export function NewsTopBanner() {
     </_View>
   );
 }
-
+export function WinnersNewsTopBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.jpg">
+      <h1>
+        <div>Congratulations to all the</div>
+        Winners’
+        <div>ASIA ARCHITECTURE DESIGN AWARDS</div>
+      </h1>
+      <div style={{ height: 10 }} />
+      <div className={styles.scrollDown}>
+        <MdExpandMore size={15} />
+        <div>Scroll down to learn more</div>
+      </div>
+    </_View>
+  );
+}
 export function HomePageTopBanner() {
   return (
     <div className={styles.homePageTopBanner}>

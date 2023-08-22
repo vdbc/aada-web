@@ -79,7 +79,6 @@ async function uploadImage(
   if (!item.file) throw new Error("Item is empty");
 
   const file = item.file!;
-  console.log("mylog upload file: ", file);
   const formData = new FormData();
   formData.append("file", file);
   const config = {
@@ -208,9 +207,9 @@ export default function _View({
                 const updateImages = newImages.map((image) =>
                   image.id == item.id
                     ? {
-                        ...image,
-                        progress: progress,
-                      }
+                      ...image,
+                      progress: progress,
+                    }
                     : image
                 );
                 setImages(updateImages);

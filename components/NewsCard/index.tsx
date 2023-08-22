@@ -21,7 +21,6 @@ export default function _View({ id, className }: NewsCardProps) {
         className={[styles.container, className ?? "", styles.hidden].join(" ")}
       />
     );
-
   return (
     <div className={[styles.container, className ?? ""].join(" ")}>
       <div className={styles.thumbnail}>
