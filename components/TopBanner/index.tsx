@@ -183,7 +183,12 @@ export function WinnersNewsTopBanner() {
 export function HomePageTopBanner() {
   return (
     <div className={styles.homePageTopBanner}>
-      <video src="/the_award.mp4" autoPlay muted loop />
+      <video
+        src="https://files.aadawards.com/assets/804edb6c13fe110aa95826a36c22f480.mp4"
+        autoPlay
+        muted
+        loop
+      />
     </div>
   );
 }
