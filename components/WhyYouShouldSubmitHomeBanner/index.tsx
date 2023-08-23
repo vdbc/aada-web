@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 function TableCell({ children }: { children: any }) {
   return (
     <div className={styles.tableCell}>
-      <Image src="/logo-bg.svg" alt="Square" width={77} height={100} />
+      <Image src="/logo-bg2.svg" alt="Square" width={250} height={100} />
       <div className={styles.content}>{children}</div>
     </div>
   );
@@ -16,55 +16,40 @@ function TableCell({ children }: { children: any }) {
 
 const cells = [
   <TableCell key={1}>
-    <h2>DIRECT MEDIA APPROACH</h2>
+    <h2>MEDIA APPROACH</h2>
     <p>
-      Get published to AADA international media list upon winning 2023 AADA by a
-      bundle of press releases, interviews and spotlight videos throughout the
-      competition.
+      Upon securing victory in the 2024 Asia Architecture Design Awards, your achievement will be magnified through inclusion in our international media roster, featuring an array of press releases, exclusive interviews, and captivating spotlight videos that span the entirety of the competition.
     </p>
   </TableCell>,
   <TableCell key={2}>
-    <h2>EXCELLENT MARKETING OPPORTUNITIES</h2>
+    <h2>MARKETING OPPORTUNITIES</h2>
     <p>
-      Customized pre and post-event marketing campaigns mentioning Sponsors
-      across various platforms, mainly newswires and website promotion. AADA
-      provides core collateral of 2023 AADA that contains both physical and
-      digital assets for marketing purposes: Brand’s logo placement on all AADA
-      POSM throughout the competition, exclusive exhibition in Winners Gala
-      Night…
+      Experience tailored pre and post-event marketing campaigns highlighting Sponsors across diverse platforms, including newswires and websites. As part of the 2024 Asia Architecture Design Awards, enjoy exclusive branding opportunities such as logo placement on AADA POSM and a dedicated showcase at the Winners’ Night.
     </p>
   </TableCell>,
   <TableCell key={3}>
     <h2>GLOBAL PROMOTION</h2>
     <p>
-      Generate brand exposure to an expanded media list across and beyond Asia
-      and reach numerous audiences in the field yet demonstrate the brand’s
-      leadership and support within the architecture and design industry.
+      Amplify brand visibility across an extended media network that spans beyond Asia, connecting with diverse audiences in the field, while also showcasing the brand’s industry leadership and unwavering support within the architecture and design sector.
     </p>
   </TableCell>,
+
   <TableCell key={4}>
-    <h2>RECOGNITION</h2>
+    <h2>INCREASED CREDIBILITY</h2>
     <p>
-      Fostering recognition within and beyond the industry, by earning
-      credibility from industry leaders (from industry professionals,
-      journalists, scholars, and entrepreneurs) based on a standardized scoring
-      system for each and every criterion.
+      Discover personalized sponsorship avenues that empower businesses to elevate their brand, establishing robust connections with design enthusiasts and cultivating a prominent industry presence.
     </p>
   </TableCell>,
   <TableCell key={5}>
-    <h2>INCREASED CREDIBILITY</h2>
+    <h2>RECOGNITION</h2>
     <p>
-      Tailor-fit sponsorship opportunities are available for businesses to
-      enhance their brand position and strengthen the bond between businesses
-      and design enthusiasts.
+      Cultivating acknowledgment within and outside the industry by garnering credibility from influential figures spanning industry professionals, journalists, scholars, and entrepreneurs. This is achieved through a comprehensive standardized scoring system meticulously applied to each criterion.
     </p>
   </TableCell>,
   <TableCell key={6}>
     <h2>NETWORKING</h2>
     <p>
-      Connect with industry key players and experts whist forging new business
-      opportunities during the 2023 AADA Winners’ Gala Night at Fairmont
-      Singapore.
+      Forge meaningful connections with industry stalwarts and experts, all while paving the way for novel business prospects during the prestigious 2024 Winners’ Night. This exclusive event offers a unique platform to interact, exchange insights, and foster collaborations that resonate within the architecture and design sphere.
     </p>
   </TableCell>,
 ];
@@ -131,9 +116,7 @@ export default function _View() {
     <div className={styles.container}>
       <h1>WHY YOU SHOULD SUBMIT</h1>
       <div className={styles.subTitle}>
-        Winning the 2023 ASIA ARCHITECTURE DESIGN AWARDS is a prestigious
-        accolade, giving you an enhanced branding identity on an international
-        level and augmenting your global profile.
+        Securing victory at the 2024 Asia Architecture Design Awards stands as a distinguished honor, bestowing<br /> an elevated international branding identity and amplifying your global recognition.
       </div>
       <div className={styles.table}>
         <ContentTable />

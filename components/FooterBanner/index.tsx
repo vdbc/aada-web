@@ -14,7 +14,7 @@ function _ButtonLink({ href, children }: any) {
 
 export function TheAwardFooterBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>{"Why you\nshould submit"}</h1>
       <_ButtonLink href="/categories">UNCOVER 2023 AADA CATEGORIES</_ButtonLink>
     </_View>
@@ -43,7 +43,7 @@ export function RegistrationFooterBanner({ className }: any) {
   return (
     <_View bgUrl="/bg_the_award.webp" className={className}>
       <h1>{"READY TO\nSUBMIT YOUR WORK?"}</h1>
-      <_ButtonLink href="/open-account">SIGN UP NOW</_ButtonLink>
+      <_ButtonLink href="/open-account">UNCOVER 2023 AADA CATEGORIES</_ButtonLink>
     </_View>
   );
 }

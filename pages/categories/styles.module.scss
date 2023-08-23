@@ -1,5 +1,11 @@
 .container {
   padding: 0;
+  background-color: #ffff;
+
+  >h3 {
+    color: #fbc581;
+    ;
+  }
 }
 
 .main {
@@ -10,6 +16,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+
 
 .banner,
 .imageContent,
@@ -68,7 +76,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background-color: #353a4e;
+  background-color: #16203C;
   padding: 8px;
 
   >.logo4 {
@@ -85,7 +93,7 @@
     font-weight: 700;
     font-size: 19px;
     line-height: 1.2;
-    text-align: center;
+    text-align: left;
   }
 
   >.spacer1 {

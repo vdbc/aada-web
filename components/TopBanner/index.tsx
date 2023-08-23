@@ -35,14 +35,12 @@ export function RegistrationTopBanner() {
 
 export function TheAwardTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>The awards</h1>
       <div className={styles.subTitle}>
-        AADA seeks to promote an Impactful Asia in architecture design and
-        construction industry that influences not just within Asian countries
-        but also at a global arena.
+        AADA seeks to promote an Emerging Asia in architecture design and construction industry that influences not just within Asian countries but also at a global arena.
       </div>
-      <ButtonLink href="/categories">EXPLORE 2023 AADA CATEGORIES</ButtonLink>
+      <ButtonLink href="/categories">EXPLORE 2024 AADA CATEGORIES</ButtonLink>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
         <div>Scroll down to learn more</div>
@@ -86,12 +84,10 @@ export function AdvisorsTopBanner() {
 
 export function CategoriesTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>Categories</h1>
       <div className={styles.subTitle}>
-        The Asia Architecture Design Awards (AADA) is born with a desire to
-        honor excellences and creativities in a varied range of Architecture &
-        Design works, from regional to international scale.
+        Step into a realm of exploration and excellence as we invite you to uncover the 30 captivating award categories of the 2024 AADA, a tribute to outstanding achievements in design and architecture.
       </div>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
