@@ -7,20 +7,24 @@
   align-items: flex-start;
   justify-content: center;
   width: 100%;
+
   @media (max-width: 800px) {
     flex-direction: column;
     align-items: center;
   }
+
   .statusOverviewContainer {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
     @media (max-width: 800px) {
       width: 90%;
       margin-top: 40px;
     }
-    > h2 {
+
+    >h2 {
       font-weight: 700;
       font-size: 35px;
       margin: 0;
@@ -30,7 +34,7 @@
     .processStatusContainer {
       width: 100%;
 
-      > h3 {
+      >h3 {
         margin-top: 13px;
         margin-bottom: 8px;
       }
@@ -69,16 +73,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 0.36px solid #a67f56;
+  border: 0.36px solid #353a4e;
   padding: 0 24px;
   height: 35px;
   margin-top: 25px;
-  > .wrapper {
+
+  >.wrapper {
     margin-right: 45px;
   }
+
   @media (max-width: 768px) {
     font-size: 13px;
-    > .wrapper {
+
+    >.wrapper {
       margin-right: 15px;
     }
   }

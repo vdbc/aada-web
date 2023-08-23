@@ -6,8 +6,9 @@
   align-items: center;
   justify-self: center;
   color: white;
-  background-color: #a67f56;
+  background-color: #353a4e;
   padding: 0 25px;
+
   @media (min-width: 800px) {
     margin: 0 5px;
     padding: 0 20px;
@@ -20,7 +21,8 @@
       margin-right: 0;
     }
   }
-  > .number {
+
+  >.number {
     font-weight: 700;
     font-size: 75px;
   }

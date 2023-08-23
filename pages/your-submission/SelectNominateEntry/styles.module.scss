@@ -5,9 +5,11 @@
   align-items: center;
   justify-content: center;
   background-color: white;
+
   @media (max-width: 1100px) {
     padding: 0 20px;
-   }
+  }
+
   .nominateContainer {
     display: flex;
     flex-direction: column;
@@ -16,7 +18,7 @@
     width: 100%;
 
     .root {
-      background-color: #a67f56;
+      background-color: #353a4e;
       color: white;
       border-style: none;
       border-bottom: 0.5px solid white;
@@ -25,14 +27,15 @@
 
     .entry {
       background-color: white;
-      color: #a67f56;
-      border: 0.5px solid #a67f56;
+      color: #353a4e;
+      border: 0.5px solid #353a4e;
       border-top-style: none;
     }
 
     .active {
       font-weight: 700;
     }
+
     .item {
       width: 100%;
       display: flex;
@@ -44,7 +47,7 @@
       font-size: 15px;
       text-transform: uppercase;
 
-      > div {
+      >div {
         flex: 1;
         text-align: left;
       }

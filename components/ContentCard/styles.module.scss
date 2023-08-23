@@ -6,7 +6,7 @@
   align-items: flex-start;
   white-space: pre-line;
   padding: 75px 0;
-  color: #a67f56;
+  color: #353a4e;
 
   @media (max-width: 1200px) {
     padding: 0 20px;
@@ -31,7 +31,7 @@
   position: sticky;
   top: 100px;
   text-align: left;
-  background: linear-gradient(90deg, #fac47e 0%, #a67f56 100%);
+  background: linear-gradient(90deg, #fac47e 0%, #353a4e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -66,7 +66,8 @@
 
     .content {
       width: 100%;
-      > h2 {
+
+      >h2 {
         text-align: left;
         font-weight: 500;
         font-size: 30px;
@@ -74,13 +75,14 @@
         margin-top: 25px;
       }
 
-      > div {
+      >div {
         font-weight: 400;
         font-size: 15px;
         line-height: 1.2;
         margin-top: 15px;
       }
-      > div:first-child,
+
+      >div:first-child,
       h2:first-of-type {
         margin-top: 0;
       }

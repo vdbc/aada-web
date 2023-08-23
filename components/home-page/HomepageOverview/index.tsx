@@ -7,20 +7,17 @@ export default function _View() {
         <img src="/logo.svg" alt="Logo" className={styles.logoTop} />
 
         <div className={styles.highlight}>
-          <div className={styles.title}>2023</div>
-          <div className={styles.subTitle}>Impactful Asia</div>
+          <div className={styles.title}>2024</div>
+          <div className={styles.subTitle}>EMERGING ASIA</div>
         </div>
-        <img src="/logo.svg" alt="Logo" className={styles.logo} />
+        <img src="/logoOld.svg" alt="Logo" className={styles.logo} />
       </div>
       <div className={styles.content}>
         <p>
-          AADA aspires to promote the efforts of talented designers and
-          companies in emerging Asia architecture and design industry, provides
-          an excellent platform to present their work on an international level.
+          AADA’s vision is to curate and elevate the endeavors of exceptionally talented designers and innovative companies<br /> within the rapidly growing architecture and design sector of emerging Asia.
         </p>
         <p>
-          Submissions to AADA opens to Asia and beyond, accepting an unlimited
-          number of entries in 30 categories.{" "}
+          By providing an exceptional platform, the award aims to present their remarkable work on an international scale, <br /> fostering global recognition and appreciation.
         </p>
       </div>
     </div>

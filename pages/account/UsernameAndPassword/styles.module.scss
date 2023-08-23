@@ -9,13 +9,13 @@
     font-weight: 700;
     font-size: 25px;
     line-height: 30px;
-    color: #a67f56;
+    color: #353a4e;
     margin: 0;
   }
 
   input {
     &:disabled {
-      border: 1px solid #a67f56;
+      border: 1px solid #353a4e;
     }
   }
 
@@ -30,7 +30,7 @@
     button {
       height: 40px;
       min-width: 160px;
-      background-color: #a67f56;
+      background-color: #353a4e;
       border-style: none;
       color: white;
     }

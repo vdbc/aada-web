@@ -4,6 +4,7 @@
   flex-direction: row;
   max-height: 80px;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -12,7 +13,7 @@
   overflow: hidden;
   width: 100%;
   position: relative;
-  color: #a67f56;
+  color: #353a4e;
   min-height: calc(100vh - 100px);
   padding: 0;
   padding-top: 76px;
@@ -21,27 +22,28 @@
     min-height: calc(100vh - 60px);
   }
 
-  > h1 {
+  >h1 {
     font-family: "SVN-MADE Coachella";
     font-weight: 100;
     font-size: 60px;
     margin: 0;
     text-align: center;
   }
-  > h2 {
+
+  >h2 {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.07em;
   }
 
-  > h3 {
+  >h3 {
     font-weight: 700;
     font-size: 25px;
     line-height: 1.5;
   }
 
-  > div {
+  >div {
     font-size: 15px;
     text-align: justify;
     line-height: 1.2;
@@ -54,14 +56,14 @@
     text-align: center;
   }
 
-  > .table {
+  >.table {
     margin-top: 50px;
     width: 100%;
-    background-color: #a67f56;
+    background-color: #353a4e;
     display: flex;
     flex: 1;
 
-    > div {
+    >div {
       position: relative;
       width: 100%;
     }
@@ -77,11 +79,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 0.36px solid #a67f56;
+  border: 0.36px solid #353a4e;
   padding: 0 24px;
   height: 35px;
 
-  > .wrapper {
+  >.wrapper {
     margin-right: 45px;
   }
 }
@@ -93,7 +95,7 @@
 }
 
 .discoverTheWorth {
-  background-color: #a67f56;
+  background-color: #353a4e;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -156,13 +158,13 @@
   .tableCell {
     padding: 20px;
 
-    background-color: #a67f56;
+    background-color: #353a4e;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    > img {
+    >img {
       position: absolute;
     }
 

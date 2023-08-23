@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 0.36px solid #a67f56;
+  border: 0.36px solid #353a4e;
   padding: 0 12px;
   height: 35px;
   font-size: 16px;
@@ -10,16 +10,20 @@
   @media (max-width: 600px) {
     font-size: 15px;
   }
+
   @media (max-width: 500px) {
     font-size: 14px;
   }
+
   @media (max-width: 400px) {
     font-size: 13px;
   }
+
   @media (max-width: 300px) {
     font-size: 12px;
   }
-  > .wrapper {
+
+  >.wrapper {
     margin-right: 16px;
     white-space: nowrap;
   }

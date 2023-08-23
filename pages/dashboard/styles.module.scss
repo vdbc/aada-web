@@ -1,6 +1,6 @@
 .container {
   padding: 0;
-  color: #a67f56;
+  color: #353a4e;
   background-color: #f7f7f7;
 }
 
@@ -49,6 +49,7 @@
   justify-content: center;
   width: 100%;
   margin-top: 30px;
+
   @media (max-width: 800px) {
     display: block;
   }
@@ -61,19 +62,21 @@
   flex-direction: row;
   align-items: flex-start;
 
-  > * {
+  >* {
     flex: 1;
     margin-left: 20px;
   }
 
-  > *:first-of-type {
+  >*:first-of-type {
     margin-left: 0;
   }
+
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    > * {
+
+    >* {
       flex: 1;
       margin-left: 0;
     }

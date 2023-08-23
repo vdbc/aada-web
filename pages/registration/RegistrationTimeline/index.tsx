@@ -57,9 +57,9 @@ export default function View() {
         useReadMore={false}
         theme={{
           cardBgColor: "white",
-          primary: "#A67F56",
-          titleColorActive: "#A67F56",
-          cardForeColor: "#A67F56",
+          primary: "#353a4e",
+          titleColorActive: "#353a4e",
+          cardForeColor: "#353a4e",
         }}
         activeItemIndex={-1}
         disableClickOnCircle

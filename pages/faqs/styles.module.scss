@@ -26,13 +26,15 @@
         margin-left: -30px;
         font-weight: 800;
         font-size: 41px;
-        color: #a67f56;
+        color: #353a4e;
         margin-top: 47px;
         margin-bottom: 42px;
+
         @media (max-width: 960px) {
           font-size: 36px;
         }
       }
+
       li {
         padding-left: 10px;
         margin-top: 20px;
@@ -44,7 +46,7 @@
           font-weight: 700;
         }
 
-        > div {
+        >div {
           margin-top: 6px;
         }
       }
