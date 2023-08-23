@@ -17,24 +17,24 @@
     max-height: 80vw;
   }
 
-  >* {
+  > * {
     z-index: 0;
   }
 
-  >.background {
+  > .background {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     position: absolute;
 
-    >div {
+    > div {
       width: 100%;
       height: 100%;
     }
   }
 
-  >h1 {
+  > h1 {
     font-family: "SVN-MADE Coachella";
     font-style: normal;
     font-weight: 100;
@@ -45,10 +45,7 @@
     text-align: center;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #fac47e 0%, #353a4e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #fac47e;
     white-space: pre-line;
     margin: 0;
 
@@ -77,11 +74,11 @@
     }
   }
 
-  >.subTitle {
+  > .subTitle {
     max-width: 880px;
   }
 
-  >div {
+  > div {
     font-size: 23px;
     line-height: 1.2;
     text-align: center;
@@ -97,7 +94,7 @@
     font-size: 9px;
     color: white;
 
-    >div {
+    > div {
       margin-left: 8px;
     }
   }
@@ -107,8 +104,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 0.36px solid #fac47e;
   padding: 0 40px;
   height: 35px;
-  background-color: white;
+  color: #16203c;
+  background-color: #fac47e;
 }

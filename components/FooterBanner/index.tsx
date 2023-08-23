@@ -39,9 +39,9 @@ export function GetInvolvedFooterBanner() {
   );
 }
 
-export function RegistrationFooterBanner() {
+export function RegistrationFooterBanner({ className }: any) {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp" className={className}>
       <h1>{"READY TO\nSUBMIT YOUR WORK?"}</h1>
       <_ButtonLink href="/open-account">SIGN UP NOW</_ButtonLink>
     </_View>
@@ -51,11 +51,16 @@ export function RegistrationFooterBanner() {
 declare type FooterPropProps = {
   bgUrl: string;
   children: any;
+  className?: string;
 };
 
-export default function _View({ bgUrl, children }: FooterPropProps) {
+export default function _View({
+  bgUrl,
+  children,
+  className = "",
+}: FooterPropProps) {
   return (
-    <div className={styles.container}>
+    <div className={[styles.container, className].join(" ")}>
       <div className={styles.background}>
         <div>
           <Image src={bgUrl} alt="Background" fill />
