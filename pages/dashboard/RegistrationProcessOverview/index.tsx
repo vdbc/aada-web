@@ -28,7 +28,7 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
     is3D: false,
     slices: {
       0: { color: "#F6F6F6" },
-      1: { color: "#a67f56" },
+      1: { color: "#353a4e" },
     },
     chartArea: { left: 0, right: 0, bottom: 0, top: 0 },
   };
@@ -89,7 +89,7 @@ const selectProjectsOverview = createSelector(
 function StatusOverview() {
   const data = useAppSelector(selectProjectsOverview);
   return (
-    <div className={styles.guideline}>
+    <div className={styles.statusOverviewContainer}>
       <h2>Status Overview</h2>
       <p className={styles.guideline}>
         This Status Overview indicates the successful completion of the content

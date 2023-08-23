@@ -37,7 +37,7 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
     is3D: false,
     slices: {
       0: { color: "#F6F6F6" },
-      1: { color: "#353a4e" },
+      1: { color: "#a67f56" },
     },
     chartArea: { left: 0, right: 0, bottom: 0, top: 0 },
   };
