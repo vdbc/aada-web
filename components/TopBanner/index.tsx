@@ -51,12 +51,10 @@ export function TheAwardTopBanner() {
 
 export function GetInvolvedTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>Get Involved</h1>
       <div className={styles.subTitle}>
-        Winning the 2023 ASIA ARCHITECTURE DESIGN AWARDS is a prestigious
-        accolade, giving businesses a springboard on an international level and
-        augmenting their global profile.
+        Emerging as the winner of the 2024 ASIA ARCHITECTURE DESIGN AWARDS is a prestigious achievement that propels businesses onto the international stage, significantly enhancing their global presence and reputation.
       </div>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
