@@ -210,9 +210,11 @@ export default function Home() {
             </li>
           </ol>
         </div>
-        <RegistrationFooterBanner />
       </main>
-      <Footer />
+      <footer className={styles.footer}>
+        <RegistrationFooterBanner className={styles.footerBanner} />
+        <Footer />
+      </footer>
     </div>
   );
 }

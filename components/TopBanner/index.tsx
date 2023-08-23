@@ -103,7 +103,7 @@ export function CategoriesTopBanner() {
 
 export function FAQsTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>FREQUENTLY ASKED QUESTIONS</h1>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
