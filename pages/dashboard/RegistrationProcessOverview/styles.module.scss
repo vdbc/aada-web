@@ -27,16 +27,21 @@
       width: 100%;
     }
 
-    >h2 {
+    > h2 {
       font-weight: 700;
       font-size: 35px;
       margin: 0;
     }
 
+    .guideline {
+      font-size: 14px;
+      color: #16203c;
+    }
+
     .processStatusContainer {
       width: 100%;
 
-      >h3 {
+      > h3 {
         margin-top: 13px;
         margin-bottom: 8px;
       }
@@ -50,9 +55,8 @@
       align-items: center;
       justify-content: space-between;
 
-      >* {
+      > * {
         flex: 1;
-        margin-left: 20px;
         min-height: 40px;
         display: flex;
         flex-direction: row;
@@ -66,23 +70,25 @@
         }
       }
 
-      @media (max-width: 1100px) {
-        flex-direction: column;
-
-        >* {
-          margin-left: 0;
-          width: 100%;
-          margin-top: 10px;
-        }
-      }
-
       .buttonComplete {
-        background-color: #353a4e;
+        background-color: #a67f56;
         color: white;
       }
 
       .buttonDetail {
-        border: 0.5px solid #353a4e;
+        border: 0.5px solid #a67f56;
+      }
+      @media (max-width: 1100px) {
+        flex-direction: column;
+
+        .buttonDetail {
+          border-style: none;
+        }
+
+        > * {
+          margin-left: 0;
+          width: 100%;
+        }
       }
     }
   }

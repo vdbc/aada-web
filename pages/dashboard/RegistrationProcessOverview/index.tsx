@@ -28,7 +28,7 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
     is3D: false,
     slices: {
       0: { color: "#F6F6F6" },
-      1: { color: "#353a4e" },
+      1: { color: "#a67f56" },
     },
     chartArea: { left: 0, right: 0, bottom: 0, top: 0 },
   };
@@ -46,8 +46,9 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
             ? Math.floor((completed / totalEntries) * 100)
             : 0 + "%"}
         </div>
-        <div className={styles.desc}>{`${completed}/${totalEntries} entr${totalEntries > 1 ? "ies" : "y"
-          } completed`}</div>
+        <div className={styles.desc}>{`${completed}/${totalEntries} entr${
+          totalEntries > 1 ? "ies" : "y"
+        } completed`}</div>
       </div>
       <Chart
         chartType="PieChart"
@@ -87,32 +88,13 @@ const selectProjectsOverview = createSelector(
 
 function StatusOverview() {
   const data = useAppSelector(selectProjectsOverview);
-
-  // const data = [
-  //   {
-  //     name: "Project 1",
-  //     process: 0.2,
-  //   },
-  //   {
-  //     name: "Project 2",
-  //     process: 0.5,
-  //   },
-  //   {
-  //     name: "Project 3",
-  //     process: 0.1,
-  //   },
-  //   {
-  //     name: "Project 4",
-  //     process: 0.6,
-  //   },
-  //   {
-  //     name: "Project 5",
-  //     process: 1,
-  //   },
-  // ];
   return (
-    <div className={styles.statusOverviewContainer}>
+    <div className={styles.guideline}>
       <h2>Status Overview</h2>
+      <p className={styles.guideline}>
+        This Status Overview indicates the successful completion of the content
+        you have provided.
+      </p>
       {data.map((item) => (
         <ProcessStatus key={item.name} {...item} />
       ))}
