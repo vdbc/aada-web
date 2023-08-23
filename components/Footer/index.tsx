@@ -54,7 +54,7 @@ function CompanyInfo({ className }: { className: string }) {
     <div className={[styles.box, className].join(" ")}>
       <Image
         className={styles.logo}
-        src="/logo_white.svg"
+        src="/logo_gold_gradient.svg"
         alt="Logo"
         width={275}
         height={90}
@@ -106,7 +106,7 @@ function FooterMenu() {
 function Copyright() {
   return (
     <div className={styles.copyright}>
-      © 2023 - All rights reserved - Asia Awards Organization PTE. LTD.
+      © 2023 - All rights reserved - Asia Awards Organization.
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MdMailOutline, MdOutlinePhoneIphone } from "react-icons/md";
-import { SiMessenger, SiViber, SiWhatsapp } from "react-icons/si";
+import { SiMessenger } from "react-icons/si";
 import styles from "./styles.module.scss";
 
 function ChatWithUs() {
