@@ -335,6 +335,23 @@ export default function _View({ projectId }: ViewProps) {
         validator={requiredFieldValidator}
         required
       />
+      <InputField
+        disable={!canEdit}
+        className={styles.inputField}
+        inputClassName={styles.input}
+        label="Others"
+        placeholder="Enter name"
+        value={project.others}
+        onChanged={(others) =>
+          dispatch(
+            nominateSlice.actions.projectUpdated({
+              ...project,
+              others,
+            })
+          )
+        }
+        validator={requiredFieldValidator}
+      />
       <InputImages
         label="Your projects photo gallery*"
         disable={!canEdit}
