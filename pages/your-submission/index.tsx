@@ -9,6 +9,7 @@ import {
   fetchProjectNominate,
   selectProjectNomintateIds,
 } from "../../store/modules/nominate";
+import { selectIsLogged } from "../../store/modules/user";
 import InputOverview from "./InputOverview";
 import InputProjectDetail from "./InputProjectDetail";
 import SelectNominateEntry from "./SelectNominateEntry";
@@ -55,6 +56,15 @@ export default function _View(props: any) {
 }
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
+    const isLoggedIn = selectIsLogged(store.getState());
+    if (!isLoggedIn) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: "/",
+        },
+      };
+    }
     await store.dispatch(fetchProjectNominate());
     await store.dispatch(fetchAllNominate());
 
