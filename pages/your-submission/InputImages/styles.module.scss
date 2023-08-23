@@ -23,6 +23,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     .groupImages {
       width: 100%;
       display: flex;
@@ -32,7 +33,7 @@
       justify-content: flex-start;
       margin-bottom: 16px;
 
-      > * {
+      >* {
         margin-top: 12px;
         margin-left: 12px;
       }
@@ -41,7 +42,7 @@
     .button {
       height: 38px;
       min-width: 50%;
-      background-color: #a67f56;
+      background-color: #353a4e;
       border-style: none;
       color: white;
       font-weight: 700;
@@ -64,7 +65,7 @@
 
 .singleImageContainer {
   position: relative;
-  border: 0.5px solid #a67f56;
+  border: 0.5px solid #353a4e;
   border-radius: 4px;
   width: 100px;
   height: 100px;
@@ -94,7 +95,7 @@
     right: -12px;
     top: -12px;
 
-    > button {
+    >button {
       width: 25px;
       height: 25px;
       border-radius: 25px;
@@ -102,7 +103,7 @@
       align-items: center;
       justify-content: center;
       padding: 0;
-      background-color: #a67f56;
+      background-color: #353a4e;
       border: 1px solid white;
       color: white;
     }

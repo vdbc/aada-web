@@ -28,7 +28,7 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
     is3D: false,
     slices: {
       0: { color: "#F6F6F6" },
-      1: { color: "#a67f56" },
+      1: { color: "#353a4e" },
     },
     chartArea: { left: 0, right: 0, bottom: 0, top: 0 },
   };
@@ -46,9 +46,8 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
             ? Math.floor((completed / totalEntries) * 100)
             : 0 + "%"}
         </div>
-        <div className={styles.desc}>{`${completed}/${totalEntries} entr${
-          totalEntries > 1 ? "ies" : "y"
-        } completed`}</div>
+        <div className={styles.desc}>{`${completed}/${totalEntries} entr${totalEntries > 1 ? "ies" : "y"
+          } completed`}</div>
       </div>
       <Chart
         chartType="PieChart"

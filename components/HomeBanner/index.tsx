@@ -35,17 +35,14 @@ export function TheAwardHomeBanner() {
         <div className={styles.container}>
           <Image
             className={styles.logo}
-            src="/logo.svg"
+            src="/logoOld.svg"
             alt="Logo"
             width={239}
             height={79}
           />
-          <h2 className={styles.title}>2023 AADA Categories</h2>
+          <h2 className={styles.title}>2024 AADA EMERGING ASIA</h2>
           <div className={styles.description}>
-            AADA aspires to curate and promote the efforts of talented designers
-            and companies in emerging Asia architecture and design industry,
-            provides an excellent platform to present their work on an
-            international level.
+            In 2024, the Asia Architecture Design Awards shines a spotlight on <b>&#34; Emerging Asia &#34;</b>, celebrating the fusion of tradition and innovation across the continent. This theme recognizes Asia’s rising global impact as a hub of architectural and design excellence. It invites architects and designers to contribute their vision to the ongoing narrative of a progressive and culturally-rich Asia.
           </div>
         </div>
       </div>
@@ -62,14 +59,14 @@ export function GetInvolvedHomeBanner() {
       <h2>WINNERS’ NIGHT</h2>
       <div style={{ height: 60 }} />
       <div>
-      Step into the world of architectural excellence at the highly anticipated <b>Winners’ Night of 2023 Asia Architecture Design Awards</b>, an extraordinary red carpet event set to dazzle at the iconic <b>Marina Bay Sands</b> in Singapore.
+        Step into the world of architectural excellence at the highly anticipated <b>Winners’ Night of 2023 Asia Architecture Design Awards</b>, an extraordinary red carpet event set to dazzle at the iconic <b>Marina Bay Sands</b> in Singapore.
       </div>
       <div style={{ height: 20 }} />
       <div>
-      Join investors, architects, and enthusiasts for an ceremony of insightful presentations, networking, and celebration!
+        Join investors, architects, and enthusiasts for an ceremony of insightful presentations, networking, and celebration!
 
       </div>
-      
+
       <div style={{ height: 60 }} />
       <div className={styles.wrapperLink}>
         <_ButtonLink href={"/winners-night"}>REGISTER NOW</_ButtonLink>

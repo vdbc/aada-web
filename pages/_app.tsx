@@ -12,7 +12,7 @@ import { getInitialAppProps } from "../utils/redux";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#a67f56",
+      main: "#353a4e",
     },
     secondary: {
       main: "#FAC47E",

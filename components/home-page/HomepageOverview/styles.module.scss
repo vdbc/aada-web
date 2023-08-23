@@ -26,18 +26,23 @@
         @media (max-width: 1000px) {
           font-size: 150px;
         }
+
         @media (max-width: 900px) {
           font-size: 140px;
         }
+
         @media (max-width: 800px) {
           font-size: 130px;
         }
+
         @media (max-width: 700px) {
           font-size: 120px;
         }
+
         @media (max-width: 600px) {
           font-size: 110px;
         }
+
         @media (max-width: 500px) {
           font-size: 100px;
         }
@@ -90,15 +95,19 @@
   }
 
   .content {
-    width: 85%;
-    text-align: justify;
+    width: 100%;
     margin-bottom: 30px;
+
+    >p {
+      text-align: center;
+    }
   }
 
   @media (max-width: 600px) {
     .logoTop {
       display: block;
     }
+
     .header {
       flex-direction: column;
       align-items: center;

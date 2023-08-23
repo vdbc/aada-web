@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
 }
+
 .container {
   display: flex;
   flex-direction: row;
@@ -18,7 +19,7 @@
     min-height: calc(100vh - 60px);
   }
 
-  > .wrapper {
+  >.wrapper {
     width: 90%;
     max-width: 1200px;
     display: flex;
@@ -26,7 +27,7 @@
     align-items: flex-end;
   }
 
-  > .background {
+  >.background {
     position: absolute;
     top: 0;
     left: 0;
@@ -40,7 +41,7 @@
     padding: 30px 39px;
     width: 100%;
     max-width: 524px;
-    background-color: #a67f56;
+    background-color: #353a4e;
     white-space: pre-line;
     border: 0.5px solid #ffffff80;
 
@@ -48,15 +49,16 @@
       padding: 30px 15px;
     }
 
-    > * {
+    >* {
       margin: 0 13px;
     }
 
-    > h1 {
+    >h1 {
       font-size: 71px;
       font-weight: 700;
     }
-    > h2 {
+
+    >h2 {
       font-size: 40px;
       font-weight: 700;
       line-height: 1.2;
@@ -67,30 +69,31 @@
       }
     }
 
-    > h3 {
+    >h3 {
       font-weight: 700;
       font-size: 25px;
       line-height: 1.5;
     }
 
-    > div {
+    >div {
       font-size: 15px;
       text-align: justify;
       line-height: 1.2;
     }
   }
 }
+
 .headerContainer {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 
-  > img {
+  >img {
     margin-right: 8px;
   }
 
-  > div {
+  >div {
     font-weight: 700;
     font-size: 15px;
     opacity: 0.5;
@@ -107,7 +110,7 @@
   padding: 0 24px;
   height: 50px;
 
-  > .wrapper {
+  >.wrapper {
     // margin: 0 24px;
     margin-right: 237px;
   }
@@ -126,24 +129,24 @@
     max-width: 1200px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     height: 100%;
 
-    > div {
+    >div {
       width: 100%;
       max-width: 800px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-around;
     }
   }
 
   .title {
-    font-size: 110px;
+    font-size: 100px;
     margin: 0;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #fac47e 0%, #a67f56 100%);
+    background: linear-gradient(90deg, #fac47e 0%, #353a4e 100%);
     text-align: left;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -152,18 +155,23 @@
     @media (max-width: 900px) {
       font-size: 100px;
     }
+
     @media (max-width: 800px) {
       font-size: 90px;
     }
+
     @media (max-width: 700px) {
       font-size: 80px;
     }
+
     @media (max-width: 600px) {
       font-size: 70px;
     }
+
     @media (max-width: 500px) {
       font-size: 55px;
     }
+
     @media (max-width: 400px) {
       font-size: 40px;
     }
