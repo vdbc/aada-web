@@ -14,7 +14,7 @@
     justify-content: center;
     flex-wrap: wrap;
 
-    >* {
+    > * {
       padding-top: 20px;
       min-width: 280px;
     }
@@ -30,7 +30,7 @@
 }
 
 .groupContacts {
-  background-color: #353a4e;
+  background-color: #16203c;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -54,7 +54,7 @@
       height: 40px;
       border-radius: 20px;
       background-color: white;
-      color: #353a4e;
+      color: #16203c;
       border-style: none;
     }
   }
@@ -81,7 +81,7 @@
         width: 30px;
         height: 30px;
         background-color: white;
-        color: #353a4e;
+        color: #16203c;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -118,13 +118,13 @@
   padding-bottom: 46px;
   color: white;
   width: 100%;
-  background-color: #c5a17b;
+  background-color: #1d2849;
 
   .wrapper {
     flex-direction: row;
     align-items: flex-start;
 
-    >* {
+    > * {
       margin-top: 26px;
       padding: 0 5px;
     }
@@ -139,7 +139,7 @@
     font-weight: 700;
     margin-bottom: 13px;
     text-transform: uppercase;
-    opacity: 0.5;
+    color: #a67f56;
   }
 
   .logo {
@@ -158,10 +158,10 @@
   align-items: center;
   justify-content: center;
   min-height: 47px;
-  background-color: #c5a17b;
-  color: #e2c195;
+  background-color: #1d2849;
+  color: #a67f56;
   width: 100%;
-  border-top: 1px solid #e2c195;
+  border-top: 1px solid #384250;
 
   @media (max-width: 500px) {
     font-size: 10px;
