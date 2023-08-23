@@ -4,29 +4,27 @@
   align-items: flex-start;
   justify-content: center;
   padding: 25px 50px;
-  color: #353a4e;
+  color: #a67f56;
   background-color: white;
   min-height: 365px;
 
   @media (max-width: 768px) {
     width: 90%;
     margin-top: 20px;
-
   }
 
-  >h2 {
+  > h2 {
     font-weight: 700;
     font-size: 35px;
     margin: 0;
     padding-bottom: 15px;
-    border-bottom: 1px solid #353a4e;
+    border-bottom: 1px solid #a67f56;
     width: 100%;
     text-align: left;
     text-transform: uppercase;
 
     @media (max-width: 768px) {
       font-size: 30px;
-
     }
   }
 
@@ -37,7 +35,6 @@
 
     @media (max-width: 768px) {
       font-size: 30px;
-
     }
   }
 
@@ -51,10 +48,9 @@
 
     @media (max-width: 768px) {
       font-size: 20px;
-
     }
 
-    >div {
+    > div {
       margin-left: 12px;
     }
   }
@@ -66,7 +62,7 @@
     justify-content: flex-end;
     width: 100%;
 
-    >.link {
+    > .link {
       font-weight: 600;
       font-size: 19px;
       font-style: italic;
@@ -75,7 +71,6 @@
 
       @media (max-width: 768px) {
         font-size: 14px;
-
       }
     }
   }

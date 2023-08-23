@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import { wrapper } from "../../store";
+import { selectIsLogged } from "../../store/modules/user";
 import LeftMenu, { leftMenus, menuDetails } from "./LeftMenu";
 import styles from "./styles.module.scss";
 
@@ -40,3 +42,20 @@ export default function _View(props: any) {
     </div>
   );
 }
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    const isLoggedIn = selectIsLogged(store.getState());
+    if (!isLoggedIn) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: "/",
+        },
+      };
+    }
+    return {
+      props: {},
+    };
+  }
+);

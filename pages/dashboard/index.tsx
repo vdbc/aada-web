@@ -8,6 +8,7 @@ import {
 } from "../../store/modules/nominate";
 import {
   fetchOrganizationRegistered,
+  selectIsLogged,
   selectLastName,
 } from "../../store/modules/user";
 import AccountInfo from "./AccountInfo";
@@ -77,6 +78,15 @@ export default function Home() {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
+    const isLoggedIn = selectIsLogged(store.getState());
+    if (!isLoggedIn) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: "/",
+        },
+      };
+    }
     await store.dispatch(fetchProjectNominate());
     await store.dispatch(fetchOrganizationRegistered());
 
