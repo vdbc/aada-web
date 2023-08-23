@@ -129,9 +129,10 @@ export default function _View() {
     <div className={styles.container}>
       <h1>AWARD CATEGORIES</h1>
       <div className={styles.subTitle}>
-        The appreciation of Architecture & Design works, ranging from
-        independent work to full-serviced firms that has substantial
-        contribution to the society.
+        Discover excellence across 30 distinctive categories in the 2024 Asia Architecture Design Awards (AADA), each<br /> category represents a testament to innovative design and visionary concepts.
+      </div>
+      <div className={styles.subTitle}>
+        AADA’s recognition spans a dynamic range, highlighting exceptional achievements that shape the architectural<br /> and design tapestry of Emerging Asia.
       </div>
       <div className={styles.spacer} />
       <div className={styles.awardCategories}>

@@ -21,7 +21,7 @@ function AwardItem({ children }: AwardItemProps) {
     <div className={styles.awardItemContainer}>
       <Image
         className={styles.logo4}
-        src="/logo4.svg"
+        src="/logo5.svg"
         alt="Logo"
         width={114}
         height={38}
@@ -36,7 +36,7 @@ function AwardItem({ children }: AwardItemProps) {
 function BoxContent({ children }: { children: any }) {
   return (
     <div className={styles.oneImage}>
-      <Image src="/square.svg" alt="Square" fill />
+      <Image src="/square1.svg" alt="Square" fill />
       <div className={styles.badgeContent}>{children}</div>
     </div>
   );
@@ -104,10 +104,10 @@ export default function Home() {
                 <BoxContent>FURNITURE DESIGN</BoxContent>
               </SwiperSlide>
               <SwiperSlide>
-                <BoxContent>FIRMS FOR ARCHITECTURE DESIGN</BoxContent>
+                <BoxContent>FIRMS IN ARCHITECTURE DESIGN</BoxContent>
               </SwiperSlide>
               <SwiperSlide>
-                <BoxContent>FIRMS FOR INTERIOR DESIGN</BoxContent>
+                <BoxContent>FIRMS IN INTERIOR DESIGN</BoxContent>
               </SwiperSlide>
               <SwiperSlide>
                 <BoxContent>
@@ -118,233 +118,162 @@ export default function Home() {
           </div>
         </ContentCard>
         <ContentCard title={"\\\nBest\nArchitecture\nDesign"}>
+
           <h3>
-            Rewarding the work of professional architects that exemplifies
-            design excellence and architectural innovation whilst delivering
-            meaningful social impact. For commercial or residential projects
-            that break beyond the boundaries of the accepted and forge a new
-            path in sustainable, ground-breaking constructions.
+            Rewarding architects who blend design brilliance and innovation with tangible social impact, applauding hospitality, commercial and residential projects that redefine sustainability and break new ground in construction.
           </h3>
-          <AwardItem>2023 BEST RESORT ARCHITECTURE DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST HOSPITALITY ARCHITECTURE DESIGN</AwardItem>
           <div>
-            This award is presented to design excellence in resort project that
-            demonstrate creative flair and innovative sustainability approaches,
-            not limited to holiday camps and nature resort.
+            This award is granted to exceptional design excellence in hospitality projects that showcase both creative ingenuity and innovative sustainability strategies.
           </div>
-          <AwardItem>2023 BEST HOTEL ARCHITECTURE DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST F&B ARCHITECTURE DESIGN</AwardItem>
           <div>
-            This award is presented to recognize hotel design projects which
-            need to service commercial realities but also the personal needs and
-            desires of guests, not limited to hotels, boutique hotels or
-            serviced apartments.
+            This award is bestowed to acknowledge F&B design projects that skillfully balance commercial imperatives with the individual preferences and expectations of guests.
           </div>
-          <AwardItem>2023 BEST F&B ARCHITECTURE DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST COMMERCIAL BUILDING ARCHITECTURE DESIGN</AwardItem>
           <div>
-            The creation of a specific space for the F&B industry that elevated
-            an establishment far beyond what it prepares and serves.
+            The award commends outstanding vision and expertise in shaping civic structures that contribute harmoniously to their surroundings while serving functional and societal needs.
           </div>
-          <AwardItem>BEST LANDSCAPE ARCHITECTURE DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST CIVIC BUILDING ARCHITECTURE DESIGN</AwardItem>
           <div>
-            This award honors landscape design true to the vision that
-            landscapes have an impact on the lives of those who interact with
-            these spaces.
+            This award honors landscape design true to the vision that landscapes have an impact on the lives of those who interact with these spaces.
           </div>
           <AwardItem>
-            2023 BEST LEISURE & WELLNESS ARCHITECTURE DESIGN
+            2024 ASIA’S BEST RESIDENTIAL ARCHITECTURE DESIGN
           </AwardItem>
           <div>
-            An award for exceptional design of spaces and facilities such as
-            pools and recreation facilities that contribute significantly to a
-            larger project
+            Recognizing and celebrating the artistry involved in meticulously designing residential spaces that effortlessly amalgamate innovative concepts, functional practicality, and captivating aesthetic charm.
           </div>
-          <AwardItem>2023 BEST RESIDENTIAL ARCHITECTURE DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST CONCEPTUAL ARCHITECTURE DESIGN(concept,in-progress project)</AwardItem>
           <div>
-            The ultimate accolade for the design of a truly exceptional,
-            innovative, and livable home.
+            Celebrating visionary brilliance in conceptualizing and advancing architectural projects that are in-progress, embodying the forefront of creative innovation and design thinking.
           </div>
           <AwardItem>
-            2023 BEST COMMERCIAL BUILDING ARCHITECTURE DESIGN
+            2024 ASIA’S BEST LANDSCAPE PLANNING
           </AwardItem>
           <div>
-            An award to honor the greatest visionaries of the architectural
-            world whose creations can become synonymous with a city for
-            generations.
+            An award to honor outstanding excellence in designing and planning outdoor spaces that seamlessly blend nature, aesthetics, and functionality.
           </div>
         </ContentCard>
         <ContentCard title={"\\\nBest\nInterior\nDesign"}>
           <h3>
-            Honoring the innovative visions and remarkable works of interior
-            designers. The very best interior design elevates a space to more
-            than the sum of its parts and makes it something with true
-            personality we want to live with.
+            Celebrating the visionary creativity and exceptional achievements of interior designers, the finest interior design transcends mere components to infuse spaces with distinct personalities that resonate and inspire our way of life.
           </h3>
-          <AwardItem>2023 BEST RESORT INTERIOR DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST HOSPITALITY INTERIOR DESIGN</AwardItem>
           <div>
-            For interior design which makes an indelible mark on a resort
-            project that demonstrates creative flair and imbues a project with a
-            distinctive personality.
+            Recognizing exceptional interior design that leaves an indelible mark on hospitality projects, infusing them with a unique personality and creative flair.
           </div>
-          <AwardItem>2023 BEST HOTEL INTERIOR DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST F&B ARCHITECTURE DESIGN </AwardItem>
           <div>
-            Recognizing the best interior design project which successfully
-            balanced commercial realities with the personal needs and desires of
-            guests.
+            Commending the finest interior design project that skillfully harmonized commercial imperatives with the individual preferences and aspirations of guests.
           </div>
-          <AwardItem>2023 BEST F&B INTERIOR DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST RESIDENTIAL INTERIOR DESIGN</AwardItem>
           <div>
-            This award honors an interior design project which weaves the
-            commercial with the personal touch needed for the best hospitality
-            designs.
+            This award pays tribute to exceptional mastery in curating living spaces that harmoniously amalgamate artistic aesthetics with practical functionality.
           </div>
-          <AwardItem>2023 BEST RESIDENTIAL INTERIOR DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST COMMERCIAL BUILDING ARCHITECTURE DESIGN</AwardItem>
           <div>
-            Perhaps one of the most personal and consequential design projects
-            to undertake, this awards the very best example of this craft.
+            Acknowledging pioneering accomplishments in crafting compelling and functional spaces that reshape the landscape of commercial environments.
           </div>
-          <AwardItem>2023 BEST RETAIL INTERIOR DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST RETAIL INTERIOR DESIGN</AwardItem>
           <div>
-            The award goes to the creator of a space that best reflects a
-            brand’s personality and positioning, and communicates this clearly
-            to the consumer.
+            The accolade is presented to the designer of a space that most accurately embodies a brand’s identity and market positioning, effectively conveying this message to the customer.
           </div>
-          <AwardItem>2023 BEST LEISURE & WELLNESS INTERIOR DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST WORKPLACE INTERIOR DESIGN</AwardItem>
           <div>
-            These spaces have functional, physical purposes, but also serve to
-            soothe and refresh the mind, and this award honors its best example.
+            Recognizing exemplary achievement in interior design, the award honors spaces that ingeniously fuse aesthetics and functionality to cultivate inspiring and productive work settings.
           </div>
-          <AwardItem>2023 BEST COMMERCIAL INTERIOR DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST CONCEPTUAL INTERIOR DESIGN(concept,in-progress project)</AwardItem>
           <div>
-            One of the greatest challenges the interior designer can face is
-            making a significant space functional and appreciable, this awards
-            the very best example of this.
-          </div>
-          <AwardItem>2023 BEST WORKPLACE INTERIOR DESIGN</AwardItem>
-          <div>
-            The award recognizes the best example of innovative workplace design
-            that encourages collaboration, well-being, and productivity.
+            Recognizing visionary excellence in conceptualizing and advancing interior design projects that are in-progress, celebrating the forefront of creative ideation and innovation.
           </div>
         </ContentCard>
         <ContentCard title={"\\\nBest\nFurniture\nDesign"}>
           <h3>
-            Best Furniture Design – An indication and celebration of quality and
-            perfection in Furniture Design. The best furniture combines both art
-            and functionality, it is where we engage with physical objects but
-            they are also deeply personal parts of our life.
+            A testament to excellence and a celebration of precision in Furniture Design, where the apex of craftsmanship seamlessly intertwines artistic expression with practical utility, creating not just objects, but cherished extensions of our individuality and daily existence.
           </h3>
-          <AwardItem>2023 BEST HOUSEHOLD FURNITURE DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST HOUSEHOLD FURNITURE DESIGN</AwardItem>
           <div>
-            A demonstrated showcase of a portfolio of pieces that are both
-            intimate and innovative, and which demonstrate a superior level of
-            creative flair.
+            An exhibited array of pieces that combine intimacy and innovation, showcasing an exceptional level of creative flair and ingenuity.
           </div>
-          <AwardItem>2023 BEST FURNITURE ACCESSORIES DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FURNITURE ACCESSORIES DESIGN</AwardItem>
           <div>
-            Even the best furniture can be improved with the right accessories
-            and this award recognizes design that improves the function and
-            beauty of furniture.
+            This award honors designs that enhance both the functionality and aesthetics of furniture, underscoring the transformative power of accessories even for the finest pieces.
           </div>
-          <AwardItem>2023 BEST LIGHTING DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST LIGHTING DESIGN</AwardItem>
           <div>
-            An award honoring the design of light pieces that not only
-            illuminate spaces but are created and designed to make every day
-            more beautiful and brighter.
+            Celebrating exceptional innovation and artistry in the realm of illuminating spaces, recognizing the most outstanding contributions to visual aesthetics and ambiance.
           </div>
           <AwardItem>
-            2023 BEST BATHROOM FURNITURE & SANITARY WARE DESIGN
+            2024 ASIA’S BEST BATHROOM FURNITURE & SANITARY WARE DESIGN
           </AwardItem>
           <div>
-            Illustrating a consistently high combination of form and
-            functionality in this highly-specialized design field.
+            This award commends the skillful fusion of form and functionality in the intricacies of this highly specialized design field.
           </div>
         </ContentCard>
         <ContentCard title={"\\\nBest Firms in\nArchitecture\nDesign"}>
           <h3>
-            Honoring the excellence of full-serviced Architectural & Landscaping
-            firms, showcasing the phenomenal and undeniable impact architect in
-            daily lives.
+            Celebrating top-tier architectural and landscaping firms, these awards underscore architecture’s transformative role in daily life, with the Best Firms in Architecture award epitomizing exceptional accomplishment.
           </h3>
-          <AwardItem>2023 BEST ARCHITECTURE DESIGN FIRM</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FIRM IN ARCHITECTURE DESIGN</AwardItem>
           <div>
-            Honoring the excellence of full-service architectural and
-            landscaping firms, showcasing the phenomenal and undeniable impact
-            of architecture in daily lives. In recognizing this sustained
-            dedication to excellence, the Best Firms In Architecture award is
-            the ultimate accolade for a superior body of work.
+            Acknowledging architecture’s profound impact on daily life, the award honors outstanding full-service architectural and landscaping firms.
           </div>
-          <AwardItem>2023 BEST FIRM IN CONSTRUCTION & MATERIAL</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FIRM IN MASTER PLANNING</AwardItem>
           <div>
-            This award recognizes the excellence a firm has demonstrated in the
-            course of its existence across a varying portfolio of construction
-            and material projects.
+            Celebrating the preeminent firm showcasing ingenuity and excellence in crafting holistic urban development strategies across the Asian continent.
           </div>
-          <AwardItem>2023 BEST LANDSCAPE ARCHITECTURE DESIGN FIRM</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FIRM IN CONSTRUCTION & MATERIAL</AwardItem>
           <div>
-            Honoring the firm that has consistently demonstrated how landscapes
-            can help redesign the way we live our lives for the better.
+            Extolling the virtues of the company that has consistently and artfully demonstrated the transformative potential of landscapes, reshaping the way we experience and enriching the very fabric of our lives.
           </div>
-          <AwardItem>2023 BEST HOSPITALITY ARCHITECTURE DESIGN FIRM</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FIRM IN HOSPITALITY ARCHITECTURE DESIGN FIRM</AwardItem>
           <div>
-            Recognizing the firm that has a track record of weaving the
-            commercial with the personal touch needed for the best hospitality
-            designs.
+            Acknowledging the company with a proven history of skillfully intertwining commercial aspects with the essential personal touch required for creating exceptional hospitality designs.
           </div>
-          <AwardItem>2023 BEST PROPERTY DEVELOPMENT FIRM</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FIRM IN PROPERTY DEVELOPMENT</AwardItem>
           <div>
-            An award for the organization that has proven it can take projects
-            from inception to completion and transform landscapes, communities,
-            and lives.
+            A recognition bestowed upon the organization that has showcased its adeptness in shepherding projects from their inception to finalization, thereby metamorphosing landscapes, communities, and lives.
           </div>
         </ContentCard>
         <ContentCard title={"\\\nBest Firms in\nInterior\nDesign"}>
           <h3>
-            A certification of excellence for interior design firms in providing
-            outstanding, inspiring projects that are truly exemplary within the
-            industry. The Best Firms in Interior Design award recognizes
-            organizations that have consistently displayed this focus and
-            attention to detail.
+            An emblem of excellence for interior design firms that consistently deliver exceptional, inspiring projects setting industry benchmarks; the Best Firms in Interior Design award acknowledges their unwavering commitment to meticulous craftsmanship and innovation.
           </h3>
-          <AwardItem>2023 BEST INTERIOR DESIGN FIRM</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FIRM IN INTERIOR DESIGN</AwardItem>
           <div>
-            The award for the firm that has shown a consistent ability to focus
-            on the big picture as much as the details, and work within context
-            but still be true to their vision.
+            The accolade for the company that has consistently demonstrated the skill to balance a holistic perspective with intricate details, seamlessly operating within the context while remaining steadfast to their unique vision.
           </div>
-          <AwardItem>2023 BEST HOTEL & RESORT INTERIOR FIRM</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FIRM IN HOSPITALITY INTERIOR DESIGN</AwardItem>
           <div>
-            Recognizing the best firm in a field where large projects need to
-            service commercial realities but also the personal needs and desires
-            of guests.
+            Acknowledging the foremost firm in a sector where substantial projects must align with commercial imperatives while also catering to the individual needs and preferences of guests, with a specialization in hospitality interior design.
           </div>
-          <AwardItem>2023 BEST BOUTIQUE INTERIOR DESIGN FIRM</AwardItem>
+          <AwardItem>2024 ASIA’S BEST BOUTIQUE INTERIOR DESIGN FIRM</AwardItem>
           <div>
-            The award recognizes smaller firms who have performed above their
-            perceived stature and limited resources to accomplish outstanding
-            design results.
+            This award acknowledges smaller enterprises that have exceeded their perceived size and limited resources to achieve exceptional design outcomes.
+          </div>
+          <AwardItem>2024 ASIA’S BEST FIRM IN COMMERCIAL INTERIOR DESIGN</AwardItem>
+          <div>
+            The award awaits the visionary company that exemplifies unparalleled innovation and expertise in transforming commercial spaces into captivating environments.
           </div>
         </ContentCard>
         <ContentCard
           title={"\\\nBest Firms in\nFurniture\nManufacturing\n& Retailing"}
         >
           <h3>
-            A category acknowledging the end-to-end process required for success
-            in all facets of the furniture industry.
+            Recognizing the forefront of Furniture Manufacturing & Retailing firms in 2023, these awards highlight the pinnacle of craftsmanship and business acumen in the industry. The Best Firms in Furniture Manufacturing & Retailing award pays homage to those consistently redefining standards and experiences.
           </h3>
-          <AwardItem>2023 BEST FURNITURE MANUFACTURER</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FURNITURE MANUFACTURER</AwardItem>
           <div>
-            Recognizing the consistently high quality of the manufacturing
-            process, attention to detail, and dedication to making superior
-            designs a reality.
+            Acknowledging the unwavering commitment to superior manufacturing processes, meticulous attention to detail, and the relentless pursuit of turning exceptional designs into tangible reality.
           </div>
-          <AwardItem>2023 BEST FURNITURE RETAILER</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FURNITURE RETAILER/AGENCY</AwardItem>
           <div>
-            The award for the organization providing the best representation for
-            designers and manufacturers and their connection to the end
-            consumer.
+            The accolade for the entity that offers the most effective portrayal of designers and manufacturers, highlighting their vital link to the ultimate consumer.
           </div>
-          <AwardItem>2023 BEST INNOVATIVE FURNITURE DESIGN FIRM</AwardItem>
+          <AwardItem>2024 ASIA’S BEST FIRM IN INNOVATIVE FURNITURE DESIGN</AwardItem>
           <div>
-            An award honoring the demonstration of true innovation in design,
-            sustainability and functionality for furniture.
+            A recognition celebrating genuine innovation in the realms of furniture design, sustainability, and functionality.
           </div>
         </ContentCard>
         <RegistrationFooterBanner />

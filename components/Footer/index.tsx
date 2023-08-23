@@ -56,7 +56,7 @@ function CompanyInfo({ className }: { className: string }) {
         className={styles.logo}
         src="/logo_gold_gradient.svg"
         alt="Logo"
-        width={275}
+        width={300}
         height={90}
       />
       <div className={styles.companyInfo}>
