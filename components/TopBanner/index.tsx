@@ -66,11 +66,10 @@ export function GetInvolvedTopBanner() {
 
 export function AdvisorsTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>Board of Advisors</h1>
       <div className={styles.subTitle}>
-        Board of Advisors are of prominent profiles who craft the organization’s
-        direction to ensure our approaches are aligned with our purposes.
+        Board of Advisors are of prominent profiles who craft the organization’s direction to ensure our approaches are aligned with our purposes.
       </div>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
@@ -109,7 +108,7 @@ export function FAQsTopBanner() {
 
 export function ScoringTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>Scoring Board</h1>
       <h3 className={styles.title}>
         Welcome Esteemed Judges to the prestigious <br /> 2023 Asia Architecture
@@ -133,7 +132,7 @@ export function ScoringTopBanner() {
 
 export function TermsTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>Terms And Conditions</h1>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
@@ -145,7 +144,7 @@ export function TermsTopBanner() {
 
 export function NewsTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>
         LATEST UPDATE
         <div>FROM ASIA ARCHITECTURE DESIGN AWARDS</div>
@@ -160,7 +159,7 @@ export function NewsTopBanner() {
 }
 export function WinnersNewsTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>
         <div>Congratulations to all the</div>
         Winners’

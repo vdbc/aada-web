@@ -23,7 +23,7 @@ export function TheAwardFooterBanner() {
 
 export function AdvisorsFooterBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/backg_the_award.jpg">
       <h1>{"Ready to\nSubmit your Work?"}</h1>
       <_ButtonLink href="/registration">NOMINATE NOW</_ButtonLink>
     </_View>
