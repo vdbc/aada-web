@@ -207,7 +207,7 @@ export default function _View({ bgUrl, children }: TopBannerProps) {
         </div>
       </div>
       <div className={styles.logo}>
-        <Image src="/2023_logo.svg" alt="Logo" fill />
+        <Image src="/2024_logo.svg" alt="Logo" fill />
       </div>
       {children}
     </div>
