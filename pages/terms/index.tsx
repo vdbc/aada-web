@@ -18,17 +18,22 @@ export default function Home() {
         <Header />
         <TermsTopBanner />
         <div className={styles.content}>
-          {data.map((item, index) => {
+          {data.map((item, i) => {
             return (
               <Fragment>
-                <h3>{`${index + 1}. ${item.title}`}</h3>
+                <h3>{`${i + 1}. ${item.title}`}</h3>
                 {item.desc && <p className={styles.desc}>{item.desc}</p>}
                 {item.conditions && (
-                  <ol>
-                    {item.conditions.map((value) => (
-                      <li>{value}</li>
+                  <div className={styles.conditions}>
+                    {item.conditions.map((value, j) => (
+                      <div className={styles.conditionItem}>
+                        <div className={styles.index}>{`(${i + 1}.${
+                          j + 1
+                        })`}</div>
+                        <div className={styles.conditionContent}>{value}</div>
+                      </div>
                     ))}
-                  </ol>
+                  </div>
                 )}
                 {item.columns && (
                   <div className={styles.columns}>

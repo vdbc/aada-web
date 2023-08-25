@@ -20,13 +20,8 @@
     font-size: 15px;
     white-space: pre-line;
 
-    p,
-    ol {
+    p {
       margin: 0;
-    }
-
-    li {
-      margin-top: 16px;
     }
 
     h3 {
@@ -36,6 +31,25 @@
       font-weight: bold;
       margin-top: 32px;
       margin-bottom: 16px;
+    }
+
+    .conditions {
+      .conditionItem {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        .index {
+          min-width: 50px;
+          text-align: right;
+        }
+
+        .conditionContent {
+          margin-left: 10px;
+          flex: 1;
+        }
+      }
     }
 
     .columns {
