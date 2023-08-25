@@ -154,7 +154,9 @@ export function NewsTopBanner() {
     <_View bgUrl="/bg_the_award.webp">
       <h1>
         LATEST UPDATE
-        <div>FROM ASIA ARCHITECTURE DESIGN AWARDS</div>
+        <div className={styles.headerSmallText}>
+          FROM ASIA ARCHITECTURE DESIGN AWARDS
+        </div>
       </h1>
       <div style={{ height: 10 }} />
       <div className={styles.scrollDown}>
