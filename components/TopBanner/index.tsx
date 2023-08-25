@@ -168,9 +168,11 @@ export function WinnersNewsTopBanner() {
   return (
     <_View bgUrl="/bg_the_award.webp">
       <h1>
-        <div>Congratulations to all the</div>
+        <div className={styles.headerSmallText}>Congratulations to all the</div>
         Winners’
-        <div>ASIA ARCHITECTURE DESIGN AWARDS</div>
+        <div className={styles.headerSmallText}>
+          ASIA ARCHITECTURE DESIGN AWARDS
+        </div>
       </h1>
       <div style={{ height: 10 }} />
       <div className={styles.scrollDown}>

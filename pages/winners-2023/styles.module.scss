@@ -21,16 +21,19 @@
     margin-bottom: 100px;
     color: rgba(250, 196, 126, 1);
 
-
     h1 {
       width: 100%;
       text-align: center;
-      font-weight: 700;
-      font-size: 60px;
       color: rgba(166, 127, 86, 1);
       margin-top: 30px;
       margin-bottom: 0;
-
+      font-family: Big Caslon FB;
+      font-size: 85px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #fac47e 0%, #a67f56 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .row {
@@ -41,7 +44,7 @@
       align-items: center;
       justify-content: center;
 
-      >* {
+      > * {
         margin-left: 20px;
 
         &:first-of-type {
@@ -57,7 +60,6 @@
       .item {
         flex: 250;
         height: 438px;
-
       }
 
       .item2 {
@@ -70,5 +72,5 @@
 
 .text {
   text-align: center;
-  color: rgba(166, 127, 86, 1);
+  color: #16203c;
 }
