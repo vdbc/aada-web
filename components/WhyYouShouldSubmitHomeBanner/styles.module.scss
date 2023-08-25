@@ -13,7 +13,7 @@
   overflow: hidden;
   width: 100%;
   position: relative;
-  color: #353a4e;
+  color: #16203C;
   min-height: calc(100vh - 100px);
   padding: 0;
   padding-top: 76px;
@@ -22,7 +22,7 @@
     min-height: calc(100vh - 60px);
   }
 
-  > h1 {
+  >h1 {
     font-family: Big Caslon FB;
     font-weight: 100;
     font-size: 60px;
@@ -31,20 +31,27 @@
     color: #a67f56;
   }
 
-  > h2 {
+  >h2 {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.07em;
+    font-family: Big Caslon FB;
+    background: var(--primary-secondary-gradient, linear-gradient(63deg, #FFF 0%, #C0D0FF 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: normal;
+    text-transform: uppercase;
   }
 
-  > h3 {
+  >h3 {
     font-weight: 700;
     font-size: 25px;
     line-height: 1.5;
   }
 
-  > div {
+  >div {
     font-size: 15px;
     text-align: justify;
     line-height: 1.2;
@@ -52,20 +59,22 @@
 
   .subTitle {
     margin-top: 10px;
-    width: 65%;
+    width: 70%;
     max-width: 935px;
     text-align: center;
     color: #a67f56;
+    font-family: Lato;
+    font-size: 19px;
   }
 
-  > .table {
+  >.table {
     margin-top: 50px;
     width: 100%;
-    background-color: #353a4e;
+    background-color: #16203C;
     display: flex;
     flex: 1;
 
-    > div {
+    >div {
       position: relative;
       width: 100%;
     }
@@ -85,7 +94,7 @@
   padding: 0 24px;
   height: 35px;
 
-  > .wrapper {
+  >.wrapper {
     margin-right: 45px;
   }
 }
@@ -97,7 +106,7 @@
 }
 
 .discoverTheWorth {
-  background-color: #353a4e;
+  background-color: #16203C;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -107,7 +116,7 @@
   table,
   th,
   td {
-    border: 1px solid #fac47e80;
+    border: 1px solid #353a4e;
     border-collapse: collapse;
   }
 
@@ -160,13 +169,13 @@
   .tableCell {
     padding: 20px;
 
-    background-color: #353a4e;
+    background-color: #16203C;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    > img {
+    >img {
       position: absolute;
     }
 
@@ -176,12 +185,23 @@
       h2 {
         margin-top: 0;
         text-align: left;
-        font-weight: 250;
+        font-weight: 700;
         font-size: 33px;
+        font-family: Big Caslon FB;
+        background: var(--primary-secondary-gradient, linear-gradient(63deg, #FFF 0%, #C0D0FF 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-style: normal;
+        text-transform: uppercase;
       }
 
       p {
+        font-family: Lato;
         font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
       }
     }
   }

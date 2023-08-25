@@ -24,12 +24,12 @@ export default function Home() {
         <HomepageOverview />
         <TheAwardHomeBanner />
         <AwardCategoriesHomeBanner />
-        <GetInvolvedHomeBanner />
         <img
           className={styles.timeline}
           alt="Timeline"
           src="/home/timeline.svg"
         />
+        <GetInvolvedHomeBanner />
 
         <WhyYouShouldSubmitHomeBanner />
         <img

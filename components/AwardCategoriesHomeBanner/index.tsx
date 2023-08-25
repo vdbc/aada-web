@@ -18,7 +18,7 @@ function SliderItem({ title, description }: SliderItemProps) {
   return (
     <div className={styles.sliderItemContainer}>
       <div className={styles.sliderLogo}>
-        <Image src="/home/slider_inactive_logo.svg" alt="Logo" fill />
+        <Image src="/home/slide_inactive_logo_new.svg" alt="Logo" fill />
       </div>
       <h2>{title}</h2>
       <div>{description}</div>
@@ -45,34 +45,34 @@ function getSlideItems(children: any[], index: number): Item[] {
 
 const sliderItems: Item[] = [
   {
-    title: "2023 best architecture design",
+    title: "2024 BEST FURNITURE DESIGN",
     description:
-      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+      "Celebrating the visionary creativity and exceptional achievements of interior designers, the finest interior design transcends mere components to infuse spaces with distinct personalities that resonate and inspire our way of life.",
   },
   {
-    title: "2023 Best Interior Design",
+    title: "2024 BEST ARCHITECTURE DESIGN",
     description:
-      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+      "Rewarding architects who blend design brilliance and innovation with tangible social impact, applauding hospitality, commercial and residential projects that redefine sustainability and break new ground in construction.",
   },
   {
-    title: "2023 Best Furniture Design",
+    title: "2024 best interior design",
     description:
-      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+      "Celebrating the visionary creativity and exceptional achievements of interior designers, the finest interior design transcends mere components to infuse spaces with distinct personalities that resonate and inspire our way of life.",
   },
   {
-    title: "2023 Best Firms in Architecture Design",
+    title: "2024 Best FURNITURE DESIGN",
     description:
-      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+      "A testament to excellence and a celebration of precision in Furniture Design, where the apex of craftsmanship seamlessly intertwines artistic expression with practical utility, creating not just objects, but cherished extensions of our individuality and daily existence."
   },
   {
-    title: "2023 Best Firms in Interior Design",
+    title: "2024 Best Firms inArchitecture Design",
     description:
-      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+      "Celebrating top-tier architectural and landscaping firms, these awards underscore architecture's transformative role in daily life, with the Best Firms in Architecture award epitomizing exceptional accomplishment.",
   },
   {
-    title: "2023 Best Furniture Manufacturer/ Distributor",
+    title: "2024 Best Firms inInteriorDesign",
     description:
-      "Rewarding the work of professional architect that exemplifies design excellence and architectural innovation whilst delivering meaningful social impact.",
+      "An emblem of excellence for interior design firms that consistently deliver exceptional, inspiring projects setting industry benchmarks; the Best Firms in Interior Design award acknowledges their unwavering commitment to meticulous craftsmanship and innovation.",
   },
 ];
 function Slider({ items }: SliderProps) {
@@ -129,10 +129,10 @@ export default function _View() {
     <div className={styles.container}>
       <h1>AWARD CATEGORIES</h1>
       <div className={styles.subTitle}>
-        Discover excellence across 30 distinctive categories in the 2024 Asia Architecture Design Awards (AADA), each<br /> category represents a testament to innovative design and visionary concepts.
+        Discover excellence across 30 distinctive categories in the 2024 Asia Architecture Design Awards (AADA), each category represents a testament to innovative design and visionary concepts.
       </div>
       <div className={styles.subTitle}>
-        AADA’s recognition spans a dynamic range, highlighting exceptional achievements that shape the architectural<br /> and design tapestry of Emerging Asia.
+        AADA’s recognition spans a dynamic range, highlighting exceptional achievements that shape the architectural and design tapestry of Emerging Asia.
       </div>
       <div className={styles.spacer} />
       <div className={styles.awardCategories}>

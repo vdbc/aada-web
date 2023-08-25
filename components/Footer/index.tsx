@@ -64,6 +64,9 @@ function CompanyInfo({ className }: { className: string }) {
         <br />
         <br />
         470 North Bridge Road, #05-12 Bugis Cube, Singapore (188735)
+        <br />
+        <br />
+        (65)8805 7032
       </div>
     </div>
   );

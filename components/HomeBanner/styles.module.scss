@@ -14,6 +14,7 @@
   position: relative;
   color: white;
   min-height: calc(100vh - 100px);
+  z-index: 1;
 
   @media (max-width: 800px) {
     min-height: calc(100vh - 60px);
@@ -43,7 +44,7 @@
     max-width: 524px;
     background-color: #17203c;
     white-space: pre-line;
-    border: 0.5px solid #ffffff80;
+
 
     @media (max-width: 500px) {
       padding: 30px 15px;
@@ -63,6 +64,9 @@
       font-weight: 700;
       line-height: 1.2;
       letter-spacing: 0.07em;
+      color: var(--colors-white, #FFF);
+      /* Title */
+      font-family: Big Caslon FB;
 
       @media (max-width: 500px) {
         font-size: 36px;
@@ -146,10 +150,11 @@
     font-size: 90px;
     margin: 0;
     text-transform: uppercase;
-    background: rgba(255, 255, 255, 1);
-    text-align: center;
+    background: linear-gradient(63deg, #FFF 0%, #C0D0FF 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center;
     background-clip: text;
     font-family: Roman;
 
@@ -179,8 +184,13 @@
   }
 
   .description {
-    font-size: 13px;
+    color: #FFF;
     text-align: center;
-    color: white;
+    /* Typography/P1 Paragraph */
+    font-family: Lato;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 }
