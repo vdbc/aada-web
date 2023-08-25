@@ -2,10 +2,10 @@ import { isEmpty } from "lodash";
 import Image from "next/image";
 import { useAppSelector } from "../../store";
 
-import styles from "./styles.module.scss";
-import { selectWinnerNewsDetail } from "../../store/modules/winnersNews";
 import Link from "next/link";
+import { selectWinnerNewsDetail } from "../../store/modules/winnersNews";
 import { getWinnersFlugId } from "../../utils/news";
+import styles from "./styles.module.scss";
 
 declare type WinnerNewsCardProps = {
   id: number;
@@ -31,11 +31,16 @@ export default function _View({ id, className }: WinnerNewsCardProps) {
       <Link href={`/winners-2023/${getWinnersFlugId(winnerNews)}`}>
         <div className={styles.thumbnail}>
           <div>
-            <Image src={thumbnail || "/default-thumbnail.jpg"} alt="Thumbnail" fill />
+            <Image
+              src={thumbnail || "/default-thumbnail.jpg"}
+              alt="Thumbnail"
+              fill
+            />
             <div className={styles.title}>
               <h3>2023 BEST</h3>
               <div>{title}</div>
-              {nominateName === "2023 BEST RESIDENTIAL ARCHITECTURE DESIGN-LANDED HOUSING" ? (
+              {nominateName ===
+              "2023 BEST RESIDENTIAL ARCHITECTURE DESIGN-LANDED HOUSING" ? (
                 <p className={styles.textLanded}>Landed Housing</p>
               ) : null}
             </div>

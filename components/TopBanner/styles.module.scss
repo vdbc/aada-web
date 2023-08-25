@@ -76,7 +76,7 @@
     font-family: Big Caslon FB;
     font-style: normal;
     font-weight: 100;
-    font-size: 125px;
+    font-size: 165px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,6 +88,10 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin: 0;
+
+    @media (max-width: 1200px) {
+      font-size: 125px;
+    }
 
     @media (max-width: 1000px) {
       font-size: 110px;
@@ -111,10 +115,6 @@
 
     @media (max-width: 400px) {
       font-size: 42px;
-    }
-
-    > div {
-      font-size: 18px;
     }
   }
 
@@ -165,4 +165,11 @@
     // margin: 0 24px;
     margin-right: 45px;
   }
+}
+
+.headerSmallText {
+  font-family: Lato;
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: 1.89px;
 }
