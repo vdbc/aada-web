@@ -19,6 +19,7 @@
     text-align: justify;
     font-size: 15px;
     white-space: pre-line;
+    margin-bottom: 100px;
 
     p {
       margin: 0;
@@ -66,5 +67,17 @@
         }
       }
     }
+  }
+}
+
+.footer {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+
+  .footerBanner {
+    margin: 0;
+    min-height: unset;
+    flex: 1;
   }
 }
