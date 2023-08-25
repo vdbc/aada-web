@@ -26,8 +26,8 @@
     padding: 50px 0;
   }
 
-  >h1 {
-    font-family: "SVN-MADE Coachella";
+  > h1 {
+    font-family: Big Caslon FB;
     font-weight: 100;
     font-size: 60px;
     text-align: center;
@@ -35,20 +35,20 @@
     color: #a67f56;
   }
 
-  >h2 {
+  > h2 {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.07em;
   }
 
-  >h3 {
+  > h3 {
     font-weight: 700;
     font-size: 25px;
     line-height: 1.5;
   }
 
-  >div {
+  > div {
     font-size: 15px;
     text-align: justify;
     line-height: 1.2;
@@ -65,7 +65,7 @@
     }
   }
 
-  >.awardCategories {
+  > .awardCategories {
     width: 100%;
     flex: 1;
     position: relative;
@@ -85,7 +85,7 @@
   padding: 0 24px;
   height: 35px;
 
-  >.wrapper {
+  > .wrapper {
     margin-right: 45px;
   }
 }
@@ -123,14 +123,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "SVN-MADE Coachella";
+      font-family: Big Caslon FB;
       font-weight: 100;
       text-transform: uppercase;
       text-align: center;
       margin: 0;
     }
 
-    >div {
+    > div {
       line-height: 1.2;
       text-align: center;
       font-size: 10px;
@@ -155,7 +155,7 @@
       font-size: 33px;
     }
 
-    >div {
+    > div {
       font-weight: 100;
       font-size: 10px;
     }

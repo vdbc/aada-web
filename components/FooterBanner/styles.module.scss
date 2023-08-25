@@ -17,25 +17,26 @@
     max-height: 80vw;
   }
 
-  >* {
+  > * {
     z-index: 0;
   }
 
-  >.background {
+  > .background {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     position: absolute;
 
-    >div {
+    > div {
       width: 100%;
       height: 100%;
     }
   }
 
-  >h1 {
-    font-family: "SVN-MADE Coachella";
+  > h1 {
+    font-family: Big Caslon FB;
+    font-family: Big Caslon FB;
     font-style: normal;
     font-weight: 100;
     font-size: 95px;
@@ -74,11 +75,11 @@
     }
   }
 
-  >.subTitle {
+  > .subTitle {
     max-width: 880px;
   }
 
-  >div {
+  > div {
     font-size: 23px;
     line-height: 1.2;
     text-align: center;
@@ -94,7 +95,7 @@
     font-size: 9px;
     color: white;
 
-    >div {
+    > div {
       margin-left: 8px;
     }
   }
