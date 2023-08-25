@@ -52,7 +52,7 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <CategoriesTopBanner />
-        <ContentCard title={"\\\n2023 AADA\nDisciplines"}>
+        <ContentCard title={"\\\n2024 AADA\nDisciplines"}>
           <h2>DISCIPLINES</h2>
           <br />
           <div>

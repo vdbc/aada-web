@@ -5,27 +5,27 @@ import styles from "./styles.module.scss";
 const items = [
   {
     cardTitle: "OPEN FOR ENTRY",
-    cardSubtitle: "December 2022",
+    cardSubtitle: "August 2023",
     cardDetailedText:
-      "Grab the inaugural awards recognition by participating in the inspiring categories. An early bird offer awaits your talents.",
+      "Embrace the opportunity to be recognized through the 2024 Asia Architecture Design Awards by taking part in the inspiring categories. Your talents are welcomed with an enticing early bird offer.",
   },
   {
     cardTitle: "submission deadline",
-    cardSubtitle: "March 2023",
+    cardSubtitle: "January 2024",
     cardDetailedText:
-      "The last day to put in your submission to stand a chance in garnering the prestigious awards for your arduous work.",
+      "The approaching deadline marks the last opportunity to submit your entry, presenting the possibility of attaining prestigious awards in recognition of your diligent and dedicated work.",
   },
   {
     cardTitle: "judging process",
-    cardSubtitle: "March - May 2023",
+    cardSubtitle: "March 2024",
     cardDetailedText:
-      "A duly selected panel of judges from various industries well represented their range of knowledge, skills and expertise to ensure a complete transparency in the process.",
+      "A thoughtfully curated panel of judges from diverse industries ensures a comprehensive range of knowledge, skills, and expertise, guaranteeing complete transparency throughout the evaluation process.",
   },
   {
-    cardTitle: "2023 aada winners’ gala",
-    cardSubtitle: "June 2023",
+    cardTitle: "2024 aada winners’ gala",
+    cardSubtitle: "June 2024",
     cardDetailedText:
-      "The 2023 AADA Winners’ Gala Night celebrates the outstanding works of the 6-month competition, yet brings about the networking opportunities for participants. The red-carpet event is for high-profile attendees that acquire the award, industry professionals, international media, industry KOLs, and KOCs.",
+      "The 2024 AADA Winners' Night honors exceptional accomplishments from the 6-month competition and offers networking opportunities. The red-carpet event gathers award recipients, industry professionals, international media, and influential figures for a memorable celebration.",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function View() {
   const isLargeScreen = useMediaQuery("(min-width: 1200px)");
 
   const timelineTitle = (
-    <div className={styles.timelineTitle}>AADA TIMELINE</div>
+    <div className={styles.timelineTitle}>THE TIMELINE</div>
   );
 
   if (isLargeScreen) {
@@ -57,9 +57,9 @@ export default function View() {
         useReadMore={false}
         theme={{
           cardBgColor: "white",
-          primary: "#353a4e",
-          titleColorActive: "#353a4e",
-          cardForeColor: "#353a4e",
+          primary: "#a58566",
+          titleColorActive: "#a58566",
+          cardForeColor: "#a58566",
         }}
         activeItemIndex={-1}
         disableClickOnCircle

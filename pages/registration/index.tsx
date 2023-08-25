@@ -45,39 +45,27 @@ export default function _View() {
         <RegistrationTopBanner />
         <ContentCard title={"\\\nA Brand\nIdentity Boost"}>
           <div>
-            Industry players from architecture & design disciplines have made
-            their strong presence in recent years, some notable emerging market
-            economies in Asia includes ASEAN countries, undoubtedly both the
-            middle eastern and northern Asian regions.
+            In recent times, professionals from the fields of architecture and design have established a significant influence, particularly in emerging markets across Asia, including both the Middle Eastern and Northern Asian areas.
           </div>
           <div>
-            Entering an award is to make a difference to the brand’s presence,
-            yet plan for a success as judging criteria for each award category
-            reflect the ageless principles that drive better business result.
+            Participating in an award competition serves to enhance a brand’s visibility, while careful preparation is essential for achieving success. This is because the evaluation criteria for each award category remain rooted in timeless principles that ultimately lead to improved business outcomes.
           </div>
           <br />
           <h2>A QUICK 5-MINUTE SUBMISSION</h2>
           <div>
-            It takes less than 5 minutes to complete an entry submission online
-            as long as you have studied the 2023 AADA submission guidelines.
+            Submitting an entry online can be accomplished in under 5 minutes, provided that you have thoroughly reviewed the submission guidelines for the 2024 Asia Architecture Design Awards beforehand.
           </div>
           <h2>INFORMATIVE GUIDED PROCESS</h2>
           <div>
-            Guidelines are provided within every step of entry registration,
-            including what needs to be prepared, what kind of required
-            information and you can come back to finish or update your entry
-            following a submission progress in your admin dashboard.
+            The entry registration process includes guidelines at each step, outlining the necessary preparations and required information. Additionally, you have the flexibility to revisit and finalize your entry by using your admin dashboard even after initial submission progress.
           </div>
           <h2>INSTANT ENTRY SUPPORT</h2>
           <div>
-            AADA supports instant registration assistance in case there is any
-            difficulties during your submission progress.
+            AADA offers instant registration assistance to individuals facing any difficulties while navigating through the submission process. This ensures that participants receive timely help and guidance if they encounter any obstacles during the progression of their entry submission.
           </div>
           <h2>STANDARDIZED VERIFICATION</h2>
           <div>
-            By entering 2023 AADA, you have to submit proof of your work to be
-            eligible to nominate a project. AADA is responsible for verifying
-            your business and project and eligibility of your submission.
+            To participate in the 2024 Asia Architecture Design Awards, it’s essential to submit evidence of your work to establish eligibility for project nomination. The Asia Awards Organization is tasked with the responsibility of verifying both your business credentials and the project details to ensure they align with the submission criteria. This verification process is crucial in determining the eligibility of your entry.
           </div>
         </ContentCard>
         <RegistrationTimeline />
@@ -95,9 +83,7 @@ export default function _View() {
           <h2>AADA SPECIAL OFFERS</h2>
           <br />
           <div>
-            Take advantage of the Early Entry Discount to nominate your work
-            before 31 December, 2022! The submission fees start at $180 per
-            category during the Early Entry submission phase.
+            Maximize your opportunity with the Early Entry Discount by submitting your work before November 30, 2023! Avail submission fees starting at a mere $180 per category during the Early Entry phase.
           </div>
           <div className={styles.offers}>
             <OfferCard>
@@ -112,39 +98,24 @@ export default function _View() {
         </ContentCard>
         <ContentCard title={"\\\nRegistration\nTips"}>
           <div>
-            Careful preparation for entry submission increases the chances of
-            being shortlisted and winning a prize. Below are some Do’s for you
-            upon gathering required information for all steps of registration.
+            Thoroughly preparing your entry submission enhances the likelihood of making the shortlist and clinching a prize. Here are some essential guidelines to follow as you collect the necessary information for each step of the registration process:
           </div>
           <div></div>
           <h2>CHOOSE THE RIGHT AWARD CATEGORY</h2>
           <div>
-            Consider how your project can stack up by studying each award
-            category carefully. Only by selecting the right award category can
-            your project be stand out of the crowd and profile your project’s
-            strengths.
+            Carefully assess each award category to determine how your project can excel. By selecting the most appropriate award category, you can make your project stand out from the competition and highlight its unique strengths.
           </div>
           <h2>VALIDATED DOCUMENTS</h2>
           <div>
-            The award submission requires validated documents relating to
-            projects. It’s the evidence and proof of your work to panel of
-            judges.
+            Submitting validated documents related to your projects is essential for the award application. These documents serve as concrete evidence and proof of your work for the panel of judges to review and evaluate.
           </div>
           <h2>CONTENT PREPARATION</h2>
           <div>
-            Make sure you clearly map out what needs to be presented in each
-            section. Tell good story but make sure your submission address
-            exactly what is important each criteria by bullet the killer facts,
-            highlight the key features that you want judges to consider in the
-            main part.
+            Ensure that you create a clear roadmap for what should be included in each section of your submission. While crafting a compelling narrative is important, make certain that your submission directly addresses the crucial criteria. Use bullet points to emphasize key facts and highlight the essential features you want the judges to consider in the main part of your submission.
           </div>
           <h2>PROJECT CREDIT</h2>
           <div>
-            Earning an award is an excellent internal recognition for all great
-            contribution and teamwork efforts. The award is far more than a
-            credit to business, it helps build internal credibility and
-            strengthens business advantages and promotes talents for
-            organization.
+            Earning an award is an excellent internal recognition for all great contribution and teamwork efforts. The award is far more than a credit to business, it helps build internal credibility and strengthens business advantages and promotes talents for organization.
           </div>
         </ContentCard>
 
