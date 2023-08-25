@@ -70,8 +70,14 @@
 }
 
 .title {
-  color: #a67f56;
+  color: var(--primary-primary, #A67F56);
   text-align: center;
+  /* Typography/H1 Headline */
+  font-family: Big Caslon FB;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 113%;
 
   @media (max-width: 600px) {
     display: none;

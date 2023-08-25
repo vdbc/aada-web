@@ -36,16 +36,16 @@ export function TheAwardHomeBanner() {
         <div className={styles.container}>
           <Image
             className={styles.logo}
-            src="/logoOld.svg"
+            src="/logoGradient.svg"
             alt="Logo"
             width={239}
             height={79}
           />
           <h2 className={styles.title}>2024 AADA EMERGING ASIA</h2>
           <div className={styles.description}>
-            In 2024, the Asia Architecture Design Awards shines a spotlight on <b>&#34; Emerging Asia &#34;</b>, celebrating the fusion of tradition and innovation <br /> across the continent. This theme recognizes Asia’s rising global impact as a hub of architectural and design excellence. It invites architects<br /> and designers to contribute their vision to the ongoing narrative of a progressive and culturally-rich Asia.
+            In 2024, the Asia Architecture Design Awards shines a spotlight on <b>&#34; Emerging Asia &#34;</b>, celebrating the fusion of tradition and innovation across the continent. This theme recognizes Asia’s rising global impact as a hub of architectural and design excellence. It invites architects and designers to contribute their vision to the ongoing narrative of a progressive and culturally-rich Asia.
           </div>
-          <ButtonLink href="/">EXPLORE ALL AWARDS CATEGORIES</ButtonLink>
+          <ButtonLink href="/the-award">About The Award</ButtonLink>
         </div>
       </div>
     </div>

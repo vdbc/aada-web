@@ -15,13 +15,11 @@
       flex-direction: column;
       align-items: center;
 
+
       .title {
         font-weight: 300;
         font-size: 165px;
-        background: linear-gradient(90deg, #fac47e 0%, #a67f56 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+
 
         @media (max-width: 1000px) {
           font-size: 150px;
@@ -52,10 +50,7 @@
         margin-top: -15px;
         font-weight: 400;
         font-size: 29px;
-        background: linear-gradient(90deg, #fac47e 0%, #a67f56 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+
       }
     }
 
@@ -97,6 +92,7 @@
   .content {
     width: 100%;
     margin-bottom: 30px;
+    font-family: Lato;
 
     >p {
       text-align: center;

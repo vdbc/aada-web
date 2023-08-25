@@ -1,11 +1,12 @@
 .buttonLink {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: 0.36px solid #353a4e;
-  padding: 0 12px;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  border: 0.36px solid #16203C;
+  padding: 10px 100px;
   height: 35px;
   font-size: 16px;
+  font-family: Lato;
 
   @media (max-width: 600px) {
     font-size: 15px;
