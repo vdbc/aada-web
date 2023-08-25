@@ -1,5 +1,6 @@
 .container {
   padding: 0;
+  background-color: #ffff;
 }
 
 .main {
@@ -9,6 +10,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  >h2 {
+    color: #A67F56;
+    /* Title */
+    font-family: Big Caslon FB;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+  }
 }
 
 .groupProcess {
@@ -16,7 +28,7 @@
   padding: 0;
   margin: 0;
   position: relative;
-  background-color: #353a4e;
+  background-color: #a58566;
 
   >.content {
     display: flex;
@@ -125,11 +137,12 @@
   min-width: 245px;
   width: 46%;
   margin-top: 20px;
-  background-color: #353a4e;
+  background-color: #16203C;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+
 
   @media (max-width: 1000px) {
     width: 100%;
