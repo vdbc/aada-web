@@ -17,7 +17,7 @@ function _ButtonLink({ href, children }: any) {
 
 export function RegistrationTopBanner() {
   return (
-    <_View bgUrl="/bg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>Registration</h1>
       <div className={styles.subTitle}>
         This part provides the step-by-step registration process for 2023 Asia
@@ -35,10 +35,12 @@ export function RegistrationTopBanner() {
 
 export function TheAwardTopBanner() {
   return (
-    <_View bgUrl="/backg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>The awards</h1>
       <div className={styles.subTitle}>
-        AADA seeks to promote an Emerging Asia in architecture design and construction industry that influences not just within Asian countries but also at a global arena.
+        AADA seeks to promote an Emerging Asia in architecture design and
+        construction industry that influences not just within Asian countries
+        but also at a global arena.
       </div>
       <ButtonLink href="/categories">EXPLORE 2024 AADA CATEGORIES</ButtonLink>
       <div className={styles.scrollDown}>
@@ -51,10 +53,12 @@ export function TheAwardTopBanner() {
 
 export function GetInvolvedTopBanner() {
   return (
-    <_View bgUrl="/backg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>Get Involved</h1>
       <div className={styles.subTitle}>
-        Emerging as the winner of the 2024 ASIA ARCHITECTURE DESIGN AWARDS is a prestigious achievement that propels businesses onto the international stage, significantly enhancing their global presence and reputation.
+        Emerging as the winner of the 2024 ASIA ARCHITECTURE DESIGN AWARDS is a
+        prestigious achievement that propels businesses onto the international
+        stage, significantly enhancing their global presence and reputation.
       </div>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
@@ -66,10 +70,11 @@ export function GetInvolvedTopBanner() {
 
 export function AdvisorsTopBanner() {
   return (
-    <_View bgUrl="/backg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>Board of Advisors</h1>
       <div className={styles.subTitle}>
-        Board of Advisors are of prominent profiles who craft the organization’s direction to ensure our approaches are aligned with our purposes.
+        Board of Advisors are of prominent profiles who craft the organization’s
+        direction to ensure our approaches are aligned with our purposes.
       </div>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
@@ -81,10 +86,12 @@ export function AdvisorsTopBanner() {
 
 export function CategoriesTopBanner() {
   return (
-    <_View bgUrl="/backg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>Categories</h1>
       <div className={styles.subTitle}>
-        Step into a realm of exploration and excellence as we invite you to uncover the 30 captivating award categories of the 2024 AADA, a tribute to outstanding achievements in design and architecture.
+        Step into a realm of exploration and excellence as we invite you to
+        uncover the 30 captivating award categories of the 2024 AADA, a tribute
+        to outstanding achievements in design and architecture.
       </div>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
@@ -108,7 +115,7 @@ export function FAQsTopBanner() {
 
 export function ScoringTopBanner() {
   return (
-    <_View bgUrl="/backg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>Scoring Board</h1>
       <h3 className={styles.title}>
         Welcome Esteemed Judges to the prestigious <br /> 2023 Asia Architecture
@@ -132,7 +139,7 @@ export function ScoringTopBanner() {
 
 export function TermsTopBanner() {
   return (
-    <_View bgUrl="/backg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>Terms And Conditions</h1>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
@@ -144,7 +151,7 @@ export function TermsTopBanner() {
 
 export function NewsTopBanner() {
   return (
-    <_View bgUrl="/backg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>
         LATEST UPDATE
         <div>FROM ASIA ARCHITECTURE DESIGN AWARDS</div>
@@ -159,7 +166,7 @@ export function NewsTopBanner() {
 }
 export function WinnersNewsTopBanner() {
   return (
-    <_View bgUrl="/backg_the_award.jpg">
+    <_View bgUrl="/bg_the_award.webp">
       <h1>
         <div>Congratulations to all the</div>
         Winners’
