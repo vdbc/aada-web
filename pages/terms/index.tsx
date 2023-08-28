@@ -20,13 +20,13 @@ export default function Home() {
         <div className={styles.content}>
           {data.map((item, i) => {
             return (
-              <Fragment>
+              <Fragment key={item.title}>
                 <h3>{`${i + 1}. ${item.title}`}</h3>
                 {item.desc && <p className={styles.desc}>{item.desc}</p>}
                 {item.conditions && (
                   <div className={styles.conditions}>
                     {item.conditions.map((value, j) => (
-                      <div className={styles.conditionItem}>
+                      <div className={styles.conditionItem} key={value}>
                         <div className={styles.index}>{`(${i + 1}.${
                           j + 1
                         })`}</div>
@@ -38,7 +38,7 @@ export default function Home() {
                 {item.columns && (
                   <div className={styles.columns}>
                     {item.columns.map((column) => (
-                      <div className={styles.column}>
+                      <div className={styles.column} key={column.header}>
                         <div className={styles.headerColumn}>
                           {column.header}
                         </div>

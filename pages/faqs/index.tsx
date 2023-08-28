@@ -26,10 +26,10 @@ export default function Home() {
         <FAQsTopBanner />
         <div className={styles.content}>
           {faqs.map(({ title, faqs, offset }) => (
-            <Fragment>
+            <Fragment key={title}>
               <h3>{title}</h3>
               {faqs.map(({ question, answer }, index) => (
-                <div className={styles.faqItem}>
+                <div className={styles.faqItem} key={question}>
                   <div className={styles.index}>{`(${
                     (offset ?? 0) + index + 1
                   })`}</div>
