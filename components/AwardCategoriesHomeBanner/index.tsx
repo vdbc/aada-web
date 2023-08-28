@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { EffectCoverflow, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -62,7 +62,7 @@ const sliderItems: Item[] = [
   {
     title: "2024 Best FURNITURE DESIGN",
     description:
-      "A testament to excellence and a celebration of precision in Furniture Design, where the apex of craftsmanship seamlessly intertwines artistic expression with practical utility, creating not just objects, but cherished extensions of our individuality and daily existence."
+      "A testament to excellence and a celebration of precision in Furniture Design, where the apex of craftsmanship seamlessly intertwines artistic expression with practical utility, creating not just objects, but cherished extensions of our individuality and daily existence.",
   },
   {
     title: "2024 Best Firms inArchitecture Design",
@@ -75,52 +75,60 @@ const sliderItems: Item[] = [
       "An emblem of excellence for interior design firms that consistently deliver exceptional, inspiring projects setting industry benchmarks; the Best Firms in Interior Design award acknowledges their unwavering commitment to meticulous craftsmanship and innovation.",
   },
 ];
+
 function Slider({ items }: SliderProps) {
   const [page, setPage] = useState(1);
+  const [swiper, setSwiper] = useState<any>(null);
+
   return (
-    <Swiper
-      spaceBetween={0}
-      slidesPerView={1.2}
-      centeredSlides
-      effect={"coverflow"}
-      grabCursor
-      loop
-      coverflowEffect={{
-        rotate: 0,
-        stretch: 0,
-        depth: 120,
-        modifier: 1,
-        scale: 0.8,
-        slideShadows: false,
-      }}
-      pagination={{
-        bulletActiveClass: styles.activeDot,
-      }}
-      modules={[EffectCoverflow, Pagination, Navigation]}
-      onActiveIndexChange={(swiper) => setPage(swiper.activeIndex)}
-      initialSlide={page}
-      className={styles.sliders}
-      breakpoints={{
-        500: {
-          slidesPerView: 1.5,
-        },
-        600: {
-          slidesPerView: 2,
-        },
-        700: {
-          slidesPerView: 2.6,
-        },
-      }}
-    >
-      {items.map((item, index) => (
-        <SwiperSlide
-          key={item.title}
-          className={index == page ? styles.activeSlide : undefined}
-        >
-          <SliderItem {...item} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div>
+      <button onClick={() => swiper?.slidePrev()}>Prev</button>
+      <button onClick={() => swiper?.slideNext()}>Next</button>
+      <Swiper
+        onSwiper={setSwiper}
+        spaceBetween={0}
+        slidesPerView={1.2}
+        centeredSlides
+        effect={"coverflow"}
+        grabCursor
+        loop
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 120,
+          modifier: 1,
+          scale: 0.8,
+          slideShadows: false,
+        }}
+        pagination={{
+          bulletActiveClass: styles.activeDot,
+        }}
+        modules={[EffectCoverflow, Pagination, Navigation]}
+        onActiveIndexChange={(swiper) => setPage(swiper.activeIndex)}
+        initialSlide={page}
+        className={styles.sliders}
+        breakpoints={{
+          500: {
+            slidesPerView: 1.5,
+          },
+          600: {
+            slidesPerView: 2,
+          },
+          700: {
+            slidesPerView: 2.6,
+          },
+        }}
+      >
+        {items.map((item, index) => (
+          <SwiperSlide
+            key={item.title}
+            className={index == page ? styles.activeSlide : undefined}
+          >
+            <SliderItem {...item} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }
 
@@ -129,10 +137,14 @@ export default function _View() {
     <div className={styles.container}>
       <h1>AWARD CATEGORIES</h1>
       <div className={styles.subTitle}>
-        Discover excellence across 30 distinctive categories in the 2024 Asia Architecture Design Awards (AADA), each category represents a testament to innovative design and visionary concepts.
+        Discover excellence across 30 distinctive categories in the 2024 Asia
+        Architecture Design Awards (AADA), each category represents a testament
+        to innovative design and visionary concepts.
       </div>
       <div className={styles.subTitle}>
-        AADA’s recognition spans a dynamic range, highlighting exceptional achievements that shape the architectural and design tapestry of Emerging Asia.
+        AADA’s recognition spans a dynamic range, highlighting exceptional
+        achievements that shape the architectural and design tapestry of
+        Emerging Asia.
       </div>
       <div className={styles.spacer} />
       <div className={styles.awardCategories}>
