@@ -38,7 +38,7 @@ declare type SliderProps = {
 function getSlideItems(children: any[], index: number): Item[] {
   const length = children.length;
   if (length < 3) return children;
-  const i = (index + length) % length;
+  const i = index % length;
   if (i == 0) return [children[length - 1], children[0], children[1]];
   if (i == length - 1) return [children[i - 1], children[i], children[0]];
   return [children[i - 1], children[i], children[i + 1]];
@@ -77,8 +77,9 @@ const sliderItems: Item[] = [
   },
 ];
 function Slider({ items }: SliderProps) {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   return (
+
     <Swiper
       spaceBetween={0}
       slidesPerView={1.2}
@@ -86,9 +87,6 @@ function Slider({ items }: SliderProps) {
       effect={"coverflow"}
       grabCursor
       loop
-      cssMode={true}
-      mousewheel={true}
-      keyboard={true}
       coverflowEffect={{
         rotate: 0,
         stretch: 0,
@@ -98,13 +96,10 @@ function Slider({ items }: SliderProps) {
         slideShadows: false,
       }}
       pagination={{
-        bulletActiveClass: styles.activeDot, clickable: true,
-        type: "bullets",
+        bulletActiveClass: styles.activeDot,
       }}
       modules={[EffectCoverflow, Pagination, Navigation]}
-      navigation={true}
-
-      onSlideChange={(swiper) => setPage(swiper.activeIndex)}
+      onActiveIndexChange={(swiper) => setPage(swiper.activeIndex)}
       initialSlide={page}
       className={styles.sliders}
       breakpoints={{
@@ -122,10 +117,11 @@ function Slider({ items }: SliderProps) {
       {items.map((item, index) => (
         <SwiperSlide
           key={item.title}
-          className={index === page ? styles.activeSlide : undefined}
+          className={index == page ? styles.activeSlide : undefined}
         >
           <SliderItem {...item} />
         </SwiperSlide>
+
       ))}
     </Swiper>
 
@@ -148,7 +144,7 @@ export default function _View() {
 
       </div>
       <div className={styles.spacer} />
-      <ButtonLink href="/categories" color="#16203C">EXPLORE ALL AWARDS CATEGORIES</ButtonLink>
+      <ButtonLink href="/categories" color="16203C">EXPLORE ALL AWARDS CATEGORIES</ButtonLink>
     </div>
   );
 }
