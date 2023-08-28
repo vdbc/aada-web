@@ -22,7 +22,7 @@
   width: 35%;
   min-width: 250px;
   max-width: 500px;
-  font-family: "SuisseWorks";
+  font-family: Big Caslon FB;
   font-style: normal;
   font-weight: 400;
   font-size: 55px;
@@ -63,7 +63,7 @@
     .content {
       width: 100%;
 
-      >h2 {
+      > h2 {
         text-align: left;
         font-weight: 500;
         font-size: 30px;
@@ -71,14 +71,14 @@
         margin-top: 25px;
       }
 
-      >div {
+      > div {
         font-weight: 400;
         font-size: 15px;
         line-height: 1.2;
         margin-top: 15px;
       }
 
-      >div:first-child,
+      > div:first-child,
       h2:first-of-type {
         margin-top: 0;
       }
