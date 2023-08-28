@@ -42,12 +42,12 @@ export function TheAwardTopBanner() {
         construction industry that influences not just within Asian countries
         but also at a global arena.
       </div>
-      <ButtonLink href="/categories">EXPLORE 2024 AADA CATEGORIES</ButtonLink>
+      <ButtonLink href="/categories" color={"rgba(250, 196, 126, 1)"}>EXPLORE 2024 AADA CATEGORIES</ButtonLink>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
         <div>Scroll down to learn more</div>
       </div>
-    </_View>
+    </_View >
   );
 }
 

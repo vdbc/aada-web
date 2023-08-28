@@ -66,7 +66,7 @@ function CompanyInfo({ className }: { className: string }) {
         470 North Bridge Road, #05-12 Bugis Cube, Singapore (188735)
         <br />
         <br />
-        (65)8805 7032
+        <Link href="tel:(65) 8805 7032">(65) 8805 7032</Link>
       </div>
     </div>
   );

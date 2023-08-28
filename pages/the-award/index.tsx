@@ -190,27 +190,19 @@ export default function Home() {
 
           <h2 className={styles.title}>VISION & MISSION</h2>
           <div className={styles.content}>
-            The stage is set for the grand spectacle of the 2024 Asia Architecture Design Awards, and this year’s theme is &#34;Emerging Asia&#34;. This compelling theme celebrates the outstanding ingenuity and imagination demonstrated by visionary architects and designers across the diverse continent of Asia.
-          </div>
+            AADA aspires to curate and promote the efforts of accomplished designers and enterprises in emerging Asia architecture and design industry, providing an excellent platform to showcase their outstanding work internationally.          </div>
           <div className={styles.content}>
-            Through the theme of &#34;Emerging Asia&#34; The 2024 Asia Architecture Design Awards are not only a tribute to the art of architecture but also a symbol of Asia’s rising influence in shaping the world’s built environment.
-          </div>
+            We create global recognition for talented designers and enterprises through our prestigious awards and acknowledgement that builds a strong worldwide network of business opportunities.          </div>
         </ContentCard>
         <ContentCard title={"\\\n2024 AADA\nEmerging Asia"}>
           <h2 className={styles.title}>TOWARD AN EMERGING ASIA</h2>
           <br />
           <div className={styles.content}>
-            AADA seeks to promote an Impactful Asia in architecture design and
-            construction industry that influences not just within Asian
-            countries but also at a global arena.
+            The stage is set for the grand spectacle of the 2024 Asia Architecture Design Awards, and this year’s theme is &#34;Emerging Asia&#34;. This compelling theme celebrates the outstanding ingenuity and imagination demonstrated by visionary architects and designers across the diverse continent of Asia.
           </div>
           <div className={styles.content}>
-            By the means of this 2023 AADA presentation, independent
-            accomplishment to full-serviced firms’ masterwork that have
-            impactfully contributed to the society will continue to develop
-            greater networking platform and marketing prospect. It is an
-            opportunity for businesses to garner prestigious accolades, hence a
-            continual growth on an international level.
+            Through the theme of &#34;Emerging Asia&#34; The 2024 Asia Architecture Design Awards are not only a tribute to the art of architecture but also a symbol of Asia’s rising influence in shaping the world’s built environment.
+
           </div >
           <video className={styles.video} autoPlay muted loop>
             <source src="/the_award.mp4" type="video/mp4" />

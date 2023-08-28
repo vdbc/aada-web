@@ -33,7 +33,7 @@ export default function _View({ id, className }: NewsCardProps) {
           <h3 className={styles.title}>{title}</h3>
           <div className={styles.desc}>{shortContent}</div>
           <div className={styles.actions}>
-            <ButtonLink href={`/news/${getNewsFlugId(news)}`}>
+            <ButtonLink href={`/news/${getNewsFlugId(news)}`} color={"#16203C"}>
               Read more
             </ButtonLink>
           </div>

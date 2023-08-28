@@ -45,7 +45,7 @@ export function TheAwardHomeBanner() {
           <div className={styles.description}>
             In 2024, the Asia Architecture Design Awards shines a spotlight on <b>&#34; Emerging Asia &#34;</b>, celebrating the fusion of tradition and innovation across the continent. This theme recognizes Asia’s rising global impact as a hub of architectural and design excellence. It invites architects and designers to contribute their vision to the ongoing narrative of a progressive and culturally-rich Asia.
           </div>
-          <ButtonLink href="/the-award">About The Award</ButtonLink>
+          <ButtonLink href="/the-award" color="#ffff">About The Award</ButtonLink>
         </div>
       </div>
     </div>
@@ -55,8 +55,9 @@ export function TheAwardHomeBanner() {
 export function GetInvolvedHomeBanner() {
   return (
     <HomeBannerRightContent backgroundUrl="/home/backgroundRegister.jpg">
-      <_Header>REGISTRATION</_Header>
       <div style={{ height: 60 }} />
+      <_Header>REGISTRATION</_Header>
+      <div style={{ height: 35 }} />
       <h2>2024 ASIA</h2>
       <h2>ARCHITECTURE</h2>
       <h2>DESIGN AWARDS</h2>
@@ -69,7 +70,7 @@ export function GetInvolvedHomeBanner() {
         <_ButtonLink href={"/winners-night"}>REGISTER NOW</_ButtonLink>
         <div className={styles.spacer} />
       </div>
-      <div style={{ height: 10 }} />
+      <div style={{ height: 30 }} />
     </HomeBannerRightContent>
   );
 }
@@ -100,7 +101,7 @@ export function HomeBannerRightContent({
   return (
     <div className={styles.container}>
       <div className={styles.background}>
-        <Image src={backgroundUrl} alt="Background" fill />
+        <Image src={backgroundUrl} className={styles.detailImage} alt="Background" fill />
       </div>
       <div className={styles.wrapper}>
         <div className={styles.contentBox}>{children}</div>

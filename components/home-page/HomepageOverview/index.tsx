@@ -1,16 +1,15 @@
 import styles from "./styles.module.scss";
-
+import Image from "next/image";
 export default function _View() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <img src="/logo.svg" alt="Logo" className={styles.logoTop} />
 
-        <div className={styles.highlight}>
-          <div className={styles.title}>2024</div>
-          <div className={styles.subTitle}>EMERGING ASIA</div>
+        <div className={styles.logo}>
+          <Image src="/logo_2024_old.svg" alt="Logo" fill />
         </div>
-        <img src="/logoOld.svg" alt="Logo" className={styles.logo} />
+
       </div>
       <div className={styles.content}>
         <p>

@@ -36,6 +36,12 @@
 
 .title {
   color: #a67f56;
+  font-family: Big Caslon FB;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
 }
 
 .divider {
@@ -106,7 +112,7 @@
     flex-direction: column;
     justify-content: center;
 
-    > img {
+    >img {
       position: absolute;
     }
 
@@ -137,12 +143,12 @@
     }
   }
 
-  > img {
+  >img {
     object-fit: cover;
     z-index: -1;
   }
 
-  > .badgeContent {
+  >.badgeContent {
     width: 100%;
     height: 100%;
     display: flex;
@@ -181,7 +187,7 @@
   padding: 50px;
   color: #fac47e;
 
-  > .background {
+  >.background {
     z-index: -1;
     top: 0;
     left: 0;
@@ -189,13 +195,13 @@
     height: 100%;
     position: absolute;
 
-    > div {
+    >div {
       width: 100%;
       height: 100%;
     }
   }
 
-  > h1 {
+  >h1 {
     font-family: Big Caslon FB;
     font-style: normal;
     font-weight: 100;
@@ -212,11 +218,11 @@
     margin: 0;
   }
 
-  > .subTitle {
+  >.subTitle {
     max-width: 880px;
   }
 
-  > div {
+  >div {
     font-size: 23px;
     line-height: 1.2;
     text-align: center;
@@ -232,7 +238,7 @@
     font-size: 9px;
     color: white;
 
-    > div {
+    >div {
       margin-left: 8px;
     }
   }
@@ -251,7 +257,7 @@
   padding: 0 24px;
   height: 35px;
 
-  > .wrapper {
+  >.wrapper {
     // margin: 0 24px;
     margin-right: 45px;
   }

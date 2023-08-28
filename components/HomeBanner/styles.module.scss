@@ -15,6 +15,7 @@
   color: white;
   min-height: calc(100vh - 100px);
   z-index: 1;
+  object-fit: cover;
 
   @media (max-width: 800px) {
     min-height: calc(100vh - 60px);
@@ -156,7 +157,7 @@
     -webkit-text-fill-color: transparent;
     text-align: center;
     background-clip: text;
-    font-family: Roman;
+    font-family: Big Caslon FB;
 
     @media (max-width: 900px) {
       font-size: 100px;
@@ -186,11 +187,14 @@
   .description {
     color: #FFF;
     text-align: center;
-    /* Typography/P1 Paragraph */
     font-family: Lato;
     font-size: 19px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
   }
+}
+
+.detailImage {
+  object-fit: cover;
 }
