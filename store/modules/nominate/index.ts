@@ -199,6 +199,8 @@ export const selectProjectNomintateDetail =
 
 export const selectProjectNomintateIds = (state: RootState) =>
   state.nominate.projectIds;
+export const selectTotalProjects = (state: RootState) =>
+  selectProjectNomintateIds(state).length;
 
 export const selectAllProjectIds = (state: RootState) =>
   state.nominate.allProjectIds;

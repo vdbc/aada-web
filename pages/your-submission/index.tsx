@@ -8,6 +8,7 @@ import {
   fetchAllNominate,
   fetchProjectNominate,
   selectProjectNomintateIds,
+  selectTotalProjects,
 } from "../../store/modules/nominate";
 import { selectIsLogged } from "../../store/modules/user";
 import InputOverview from "./InputOverview";
@@ -66,6 +67,14 @@ export const getServerSideProps = wrapper.getServerSideProps(
       };
     }
     await store.dispatch(fetchProjectNominate());
+    if (!selectTotalProjects(store.getState())) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: "/open-account",
+        },
+      };
+    }
     await store.dispatch(fetchAllNominate());
 
     return {
