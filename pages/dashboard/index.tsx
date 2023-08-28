@@ -5,6 +5,7 @@ import { useAppSelector, wrapper } from "../../store";
 import {
   fetchProjectNominate,
   selectDeadline,
+  selectTotalProjects,
 } from "../../store/modules/nominate";
 import {
   fetchOrganizationRegistered,
@@ -16,7 +17,6 @@ import ContactSupport from "./ContactSupport";
 import OverviewBox from "./OverviewBox";
 import RegistrationProcessOverview, {
   selectTotalCompleteProjects,
-  selectTotalProjects,
 } from "./RegistrationProcessOverview";
 import styles from "./styles.module.scss";
 
@@ -88,6 +88,14 @@ export const getServerSideProps = wrapper.getServerSideProps(
       };
     }
     await store.dispatch(fetchProjectNominate());
+    if (!selectTotalProjects(store.getState())) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: "/open-account",
+        },
+      };
+    }
     await store.dispatch(fetchOrganizationRegistered());
 
     return {

@@ -2,10 +2,11 @@ import { createSelector } from "@reduxjs/toolkit";
 import Link from "next/link";
 import { Chart } from "react-google-charts";
 import ProgressBar from "../../../components/ProgressBar";
-import { RootState, useAppSelector } from "../../../store";
+import { useAppSelector } from "../../../store";
 import {
   selectProjectNomintateDetails,
   selectProjectNomintateIds,
+  selectTotalProjects,
 } from "../../../store/modules/nominate";
 import {
   getOverviewProgressPercent,
@@ -111,8 +112,6 @@ function StatusOverview() {
   );
 }
 
-export const selectTotalProjects = (state: RootState) =>
-  selectProjectNomintateIds(state).length;
 export const selectTotalCompleteProjects = createSelector(
   selectProjectNomintateIds,
   selectProjectNomintateDetails,
