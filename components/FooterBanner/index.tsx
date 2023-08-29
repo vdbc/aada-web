@@ -34,7 +34,7 @@ export function GetInvolvedFooterBanner() {
   return (
     <_View bgUrl="/bg_the_award.webp">
       <h1>{"EXCITED TO BECOME\nA SPONSOR?"}</h1>
-      <_ButtonLink href="">CONTACT US</_ButtonLink>
+      <_ButtonLink href="mailto:hello@aadawards.com">CONTACT US</_ButtonLink>
     </_View>
   );
 }
@@ -44,7 +44,7 @@ export function RegistrationFooterBanner({ className }: any) {
     <_View bgUrl="/bg_the_award.webp" className={className}>
       <h1>{"READY TO\nSUBMIT YOUR WORK?"}</h1>
       <_ButtonLink href="/open-account">
-        UNCOVER 2023 AADA CATEGORIES
+        UNCOVER 2024 AADA CATEGORIES
       </_ButtonLink>
     </_View>
   );

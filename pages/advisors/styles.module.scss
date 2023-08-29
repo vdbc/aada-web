@@ -47,13 +47,12 @@
     position: relative;
     background-color: white;
 
-    > img {
+    >img {
       object-fit: contain;
     }
   }
 
-  .background {
-  }
+  .background {}
 
   .body {
     flex: 1;
@@ -84,7 +83,7 @@
     }
 
     p {
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 400;
       margin: 0;
       margin-top: 13px;
@@ -119,7 +118,7 @@
 
   @media (max-width: 400px) {
     .avatar {
-      > img {
+      >img {
         object-fit: cover;
       }
     }

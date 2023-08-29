@@ -7,7 +7,7 @@
   margin-top: 13px;
 
   .label {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
   }
 
@@ -33,7 +33,7 @@
       justify-content: flex-start;
       margin-bottom: 16px;
 
-      > * {
+      >* {
         margin-top: 12px;
         margin-left: 12px;
       }
@@ -46,7 +46,7 @@
       border-style: none;
       color: white;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 17px;
       margin-bottom: 12px;
 
       &:disabled {
@@ -95,7 +95,7 @@
     right: -12px;
     top: -12px;
 
-    > button {
+    >button {
       width: 25px;
       height: 25px;
       border-radius: 25px;

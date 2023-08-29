@@ -2,6 +2,7 @@ import InputField from "../../../components/InputField";
 import { Organization, organizationEmpty } from "../../../models/Organization";
 import { countries } from "../../../utils/countries";
 import { ValueChanged } from "../../../utils/interface";
+import InputPhoneNumber from "../../account/InputPhoneNumber";
 import styles from "./styles.module.scss";
 
 declare type Props = {
@@ -70,6 +71,13 @@ export default function _View({
         value={organization.address}
         onChanged={(value) => onChanged({ ...organization, address: value })}
         required
+      />
+      <InputPhoneNumber
+        label="Phone Number"
+        placeholder="Enter your phone number"
+        value={organization?.phone ?? ""}
+        onChanged={(value) => onChanged({ ...organization, phone: value })}
+        className={styles.inputField}
       />
       <InputField
         label="Email address"

@@ -20,7 +20,7 @@ export function RegistrationTopBanner() {
     <_View bgUrl="/bg_the_award.webp">
       <h1>Registration</h1>
       <div className={styles.subTitle}>
-        This part provides the step-by-step registration process for 2023 Asia
+        This part provides the step-by-step registration process for 2024 Asia
         Architecture Design Awards. By carefully preparing all documents needed,
         you can easily finish your submission within 5 minutes.
       </div>
@@ -119,7 +119,7 @@ export function ScoringTopBanner() {
     <_View bgUrl="/bg_the_award.webp">
       <h1>Scoring Board</h1>
       <h3 className={styles.title}>
-        Welcome Esteemed Judges to the prestigious <br /> 2023 Asia Architecture
+        Welcome Esteemed Judges to the prestigious <br /> 2024 Asia Architecture
         Design Awards (AADA)!
       </h3>
       <p className={styles.content}>

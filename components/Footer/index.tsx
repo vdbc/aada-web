@@ -109,7 +109,7 @@ function FooterMenu() {
 function Copyright() {
   return (
     <div className={styles.copyright}>
-      © 2023 - All rights reserved - Asia Awards Organization.
+      © 2024 - All rights reserved - Asia Awards Organization.
     </div>
   );
 }
