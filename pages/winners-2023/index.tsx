@@ -54,7 +54,7 @@ export default function Home() {
           <h1>
             UNCOVER <br /> ALL THE WINNERS’
           </h1>
-          <h3 className={styles.text}>2024 ASIA ARCHITECTURE DESIGN AWARDS</h3>
+          <h3 className={styles.text}>2023 ASIA ARCHITECTURE DESIGN AWARDS</h3>
           {rows.map((ids, index) => (
             <div key={index} className={styles.row}>
               {ids.map((id) => (
