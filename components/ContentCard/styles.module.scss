@@ -40,6 +40,7 @@
     width: 100%;
     position: unset;
     margin-top: 50px;
+    font-size: 40px;
   }
 }
 
@@ -63,7 +64,7 @@
     .content {
       width: 100%;
 
-      > h2 {
+      >h2 {
         text-align: left;
         font-weight: 500;
         font-size: 30px;
@@ -71,14 +72,14 @@
         margin-top: 25px;
       }
 
-      > div {
+      >div {
         font-weight: 400;
         font-size: 15px;
         line-height: 1.2;
         margin-top: 15px;
       }
 
-      > div:first-child,
+      >div:first-child,
       h2:first-of-type {
         margin-top: 0;
       }

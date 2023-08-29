@@ -1,5 +1,5 @@
 .homePageTopBanner {
-  > video {
+  >video {
     width: 100vw;
     max-height: calc(100vh - 100px);
     object-fit: cover;
@@ -43,18 +43,18 @@
     min-height: calc(100vh - 60px);
   }
 
-  > * {
+  >* {
     z-index: 1;
   }
 
-  > .background {
+  >.background {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     position: absolute;
 
-    > div {
+    >div {
       width: 100%;
       height: 100%;
     }
@@ -67,12 +67,12 @@
     max-height: 120px;
     position: relative;
 
-    > img {
+    >img {
       object-fit: contain;
     }
   }
 
-  > h1 {
+  >h1 {
     font-family: Big Caslon FB;
     font-style: normal;
     font-weight: 100;
@@ -118,11 +118,11 @@
     }
   }
 
-  > .subTitle {
+  >.subTitle {
     max-width: 880px;
   }
 
-  > div {
+  >div {
     font-size: 23px;
     line-height: 1.2;
     text-align: center;
@@ -142,7 +142,7 @@
     font-size: 9px;
     color: white;
 
-    > div {
+    >div {
       margin-left: 8px;
     }
   }
@@ -161,7 +161,7 @@
   padding: 0 24px;
   height: 35px;
 
-  > .wrapper {
+  >.wrapper {
     // margin: 0 24px;
     margin-right: 45px;
   }
@@ -172,4 +172,9 @@
   font-size: 27px;
   font-weight: 500;
   letter-spacing: 1.89px;
+}
+
+.className {
+  border: 1px solid rgba(250, 196, 126, 1);
+  padding: 10px 40px;
 }

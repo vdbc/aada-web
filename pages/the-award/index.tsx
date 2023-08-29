@@ -141,7 +141,7 @@ export default function Home() {
         <TheAwardTopBanner />
         <ContentCard title={"\\\nAsia\nArchitecture\nDesign\nAward"}>
           <h2 className={styles.title}>THE ORIGINS</h2>
-          <br />
+
           <div className={styles.content}>
             The Asia Architecture Design Awards (AADA) is born with a desire to
             honor excellences and creativities in a varied range of Architecture

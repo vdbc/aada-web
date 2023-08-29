@@ -123,11 +123,23 @@
       h2 {
         text-align: left;
         font-weight: 250;
+
+        margin-top: 0;
+
+
         font-size: 33px;
+        font-family: Big Caslon FB;
+        background: var(--primary-secondary-gradient, linear-gradient(63deg, #FFF 0%, #C0D0FF 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-style: normal;
+        text-transform: uppercase;
       }
 
       p {
         font-size: 13px;
+        font-family: Lato;
       }
     }
   }
