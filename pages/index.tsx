@@ -29,6 +29,11 @@ export default function Home() {
           alt="Timeline"
           src="/home/timeline.svg"
         />
+        <img
+          className={styles.aada_timelineMb}
+          alt="AADA Partners"
+          src="/home/timelineHome.svg"
+        />
         <GetInvolvedHomeBanner />
 
         <WhyYouShouldSubmitHomeBanner />
@@ -37,6 +42,7 @@ export default function Home() {
           alt="AADA Partners"
           src="/home/officialpartnersMb.svg"
         />
+
         <h1 className={styles.title}>OFFICIAL PARTNERS</h1>
         <img
           className={styles.aada_sponsorMb}

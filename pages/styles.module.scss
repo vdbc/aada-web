@@ -74,6 +74,22 @@
   }
 }
 
+.timeline {
+  @media (max-width: 500px) {
+    display: none;
+  }
+}
+
+.aada_timelineMb {
+  width: 100%;
+  display: none;
+  padding-top: 50px;
+
+  @media (max-width: 500px) {
+    display: block;
+  }
+}
+
 .text {
   color: #353a4e;
   font-size: 40px;

@@ -183,6 +183,10 @@
     flex-direction: column;
     justify-content: center;
 
+    @media (max-width: 800px) {
+      height: 250px;
+    }
+
     >img {
       position: absolute;
     }
