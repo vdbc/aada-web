@@ -32,7 +32,9 @@ export default function _View({ id, className }: WinnerNewsCardProps) {
         <div className={styles.thumbnail}>
           <div>
             <Image
-              src={thumbnail || "/default-thumbnail.jpg"}
+              src={
+                `${thumbnail}?format=webp&size=w500` || "/default-thumbnail.jpg"
+              }
               alt="Thumbnail"
               fill
             />
