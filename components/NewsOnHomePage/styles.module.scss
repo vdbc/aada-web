@@ -25,12 +25,16 @@
     }
   }
 
-  > h1 {
+  >h1 {
     font-family: Big Caslon FB;
     font-weight: 100;
     font-size: 60px;
     margin-top: 50px;
     color: #a67f56;
+
+    @media (max-width: 600px) {
+      font-size: 45px;
+    }
   }
 
   .row {

@@ -114,7 +114,7 @@ function ContentTable() {
 export default function _View() {
   return (
     <div className={styles.container}>
-      <h1>WHY YOU SHOULD SUBMIT</h1>
+      <h1>WHY YOU SHOULD SUBMIT?</h1>
       <div className={styles.subTitle}>
         Securing victory at the <b>2024 Asia Architecture Design Awards</b> stands as a distinguished honor, bestowing<br /> an elevated international branding identity and amplifying your global recognition.
       </div>

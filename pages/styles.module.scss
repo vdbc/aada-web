@@ -45,10 +45,28 @@
   }
 }
 
+.aada_partnerMb {
+  width: 40%;
+
+  @media (max-width: 600px) {
+    display: block;
+    padding-top: 40px;
+  }
+}
+
+.aada_sponsorMb {
+  width: 40%;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+
 .aada_partnersMb {
-  width: 100%;
+  width: 60%;
   display: none;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+  padding-top: 50px;
 
   @media (max-width: 600px) {
     display: block;
@@ -94,13 +112,44 @@
 .aada_vdbc {
   padding-right: 20px;
 
-  @media (max-width: 600px) {
-    display: none;
-  }
+  @media (max-width: 600px) {}
 }
 
 .aada {
   @media (max-width: 600px) {
     display: none;
+  }
+}
+
+.allLogoSponsor {
+
+  @media (max-width: 600px) {
+    padding-top: 50px;
+    display: flex;
+    width: 400px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.allLogoPartners {
+  padding-bottom: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 40px;
+
+  @media (max-width: 600px) {
+    padding-top: 50px;
+    display: flex;
+    width: 400px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .partnerLogo {
+    align-content: center;
+    padding-top: 10px;
   }
 }
