@@ -41,7 +41,7 @@ export default function View() {
     return (
       <div className={styles.registrationTimeline}>
         {timelineTitle}
-        <img alt="Registration Timeline" src="/registration_timeline.svg" />
+        <img alt="Registration Timeline" src="/registrationTimeline.svg" />
       </div>
     );
   }

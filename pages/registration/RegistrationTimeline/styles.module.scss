@@ -5,10 +5,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 250px);
   padding: 50px 0;
 
   .timelineTitle {
+    background: var(--primary-secondary-gradient, linear-gradient(63deg, #FFF 0%, #C0D0FF 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
     /* Typography/H1 Headline */
     font-family: Big Caslon FB;
@@ -16,7 +20,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: 113%;
+
     /* 67.8px */
+    @media (max-width: 800px) {
+      font-size: 45px;
+    }
   }
 
   >img {
@@ -24,7 +32,7 @@
   }
 
   header {
-    background-color: #a58566;
+    background-color: #A67F56;
     padding: 16px 20px;
   }
 

@@ -70,13 +70,14 @@
     >img {
       object-fit: contain;
     }
+
   }
 
   >h1 {
     font-family: Big Caslon FB;
     font-style: normal;
     font-weight: 100;
-    font-size: 165px;
+    font-size: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,7 +91,7 @@
     margin: 0;
 
     @media (max-width: 1200px) {
-      font-size: 125px;
+      font-size: 100px;
     }
 
     @media (max-width: 1000px) {
@@ -110,7 +111,7 @@
     }
 
     @media (max-width: 500px) {
-      font-size: 51px;
+      font-size: 45px;
     }
 
     @media (max-width: 400px) {

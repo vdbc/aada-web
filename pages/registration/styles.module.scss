@@ -35,6 +35,8 @@
     align-items: flex-start;
     justify-content: center;
     width: 100%;
+    background-color: #A67F56;
+    ;
 
     div {
       color: white;
@@ -186,10 +188,18 @@
       margin: 0;
       text-transform: uppercase;
       text-align: center;
+      background: var(--primary-secondary-gradient, linear-gradient(63deg, #FFF 0%, #C0D0FF 100%));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     >div {
       font-size: 15px;
+      background: var(--primary-secondary-gradient, linear-gradient(63deg, #FFF 0%, #C0D0FF 100%));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
