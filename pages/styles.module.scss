@@ -56,19 +56,20 @@
 
 .aada_sponsorMb {
   width: 40%;
+  display: none;
 
-  @media (max-width: 600px) {
-    display: block;
+  @media (max-width: 500px) {
+    display: none;
   }
 }
 
-.aada_partnersMb {
-  width: 60%;
+.aada_partnerMb {
+  width: 50%;
   display: none;
   padding-bottom: 50px;
   padding-top: 50px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 500px) {
     display: block;
   }
 }

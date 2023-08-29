@@ -33,7 +33,7 @@ export default function Home() {
 
         <WhyYouShouldSubmitHomeBanner />
         <img
-          className={styles.aada_partnersMb}
+          className={styles.aada_partnerMb}
           alt="AADA Partners"
           src="/home/officialpartnersMb.svg"
         />
