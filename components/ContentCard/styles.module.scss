@@ -66,10 +66,18 @@
 
       >h2 {
         text-align: left;
-        font-weight: 500;
-        font-size: 30px;
+
+
         margin: 0;
         margin-top: 25px;
+        color: #A67F56;
+        /* Title */
+        font-family: Big Caslon FB;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
       }
 
       >div {
@@ -77,6 +85,7 @@
         font-size: 15px;
         line-height: 1.2;
         margin-top: 15px;
+        font-family: Lato;
       }
 
       >div:first-child,
