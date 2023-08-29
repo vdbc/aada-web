@@ -3,12 +3,10 @@ import {
   FacebookShareButton,
   LinkedinIcon,
   LinkedinShareButton,
-  TwitterIcon,
-  TwitterShareButton,
 } from "react-share";
-import styles from "./styles.module.scss";
 import { useAppSelector } from "../../../../store";
 import { selectNewsDetail } from "../../../../store/modules/news";
+import styles from "./styles.module.scss";
 
 declare type ViewProps = {
   id: number;
@@ -16,7 +14,6 @@ declare type ViewProps = {
 
 export default function _View({ id }: ViewProps) {
   const news = useAppSelector(selectNewsDetail(id)) ?? {};
-
 
   const url = location.href;
   return (
@@ -26,9 +23,6 @@ export default function _View({ id }: ViewProps) {
         <FacebookShareButton url={url} className={styles.icon}>
           <FacebookIcon round />
         </FacebookShareButton>
-        <TwitterShareButton className={styles.icon} url={url}>
-          <TwitterIcon round />
-        </TwitterShareButton>
         <LinkedinShareButton className={styles.icon} url={url}>
           <LinkedinIcon round />
         </LinkedinShareButton>
