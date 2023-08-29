@@ -60,6 +60,7 @@ export function GetInvolvedTopBanner() {
         prestigious achievement that propels businesses onto the international
         stage, significantly enhancing their global presence and reputation.
       </div>
+      <_ButtonLink href="/">EXPLORE 2024 AADA</_ButtonLink>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
         <div>Scroll down to learn more</div>
