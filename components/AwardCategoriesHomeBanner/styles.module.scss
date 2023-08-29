@@ -8,6 +8,11 @@
 .wrapper {
   display: flex;
   align-items: center;
+
+  .buttonContainer {
+    cursor: pointer;
+  }
+
 }
 
 .container {
@@ -182,4 +187,8 @@
   .right {
     border-left: 0px none transparent;
   }
+}
+
+.className {
+  border: 0.36px solid #ffff;
 }

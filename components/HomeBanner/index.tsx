@@ -45,7 +45,7 @@ export function TheAwardHomeBanner() {
           <div className={styles.description}>
             In 2024, the Asia Architecture Design Awards shines a spotlight on <b>&#34; Emerging Asia &#34;</b>, celebrating the fusion of tradition and innovation across the continent. This theme recognizes Asia’s rising global impact as a hub of architectural and design excellence. It invites architects and designers to contribute their vision to the ongoing narrative of a progressive and culturally-rich Asia.
           </div>
-          <ButtonLink href="/the-award" color="#ffff">About The Award</ButtonLink>
+          <ButtonLink href="/the-award" className={styles.className}>About The Award</ButtonLink>
         </div>
       </div>
     </div>

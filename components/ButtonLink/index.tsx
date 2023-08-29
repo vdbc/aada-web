@@ -5,12 +5,13 @@ import styles from "./styles.module.scss";
 declare type ButtonLinkProps = {
   href: string;
   children: any;
+  className: any;
 };
 
-export default function _ButtonLink({ href, children }: ButtonLinkProps) {
+export default function _ButtonLink({ href, children, className }: ButtonLinkProps) {
   return (
     <Link href={href}>
-      <div className={styles.buttonLink}>
+      <div className={`${styles.buttonLink} ${styles[className]}`}>
         <div className={styles.wrapper}>{children}</div>
         <MdArrowForward size={20} />
       </div>
