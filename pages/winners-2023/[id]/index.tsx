@@ -11,7 +11,7 @@ import WinnerNewsContent from "./WinnerNewsContent";
 
 export default function _View({ id }: { id: number }) {
   const winners = useAppSelector(selectWinnerNewsDetail(id));
-  const { thumbnail, projectName, nominateName } = winners;
+  const { projectName, nominateName } = winners;
   const desc = winners.projectName + " - " + winners.nominateName;
 
   return (
