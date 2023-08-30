@@ -163,7 +163,7 @@ export default function Home() {
           <div>
             Recognizing exceptional interior design that leaves an indelible mark on hospitality projects, infusing them with a unique personality and creative flair.
           </div>
-          <AwardItem>2024 ASIA’S BEST F&B ARCHITECTURE DESIGN </AwardItem>
+          <AwardItem>2024 ASIA’S BEST F&B INTERIOR DESIGN </AwardItem>
           <div>
             Commending the finest interior design project that skillfully harmonized commercial imperatives with the individual preferences and aspirations of guests.
           </div>
@@ -171,7 +171,7 @@ export default function Home() {
           <div>
             This award pays tribute to exceptional mastery in curating living spaces that harmoniously amalgamate artistic aesthetics with practical functionality.
           </div>
-          <AwardItem>2024 ASIA’S BEST COMMERCIAL BUILDING ARCHITECTURE DESIGN</AwardItem>
+          <AwardItem>2024 ASIA’S BEST COMMERCIAL BUILDING INTERIOR DESIGN</AwardItem>
           <div>
             Acknowledging pioneering accomplishments in crafting compelling and functional spaces that reshape the landscape of commercial environments.
           </div>
