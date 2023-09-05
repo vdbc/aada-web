@@ -4,8 +4,7 @@ import {
   LinkedinIcon,
   LinkedinShareButton,
 } from "react-share";
-import { useAppSelector } from "../../../../store";
-import { selectWinnerNewsDetail } from "../../../../store/modules/winnersNews";
+import { isServer } from "../../../../utils/common";
 import styles from "./styles.module.scss";
 
 declare type ViewProps = {
@@ -13,9 +12,7 @@ declare type ViewProps = {
 };
 
 export default function _View({ id }: ViewProps) {
-  const winnerNews = useAppSelector(selectWinnerNewsDetail(id)) ?? {};
-
-  const url = location.href;
+  const url = isServer ? "" : location.href;
   return (
     <div className={styles.container}>
       <div className={styles.label}>Share</div>
