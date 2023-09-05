@@ -23,7 +23,7 @@ function _ButtonLink({ href, children }: any) {
     <Link href={href}>
       <div className={styles.buttonLink}>
         <div className={styles.wrapper}>{children}</div>
-        <MdArrowForward size={20} />
+        <MdArrowForward size={25} />
       </div>
     </Link>
   );
@@ -62,10 +62,10 @@ export function GetInvolvedHomeBanner() {
       <h2>2024 ASIA</h2>
       <h2>ARCHITECTURE</h2>
       <h2>DESIGN AWARDS</h2>
-      <div style={{ height: 20 }} />
+      <div style={{ height: 25 }} />
       <div>
         The stage is set for the grand spectacle of the 2024 Asia Architecture Design Awards, and this year’s theme is &#34;Emerging Asia&#34;. This compelling theme celebrates the outstanding ingenuity and imagination demonstrated by visionary architects and designers across the diverse continent of Asia.      </div>
-      <div style={{ height: 20 }} />
+      <div style={{ height: 25 }} />
 
       <div className={styles.wrapperLink}>
         <_ButtonLink href={"/winners-night"}>REGISTER NOW</_ButtonLink>
