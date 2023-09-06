@@ -84,6 +84,16 @@ export function AdvisorsTopBanner() {
     </_View>
   );
 }
+export function GalleryTopBanner() {
+  return (
+    <_View bgUrl="/bg_the_award.webp">
+      <h1>MEDIA CENTER</h1>
+      <div className={styles.subTitle}>
+        Media Center AADA
+      </div>
+    </_View>
+  );
+}
 
 export function CategoriesTopBanner() {
   return (

@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles.module.scss";
+import { MdArrowForward } from "react-icons/md";
 
 function _ButtonLink({ href, children }: any) {
   return (
     <Link href={href}>
       <div className={styles.buttonLink}>
         <div className={styles.wrapper}>{children}</div>
+        <MdArrowForward size={20} />
       </div>
     </Link>
   );
@@ -25,7 +27,8 @@ export function AdvisorsFooterBanner({ className }: any) {
   return (
     <_View bgUrl="/bg_the_award.webp" className={className}>
       <h1>{"Ready to\nSubmit your Work?"}</h1>
-      <_ButtonLink href="/registration">OPEN YOUR ACCOUNT NOW</_ButtonLink>
+      <_ButtonLink href="/categories">EXPLORE 2024 AADA CATEGORIES</_ButtonLink>
+
     </_View>
   );
 }
