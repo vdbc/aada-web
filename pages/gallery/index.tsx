@@ -45,8 +45,8 @@ export default function Home() {
           <div className={styles.box}>
             <h2>2023 AADA Winners’ Night</h2>
             <div className={styles.para}>
-              <p>On the evening of August 14th, the Winners’ Night of the 2023 Asia Architecture Design Awards (AADA)</p>
-              <p>stood in the spotlight at Marina Bay Sands – a pinnacle of architectural brilliance within Singapore, Asia’s vanguard metropolis.</p>
+              <p>On the evening of August 14th, the Winners’ Night of the 2023 Asia Architecture Design Awards (AADA)<br />
+                stood in the spotlight at Marina Bay Sands – a pinnacle of architectural brilliance within Singapore, Asia’s vanguard metropolis.</p>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <Button>Load more</Button>
+        <Button className={styles.btn}>Load more</Button>
         <div className={styles.wrapper}>
           <div className={styles.box}>
             <h2>Winners’ Night - Highlight Moments</h2>
@@ -96,7 +96,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
+        <Button className={styles.btn}>Load more</Button>
         <AdvisorsFooterBanner />
       </main>
       <Footer />

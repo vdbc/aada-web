@@ -13,6 +13,7 @@ import { scoreBoardSlice, ScoreBoardState } from "./modules/score-board";
 import userSlice, { UserState } from "./modules/user";
 import orderSlice, { OrderState } from "./modules/winnerNight";
 import winnersSlice, { WinnersState } from "./modules/winnersNews";
+import gallerySlice, { GalleryState } from "./modules/gallery";
 
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -32,7 +33,7 @@ export declare type RootState = {
   scoreBoard: ScoreBoardState;
   order: OrderState;
   winners: WinnersState;
-
+  gallery: GalleryState
 };
 
 const reducer = combineReducers({
@@ -43,6 +44,7 @@ const reducer = combineReducers({
   scoreBoard: scoreBoardSlice.reducer,
   order: orderSlice.reducer,
   winners: winnersSlice.reducer,
+  gallery: gallerySlice.reducer
 });
 // const reducerWithPersist = persistReducer(persistConfig, reducer);
 
@@ -62,8 +64,6 @@ const rootReducer = (state: any, action: any) => {
   }
   return newState;
 };
-
-
 
 export const store = configureStore({
   devTools: process.env.NODE_ENV == "development",
