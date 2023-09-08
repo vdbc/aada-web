@@ -42,12 +42,14 @@ export function TheAwardTopBanner() {
         construction industry that influences not just within Asian countries
         but also at a global arena.
       </div>
-      <ButtonLink href="/categories" className={styles.className}>EXPLORE 2024 AADA CATEGORIES</ButtonLink>
+      <ButtonLink href="/categories" className={styles.className}>
+        EXPLORE 2024 AADA CATEGORIES
+      </ButtonLink>
       <div className={styles.scrollDown}>
         <MdExpandMore size={15} />
         <div>Scroll down to learn more</div>
       </div>
-    </_View >
+    </_View>
   );
 }
 
@@ -88,9 +90,7 @@ export function GalleryTopBanner() {
   return (
     <_View bgUrl="/bg_the_award.webp">
       <h1>MEDIA CENTER</h1>
-      <div className={styles.subTitle}>
-        Media Center AADA
-      </div>
+      <div className={styles.subTitle}>Media Center AADA</div>
     </_View>
   );
 }
@@ -199,7 +199,7 @@ export function HomePageTopBanner() {
   return (
     <div className={styles.homePageTopBanner}>
       <video
-        src="https://files.aadawards.com/assets/47a0a30b644c8eaa5494cc96662d1b3d.mp4"
+        src="https://files.aadawards.com/assets/56edaf59be1ed48d21838443ec4e3eeb.mp4"
         autoPlay
         muted
         loop
