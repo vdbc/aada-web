@@ -1,17 +1,16 @@
 
 
 export interface GalleryModel {
-    id: string;
+    id: number;
     url: string;
     priority: number;
     createdAt: string;
     description: string;
     status: string;
-
 }
 
 export const newsEmpty: GalleryModel = {
-    id: "",
+    id: 0,
     url: "",
     priority: 0,
     createdAt: "",

@@ -10,7 +10,7 @@ import { fetchAllGallery, fetchGalleryDetail } from "../../../services/GallerySe
 import { GalleryModel } from "../../../models/GalleryModel";
 
 export interface GalleryState {
-  galleryIds: string[];
+  galleryIds: number[];
   galleryDetails: {
     [key: string]: GalleryModel;
   };
@@ -56,9 +56,9 @@ export const gallerySlice = createSlice({
 });
 
 export const selectGalleryIds = (state: RootState) => state.gallery.galleryIds;
-export const selectNewsDetails = (state: RootState) => state.news.newsDetails;
+export const selectGalleryDetails = (state: RootState) => state.gallery.galleryDetails;
 
-export const selectNewsDetail = (id: number) => (state: RootState) =>
-  selectNewsDetails(state)[id];
+export const selectGalleryDetail = (id: number) => (state: RootState) =>
+  selectGalleryDetails(state)[id];
 
 export default gallerySlice;

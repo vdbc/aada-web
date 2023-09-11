@@ -3,7 +3,7 @@ import { GalleryModel } from "../models/GalleryModel";
 import { get } from "./http";
 
 export async function fetchAllGallery(): Promise<GalleryModel[]> {
-    const url = `${apiUrl}/gallery`;
+    const url = `${apiUrl}/galleries`;
     const params = {
         page: 0,
         pageSize: 10000,
@@ -16,7 +16,7 @@ export async function fetchAllGallery(): Promise<GalleryModel[]> {
 }
 
 export async function fetchGalleryDetail(id: string): Promise<GalleryModel> {
-    const url = `${apiUrl}/gallery/${id}`;
+    const url = `${apiUrl}/galleries/${id}`;
     const resp = await get<{ data: GalleryModel }>(url);
 
     return resp.data;

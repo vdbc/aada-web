@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { WinnersNewsTopBanner } from "../../components/TopBanner";
 import { useAppSelector, wrapper } from "../../store";
+import Image from "next/image";
 
 import WinnerNewsCard from "../../components/WinnerNewsCard";
 import {
@@ -10,6 +11,7 @@ import {
   selectWinnerIds,
 } from "../../store/modules/winnersNews";
 import styles from "./styles.module.scss";
+import { MdExpandMore } from "react-icons/md";
 
 const rowLengthDefault = 4;
 
@@ -49,7 +51,28 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Header />
-        <WinnersNewsTopBanner />
+        <div className={styles.topBanner}>
+          <div className={styles.background}>
+            <div>
+              <Image src="/bg_the_award.webp" alt="Background" fill />
+            </div>
+          </div>
+          <div className={styles.logo}>
+            <Image src="/2023Lgo.svg" alt="Logo" fill />
+          </div>
+          <h1>
+            <div className={styles.headerSmallText}>Congratulations to all the</div>
+            Winners’
+            <div className={styles.headerSmallText}>
+              ASIA ARCHITECTURE DESIGN AWARDS
+            </div>
+          </h1>
+          <div style={{ height: 10 }} />
+          <div className={styles.scrollDown}>
+            <MdExpandMore size={15} />
+            <div>Scroll down to learn more</div>
+          </div>
+        </div>
         <div className={styles.content}>
           <h1>
             UNCOVER <br /> ALL THE WINNERS’
@@ -73,7 +96,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
     try {
       await Promise.all([store.dispatch(getAllWinners())]);
-    } catch (error) {}
+    } catch (error) { }
     return {
       props: {},
     };

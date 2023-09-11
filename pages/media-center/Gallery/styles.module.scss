@@ -15,6 +15,112 @@
   align-items: center;
   color: #16203C;
 
+  .topBanner {
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    color: #fac47e;
+    position: relative;
+
+    @media (max-width: 960px) {
+      min-height: calc(100vh - 60px);
+    }
+
+    >* {
+      z-index: 1;
+    }
+
+    >.background {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+
+      >div {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .logo {
+      width: 90%;
+      max-width: 900px;
+      height: 20vw;
+      max-height: 120px;
+      position: relative;
+
+      >img {
+        object-fit: contain;
+      }
+
+    }
+
+    >h1 {
+      font-family: Big Caslon FB;
+      font-style: normal;
+      font-weight: 100;
+      font-size: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #fac47e 0%, #a67f56 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0;
+
+      @media (max-width: 1200px) {
+        font-size: 100px;
+      }
+
+      @media (max-width: 1000px) {
+        font-size: 110px;
+      }
+
+      @media (max-width: 900px) {
+        font-size: 95px;
+      }
+
+      @media (max-width: 800px) {
+        font-size: 75px;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 62px;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 45px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 42px;
+      }
+    }
+
+    >.subTitle {
+      max-width: 880px;
+    }
+
+    >div {
+      font-size: 23px;
+      line-height: 1.2;
+      text-align: center;
+      letter-spacing: 0.05em;
+
+      @media (max-width: 600px) {
+        font-size: 19px;
+      }
+    }
+  }
 
 
   .content {
