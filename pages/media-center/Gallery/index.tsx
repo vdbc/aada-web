@@ -1,37 +1,47 @@
-
-import { Button } from "@mui/material";
 import Head from "next/head";
+
+import Image from "next/image";
+import styles from "./styles.module.scss";
+import { Button } from "@mui/material";
+import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { AdvisorsFooterBanner } from "../../../components/FooterBanner";
-import Header from "../../../components/Header";
-import ListGallery from "../../../components/ListGallery";
 import { GalleryTopBanner } from "../../../components/TopBanner";
-import { useAppSelector, wrapper } from "../../../store";
-import { selectGalleryIds, getAllGallery } from "../../../store/modules/gallery";
-import styles from "./styles.module.scss";
-import AlbumBanner from "../../../components/AlbumBanner";
 
-const rowLengthDefault = 4;
-function splitGalleriesToRows(_galleryIds: number[]) {
-  const galleryIds = [..._galleryIds];
-  const result: number[][] = [];
-  while (galleryIds.length > 0) {
-    const rowIds = [];
-    for (let i = 0; i < rowLengthDefault; i++) {
-      const id = galleryIds.shift() || -1;
-      rowIds.push(id);
-    }
-    result.push(rowIds);
-  }
-  return result;
-}
 export default function Home() {
-  const galleryIds = useAppSelector(selectGalleryIds);
-  const [row1, row2, row3, row4, ...rows] = splitGalleriesToRows(
-    galleryIds,
-  );
-  console.log("url" + galleryIds)
+  const defaultImages = [
+    { src: "/gallery/pic1.jpg", width: 500, height: 300 },
+    { src: "/gallery/pic2.jpg", width: 250, height: 300 },
+    { src: "/gallery/pic3.jpg", width: 250, height: 300 },
+    { src: "/gallery/pic4.jpg", width: 250, height: 300 },
+    { src: "/gallery/pic5.jpg", width: 500, height: 300 },
+    { src: "/gallery/pic6.jpg", width: 250, height: 300 },
+    { src: "/gallery/pic7.jpg", width: 505, height: 300 },
+    { src: "/gallery/pic8.jpg", width: 505, height: 300 },
+    { src: "/gallery/pic9.jpg", width: 270, height: 300 },
+    { src: "/gallery/pic10.jpg", width: 270, height: 300 },
+    { src: "/gallery/pic11.jpg", width: 460, height: 300 },
+
+  ];
+  const defaultImagesHighlight = [
+    { src: "/gallery/picHigh1.jpg", width: 500, height: 300 },
+    { src: "/gallery/picHigh2.jpg", width: 250, height: 300 },
+    { src: "/gallery/picHigh3.jpg", width: 250, height: 300 },
+    { src: "/gallery/picHigh4.jpg", width: 505, height: 300 },
+    { src: "/gallery/picHigh5.jpg", width: 505, height: 300 },
+    { src: "/gallery/picHigh6.jpg", width: 250, height: 300 },
+    { src: "/gallery/picHigh7.jpg", width: 505, height: 300 },
+    { src: "/gallery/picHigh8.jpg", width: 505, height: 300 },
+    { src: "/gallery/picHigh9.jpg", width: 270, height: 300 },
+    { src: "/gallery/picHigh10.jpg", width: 200, height: 300 },
+    { src: "/gallery/picHigh11.jpg", width: 200, height: 300 },
+
+  ];
+
+
+
   return (
+
     <div className={styles.container}>
       <Head>
         <title>Gallery</title>
@@ -39,62 +49,53 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <GalleryTopBanner />
-        {/* <AlbumBanner /> */}
-        <div className={styles.content}>
-          {row1 && row1.length > 0 && (
-            <div className={styles.row}>
-              <ListGallery id={row1[0]} className={styles.item} />
-              <ListGallery id={row1[1]} className={styles.item2} />
-              <ListGallery id={row1[2]} className={styles.item} />
+        <h3>Media Center/ <b>Gallery</b></h3>
+        <div className={styles.wrapper}>
+
+          <div className={styles.box}>
+            <h2>2023 AADA Winners’ Night</h2>
+            <div className={styles.para}>
+              <p>On the evening of August 14th, the Winners’ Night of the 2023 Asia Architecture Design Awards (AADA)</p>
+              <p>stood in the spotlight at Marina Bay Sands – a pinnacle of architectural brilliance within Singapore, Asia’s vanguard metropolis.</p>
             </div>
-          )}
-          {row2 && row2.length > 0 && (
-            <div className={styles.row}>
-              <ListGallery id={row2[0]} className={styles.item} />
-              <ListGallery id={row2[1]} className={styles.item} />
-              <ListGallery id={row2[2]} className={styles.item} />
-              <ListGallery id={row2[3]} className={styles.item} />
-            </div>
-          )}
-          {row3 && row3.length > 0 && (
-            <div className={styles.row}>
-              <ListGallery id={row3[0]} className={styles.item2} />
-              <ListGallery id={row3[1]} className={styles.item} />
-              <ListGallery id={row3[2]} className={styles.item} />
-            </div>
-          )}
-          {row4 && row4.length > 0 && (
-            <div className={styles.row}>
-              <ListGallery id={row4[0]} className={styles.item} />
-              <ListGallery id={row4[1]} className={styles.item} />
-              <ListGallery id={row4[2]} className={styles.item2} />
-            </div>
-          )}
-          {rows.map((ids, index) => (
-            <div key={index} className={styles.row}>
-              {ids.map((id) => (
-                <ListGallery key={id} id={id} className={styles.item} />
-              ))}
-            </div>
-          ))}
+          </div>
         </div>
-        <Button className={styles.btn}>Load more</Button>
-        {/* <AlbumBanner/> */}
-        <Button className={styles.btn}>Load more</Button>
+        <div className={styles.content}>
+          <div className={styles.row}>
+            {defaultImages.slice(0, 3).map((image, index) => (
+              <Image
+                key={index}
+                src={image.src}
+                alt="Default Image"
+                className={styles.item}
+                width={image.width}
+                height={image.height}
+              />
+            ))}
+          </div>
+          <div className={styles.row}>
+            {defaultImages.slice(3, 6).map((image, index) => (
+              <Image
+                key={index}
+                src={image.src}
+                alt="Default Image"
+                className={styles.item2}
+                width={image.width}
+                height={image.height}
+              />
+            ))}
+          </div>
+
+
+          <div className={styles.actions}>
+            <Button>Load More</Button>
+          </div>
+        </div>
+
+
         <AdvisorsFooterBanner />
       </main>
       <Footer />
     </div>
   );
 }
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) => async () => {
-    await Promise.all([
-      store.dispatch(getAllGallery()),
-    ]);
-    return {
-      props: {},
-    };
-  }
-);
-

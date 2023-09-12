@@ -56,7 +56,7 @@ const noLoggedTab: HeaderDetail[] = [
   },
   {
     title: "Gallery",
-    link: "/gallery",
+    link: "/media-center",
   },
 ];
 const loggedInTab: HeaderDetail[] = [

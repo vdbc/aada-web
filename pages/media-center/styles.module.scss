@@ -2,6 +2,21 @@
   padding: 0;
   width: 100%;
   background-color: #f6f6f6;
+
+  >h2 {
+    color: var(--primary-primary, #A67F56);
+    text-align: center;
+    font-family: Big Caslon FB;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 10px;
+    line-height: normal;
+
+    @media (max-width: 800px) {
+      font-size: 40px;
+    }
+  }
 }
 
 .main {
@@ -154,30 +169,4 @@
     max-width: 1240px;
     padding: 0 20px;
   }
-}
-
-.wrapper {
-  width: 100%;
-
-  >h2 {
-    color: var(--primary-primary, #A67F56);
-    text-align: center;
-    font-family: Big Caslon FB;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    margin: 10px;
-    line-height: normal;
-
-    @media (max-width: 800px) {
-      font-size: 40px;
-    }
-  }
-
-  .image {
-    width: 100%;
-    text-align: center;
-
-  }
-
 }
