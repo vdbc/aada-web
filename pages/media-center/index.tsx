@@ -3,6 +3,7 @@
 import Footer from "../../components/Footer";
 import { AdvisorsFooterBanner } from "../../components/FooterBanner";
 import Header from "../../components/Header";
+import SlideGuidebook from "../../components/SlideGuidebook";
 import SlideVideo from "../../components/SlideVideo";
 import { GalleryTopBanner } from "../../components/TopBanner";
 import MenuAlbum from "./MenuAlbum";
@@ -22,6 +23,8 @@ export default function Home() {
       <MenuAlbum />
       <h2>Video</h2>
       <SlideVideo />
+      <h2>PDF ASSETS</h2>
+      <SlideGuidebook />
       <AdvisorsFooterBanner />
       <Footer />
     </div>

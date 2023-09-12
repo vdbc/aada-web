@@ -48,7 +48,6 @@ export default function Home() {
         </div>
         <div className={styles.actions}>
           <ButtonExplore href="/categories">EXPLORE ALL </ButtonExplore>
-
         </div>
 
       </main>
