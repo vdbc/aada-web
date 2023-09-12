@@ -1,8 +1,7 @@
 import Head from "next/head";
-
 import Image from "next/image";
 import styles from "./styles.module.scss";
-import { Button } from "@mui/material";
+import { ButtonExplore } from "../../../components/ButtonExplore";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { AdvisorsFooterBanner } from "../../../components/FooterBanner";
@@ -88,7 +87,7 @@ export default function Home() {
 
 
           <div className={styles.actions}>
-            <Button>Load More</Button>
+            <ButtonExplore href="/">EXPLORE ALL </ButtonExplore>
           </div>
         </div>
 

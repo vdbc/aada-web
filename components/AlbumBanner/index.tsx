@@ -15,6 +15,7 @@ export default function _View({ id }: AlbumBannerProps) {
         {/* <h2>{title}</h2> */}
         <div className={styles.para}>
           {/* <p>{description}</p> */}
+
         </div>
       </div>
     </div>

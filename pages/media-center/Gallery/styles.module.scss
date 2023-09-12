@@ -129,10 +129,7 @@
       margin-top: 12px;
       width: 100%;
 
-      >button {
-        border: 1px solid #16203C;
-        padding: 10px 70px;
-      }
+
     }
 
     .row {
@@ -263,8 +260,4 @@
   }
 }
 
-.btn {
-  border: 1px solid #16203C;
-  border-radius: 0;
-  padding: 5px 60px;
-}
+.btn {}

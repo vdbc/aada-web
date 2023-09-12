@@ -7,6 +7,7 @@ import Footer from "../../../components/Footer";
 import { AdvisorsFooterBanner } from "../../../components/FooterBanner";
 import { GalleryTopBanner } from "../../../components/TopBanner";
 import AlbumCard from "../../../components/AlbumCard";
+import { ButtonExplore } from "../../../components/ButtonExplore";
 
 export default function Home() {
   const defaultImages = [
@@ -46,7 +47,8 @@ export default function Home() {
           ))}
         </div>
         <div className={styles.actions}>
-          <Button>EXPLORE ALL</Button>
+          <ButtonExplore href="/categories">EXPLORE ALL </ButtonExplore>
+
         </div>
 
       </main>
