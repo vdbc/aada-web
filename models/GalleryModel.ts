@@ -1,21 +1,33 @@
 
+export interface Images {
+    id: number;
+    title: string;
+    url: string;
+}
 
+export const imagesEmpty: Images = { id: 0, title: "", url: "" };
 export interface GalleryModel {
     id: number;
-    url: string;
-    priority: number;
-    createdAt: string;
+    thumbnail: string;
+    title: string;
     description: string;
-    status: string;
+    year: string;
+    source: string;
+    images: Images[];
+    createdAt: string;
+    mediaType: string;
 }
 
 export const newsEmpty: GalleryModel = {
     id: 0,
-    url: "",
-    priority: 0,
-    createdAt: "",
+    thumbnail: "",
+    title: "",
     description: "",
-    status: "",
+    year: "",
+    source: "",
+    images: [],
+    createdAt: "",
+    mediaType: "",
 };
 
 

@@ -54,25 +54,25 @@ const sliderItems: Item[] = [
       "Rewarding architects who blend design brilliance and innovation with tangible social impact, applauding hospitality, commercial and residential projects that redefine sustainability and break new ground in construction.",
   },
   {
-    title: "Start with why #01",
+    title: "Start with why #02",
     name: "interior design",
     description:
       "Celebrating the visionary creativity and exceptional achievements of interior designers, the finest interior design transcends mere components to infuse spaces with distinct personalities that resonate and inspire our way of life.",
   },
   {
-    title: "Start with why #01",
+    title: "Start with why #03",
     name: "FURNITURE DESIGN",
     description:
       "A testament to excellence and a celebration of precision in Furniture Design, where the apex of craftsmanship seamlessly intertwines artistic expression with practical utility, creating not just objects, but cherished extensions of our individuality and daily existence.",
   },
   {
-    title: "Start with why #01",
+    title: "Start with why #04",
     name: "Firms inArchitecture Design",
     description:
       "Celebrating top-tier architectural and landscaping firms, these awards underscore architecture's transformative role in daily life, with the Best Firms in Architecture award epitomizing exceptional accomplishment.",
   },
   {
-    title: "Start with why #01",
+    title: "Start with why #05",
     name: "Firms inInteriorDesign",
     description:
       "An emblem of excellence for interior design firms that consistently deliver exceptional, inspiring projects setting industry benchmarks; the Best Firms in Interior Design award acknowledges their unwavering commitment to meticulous craftsmanship and innovation.",

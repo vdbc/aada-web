@@ -6,6 +6,7 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { AdvisorsFooterBanner } from "../../../components/FooterBanner";
 import { GalleryTopBanner } from "../../../components/TopBanner";
+import AlbumBanner from "../../../components/AlbumBanner";
 
 export default function Home() {
   const defaultImages = [
@@ -36,9 +37,6 @@ export default function Home() {
     { src: "/gallery/picHigh11.jpg", width: 200, height: 300 },
 
   ];
-
-
-
   return (
 
     <div className={styles.container}>
@@ -49,17 +47,9 @@ export default function Home() {
         <Header />
         <GalleryTopBanner />
         <h3>Media Center/ <b>Gallery</b></h3>
-        <div className={styles.wrapper}>
-
-          <div className={styles.box}>
-            <h2>2023 AADA Winners’ Night</h2>
-            <div className={styles.para}>
-              <p>On the evening of August 14th, the Winners’ Night of the 2023 Asia Architecture Design Awards (AADA)</p>
-              <p>stood in the spotlight at Marina Bay Sands – a pinnacle of architectural brilliance within Singapore, Asia’s vanguard metropolis.</p>
-            </div>
-          </div>
-        </div>
+        <AlbumBanner />
         <div className={styles.content}>
+
           <div className={styles.row}>
             {defaultImages.slice(0, 3).map((image, index) => (
               <Image
@@ -87,7 +77,7 @@ export default function Home() {
 
 
           <div className={styles.actions}>
-            <ButtonExplore href="/">EXPLORE ALL </ButtonExplore>
+            <ButtonExplore href="/media-center/Gallery">EXPLORE ALL </ButtonExplore>
           </div>
         </div>
 

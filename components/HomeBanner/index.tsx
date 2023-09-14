@@ -68,7 +68,7 @@ export function GetInvolvedHomeBanner() {
       <div style={{ height: 25 }} />
 
       <div className={styles.wrapperLink}>
-        <_ButtonLink href={"/winners-night"}>REGISTER NOW</_ButtonLink>
+        <_ButtonLink href={"/"}>REGISTER NOW</_ButtonLink>
         <div className={styles.spacer} />
       </div>
       <div style={{ height: 30 }} />

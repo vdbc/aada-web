@@ -31,7 +31,7 @@ export const getAllGallery = createAsyncThunk<
 
 export const getGalleryDetail = createAsyncThunk<
   GalleryModel,
-  string,
+  number,
   { state: RootState }
 >("gallery/getGalleryDetail", async (id, store) => {
   return fetchGalleryDetail(id);

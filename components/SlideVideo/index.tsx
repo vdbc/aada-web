@@ -70,8 +70,9 @@ export default function _View({ }) {
         <div className={styles.buttonContainerRight}>
           <MdArrowForward size={20} onClick={() => swiper?.slideNext()} />
         </div>
-      </div>
 
+      </div>
+      <ButtonExplore href="/media-center/Video" >EXPLORE ALL </ButtonExplore>
     </div>
   );
 }

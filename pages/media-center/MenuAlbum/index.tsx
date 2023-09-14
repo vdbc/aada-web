@@ -1,32 +1,29 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "./styles.module.scss";
-import { Button } from "@mui/material";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
-import { AdvisorsFooterBanner } from "../../../components/FooterBanner";
-import { GalleryTopBanner } from "../../../components/TopBanner";
 import AlbumCard from "../../../components/AlbumCard";
 import { ButtonExplore } from "../../../components/ButtonExplore";
+import { selectGalleryIds } from "../../../store/modules/gallery";
+import { useAppSelector } from "../../../store";
 
 export default function Home() {
-  const defaultImages = [
-    { src: "/gallery/pic1.jpg", title: "2023 AADA Winners' Night" },
-    { src: "/gallery/pic2.jpg", title: "Winners' Night - Hall Of Fame" },
-    { src: "/gallery/pic3.jpg", title: "Winners' Night - Moments" },
-    { src: "/gallery/pic4.jpg", title: "Winners' Night - Speech" },
-  ];
 
-  const splitToRows = (array: any[], rowSize: number) => {
-    const result = [];
-    for (let i = 0; i < array.length; i += rowSize) {
-      result.push(array.slice(i, i + rowSize));
+
+  function splitGalleriesToRows(_galleryIds: number[]) {
+    const galleryIds = [..._galleryIds];
+    const result: number[][] = [];
+
+    while (galleryIds.length > 0) {
+      const rowIds = galleryIds.splice(0, 2);
+      result.push(rowIds);
     }
+
     return result;
-  };
+  }
 
-  const imageRows = splitToRows(defaultImages, 2);
-
+  const galleriesIds = useAppSelector(selectGalleryIds);
+  const [row1, row2, ...rows] = splitGalleriesToRows(galleriesIds);
+  console.log("123123" + rows);
   return (
     <div className={styles.container}>
       <Head>
@@ -34,20 +31,18 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.content}>
-          {imageRows.map((row, index) => (
+          {rows.map((ids, index) => (
             <div key={index} className={styles.row}>
-              {row.map((image, index) => (
+              {ids.map((id) => (
                 <AlbumCard
-                  key={index}
-                  url={image.src}
-                  title={image.title}
+                  key={id} id={id} className={styles.item}
                 />
               ))}
             </div>
           ))}
         </div>
         <div className={styles.actions}>
-          <ButtonExplore href="/categories">EXPLORE ALL </ButtonExplore>
+          <ButtonExplore href="/media-center/Gallery">EXPLORE ALL </ButtonExplore>
         </div>
 
       </main>

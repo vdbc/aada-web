@@ -1,22 +1,25 @@
-import { isEmpty } from "lodash";
-import Image from "next/image";
-import { useAppSelector } from "../../store";
 
+import Image from "next/image";
 import Link from "next/link";
-import { selectWinnerNewsDetail } from "../../store/modules/winnersNews";
-import { getWinnersFlugId } from "../../utils/news";
 import styles from "./styles.module.scss";
+import { useAppSelector } from "../../store";
+import { isEmpty } from "lodash";
+import { selectGalleryDetail } from "../../store/modules/gallery";
 
 declare type AlbumCardProps = {
-
-  url: string;
-  title: string;
+  id: number;
+  className?: string;
 };
 
-export default function _View({ url, title }: AlbumCardProps) {
-
-
-
+export default function _View({ id, className }: AlbumCardProps) {
+  const galleries = useAppSelector(selectGalleryDetail(id)) ?? {};
+  const { title, thumbnail } = galleries;
+  if (isEmpty(galleries))
+    return (
+      <div
+        className={[styles.container, className ?? "", styles.hidden].join(" ")}
+      />
+    );
   return (
     <div className={styles.container}>
       <Link href={`/`}>
@@ -24,7 +27,7 @@ export default function _View({ url, title }: AlbumCardProps) {
           <div>
             <Image
               src={
-                `${url}?format=webp&size=w500` || "/default-thumbnail.jpg"
+                `${thumbnail}?format=webp&size=w500` || "/default-thumbnail.jpg"
               }
               alt="Thumbnail"
               fill
