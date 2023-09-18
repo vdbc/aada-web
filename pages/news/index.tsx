@@ -56,6 +56,7 @@ function splitNewsToRows(_newIds: number[], _highlightIds: number[]) {
   return result;
 }
 
+
 export default function Home() {
   const newsIds = useAppSelector(selectNewsIds);
   const highlightIds = useAppSelector(selectHighlightNewsIds);
@@ -63,6 +64,7 @@ export default function Home() {
     newsIds,
     highlightIds
   );
+
   return (
     <div className={styles.container}>
       <Head>

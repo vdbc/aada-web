@@ -1,13 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { keyBy } from "lodash";
 import { RootState } from "../..";
-import { NewsModel } from "../../../models/NewsModel";
-import {
-  fetchAllHighlight,
-  fetchAllNews,
-} from "../../../services/NewsService";
-import { fetchAllGallery, fetchGalleryDetail } from "../../../services/GalleryService";
+import { fetchAllGallery, fetchAllVideo, fetchGalleryDetail } from "../../../services/GalleryService";
 import { GalleryModel } from "../../../models/GalleryModel";
+import { keyBy } from "lodash";
 
 export interface GalleryState {
   galleryIds: number[];
@@ -26,8 +21,10 @@ export const getAllGallery = createAsyncThunk<
   void,
   { state: RootState }
 >("gallery/getAllGallery", async (_, store) => {
+
   return fetchAllGallery();
 });
+
 
 export const getGalleryDetail = createAsyncThunk<
   GalleryModel,
@@ -44,7 +41,13 @@ export const gallerySlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllGallery.fulfilled, (state, action) => {
+        // console.log('mylog in reducer: ', action.payload);
+
         state.galleryIds = action.payload.map((item) => item.id);
+        state.galleryDetails = {
+          ...state.galleryDetails,
+          ...keyBy(action.payload, (item) => item.id),
+        };
       })
       .addCase(getGalleryDetail.fulfilled, (state, action) => {
         state.galleryDetails = {
@@ -60,5 +63,6 @@ export const selectGalleryDetails = (state: RootState) => state.gallery.galleryD
 
 export const selectGalleryDetail = (id: number) => (state: RootState) =>
   selectGalleryDetails(state)[id];
+
 
 export default gallerySlice;

@@ -15,6 +15,13 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import { useState } from "react";
 import { Button } from "@mui/material";
 import { ButtonExplore } from "../ButtonExplore";
+import { useAppSelector } from "../../store";
+
+import Video from "../Video";
+import Head from "next/head";
+import { GalleryModel } from "../../models/GalleryModel";
+import { selectVideoIds } from "../../store/modules/video";
+
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -31,48 +38,28 @@ function getImageUrl(url: string): string {
   return url;
 }
 
-const defaultVideos = [
-  { id: "linlz7-Pnvw" },
-  { id: "RSF8KL3xaIk" },
-  { id: "KOc146R8sws" },
-];
 
-export default function _View({ }) {
-  const [swiper, setSwiper] = useState<any>(null);
+export default function Home() {
+  const videoIds = useAppSelector(selectVideoIds);
+
+  console.log(videoIds, "videosId");
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <div className={styles.buttonContainerLeft}>
-          <MdArrowBack size={20} onClick={() => swiper?.slidePrev()} />
-        </div>
-        <Swiper
-          onSwiper={setSwiper}
-          cssMode={true}
-          mousewheel={true}
-          keyboard={true}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-          className={styles.mySwiper}
-        >
-          {defaultVideos.map((video, index) => (
-            <SwiperSlide key={index}>
-              <div className={styles.videoWrapper}>
-                <iframe
-                  title={`YouTube Video ${index}`}
-                  src={`https://www.youtube.com/embed/${video.id}`}
-                  frameBorder="0"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </SwiperSlide>
+      <Head>
+        <title>Gallery</title>
+      </Head>
+      <main className={styles.main}>
+        <div className={styles.content}>
+          {videoIds.map((videoId) => (
+            <div key={videoId} className={styles.item}>
+              <Video id={videoId} />
+            </div>
           ))}
-        </Swiper>
-        <div className={styles.buttonContainerRight}>
-          <MdArrowForward size={20} onClick={() => swiper?.slideNext()} />
         </div>
-
-      </div>
-      <ButtonExplore href="/media-center/Video" >EXPLORE ALL </ButtonExplore>
+        <div className={styles.actions}>
+          <ButtonExplore href="/media-center/Video">EXPLORE ALL</ButtonExplore>
+        </div>
+      </main>
     </div>
   );
 }

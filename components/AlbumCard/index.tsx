@@ -5,6 +5,8 @@ import styles from "./styles.module.scss";
 import { useAppSelector } from "../../store";
 import { isEmpty } from "lodash";
 import { selectGalleryDetail } from "../../store/modules/gallery";
+import { ButtonExplore } from "../ButtonExplore";
+
 
 declare type AlbumCardProps = {
   id: number;
@@ -20,6 +22,7 @@ export default function _View({ id, className }: AlbumCardProps) {
         className={[styles.container, className ?? "", styles.hidden].join(" ")}
       />
     );
+
   return (
     <div className={styles.container}>
       <Link href={`/`}>
@@ -38,6 +41,9 @@ export default function _View({ id, className }: AlbumCardProps) {
           </div>
         </div>
       </Link>
+      <div className={styles.actions}>
+        <ButtonExplore href="/media-center/Gallery">EXPLORE ALL </ButtonExplore>
+      </div>
     </div>
   );
 }

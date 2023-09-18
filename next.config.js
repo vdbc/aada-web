@@ -8,7 +8,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ["firebasestorage.googleapis.com", "files.aadawards.com"],
+    domains: ["firebasestorage.googleapis.com", "files.aadawards.com", "files-uat.aadawards.com"],
   },
 };
 

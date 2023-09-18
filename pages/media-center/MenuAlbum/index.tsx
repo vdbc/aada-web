@@ -22,8 +22,8 @@ export default function Home() {
   }
 
   const galleriesIds = useAppSelector(selectGalleryIds);
-  const [row1, row2, ...rows] = splitGalleriesToRows(galleriesIds);
-  console.log("123123" + rows);
+  const rows = splitGalleriesToRows(galleriesIds);
+
   return (
     <div className={styles.container}>
       <Head>
