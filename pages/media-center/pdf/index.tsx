@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import Head from "next/head";
+import Link from "next/link";
 import Footer from "../../../components/Footer";
 import { AdvisorsFooterBanner } from "../../../components/FooterBanner";
 import GuideBookCard from "../../../components/GuidebookCard";
@@ -23,21 +24,33 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <GalleryTopBanner />
+
         <div className={styles.content}>
-          <h3>
-            Media Center/ <b>PDF Assets</b>
-          </h3>
-          <h2>PDF Assets</h2>
-          <p>
-            On the evening of August 14th, the Winners’ Night of the 2023 Asia
-            Architecture Design Awards (AADA) stood in the spotlight at Marina
-            Bay Sands - a pinnacle of architectural brilliance within Singapore,
-            Asia’s vanguard metropolis.
-          </p>
-          <div className={styles.pdfs}>
-            {pdfs.map((pdfId) => (
-              <GuideBookCard key={pdfId} id={pdfId} />
-            ))}
+          <div className={styles.path}>
+            <Link href="/media-center">Media Center </Link>
+            <div className={styles.splash}>/</div>
+            <Link href="/media-center/pdf" className={styles.active}>
+              Pdf Assets
+            </Link>
+          </div>
+          <div className={styles.contentWrapper}>
+            <h2 className={styles.title}>PDF Assets</h2>
+            <p className={styles.description}>
+              On the evening of August 14th, the Winners' Night of the 2023 Asia
+              Architecture Design Awards (AADA) stood in the spotlight at Marina
+              Bay Sands - a pinnacle of architectural brilliance within
+              Singapore, Asia's vanguard metropolis.
+            </p>
+            <div className={styles.pdfs}>
+              {pdfs.map((pdfId) => (
+                <GuideBookCard key={pdfId} id={pdfId} />
+              ))}
+              <div />
+              <div />
+              <div />
+              <div />
+              <div />
+            </div>
           </div>
         </div>
         <div className={styles.actions}>
