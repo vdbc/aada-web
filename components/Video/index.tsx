@@ -1,4 +1,5 @@
-
+import { useState } from "react";
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import SwiperCore, {
   Keyboard,
   Mousewheel,
@@ -8,16 +9,11 @@ import SwiperCore, {
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useState } from "react";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
-import { Button } from "@mui/material";
-import { ButtonExplore } from "../ButtonExplore";
 import { useAppSelector } from "../../store";
 
 import styles from "./styles.module.scss";
 
 import { isEmpty } from "lodash";
-import { selectGalleryDetail } from "../../store/modules/gallery";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { selectVideoDetail } from "../../store/modules/video";
 SwiperCore.use([Navigation, Pagination]);
@@ -26,7 +22,6 @@ const fileServices = [
   "https://files-uat.aadawards.com",
   "https://files.aadawards.com",
 ];
-
 
 declare type AlbumCardProps = {
   id: number;
@@ -37,7 +32,6 @@ export default function _View({ id, className }: AlbumCardProps) {
   const [swiper, setSwiper] = useState<any>(null);
   const videos = useAppSelector(selectVideoDetail(id)) ?? {};
   const { title, thumbnail } = videos;
-  // console.log("videos", videos);
   if (isEmpty(videos))
     return (
       <div
@@ -60,7 +54,6 @@ export default function _View({ id, className }: AlbumCardProps) {
             modules={[Navigation, Pagination, Mousewheel, Keyboard]}
             className={styles.mySwiper}
           >
-
             <SwiperSlide>
               <div className={styles.videoWrapper}>
                 <iframe
@@ -72,15 +65,12 @@ export default function _View({ id, className }: AlbumCardProps) {
                 ></iframe>
               </div>
             </SwiperSlide>
-
           </Swiper>
         </div>
         <div className={styles.buttonContainerRight}>
           <MdArrowForward size={40} onClick={() => swiper?.slideNext()} />
         </div>
-
       </div>
-
     </div>
   );
 }

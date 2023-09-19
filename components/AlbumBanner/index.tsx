@@ -1,15 +1,12 @@
-
 import { isEmpty } from "lodash";
-import Image from "next/image";
-import { useAppSelector, wrapper } from "../../store";
-import { getGalleryDetail, selectGalleryDetail, selectGalleryIds } from "../../store/modules/gallery";
-import styles from "./styles.module.scss";
-import Link from "next/link";
-import { GalleryModel } from "../../models/GalleryModel";
-import { getGalleryImages } from "../../utils/gallery";
+import { useAppSelector } from "../../store";
+import {
+  selectGalleryDetail,
+  selectGalleryIds,
+} from "../../store/modules/gallery";
+import { ButtonLoadMore } from "../ButtonExplore";
 import CardImage from "../CardImage";
-import { ButtonExplore, ButtonLoadMore } from "../ButtonExplore";
-
+import styles from "./styles.module.scss";
 
 declare type AlbumCardProps = {
   id: number;
@@ -25,7 +22,6 @@ function AlbumBanner({ id, className }: AlbumCardProps) {
         className={[styles.container, className ?? "", styles.hidden].join(" ")}
       />
     );
-  console.log("gallery" + galleries);
   return (
     <div className={styles.main}>
       <div>
@@ -34,7 +30,6 @@ function AlbumBanner({ id, className }: AlbumCardProps) {
         </div>
         <div className={styles.para}>{description}</div>
       </div>
-
     </div>
   );
 }
@@ -83,12 +78,12 @@ export default function _View() {
             ))}
           </div>
           <div className={styles.actions}>
-            <ButtonLoadMore href="/media-center/Gallery">Load More</ButtonLoadMore>
+            <ButtonLoadMore href="/media-center/Gallery">
+              Load More
+            </ButtonLoadMore>
           </div>
         </div>
-
       ))}
-
     </div>
   );
 }

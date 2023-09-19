@@ -1,27 +1,15 @@
-import SwiperCore, {
-  Keyboard,
-  Mousewheel,
-  Navigation,
-  Pagination,
-} from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-
-import styles from "./styles.module.scss";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
-import { useState } from "react";
-import { Button } from "@mui/material";
-import { ButtonExplore } from "../ButtonExplore";
 import { useAppSelector } from "../../store";
+import { ButtonExplore } from "../ButtonExplore";
+import styles from "./styles.module.scss";
 
-import Video from "../Video";
 import Head from "next/head";
-import { GalleryModel } from "../../models/GalleryModel";
 import { selectVideoIds } from "../../store/modules/video";
-
+import Video from "../Video";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -38,11 +26,9 @@ function getImageUrl(url: string): string {
   return url;
 }
 
-
 export default function Home() {
   const videoIds = useAppSelector(selectVideoIds);
 
-  console.log(videoIds, "videosId");
   return (
     <div className={styles.container}>
       <Head>

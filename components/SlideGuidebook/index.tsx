@@ -1,18 +1,20 @@
-import Image from "next/image";
+import { isEmpty } from "lodash";
 import { useState } from "react";
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import { EffectCoverflow, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ButtonLink from "../ButtonLink";
-import styles from "./styles.module.scss";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
-import { ButtonExplore } from "../ButtonExplore";
-import { selectGuidebookDetail, selectGuidebookIds } from "../../store/modules/guidebook";
 import { useAppSelector } from "../../store";
-import { isEmpty } from "lodash";
+import {
+  selectGuidebookDetail,
+  selectGuidebookIds,
+} from "../../store/modules/guidebook";
+import { ButtonExplore } from "../ButtonExplore";
+import VdbcImage from "../VdbcImage";
+import styles from "./styles.module.scss";
 
 declare type SliderItemProps = {
   id: number;
@@ -21,8 +23,9 @@ declare type SliderItemProps = {
 
 function SliderItem({ id, className }: SliderItemProps) {
   const guidebook = useAppSelector(selectGuidebookDetail(id)) ?? {};
+
   const { title, thumbnail } = guidebook;
-  console.log("guidebook", guidebook);
+
   if (isEmpty(guidebook))
     return (
       <div
@@ -31,9 +34,8 @@ function SliderItem({ id, className }: SliderItemProps) {
     );
   return (
     <div>
-
       <div className={styles.sliderLogo}>
-        <Image src="/gallery/yearbook.jpg" alt="Logo" fill />
+        <VdbcImage src={thumbnail} alt="Logo" fill />
       </div>
 
       <div className={styles.title}>
@@ -42,8 +44,6 @@ function SliderItem({ id, className }: SliderItemProps) {
     </div>
   );
 }
-
-
 
 export default function _View() {
   const [page, setPage] = useState(1);
@@ -76,20 +76,8 @@ export default function _View() {
         </div>
       </main>
       <div className={styles.actions}>
-        <ButtonExplore href="/media-center/PDFAssets">EXPLORE ALL</ButtonExplore>
+        <ButtonExplore href="/media-center/pdf">EXPLORE ALL</ButtonExplore>
       </div>
-
     </div>
   );
 }
-
-
-{/* <div className={styles.container}>
-      <div className={styles.spacer} />
-      <div className={styles.awardCategories}>
-        <Slider items={sliderItems} />
-      </div>
-      <div className={styles.spacer} />
-      <ButtonExplore href="/categories" >EXPLORE ALL </ButtonExplore>
-    </div>
-  ); */}

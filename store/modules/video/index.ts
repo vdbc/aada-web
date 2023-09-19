@@ -1,8 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../..";
-import { fetchAllGallery, fetchAllVideo, fetchGalleryDetail, fetchVideoDetail } from "../../../services/GalleryService";
-import { GalleryModel } from "../../../models/GalleryModel";
 import { keyBy } from "lodash";
+import { RootState } from "../..";
+import { GalleryModel } from "../../../models/GalleryModel";
+import {
+  fetchAllVideo,
+  fetchVideoDetail,
+} from "../../../services/GalleryService";
 
 export interface VideoState {
   videoIds: number[];
@@ -37,7 +40,6 @@ export const videoSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllVideo.fulfilled, (state, action) => {
-        // console.log('mylog in reducer video: ', action.payload);
         state.videoIds = action.payload.map((item) => item.id);
         state.videoDetails = {
           ...state.videoDetails,
@@ -54,9 +56,9 @@ export const videoSlice = createSlice({
 });
 
 export const selectVideoIds = (state: RootState) => state.video.videoIds;
-export const selectVideoDetails = (state: RootState) => state.video.videoDetails;
+export const selectVideoDetails = (state: RootState) =>
+  state.video.videoDetails;
 export const selectVideoDetail = (id: number) => (state: RootState) =>
   selectVideoDetails(state)[id];
-
 
 export default videoSlice;

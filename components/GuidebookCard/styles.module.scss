@@ -1,97 +1,34 @@
 .container {
-  width: 100%;
-  min-width: 240px;
-  height: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  white-space: pre-line;
-  padding: 75px 0;
-  position: relative;
+  align-items: center;
 
   .thumbnail {
-    position: absolute;
-    width: 95%;
-    top: 0;
-    height: 100%;
-
-    >div {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    .title {
-
-      color: black;
-      font-weight: 300;
-      font-size: 17px;
-
-      text-transform: uppercase;
-
-    }
-  }
-
-  .overview {
-    position: absolute;
+    position: relative;
     width: 100%;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+    height: 400px;
 
-    >div {
-      min-height: 200px;
-      width: 100%;
-      background-color: white;
-      padding: 16px 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
+    img {
+      object-fit: cover;
+      object-position: center;
     }
 
-    .desc {
-      margin-top: 12px;
-      font-size: 11px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      line-clamp: 4;
-      -webkit-box-orient: vertical;
-    }
-
-    .actions {
-      margin-top: 12px;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
+    .fileType {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 10px;
+      z-index: 1;
+      background-color: #a67f56;
+      color: #fff;
+      text-transform: uppercase;
     }
   }
-}
 
-.hidden {
-  opacity: 0;
-}
-
-.subTitle {
-  text-align: center;
-}
-
-.textLanded {
-  font-family: "LATO";
-  font-weight: 400;
-  font-size: 10px;
-  text-transform: none;
-}
-
-.projectName {
-  text-transform: uppercase;
+  .title {
+    margin-top: 10px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #16203c;
+  }
 }

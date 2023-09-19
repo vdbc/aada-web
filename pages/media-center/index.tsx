@@ -1,5 +1,3 @@
-
-
 import Footer from "../../components/Footer";
 import { AdvisorsFooterBanner } from "../../components/FooterBanner";
 import Header from "../../components/Header";
@@ -7,18 +5,15 @@ import SlideGuidebook from "../../components/SlideGuidebook";
 import SlideVideo from "../../components/SlideVideo";
 import { GalleryTopBanner } from "../../components/TopBanner";
 import { useAppSelector, wrapper } from "../../store";
-import { getAllGallery, selectGalleryDetail } from "../../store/modules/gallery";
+import {
+  getAllGallery,
+  selectGalleryDetail,
+} from "../../store/modules/gallery";
 import { getAllGuidebook } from "../../store/modules/guidebook";
 import { getAllVideo } from "../../store/modules/video";
 import MenuAlbum from "./MenuAlbum";
 
-
-
-
 import styles from "./styles.module.scss";
-
-
-
 
 export default function _View({ id }: { id: number }) {
   const galleries = useAppSelector(selectGalleryDetail(id));
@@ -35,10 +30,8 @@ export default function _View({ id }: { id: number }) {
       <AdvisorsFooterBanner />
       <Footer />
     </div>
-
   );
 }
-
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
@@ -52,5 +45,3 @@ export const getServerSideProps = wrapper.getServerSideProps(
     };
   }
 );
-
-

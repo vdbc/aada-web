@@ -1,8 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../..";
-import { fetchAllGallery, fetchAllVideo, fetchGalleryDetail } from "../../../services/GalleryService";
-import { GalleryModel } from "../../../models/GalleryModel";
 import { keyBy } from "lodash";
+import { RootState } from "../..";
+import { GalleryModel } from "../../../models/GalleryModel";
+import {
+  fetchAllGallery,
+  fetchGalleryDetail,
+} from "../../../services/GalleryService";
 
 export interface GalleryState {
   galleryIds: number[];
@@ -21,10 +24,8 @@ export const getAllGallery = createAsyncThunk<
   void,
   { state: RootState }
 >("gallery/getAllGallery", async (_, store) => {
-
   return fetchAllGallery();
 });
-
 
 export const getGalleryDetail = createAsyncThunk<
   GalleryModel,
@@ -41,8 +42,6 @@ export const gallerySlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllGallery.fulfilled, (state, action) => {
-        // console.log('mylog in reducer: ', action.payload);
-
         state.galleryIds = action.payload.map((item) => item.id);
         state.galleryDetails = {
           ...state.galleryDetails,
@@ -50,7 +49,6 @@ export const gallerySlice = createSlice({
         };
       })
       .addCase(getGalleryDetail.fulfilled, (state, action) => {
-        console.log('mylog in reducer: ', action.payload);
         state.galleryDetails = {
           ...state.galleryDetails,
           [action.payload.id]: action.payload,
@@ -60,10 +58,10 @@ export const gallerySlice = createSlice({
 });
 
 export const selectGalleryIds = (state: RootState) => state.gallery.galleryIds;
-export const selectGalleryDetails = (state: RootState) => state.gallery.galleryDetails;
+export const selectGalleryDetails = (state: RootState) =>
+  state.gallery.galleryDetails;
 
 export const selectGalleryDetail = (id: number) => (state: RootState) =>
   selectGalleryDetails(state)[id];
-
 
 export default gallerySlice;

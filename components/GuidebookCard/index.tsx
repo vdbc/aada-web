@@ -1,33 +1,24 @@
-
-import Image from "next/image";
 import Link from "next/link";
+import { useAppSelector } from "../../store";
+import { selectGuidebookDetail } from "../../store/modules/guidebook";
+import VdbcImage from "../VdbcImage";
 import styles from "./styles.module.scss";
 
 declare type GuideBookCardProps = {
-
-  url: string;
-  title: string;
+  id: number;
 };
 
-export default function _View({ url, title }: GuideBookCardProps) {
+export default function _View({ id }: GuideBookCardProps) {
+  const { thumbnail, title, mediaType } =
+    useAppSelector(selectGuidebookDetail(id)) || {};
+
   return (
-    <div className={styles.container}>
-      <Link href={`/`}>
-        <div className={styles.thumbnail}>
-          <div>
-            <Image
-              src={
-                `${url}?format=webp&size=w500` || "/default-thumbnail.jpg"
-              }
-              alt="Thumbnail"
-              fill
-            />
-          </div>
-          <div className={styles.title}>
-            <div>{title}</div>
-          </div>
-        </div>
-      </Link>
-    </div>
+    <Link href={`/media-center/pdf/${id}`} className={styles.container}>
+      <div className={styles.thumbnail}>
+        <div className={styles.fileType}>{mediaType}</div>
+        <VdbcImage src={thumbnail} alt="Thumbnail" fill />
+      </div>
+      <div className={styles.title}>{title}</div>
+    </Link>
   );
 }
