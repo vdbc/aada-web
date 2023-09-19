@@ -8,12 +8,12 @@ import { GalleryTopBanner } from "../../../components/TopBanner";
 import styles from "./styles.module.scss";
 import SlideVideo from "../../../components/SlideVideo";
 import CardVideo from "../../../components/CardVideo";
-import { selectVideoDetail } from "../../../store/modules/video";
+import { selectVideoDetail, selectVideoIds } from "../../../store/modules/video";
 import { useAppSelector } from "../../../store";
 
 
 export default function _View({ id }: { id: number }) {
-  const video = useAppSelector(selectVideoDetail(id));
+  const video = useAppSelector(selectVideoIds);
   return (
     <div className={styles.container}>
       <Head>
@@ -22,7 +22,13 @@ export default function _View({ id }: { id: number }) {
       <main className={styles.main}>
         <Header />
         <GalleryTopBanner />
-        <CardVideo id={id} />
+        <div className={styles.wrapper}>
+          {video.map((videoId) => (
+            <div key={videoId} className={styles.box}>
+              <CardVideo id={videoId} />
+            </div>
+          ))}
+        </div>
         <AdvisorsFooterBanner />
       </main>
       <Footer />

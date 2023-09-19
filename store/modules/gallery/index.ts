@@ -50,6 +50,7 @@ export const gallerySlice = createSlice({
         };
       })
       .addCase(getGalleryDetail.fulfilled, (state, action) => {
+        console.log('mylog in reducer: ', action.payload);
         state.galleryDetails = {
           ...state.galleryDetails,
           [action.payload.id]: action.payload,

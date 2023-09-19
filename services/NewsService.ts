@@ -31,7 +31,6 @@ export async function fetchAllHighlight(): Promise<NewsModel[]> {
 export async function fetchNewsDetail(id: number): Promise<NewsModel> {
   const url = `${apiUrl}/news/${id}`;
   const resp = await get<{ data: NewsModel }>(url);
-
   return resp.data;
 }
 

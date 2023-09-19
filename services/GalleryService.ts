@@ -18,8 +18,9 @@ export async function fetchAllGallery(): Promise<GalleryModel[]> {
 export async function fetchGalleryDetail(id: number): Promise<GalleryModel> {
     const url = `${apiUat}/media-center/admin/gallery/${id}`;
     const resp = await get<{ data: GalleryModel }>(url);
-
+    // console.log('mylog video: ', resp, url);
     return resp.data;
+
 }
 
 export async function fetchAllVideo(): Promise<GalleryModel[]> {

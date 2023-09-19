@@ -13,8 +13,8 @@ declare type ViewProps = {
 
 export default function _View({ id, className }: ViewProps) {
   const { images } = useAppSelector(selectGalleryDetail(id)) || {};
-  // if (!images || images.length == 0) return null;
-  console.log("log news", images);
+  if (!images || images.length == 0) return null;
+  // console.log("log news", images);
   return (
     <div className={[styles.container, className ?? ""].join(" ")}>
       <Link href={`/`}>

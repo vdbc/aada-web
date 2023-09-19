@@ -14,3 +14,15 @@ export function ButtonExplore({ href, children }: ButtonExploreProps) {
     </Link>
   );
 }
+
+export function ButtonLoadMore({ href, children }: ButtonExploreProps) {
+  return (
+    <Link href={href}>
+      <div className={styles.button}>
+        <div className={styles.wrapperBt}>{children}</div>
+      </div>
+    </Link>
+  );
+}
+
+

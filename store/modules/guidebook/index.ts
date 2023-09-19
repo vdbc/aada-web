@@ -41,8 +41,6 @@ export const guidebookSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllGuidebook.fulfilled, (state, action) => {
-        console.log('mylog in reducer: ', action.payload);
-
         state.guidebookIds = action.payload.map((item) => item.id);
         state.guidebookDetails = {
           ...state.guidebookDetails,
