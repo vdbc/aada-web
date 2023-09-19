@@ -4,6 +4,7 @@ import { useAppSelector } from "../../store";
 import { selectGalleryDetail } from "../../store/modules/gallery";
 import styles from "./styles.module.scss";
 import Image from "next/image";
+import { selectVideoDetail } from "../../store/modules/video";
 
 
 declare type ViewProps = {
@@ -12,22 +13,20 @@ declare type ViewProps = {
 };
 
 export default function _View({ id, className }: ViewProps) {
-  const { images } = useAppSelector(selectGalleryDetail(id)) || {};
-  // if (!images || images.length == 0) return null;
-  console.log("log news", images);
+  const { images } = useAppSelector(selectVideoDetail(id)) || {};
+  if (!images || images.length == 0) return null;
+
   return (
     <div className={[styles.container, className ?? ""].join(" ")}>
       <Link href={`/`}>
         <div className={styles.thumbnail}>
           <div>
             {images.map((image) => (
-              <Image
+              <video
                 key={image?.id}
                 src={
-                  `${image?.url}?format=webp&size=w500` || "/default-thumbnail.jpg"
+                  `${image?.url}?size=w500`
                 }
-                alt="Thumbnail"
-                fill
               />
             ))}
           </div>

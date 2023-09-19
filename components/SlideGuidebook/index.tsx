@@ -31,13 +31,14 @@ function SliderItem({ id, className }: SliderItemProps) {
     );
   return (
     <div>
-      <div className={styles.sliderItemContainer}>
-        <div className={styles.sliderLogo}>
-          <Image src="/home/slide_inactive_logo_new.svg" alt="Logo" fill />
-        </div>
 
+      <div className={styles.sliderLogo}>
+        <Image src="/gallery/yearbook.jpg" alt="Logo" fill />
       </div>
-      <p className={styles.title}>{title}</p>
+
+      <div className={styles.title}>
+        <p className={styles.title}>{title}</p>
+      </div>
     </div>
   );
 }
@@ -52,7 +53,7 @@ export default function _View() {
     <div className={styles.wrapper}>
       <main className={styles.main}>
         <div className={styles.buttonContainer}>
-          <MdArrowBack size={20} onClick={() => swiper?.slidePrev()} />
+          <MdArrowBack size={40} onClick={() => swiper?.slidePrev()} />
         </div>
         <Swiper
           onSwiper={setSwiper}
@@ -71,7 +72,7 @@ export default function _View() {
           ))}
         </Swiper>
         <div className={styles.buttonContainer}>
-          <MdArrowForward size={20} onClick={() => swiper?.slideNext()} />
+          <MdArrowForward size={40} onClick={() => swiper?.slideNext()} />
         </div>
       </main>
       <div className={styles.actions}>

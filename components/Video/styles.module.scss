@@ -11,18 +11,18 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  justify-content: center;
 
   .buttonContainerLeft {
     cursor: pointer;
     color: black;
-    margin-left: 50px;
+
   }
 
   .buttonContainerRight {
     cursor: pointer;
     color: black;
-    margin-right: 50px;
+
   }
 
   @media (max-width: 800px) {

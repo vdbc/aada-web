@@ -49,32 +49,34 @@ export default function _View({ id, className }: AlbumCardProps) {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.buttonContainerLeft}>
-          <MdArrowBack size={20} onClick={() => swiper?.slidePrev()} />
+          <MdArrowBack size={40} onClick={() => swiper?.slidePrev()} />
         </div>
-        <Swiper
-          onSwiper={setSwiper}
-          cssMode={true}
-          mousewheel={true}
-          keyboard={true}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-          className={styles.mySwiper}
-        >
+        <div>
+          <Swiper
+            onSwiper={setSwiper}
+            cssMode={true}
+            mousewheel={true}
+            keyboard={true}
+            modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+            className={styles.mySwiper}
+          >
 
-          <SwiperSlide>
-            <div className={styles.videoWrapper}>
-              <iframe
-                title={title}
-                src={thumbnail}
-                frameBorder="0"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </SwiperSlide>
+            <SwiperSlide>
+              <div className={styles.videoWrapper}>
+                <iframe
+                  title={title}
+                  src={thumbnail}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </SwiperSlide>
 
-        </Swiper>
+          </Swiper>
+        </div>
         <div className={styles.buttonContainerRight}>
-          <MdArrowForward size={20} onClick={() => swiper?.slideNext()} />
+          <MdArrowForward size={40} onClick={() => swiper?.slideNext()} />
         </div>
 
       </div>

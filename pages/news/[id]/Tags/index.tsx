@@ -11,7 +11,6 @@ declare type ViewProps = {
 export default function _View({ id }: ViewProps) {
   const { tags } = useAppSelector(selectNewsDetail(id)) || {};
   if (!tags || tags.length == 0) return null;
-
   return (
     <div className={styles.container}>
       <h3 className={styles.label}>Tags</h3>

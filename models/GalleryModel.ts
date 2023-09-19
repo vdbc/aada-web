@@ -1,11 +1,11 @@
 
-export interface Images {
+export interface Image {
     id: number;
     title: string;
     url: string;
 }
 
-export const imagesEmpty: Images = { id: 0, title: "", url: "" };
+export const imagesEmpty: Image = { id: 0, title: "", url: "" };
 export interface GalleryModel {
     id: number;
     thumbnail: string;
@@ -13,7 +13,7 @@ export interface GalleryModel {
     description: string;
     year: string;
     source: string;
-    images: Images[];
+    images: Image[];
     createdAt: string;
     mediaType: string;
 }
