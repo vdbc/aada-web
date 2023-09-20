@@ -1,4 +1,3 @@
-import { isEmpty } from "lodash";
 import { useState } from "react";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import { EffectCoverflow, Navigation, Pagination } from "swiper";
@@ -8,72 +7,66 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useAppSelector } from "../../store";
-import {
-  selectGuidebookDetail,
-  selectGuidebookIds,
-} from "../../store/modules/guidebook";
+import { selectGuidebookIds } from "../../store/modules/guidebook";
 import { ButtonExplore } from "../ButtonExplore";
-import VdbcImage from "../VdbcImage";
+import GuidebookCard from "../GuidebookCard";
 import styles from "./styles.module.scss";
 
-declare type SliderItemProps = {
-  id: number;
-  className?: string;
-};
-
-function SliderItem({ id, className }: SliderItemProps) {
-  const guidebook = useAppSelector(selectGuidebookDetail(id)) ?? {};
-
-  const { title, thumbnail } = guidebook;
-
-  if (isEmpty(guidebook))
-    return (
-      <div
-        className={[styles.container, className ?? "", styles.hidden].join(" ")}
-      />
-    );
-  return (
-    <div>
-      <div className={styles.sliderLogo}>
-        <VdbcImage src={thumbnail} alt="Logo" fill />
-      </div>
-      <div className={styles.title}>
-        <p className={styles.title}>{title}</p>
-      </div>
-    </div>
-  );
-}
-
 export default function _View() {
-  const [page, setPage] = useState(1);
   const [swiper, setSwiper] = useState<any>(null);
   const guidebookIds = useAppSelector(selectGuidebookIds);
   return (
-    <div className={styles.wrapper}>
-      <main className={styles.main}>
-        <div className={styles.buttonContainer}>
-          <MdArrowBack size={40} onClick={() => swiper?.slidePrev()} />
+    <div className={styles.container}>
+      <h2 className={styles.title}>PDF ASSETS</h2>
+      <div className={styles.slideContainer}>
+        <div
+          className={styles.buttonContainer}
+          onClick={() => swiper?.slidePrev()}
+        >
+          <MdArrowBack />
         </div>
         <Swiper
           onSwiper={setSwiper}
-          spaceBetween={0}
-          slidesPerView={3}
+          spaceBetween={32}
+          slidesPerView={1.2}
           modules={[EffectCoverflow, Pagination, Navigation]}
           className={styles.sliders}
+          breakpoints={{
+            300: {
+              slidesPerView: 1.2,
+            },
+            400: {
+              slidesPerView: 1.4,
+            },
+            500: {
+              slidesPerView: 1.8,
+            },
+            600: {
+              slidesPerView: 2.2,
+            },
+            700: {
+              slidesPerView: 2.5,
+            },
+            900: {
+              slidesPerView: 3,
+            },
+          }}
         >
           {guidebookIds.map((guidebookId) => (
-            <SwiperSlide
-              key={guidebookId}
-              className={guidebookId == page ? styles.activeSlide : undefined}
-            >
-              <SliderItem id={guidebookId} />
+            <SwiperSlide key={guidebookId}>
+              <div className={styles.slideItemContainer}>
+                <GuidebookCard id={guidebookId} className={styles.cardItem} />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className={styles.buttonContainer}>
-          <MdArrowForward size={40} onClick={() => swiper?.slideNext()} />
+        <div
+          className={styles.buttonContainer}
+          onClick={() => swiper?.slideNext()}
+        >
+          <MdArrowForward />
         </div>
-      </main>
+      </div>
       <div className={styles.actions}>
         <ButtonExplore href="/media-center/pdf">EXPLORE ALL</ButtonExplore>
       </div>
