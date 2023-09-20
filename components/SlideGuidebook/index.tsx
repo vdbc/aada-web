@@ -37,7 +37,6 @@ function SliderItem({ id, className }: SliderItemProps) {
       <div className={styles.sliderLogo}>
         <VdbcImage src={thumbnail} alt="Logo" fill />
       </div>
-
       <div className={styles.title}>
         <p className={styles.title}>{title}</p>
       </div>

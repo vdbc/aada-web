@@ -4,7 +4,9 @@ import styles from "./styles.module.scss";
 declare type ButtonExploreProps = {
   href: string;
   children: any;
+  onClick?: () => void;
 };
+
 export function ButtonExplore({ href, children }: ButtonExploreProps) {
   return (
     <Link href={href}>
@@ -15,14 +17,15 @@ export function ButtonExplore({ href, children }: ButtonExploreProps) {
   );
 }
 
-export function ButtonLoadMore({ href, children }: ButtonExploreProps) {
+declare type ButtonLoadMoreProps = {
+  children: any;
+  onClick?: () => void;
+};
+export function ButtonLoadMore({ children, onClick }: ButtonLoadMoreProps) {
   return (
-    <Link href={href}>
-      <div className={styles.button}>
-        <div className={styles.wrapperBt}>{children}</div>
-      </div>
-    </Link>
+    <div className={styles.button}>
+      <div className={styles.wrapperBt} onClick={onClick}>{children}</div>
+    </div>
+
   );
 }
-
-

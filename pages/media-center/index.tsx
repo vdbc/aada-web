@@ -15,8 +15,10 @@ import MenuAlbum from "./MenuAlbum";
 
 import styles from "./styles.module.scss";
 
+
 export default function _View({ id }: { id: number }) {
   const galleries = useAppSelector(selectGalleryDetail(id));
+
   return (
     <div className={styles.container}>
       <Header />

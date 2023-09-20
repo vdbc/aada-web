@@ -1,4 +1,5 @@
 import { isEmpty } from "lodash";
+
 import { useAppSelector } from "../../store";
 import {
   selectGalleryDetail,
@@ -7,6 +8,11 @@ import {
 import { ButtonLoadMore } from "../ButtonExplore";
 import CardImage from "../CardImage";
 import styles from "./styles.module.scss";
+import { useState } from "react";
+
+
+
+
 
 declare type AlbumCardProps = {
   id: number;
@@ -35,11 +41,15 @@ function AlbumBanner({ id, className }: AlbumCardProps) {
 }
 
 export default function _View() {
+  const [showAllImages, setShowAllImages] = useState(false);
+
   function splitGalleriesToRows(_galleryIds: number[]) {
     const galleryIds = [..._galleryIds];
     const result: number[][] = [];
 
-    while (galleryIds.length > 0) {
+    const maxRows = showAllImages ? galleryIds.length : 2;
+
+    for (let i = 0; i < maxRows; i++) {
       const rowIds = galleryIds.splice(0, 3);
       result.push(rowIds);
     }
@@ -49,6 +59,11 @@ export default function _View() {
 
   const galleriesIds = useAppSelector(selectGalleryIds);
   const [row1, row2, ...rows] = splitGalleriesToRows(galleriesIds);
+
+  const handleLoadMore = () => {
+    setShowAllImages(true);
+  };
+
   return (
     <div className={styles.wrapper}>
       {galleriesIds.map((galleriesIds) => (
@@ -69,7 +84,7 @@ export default function _View() {
                 <CardImage id={row2[2]} className={styles.item} />
               </div>
             )}
-            {rows.map((ids, index) => (
+            {showAllImages && rows.map((ids, index) => (
               <div key={index} className={styles.row}>
                 {ids.map((id) => (
                   <CardImage key={id} id={id} className={styles.item} />
@@ -77,11 +92,14 @@ export default function _View() {
               </div>
             ))}
           </div>
+
           <div className={styles.actions}>
-            <ButtonLoadMore href="/media-center/Gallery">
+            <ButtonLoadMore >
               Load More
             </ButtonLoadMore>
           </div>
+
+          (fix video gallery page)
         </div>
       ))}
     </div>

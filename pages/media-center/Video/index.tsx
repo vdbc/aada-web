@@ -6,14 +6,12 @@ import Header from "../../../components/Header";
 import { GalleryTopBanner } from "../../../components/TopBanner";
 
 import styles from "./styles.module.scss";
-import SlideVideo from "../../../components/SlideVideo";
 import CardVideo from "../../../components/CardVideo";
-import { selectVideoDetail, selectVideoIds } from "../../../store/modules/video";
-import { useAppSelector } from "../../../store";
+import { getAllVideo, selectVideoDetail, selectVideoIds } from "../../../store/modules/video";
+import { useAppSelector, wrapper } from "../../../store";
 
 
-export default function _View({ id }: { id: number }) {
-  const video = useAppSelector(selectVideoIds);
+export default function _View() {
   return (
     <div className={styles.container}>
       <Head>
@@ -22,16 +20,21 @@ export default function _View({ id }: { id: number }) {
       <main className={styles.main}>
         <Header />
         <GalleryTopBanner />
-        <div className={styles.wrapper}>
-          {video.map((videoId) => (
-            <div key={videoId} className={styles.box}>
-              <CardVideo id={videoId} />
-            </div>
-          ))}
-        </div>
+        <h3>Media Center/ <b>Video</b></h3>
+        <CardVideo />
         <AdvisorsFooterBanner />
       </main>
       <Footer />
     </div>
   );
 }
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async () => {
+    await Promise.all([
+      store.dispatch(getAllVideo()),
+    ]);
+    return {
+      props: {},
+    };
+  }
+);

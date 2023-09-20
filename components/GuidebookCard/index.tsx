@@ -4,8 +4,11 @@ import { selectGuidebookDetail } from "../../store/modules/guidebook";
 import VdbcImage from "../VdbcImage";
 import styles from "./styles.module.scss";
 
+import { isEmpty } from "lodash";
+
 declare type GuideBookCardProps = {
   id: number;
+
 };
 
 export default function _View({ id }: GuideBookCardProps) {
@@ -20,5 +23,6 @@ export default function _View({ id }: GuideBookCardProps) {
       </div>
       <div className={styles.title}>{title}</div>
     </Link>
+
   );
 }

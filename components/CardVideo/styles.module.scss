@@ -375,3 +375,63 @@
   font-size: 10px;
   text-transform: none;
 }
+
+.main {
+  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 41px;
+    color: #785b3d;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+
+  .row {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    >* {
+      margin-left: 15px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+
+    .item,
+    .item2 {
+      min-width: 250px;
+    }
+
+    .item {
+      flex: 250;
+      height: 400px;
+    }
+
+    .item2 {
+      flex: 450;
+      height: 400px;
+    }
+  }
+}

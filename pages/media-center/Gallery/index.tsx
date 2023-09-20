@@ -7,10 +7,9 @@ import Footer from "../../../components/Footer";
 import { AdvisorsFooterBanner } from "../../../components/FooterBanner";
 import { GalleryTopBanner } from "../../../components/TopBanner";
 import AlbumBanner from "../../../components/AlbumBanner";
-import { BsCardImage } from "react-icons/bs";
-import CardImage from "../../../components/CardImage";
-import { useAppSelector } from "../../../store";
-import { selectGalleryIds } from "../../../store/modules/gallery";
+import { wrapper } from "../../../store";
+import { getAllGallery } from "../../../store/modules/gallery";
+
 
 export default function Home() {
 
@@ -35,3 +34,13 @@ export default function Home() {
   );
 }
 
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async () => {
+    await Promise.all([
+      store.dispatch(getAllGallery()),
+    ]);
+    return {
+      props: {},
+    };
+  }
+);

@@ -1,51 +1,101 @@
-import SwiperCore, { Navigation, Pagination } from "swiper";
+import SwiperCore, { Keyboard, Mousewheel, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 import { useAppSelector } from "../../store";
 import { ButtonExplore } from "../ButtonExplore";
 import styles from "./styles.module.scss";
 
-import Head from "next/head";
-import { selectVideoIds } from "../../store/modules/video";
-import Video from "../Video";
-
+import { isEmpty } from "lodash";
+import { selectGalleryDetail } from "../../store/modules/gallery";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { selectVideoDetail, selectVideoIds } from "../../store/modules/video";
+import { useState, useRef } from "react";
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
 SwiperCore.use([Navigation, Pagination]);
 
-const fileServices = [
-  "https://files-uat.aadawards.com",
-  "https://files.aadawards.com",
-];
+declare type SliderItemProps = {
+  id: number;
+  className?: string;
+};
 
-function getImageUrl(url: string): string {
-  for (let index = 0; index < fileServices.length; index++) {
-    const fileService = fileServices[index];
-    if (url.startsWith(fileService)) return `${url}?format=webp&size=w1000`;
+function SliderItem({ id, className }: SliderItemProps) {
+  const videos = useAppSelector(selectVideoDetail(id)) ?? {};
+  const { title, url } = videos;
+
+  if (isEmpty(videos))
+    return (
+      <div
+        className={[styles.container, className ?? "", styles.hidden].join(" ")}
+      />
+    );
+  const youtubeVideoId = extractYoutubeVideoId(url);
+
+  function extractYoutubeVideoId(url: string) {
+    const videoIdRegex =
+      /(?:youtube(?:-nocookie)?\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/ ]{11})/i;
+    const match = url.match(videoIdRegex);
+    return match && match[1];
   }
-  return url;
+  return (
+    <div className={styles.videoWrapper}>
+      {youtubeVideoId && (
+        <iframe
+          title={title}
+          src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+          frameBorder="0"
+          allow="encrypted-media"
+          allowFullScreen
+        ></iframe>
+      )}
+    </div>
+  );
 }
 
-export default function Home() {
+
+
+
+declare type AlbumCardProps = {
+  id: number;
+  className?: string;
+};
+
+export default function _View() {
+  const [swiper, setSwiper] = useState<any>(null);
+  const [page, setPage] = useState(1);
+
   const videoIds = useAppSelector(selectVideoIds);
+  const swiperRef = useRef<any>(null);
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Gallery</title>
-      </Head>
-      <main className={styles.main}>
-        <div className={styles.content}>
-          {videoIds.map((videoId) => (
-            <div key={videoId} className={styles.item}>
-              <Video id={videoId} />
-            </div>
-          ))}
+      <div className={styles.wrapper}>
+        <div className={styles.buttonContainer}>
+          <MdArrowBack size={40} onClick={() => swiper?.slidePrev()} />
         </div>
-        <div className={styles.actions}>
-          <ButtonExplore href="/media-center/Video">EXPLORE ALL</ButtonExplore>
+        <div>
+          <Swiper
+            onSwiper={setSwiper}
+            cssMode={true}
+            mousewheel={true}
+            keyboard={true}
+            modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+            className={styles.mySwiper}
+          >
+            {videoIds.map((videoId) => (
+              <SwiperSlide key={videoId} className={videoId === page ? styles.activeSlide : undefined}>
+                <SliderItem id={videoId} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-      </main>
+        <div className={styles.buttonContainer}>
+          <MdArrowForward size={40} onClick={() => swiper?.slideNext()} />
+        </div>
+      </div>
+      <div className={styles.actions}>
+        <ButtonExplore href="/media-center/Video">EXPLORE ALL </ButtonExplore>
+      </div>
     </div>
   );
 }
