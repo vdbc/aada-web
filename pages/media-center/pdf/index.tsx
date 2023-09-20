@@ -35,10 +35,10 @@ export default function Home() {
           <div className={styles.contentWrapper}>
             <h2 className={styles.title}>PDF Assets</h2>
             <p className={styles.description}>
-              On the evening of August 14th, the Winners' Night of the 2023 Asia
+              On the evening of August 14th, the Winners’ Night of the 2023 Asia
               Architecture Design Awards (AADA) stood in the spotlight at Marina
               Bay Sands - a pinnacle of architectural brilliance within
-              Singapore, Asia's vanguard metropolis.
+              Singapore, Asia’s vanguard metropolis.
             </p>
             <div className={styles.pdfs}>
               {pdfs.map((pdfId) => (
