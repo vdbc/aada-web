@@ -7,8 +7,6 @@ import { selectGalleryIds } from "../../../store/modules/gallery";
 import { useAppSelector } from "../../../store";
 
 export default function Home() {
-
-
   function splitGalleriesToRows(_galleryIds: number[]) {
     const galleryIds = [..._galleryIds];
     const result: number[][] = [];
@@ -22,7 +20,7 @@ export default function Home() {
   }
 
   const galleriesIds = useAppSelector(selectGalleryIds);
-  const rows = splitGalleriesToRows(galleriesIds);
+  const rows = splitGalleriesToRows(galleriesIds).slice(0, 2); // Only keep the first two rows
 
   return (
     <div className={styles.container}>
@@ -34,17 +32,14 @@ export default function Home() {
           {rows.map((ids, index) => (
             <div key={index} className={styles.row}>
               {ids.map((id) => (
-                <AlbumCard
-                  key={id} id={id} className={styles.item}
-                />
+                <AlbumCard key={id} id={id} className={styles.item} />
               ))}
             </div>
           ))}
         </div>
         <div className={styles.actions}>
-          <ButtonExplore href="/media-center/Gallery">EXPLORE ALL </ButtonExplore>
+          <ButtonExplore href="/media-center/Gallery">EXPLORE ALL</ButtonExplore>
         </div>
-
       </main>
     </div>
   );

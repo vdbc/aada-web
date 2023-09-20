@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #ffff;
 
   .content {
     width: 100%;
@@ -19,6 +20,7 @@
     align-items: center;
     text-align: center;
     padding: 0 20px;
+
 
     .path {
       margin-top: 50px;
@@ -73,7 +75,7 @@
       justify-content: space-around;
       gap: 20px;
 
-      > * {
+      >* {
         flex: 1;
         min-width: 250px;
         max-width: 300px;
