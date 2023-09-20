@@ -1,5 +1,5 @@
 export const apiUrl = "https://api.aadawards.com/api";
 export const winnerNightApiUrl = "https://api.aadawards.com/winner-night";
 export const paypalClientId =
-  "AXGi-HsCUCIsdX0IZxFFsu9FYuBUXuw1NcaGDASwbsH2NcHOMDbuHpd7jbOYTqHMdGN_0iX8CUFnUqbB";
+  "AcOaIutmQZlkrIMODc7yJX8ddxCyKm5JhryaRWzOI-Kn98zbzKw9z8NyCXnQqBEFMAJhViYPO1JZDxzp";
 export const fileUrl = "https://files.aadawards.com";
