@@ -20,7 +20,7 @@ export default function Home() {
   }
 
   const galleriesIds = useAppSelector(selectGalleryIds);
-  const rows = splitGalleriesToRows(galleriesIds).slice(0, 2); // Only keep the first two rows
+  const rows = splitGalleriesToRows(galleriesIds).slice(0, 2);
 
   return (
     <div className={styles.container}>

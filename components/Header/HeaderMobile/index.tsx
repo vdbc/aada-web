@@ -26,12 +26,12 @@ const noLoggedTab: HeaderDetail[] = [
     link: "/the-award",
   },
   {
-    title: "Winners' 2023",
-    link: "/winners-2023",
-  },
-  {
     title: "Categories",
     link: "/categories",
+  },
+  {
+    title: "Registration",
+    link: "/registration",
   },
   // {
   //   title: "Registration",
@@ -42,8 +42,12 @@ const noLoggedTab: HeaderDetail[] = [
     link: "/get-involved",
   },
   {
+    title: "Contact",
+    link: "/contact",
+  },
+  {
     title: "Advisors",
-    link: "/advisors",
+    link: "/advisor",
   },
 ];
 const loggedInTab: HeaderDetail[] = [
