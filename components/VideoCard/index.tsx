@@ -36,14 +36,22 @@ export default function VideoCard({ id, className }: AlbumCardProps) {
   });
 
   return (
-    <iframe
+    <div
+      className={[styles.container, className].join(" ")}
       ref={ref}
-      className={[styles.iframe, className].join(" ")}
-      title={title}
-      src={src}
-      allow="encrypted-media"
-      allowFullScreen
       style={{ height }}
-    />
+    >
+      <iframe
+        className={styles.iframe}
+        title={title}
+        src={src}
+        allow="encrypted-media"
+        allowFullScreen
+      />
+      <div className={styles.content}>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.desc}>{description}</div>
+      </div>
+    </div>
   );
 }
