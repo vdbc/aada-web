@@ -66,10 +66,10 @@ function ImagesAlbum({
   images: Image[];
   albumId: number;
 }) {
-  if (isEmpty(images)) return null;
-
   const [isOpenDetail, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
+
+  if (isEmpty(images)) return null;
 
   return (
     <div className={styles.images}>
