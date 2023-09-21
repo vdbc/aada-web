@@ -80,6 +80,7 @@
 }
 
 .albumContainer {
+  margin-top: 32px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -89,7 +90,23 @@
     width: 100%;
     border-bottom: 5px solid #a67f56;
     padding: 24px;
-    background: var(--gray-100, #f3f4f6);
+    background: #f3f4f6;
+
+    h3 {
+      color: #a67f56;
+      text-align: center;
+      font-family: Big Caslon FB;
+      font-size: 48px;
+      font-weight: 700;
+      margin: 0;
+    }
+    p {
+      color: #16203c;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 400;
+      white-space: pre-line;
+    }
   }
 
   .images {

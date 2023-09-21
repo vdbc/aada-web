@@ -25,15 +25,15 @@ export default function VideoCard({ id, className }: AlbumCardProps) {
   const [height, setHeight] = useState(300);
   const [src, setSrc] = useState("");
 
-  if (isEmpty(video)) return null;
-
-  const youtubeId = getYoutubeIdFromUrl(url);
   useEffect(() => {
     const width = ref.current?.clientWidth || 0;
     if (!width) return;
     setHeight((width * 9) / 16);
+    const youtubeId = getYoutubeIdFromUrl(url);
     setSrc(`https://www.youtube.com/embed/${youtubeId}`);
   });
+
+  if (isEmpty(video)) return null;
 
   return (
     <div
