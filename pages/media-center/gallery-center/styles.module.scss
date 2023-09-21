@@ -155,3 +155,35 @@
     line-height: 113%;
   }
 }
+
+.imageDetailContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+
+  .image {
+    position: relative;
+    width: 100vw;
+    max-width: 1000px;
+    height: 50vh;
+    min-height: 500px;
+
+    img {
+      object-fit: contain;
+      object-position: bottom;
+    }
+  }
+
+  .imageDesc {
+    color: #fff;
+    text-align: center;
+
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
