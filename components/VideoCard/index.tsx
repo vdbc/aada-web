@@ -12,6 +12,9 @@ declare type AlbumCardProps = {
 function getYoutubeIdFromUrl(url: string) {
   try {
     const uri = new URL(url);
+    if (uri.hostname == "youtu.be") {
+      return uri.pathname.replace(/^\//, "");
+    }
     return uri.searchParams.get("v") || "";
   } catch (error) {
     return "";
