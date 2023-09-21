@@ -13,6 +13,7 @@ import {
 import { getAllGuidebook } from "../../store/modules/guidebook";
 import { getAllVideo } from "../../store/modules/video";
 
+import { isEmpty } from "lodash";
 import Link from "next/link";
 import { ButtonExplore } from "../../components/ButtonExplore";
 import SlideVideo from "../../components/SlideVideo";
@@ -37,6 +38,8 @@ function _renderAlbumBanner(id: number) {
 
 function GalleryBanner() {
   const albumIds = useAppSelector(selectAlbumIds);
+
+  if (isEmpty(albumIds)) return null;
 
   return (
     <div className={styles.galleryBannerContainer}>

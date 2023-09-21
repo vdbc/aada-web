@@ -1,3 +1,4 @@
+import { isEmpty } from "lodash";
 import { useState } from "react";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import { EffectCoverflow, Navigation, Pagination } from "swiper";
@@ -15,6 +16,8 @@ import styles from "./styles.module.scss";
 export default function _View() {
   const [swiper, setSwiper] = useState<any>(null);
   const guidebookIds = useAppSelector(selectGuidebookIds);
+
+  if (isEmpty(guidebookIds)) return null;
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>PDF ASSETS</h2>
