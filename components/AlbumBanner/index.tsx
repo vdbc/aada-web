@@ -1,13 +1,9 @@
 import { isEmpty } from "lodash";
-import Image from "next/image";
-import { useAppSelector, wrapper } from "../../store";
-import { getGalleryDetail, selectGalleryDetail, selectGalleryIds } from "../../store/modules/gallery";
-import styles from "./styles.module.scss";
-import Link from "next/link";
-import { GalleryModel } from "../../models/GalleryModel";
-import { getGalleryImages } from "../../utils/gallery";
+import { useAppSelector } from "../../store";
+import { selectAlbumDetail, selectAlbumIds } from "../../store/modules/gallery";
+import { ButtonLoadMore } from "../ButtonExplore";
 import CardImage from "../CardImage";
-import { ButtonExplore, ButtonLoadMore } from "../ButtonExplore";
+import styles from "./styles.module.scss";
 
 declare type AlbumCardProps = {
   id: number;
@@ -15,7 +11,7 @@ declare type AlbumCardProps = {
 };
 
 function AlbumBanner({ id, className }: AlbumCardProps) {
-  const galleries = useAppSelector(selectGalleryDetail(id)) ?? {};
+  const galleries = useAppSelector(selectAlbumDetail(id)) ?? {};
   const { title, description } = galleries;
   if (isEmpty(galleries))
     return (
@@ -32,7 +28,6 @@ function AlbumBanner({ id, className }: AlbumCardProps) {
         </div>
         <div className={styles.para}>{description}</div>
       </div>
-
       Copy
     </div>
   );
@@ -43,7 +38,6 @@ export default function _View() {
     const galleryIds = [..._galleryIds];
     const result: number[][] = [];
 
-
     while (galleryIds.length > 0) {
       const rowIds = galleryIds.splice(0, 3);
       result.push(rowIds);
@@ -52,7 +46,7 @@ export default function _View() {
     return result;
   }
 
-  const galleriesIds = useAppSelector(selectGalleryIds);
+  const galleriesIds = useAppSelector(selectAlbumIds);
   const [row1, row2, ...rows] = splitGalleriesToRows(galleriesIds);
   return (
     <div className={styles.wrapper}>
@@ -86,9 +80,7 @@ export default function _View() {
             <ButtonLoadMore>Load More</ButtonLoadMore>
           </div>
         </div>
-
       ))}
-
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import { isEmpty } from "lodash";
 import Image from "next/image";
 import { useAppSelector } from "../../store";
+import { selectAlbumDetail } from "../../store/modules/gallery";
 import styles from "./styles.module.scss";
-import { selectGalleryDetail } from "../../store/modules/gallery";
 
 declare type GalleryCardProps = {
   id: number;
@@ -10,7 +10,7 @@ declare type GalleryCardProps = {
 };
 
 export default function _View({ id, className }: GalleryCardProps) {
-  const gallery = useAppSelector(selectGalleryDetail(id)) ?? {};
+  const gallery = useAppSelector(selectAlbumDetail(id)) ?? {};
   const { url } = gallery;
 
   if (isEmpty(gallery))

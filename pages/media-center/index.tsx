@@ -4,16 +4,52 @@ import { AdvisorsFooterBanner } from "../../components/FooterBanner";
 import Header from "../../components/Header";
 import SlideGuidebook from "../../components/SlideGuidebook";
 import { GalleryTopBanner } from "../../components/TopBanner";
-import { wrapper } from "../../store";
-import { getAllGallery } from "../../store/modules/gallery";
+import { useAppSelector, wrapper } from "../../store";
+import {
+  getAllGallery,
+  selectAlbumDetail,
+  selectAlbumIds,
+} from "../../store/modules/gallery";
 import { getAllGuidebook } from "../../store/modules/guidebook";
 import { getAllVideo } from "../../store/modules/video";
-import MenuAlbum from "./MenuAlbum";
 
+import Link from "next/link";
+import { ButtonExplore } from "../../components/ButtonExplore";
 import SlideVideo from "../../components/SlideVideo";
+import VdbcImage from "../../components/VdbcImage";
 import styles from "./styles.module.scss";
 
 const spacer = <div style={{ height: 95 }} />;
+
+function _renderAlbumBanner(id: number) {
+  const { thumbnail, title } = useAppSelector(selectAlbumDetail(id));
+
+  return (
+    <Link
+      href={`/media-center/gallery-center#album_${id}`}
+      className={styles.albumItem}
+    >
+      <VdbcImage src={thumbnail} alt={title} fill />
+      <div className={styles.albumTitle}>{title}</div>
+    </Link>
+  );
+}
+
+function GalleryBanner() {
+  const albumIds = useAppSelector(selectAlbumIds);
+
+  return (
+    <div className={styles.galleryBannerContainer}>
+      <h2>Gallery</h2>
+      <div className={styles.albums}>
+        {albumIds.slice(0, 4).map(_renderAlbumBanner)}
+      </div>
+      <ButtonExplore href="/media-center/gallery-center">
+        EXPLORE ALL
+      </ButtonExplore>
+    </div>
+  );
+}
 
 export default function _View({ id }: { id: number }) {
   return (
@@ -25,8 +61,7 @@ export default function _View({ id }: { id: number }) {
         <Header />
         <GalleryTopBanner />
         <div className={styles.content}>
-          <h2>GALLERY</h2>
-          <MenuAlbum />
+          <GalleryBanner />
           {spacer}
           <SlideVideo />
           {spacer}

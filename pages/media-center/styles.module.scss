@@ -23,3 +23,50 @@
     }
   }
 }
+
+.galleryBannerContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    color: #a67f56;
+    text-align: center;
+    font-family: Big Caslon FB;
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 113%;
+    text-transform: uppercase;
+  }
+
+  .albums {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+
+    > * {
+      flex: 1;
+      min-width: 400px;
+      max-width: 800px;
+      height: 400px;
+
+      @media (max-width: 400px) {
+        min-width: 200px;
+      }
+    }
+
+    .albumItem {
+      position: relative;
+
+      img {
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}

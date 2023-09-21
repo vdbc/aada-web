@@ -5,8 +5,21 @@ export interface Image {
 }
 
 export const imagesEmpty: Image = { id: 0, title: "", url: "" };
-export interface GalleryModel {
 
+export interface GalleryAlbum {
+  id: number;
+  thumbnail: string;
+  title: string;
+  description: string;
+  year: string;
+  url: string;
+  source: string;
+  images: Image[];
+  createdAt: string;
+  mediaType: string;
+}
+
+export interface GalleryModel {
   id: number;
   thumbnail: string;
   title: string;
@@ -30,6 +43,4 @@ export const galleryEmpty: GalleryModel = {
   createdAt: "",
   mediaType: "",
   url: "",
-}
-
-
+};

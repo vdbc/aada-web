@@ -1,8 +1,8 @@
 import { apiUat } from "../models/AppConfig";
-import { GalleryModel } from "../models/GalleryModel";
+import { GalleryAlbum, GalleryModel } from "../models/GalleryModel";
 import { get } from "./http";
 
-export async function fetchAllGallery(): Promise<GalleryModel[]> {
+export async function fetchAllGallery(): Promise<GalleryAlbum[]> {
   const url = `${apiUat}/media-center/AADA/gallery`;
   const params = {
     page: 0,

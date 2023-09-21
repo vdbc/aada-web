@@ -1,12 +1,10 @@
-
+import { isEmpty } from "lodash";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./styles.module.scss";
 import { useAppSelector } from "../../store";
-import { isEmpty } from "lodash";
-import { selectGalleryDetail } from "../../store/modules/gallery";
+import { selectAlbumDetail } from "../../store/modules/gallery";
 import { ButtonExplore } from "../ButtonExplore";
-
+import styles from "./styles.module.scss";
 
 declare type AlbumCardProps = {
   id: number;
@@ -14,7 +12,7 @@ declare type AlbumCardProps = {
 };
 
 export default function _View({ id, className }: AlbumCardProps) {
-  const galleries = useAppSelector(selectGalleryDetail(id)) ?? {};
+  const galleries = useAppSelector(selectAlbumDetail(id)) ?? {};
   const { title, thumbnail } = galleries;
   if (isEmpty(galleries))
     return (

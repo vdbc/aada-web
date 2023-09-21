@@ -1,26 +1,26 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { keyBy } from "lodash";
 import { RootState } from "../..";
-import { GalleryModel } from "../../../models/GalleryModel";
+import { GalleryAlbum, GalleryModel } from "../../../models/GalleryModel";
 import {
   fetchAllGallery,
   fetchGalleryDetail,
 } from "../../../services/GalleryService";
 
 export interface GalleryState {
-  galleryIds: number[];
-  galleryDetails: {
+  albumIds: number[];
+  albumDetails: {
     [key: string]: GalleryModel;
   };
 }
 
 const initialState: GalleryState = {
-  galleryIds: [],
-  galleryDetails: {},
+  albumIds: [],
+  albumDetails: {},
 };
 
 export const getAllGallery = createAsyncThunk<
-  GalleryModel[],
+  GalleryAlbum[],
   void,
   { state: RootState }
 >("gallery/getAllGallery", async (_, store) => {
@@ -42,26 +42,26 @@ export const gallerySlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllGallery.fulfilled, (state, action) => {
-        state.galleryIds = action.payload.map((item) => item.id);
-        state.galleryDetails = {
-          ...state.galleryDetails,
+        state.albumIds = action.payload.map((item) => item.id);
+        state.albumDetails = {
+          ...state.albumDetails,
           ...keyBy(action.payload, (item) => item.id),
         };
       })
       .addCase(getGalleryDetail.fulfilled, (state, action) => {
-        state.galleryDetails = {
-          ...state.galleryDetails,
+        state.albumDetails = {
+          ...state.albumDetails,
           [action.payload.id]: action.payload,
         };
       });
   },
 });
 
-export const selectGalleryIds = (state: RootState) => state.gallery.galleryIds;
-export const selectGalleryDetails = (state: RootState) =>
-  state.gallery.galleryDetails;
+export const selectAlbumIds = (state: RootState) => state.gallery.albumIds;
+export const selectAlbumDetails = (state: RootState) =>
+  state.gallery.albumDetails;
 
-export const selectGalleryDetail = (id: number) => (state: RootState) =>
-  selectGalleryDetails(state)[id];
+export const selectAlbumDetail = (id: number) => (state: RootState) =>
+  selectAlbumDetails(state)[id];
 
 export default gallerySlice;
