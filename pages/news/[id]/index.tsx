@@ -7,8 +7,8 @@ import { getNewsFlugId, getNewsIdFromFlug } from "../../../utils/news";
 import NewsContent from "./NewsContent";
 import NewsDetailHeader from "./NewsDetailHeader";
 import ShareNews from "./ShareNews";
-import styles from "./styles.module.scss";
 import Tags from "./Tags";
+import styles from "./styles.module.scss";
 
 export default function _View({ id }: { id: number }) {
   const news = useAppSelector(selectNewsDetail(id));
@@ -28,7 +28,6 @@ export default function _View({ id }: { id: number }) {
           <ShareNews id={id} />
           <NewsContent id={id} />
           <Tags id={id} />
-          
         </div>
       </main>
       <Footer />

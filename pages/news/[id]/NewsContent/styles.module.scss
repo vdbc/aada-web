@@ -15,5 +15,11 @@
     img {
       width: 100%;
     }
+    iframe {
+      width: 100vw;
+      max-width: 1200px;
+      height: 56.25vw;
+      max-height: 680px;
+    }
   }
 }
