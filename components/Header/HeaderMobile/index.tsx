@@ -29,10 +29,7 @@ const noLoggedTab: HeaderDetail[] = [
     title: "Categories",
     link: "/categories",
   },
-  {
-    title: "Registration",
-    link: "/registration",
-  },
+
   // {
   //   title: "Registration",
   //   link: "/registration",
@@ -42,13 +39,18 @@ const noLoggedTab: HeaderDetail[] = [
     link: "/get-involved",
   },
   {
+    title: "Advisors",
+    link: "/advisor",
+  },
+  {
     title: "Contact",
     link: "/contact",
   },
   {
-    title: "Advisors",
-    link: "/advisor",
+    title: "Gallery",
+    link: "/gallery",
   },
+
 ];
 const loggedInTab: HeaderDetail[] = [
   {

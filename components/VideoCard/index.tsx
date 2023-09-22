@@ -22,12 +22,6 @@ function getYoutubeIdFromUrl(url: string) {
 }
 
 export default function VideoCard({ id, className }: AlbumCardProps) {
-  const video = useAppSelector(selectVideoDetail(id)) ?? {};
-  const { title, description, url } = video;
-  const ref = useRef<HTMLIFrameElement>(null);
-  const [height, setHeight] = useState(300);
-  const [src, setSrc] = useState("");
-
   useEffect(() => {
     const width = ref.current?.clientWidth || 0;
     if (!width) return;
@@ -35,6 +29,13 @@ export default function VideoCard({ id, className }: AlbumCardProps) {
     const youtubeId = getYoutubeIdFromUrl(url);
     setSrc(`https://www.youtube.com/embed/${youtubeId}`);
   });
+
+  const video = useAppSelector(selectVideoDetail(id)) ?? {};
+  const { title, description, url } = video;
+  const ref = useRef<HTMLIFrameElement>(null);
+  const [height, setHeight] = useState(300);
+  const [src, setSrc] = useState("");
+
 
   if (isEmpty(video)) return null;
 
