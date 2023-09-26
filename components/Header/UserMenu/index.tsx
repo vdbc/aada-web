@@ -9,10 +9,11 @@ declare type UserMenuProps = {
 };
 
 export default function UserMenu({ onLogout }: UserMenuProps) {
+  const [isActive, setActive] = useState(false);
   const lastName = useAppSelector(selectLastName);
   const firstName = useAppSelector(selectFirstName);
 
-  const [isActive, setActive] = useState(false);
+
 
   return (
     <div className={styles.container}>

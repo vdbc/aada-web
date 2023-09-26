@@ -20,10 +20,10 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/grid";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.min.css';
+
 
 
 SwiperCore.use([Navigation, Pagination]);

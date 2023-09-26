@@ -49,7 +49,7 @@
     gap: 16px;
     margin-bottom: 32px;
 
-    > * {
+    >* {
       flex: 1;
       min-width: 400px;
       max-width: 800px;
@@ -66,6 +66,18 @@
       img {
         object-fit: cover;
         object-position: center;
+      }
+
+      .albumTitle {
+        position: relative;
+        left: 20px;
+        top: 365px;
+        color: var(--colors-white, #FFF);
+        text-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+        font-family: Lato;
+        font-size: 17px;
+        font-style: normal;
+        line-height: normal;
       }
     }
   }

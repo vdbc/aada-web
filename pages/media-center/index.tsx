@@ -58,7 +58,7 @@ export default function _View({ id }: { id: number }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>PDF Assets</title>
+        <title>Media-Center</title>
       </Head>
       <main className={styles.main}>
         <Header />
