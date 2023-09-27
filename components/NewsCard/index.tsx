@@ -21,6 +21,7 @@ export default function _View({ id, className }: NewsCardProps) {
         className={[styles.container, className ?? "", styles.hidden].join(" ")}
       />
     );
+
   return (
     <div className={[styles.container, className ?? ""].join(" ")}>
       <div className={styles.thumbnail}>
@@ -33,7 +34,7 @@ export default function _View({ id, className }: NewsCardProps) {
           <h3 className={styles.title}>{title}</h3>
           <div className={styles.desc}>{shortContent}</div>
           <div className={styles.actions}>
-            <ButtonLink href={`/news/${getNewsFlugId(news)}`}>
+            <ButtonLink href={`/news/${getNewsFlugId(news)}`} className={styles.className}>
               Read more
             </ButtonLink>
           </div>

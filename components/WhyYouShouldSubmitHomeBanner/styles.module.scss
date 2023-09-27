@@ -4,6 +4,7 @@
   flex-direction: row;
   max-height: 80px;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -12,7 +13,7 @@
   overflow: hidden;
   width: 100%;
   position: relative;
-  color: #a67f56;
+  color: #16203C;
   min-height: calc(100vh - 100px);
   padding: 0;
   padding-top: 76px;
@@ -21,47 +22,65 @@
     min-height: calc(100vh - 60px);
   }
 
-  > h1 {
-    font-family: "SVN-MADE Coachella";
+  >h1 {
+    font-family: Big Caslon FB;
     font-weight: 100;
     font-size: 60px;
     margin: 0;
     text-align: center;
+    color: #a67f56;
+    width: 90%;
+    padding-bottom: 20px;
+
+    @media (max-width: 800px) {
+      font-size: 40px;
+    }
   }
-  > h2 {
+
+  >h2 {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.07em;
+    font-family: Big Caslon FB;
+    background: var(--primary-secondary-gradient, linear-gradient(63deg, #FFF 0%, #C0D0FF 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: normal;
+    text-transform: uppercase;
   }
 
-  > h3 {
+  >h3 {
     font-weight: 700;
     font-size: 25px;
     line-height: 1.5;
   }
 
-  > div {
-    font-size: 15px;
+  >div {
+    font-size: 17px;
     text-align: justify;
     line-height: 1.2;
   }
 
   .subTitle {
     margin-top: 10px;
-    width: 65%;
+    width: 70%;
     max-width: 935px;
     text-align: center;
+    color: #a67f56;
+    font-family: Lato;
+    font-size: 19px;
   }
 
-  > .table {
+  >.table {
     margin-top: 50px;
     width: 100%;
-    background-color: #a67f56;
+    background-color: #16203C;
     display: flex;
     flex: 1;
 
-    > div {
+    >div {
       position: relative;
       width: 100%;
     }
@@ -77,11 +96,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 0.36px solid #a67f56;
+  border: 0.36px solid #353a4e;
   padding: 0 24px;
   height: 35px;
 
-  > .wrapper {
+  >.wrapper {
     margin-right: 45px;
   }
 }
@@ -93,17 +112,19 @@
 }
 
 .discoverTheWorth {
-  background-color: #a67f56;
+  background-color: #16203C;
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 
+
+
   table,
   th,
   td {
-    border: 1px solid #fac47e80;
+    border: 1px solid #353a4e;
     border-collapse: collapse;
   }
 
@@ -156,13 +177,17 @@
   .tableCell {
     padding: 20px;
 
-    background-color: #a67f56;
+    background-color: #16203C;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    > img {
+    @media (max-width: 800px) {
+      height: 250px;
+    }
+
+    >img {
       position: absolute;
     }
 
@@ -172,12 +197,23 @@
       h2 {
         margin-top: 0;
         text-align: left;
-        font-weight: 250;
+        font-weight: 700;
         font-size: 33px;
+        font-family: Big Caslon FB;
+        background: var(--primary-secondary-gradient, linear-gradient(63deg, #FFF 0%, #C0D0FF 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-style: normal;
+        text-transform: uppercase;
       }
 
       p {
+        font-family: Lato;
         font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
       }
     }
   }

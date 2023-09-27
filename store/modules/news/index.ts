@@ -83,4 +83,5 @@ export const selectNewsDetails = (state: RootState) => state.news.newsDetails;
 export const selectNewsDetail = (id: number) => (state: RootState) =>
   selectNewsDetails(state)[id];
 
+
 export default newsSlice;

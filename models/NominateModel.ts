@@ -31,6 +31,7 @@ export interface ProjectNominate {
   designer: string;
   manufacturer: string;
   owner: string;
+  others: string;
   pictures: string[];
   status: ProjectNominateStatus;
   createdAt: Date;

@@ -6,16 +6,16 @@
 
   button {
     font-weight: 500;
-    font-size: 15px;
+    font-size: 17px;
   }
 
-  > div {
+  >div {
     position: relative;
 
     .title {
       min-width: 120px;
       padding: 10px 16px;
-      color: #a67f56;
+      color: #353a4e;
       background-color: transparent;
       border-style: none;
       width: 100%;
@@ -27,20 +27,20 @@
       top: 100%;
       width: 100%;
 
-      > button {
+      >button {
         width: 100%;
         padding: 10px 0;
-        color: #a67f56;
+        color: #353a4e;
         background-color: white;
         border-radius: 0;
-        border: 1px solid #a67f56;
+        border: 1px solid #353a4e;
       }
     }
   }
 
   .active {
     .title {
-      background-color: #a67f56;
+      background-color: #353a4e;
       color: white;
     }
   }

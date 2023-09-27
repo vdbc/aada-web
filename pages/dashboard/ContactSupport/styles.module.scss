@@ -7,10 +7,12 @@
   color: #a67f56;
   background-color: white;
   min-height: 365px;
+
   @media (max-width: 768px) {
     width: 90%;
     margin: 20px 0;
   }
+
   > h2 {
     font-weight: 700;
     font-size: 35px;
@@ -18,9 +20,9 @@
     width: 100%;
     text-align: left;
     text-transform: uppercase;
+
     @media (max-width: 768px) {
       font-size: 30px;
-
     }
   }
 
@@ -30,6 +32,7 @@
     align-items: flex-start;
     justify-content: center;
     margin-left: 25px;
+
     @media (max-width: 768px) {
       margin-left: 0;
     }
@@ -39,9 +42,9 @@
     margin-top: 15px;
     font-weight: 700;
     font-size: 25px;
+
     @media (max-width: 768px) {
       font-size: 20px;
-
     }
   }
 
@@ -52,10 +55,11 @@
     align-items: center;
     justify-content: flex-start;
     font-size: 25px;
+
     @media (max-width: 768px) {
       font-size: 20px;
-
     }
+
     > div {
       margin-left: 12px;
     }
@@ -72,9 +76,9 @@
   > .label {
     font-weight: 700;
     font-size: 25px;
+
     @media (max-width: 768px) {
       font-size: 20px;
-
     }
   }
 
@@ -83,6 +87,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
     .iconWrapper {
       margin-left: 10px;
       width: 40px;

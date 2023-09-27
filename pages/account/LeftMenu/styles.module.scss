@@ -12,9 +12,11 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    .nameNominate{
-      font-family: 'Lato';
+
+    .nameNominate {
+      font-family: "Lato";
     }
+
     .root {
       background-color: #a67f56;
       color: white;
@@ -26,13 +28,14 @@
     .entry {
       background-color: white;
       color: #a67f56;
-      border: 0.5px solid #a67f56;
+      border: 0.5px solid #a67f5680;
       border-top-style: none;
     }
 
     .active {
       font-weight: 700;
     }
+
     .item {
       width: 100%;
       display: flex;
@@ -41,14 +44,16 @@
       justify-content: left;
       min-height: 50px;
       padding: 15px 0px 15px 60px;
-      font-size: 15px;
+      font-size: 17px;
       text-transform: uppercase;
+
       @media (max-width: 800px) {
         &:first-child {
           padding: 15px 20px;
         }
       }
-      > div {
+
+      >div {
         flex: 1;
         text-align: left;
       }

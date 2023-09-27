@@ -7,7 +7,7 @@
 
 .leftMenu {
   z-index: 999999;
-  color: #a67f56;
+  color: #353a4e;
 
   .leftMenuHeader {
     display: flex;
@@ -21,7 +21,7 @@
     border-bottom: 1px solid gray;
 
     .buttonClose {
-      color: #a67f56;
+      color: #353a4e;
       background-color: transparent;
       padding: 25px;
       border-style: none;
@@ -48,7 +48,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 0.5px solid #a67f56;
+  border-bottom: 0.5px solid #353a4e;
 
   @media (max-width: 1200px) {
     padding: 0 20px;
@@ -58,6 +58,7 @@
     display: none;
   }
 }
+
 .header {
   width: 100%;
   max-width: 1200px;
@@ -66,10 +67,10 @@
   flex-direction: row;
   align-items: center;
 
-  > .loginButton {
-    font-size: 15px;
+  >.loginButton {
+    font-size: 17px;
     color: white;
-    background-color: #a67f56;
+    background-color: #353a4e;
     min-width: 156px;
     min-height: 38px;
     border-style: none;
@@ -88,14 +89,14 @@
 
 .link {
   font-weight: 500;
-  font-size: 15px;
-  color: #a67f56;
+  font-size: 17px;
+  color: #353a4e;
   padding: 10px 20px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .active {
-  background-color: #a67f56;
+  background-color: #353a4e;
   color: white;
 }

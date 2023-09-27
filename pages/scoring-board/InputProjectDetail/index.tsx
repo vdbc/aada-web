@@ -57,7 +57,7 @@ function NumberSelector({
               setIsSelected(true);
             }}
             style={{
-              backgroundColor: value === number ? "#a67f56" : "white",
+              backgroundColor: value === number ? "#353a4e" : "white",
             }}
           >
             {number}

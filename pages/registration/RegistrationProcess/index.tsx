@@ -13,22 +13,22 @@ const items = [
   {
     cardTitle: "CREATE YOUR AADA ACCOUNT",
     cardDetailedText:
-      "Fill the registration form for an official account on AADA website. You may have to provide required information of yourself and the participating business and non-mandatory fields for additional terms that you can choose whether to fill or not.",
+      "Complete the official account registration form on the AADA website. You will need to enter essential personal and business details, and there are optional fields for additional terms that you can decide whether or not to complete.",
   },
   {
     cardTitle: "SELECT YOUR NOMINATION CATEGORY",
     cardDetailedText:
-      "Choose the suitable discipline and category for your entry. The number of nomination is not limited. The categories change depending on chosen discipline.",
+      "Select the appropriate discipline and category for your submission. You can nominate in multiple categories, and the available categories vary based on your chosen discipline.",
   },
   {
     cardTitle: "PAYMENT of fees",
     cardDetailedText:
-      "All fees are charge per entry by 2023 AADA. Upon completion of your submission, you will be directed to Paypal payment gateway. An e-invoice will be send to your email to acknowledge receipt your successful payment.",
+      " In 2024, AADA charges fees on a per-entry basis. After you've finished submitting your entry, you will be directed to the PayPal payment gateway. An electronic invoice will then be sent to your email to confirm the successful receipt of your payment.",
   },
   {
     cardTitle: "SUBMIT YOUR ENTRY DOCUMENTS",
     cardDetailedText:
-      "The 2023 AADA evaluation process is a judge-based scoring procedure, hence you are required to provide detailed description of your project and business. The documents needed to complete your nomination include a Project Statement, Details and at least 10 pictures (or video, if possible).",
+      "The evaluation process for the 2024 AADA relies on judges who use a scoring procedure. Therefore, it's essential to provide a comprehensive description of your project and business. To complete your nomination, you must submit the following documents: a Project Statement, detailed project particulars, and a minimum of 10 images.",
   },
 ];
 

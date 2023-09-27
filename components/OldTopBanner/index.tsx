@@ -8,6 +8,15 @@ declare type TopBannerProps = {
   children: any;
 };
 
+export function BannerPageGallery() {
+  return (
+    <div className={styles.container}>
+      <div className={styles.background}>
+        <video src="/the_award.mp4" autoPlay muted loop />
+      </div>
+    </div>
+  );
+}
 function _Header() {
   return (
     <div className={styles.headerContainer}>

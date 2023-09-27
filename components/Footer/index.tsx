@@ -54,9 +54,9 @@ function CompanyInfo({ className }: { className: string }) {
     <div className={[styles.box, className].join(" ")}>
       <Image
         className={styles.logo}
-        src="/logo_white.svg"
+        src="/logo_gold_gradient.svg"
         alt="Logo"
-        width={275}
+        width={300}
         height={90}
       />
       <div className={styles.companyInfo}>
@@ -64,6 +64,9 @@ function CompanyInfo({ className }: { className: string }) {
         <br />
         <br />
         470 North Bridge Road, #05-12 Bugis Cube, Singapore (188735)
+        <br />
+        <br />
+        <Link href="tel:(65) 8805 7032">(65) 8805 7032</Link>
       </div>
     </div>
   );
@@ -89,7 +92,7 @@ function FooterMenu() {
             <Link href="/faqs">FAQs</Link>
           </div>
           <div className={styles.item}>
-            <Link href="/documents/2023AADAGuideBook-EN.pdf" target="_blank">
+            <Link href="/documents/2024AADAGuideBook-EN.pdf" target="_blank">
               Submission Guidelines
             </Link>
           </div>
@@ -106,7 +109,7 @@ function FooterMenu() {
 function Copyright() {
   return (
     <div className={styles.copyright}>
-      © 2023 - All rights reserved - Asia Awards Organization PTE. LTD.
+      © 2024 - All rights reserved - Asia Awards Organization.
     </div>
   );
 }

@@ -6,7 +6,7 @@
   overflow: hidden;
   width: 100%;
   position: relative;
-  color: #a67f56;
+  color: #353a4e;
   min-height: calc(100vh - 100px);
   padding: 0 50px;
   justify-content: space-around;
@@ -26,10 +26,15 @@
   }
 
   >h1 {
-    font-family: "SVN-MADE Coachella";
+    font-family: Big Caslon FB;
     font-weight: 100;
     font-size: 60px;
     margin-top: 50px;
+    color: #a67f56;
+
+    @media (max-width: 600px) {
+      font-size: 45px;
+    }
   }
 
   .row {
@@ -71,11 +76,11 @@
     max-width: 300px;
     min-width: 100px;
     height: 40px;
-    border: 1px solid #a67f56;
+    border: 1px solid #353a4e;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 17px;
     text-transform: uppercase;
-    color: #a67f56;
+    color: #353a4e;
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -4,6 +4,17 @@
   flex-direction: row;
   max-height: 8%;
 }
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  .buttonContainer {
+    cursor: pointer;
+  }
+
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -13,54 +24,71 @@
   width: 100%;
   max-width: 1200px;
   position: relative;
-  color: #a67f56;
-  min-height: calc(100vh - 100px);
+  color: #353a4e;
   padding: 50px 0;
 
   @media (max-width: 1200px) {
     padding: 50px 20px;
   }
+
   @media (max-width: 700px) {
     padding: 50px 0;
   }
 
-  > h1 {
-    font-family: "SVN-MADE Coachella";
+  >h1 {
+    font-family: Big Caslon FB;
     font-weight: 100;
     font-size: 60px;
     text-align: center;
     margin: 0;
+    color: var(--primary-primary, #A67F56);
+    font-family: Big Caslon FB;
+    font-style: normal;
+    line-height: 113%;
+
+    @media (max-width: 700px) {
+      font-size: 50px;
+    }
   }
-  > h2 {
+
+  >h2 {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.07em;
   }
 
-  > h3 {
+  >h3 {
     font-weight: 700;
     font-size: 25px;
     line-height: 1.5;
   }
 
-  > div {
-    font-size: 15px;
+  >div {
+    font-size: 17px;
     text-align: justify;
     line-height: 1.2;
   }
 
   .subTitle {
     margin-top: 10px;
-    width: 70%;
+    width: 80%;
+    color: var(--primary-primary, #A67F56);
     text-align: center;
+    /* Typography/P1 Paragraph */
+    font-family: Lato;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: normal;
+    font-weight: 400;
+    margin: 15px;
 
     @media (max-width: 600px) {
-      width: 100%;
+      width: 80%;
     }
   }
 
-  > .awardCategories {
+  >.awardCategories {
     width: 100%;
     flex: 1;
     position: relative;
@@ -76,11 +104,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 0.36px solid #a67f56;
+  border: 0.36px solid #353a4e;
   padding: 0 24px;
   height: 35px;
 
-  > .wrapper {
+  >.wrapper {
     margin-right: 45px;
   }
 }
@@ -92,7 +120,7 @@
   user-select: none;
 
   .activeDot {
-    background-color: #a67f56;
+    background-color: #353a4e;
     opacity: 1;
   }
 
@@ -105,7 +133,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border: 1px solid #a67f56;
+    border: 1px solid #353a4e;
 
     .sliderLogo {
       position: relative;
@@ -118,13 +146,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "SVN-MADE Coachella";
+      font-family: Big Caslon FB;
       font-weight: 100;
       text-transform: uppercase;
       text-align: center;
       margin: 0;
     }
-    > div {
+
+    >div {
       line-height: 1.2;
       text-align: center;
       font-size: 10px;
@@ -134,7 +163,7 @@
   .active {
     max-width: 405px;
     min-height: 450px;
-    background-color: #a67f56;
+    background-color: #353a4e;
     border: 5px solid #ffffff;
     color: white;
     padding-left: 25px;
@@ -143,16 +172,22 @@
     .sliderLogo {
       width: 150;
       height: 194;
+
+      >div {
+        font-family: Lato;
+      }
     }
 
     h2 {
       font-size: 33px;
     }
-    > div {
+
+    >div {
       font-weight: 100;
       font-size: 10px;
     }
   }
+
   .left {
     border-right: 0px none transparent;
   }
@@ -160,4 +195,9 @@
   .right {
     border-left: 0px none transparent;
   }
+}
+
+.className {
+  border: 0.36px solid #16203C;
+  padding: 10px 60px;
 }

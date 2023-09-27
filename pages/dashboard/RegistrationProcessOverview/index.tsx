@@ -2,10 +2,11 @@ import { createSelector } from "@reduxjs/toolkit";
 import Link from "next/link";
 import { Chart } from "react-google-charts";
 import ProgressBar from "../../../components/ProgressBar";
-import { RootState, useAppSelector } from "../../../store";
+import { useAppSelector } from "../../../store";
 import {
   selectProjectNomintateDetails,
   selectProjectNomintateIds,
+  selectTotalProjects,
 } from "../../../store/modules/nominate";
 import {
   getOverviewProgressPercent,
@@ -28,7 +29,7 @@ function OverviewChart({ completed, totalEntries }: OverviewChartProps) {
     is3D: false,
     slices: {
       0: { color: "#F6F6F6" },
-      1: { color: "#a67f56" },
+      1: { color: "#353a4e" },
     },
     chartArea: { left: 0, right: 0, bottom: 0, top: 0 },
   };
@@ -88,32 +89,13 @@ const selectProjectsOverview = createSelector(
 
 function StatusOverview() {
   const data = useAppSelector(selectProjectsOverview);
-
-  // const data = [
-  //   {
-  //     name: "Project 1",
-  //     process: 0.2,
-  //   },
-  //   {
-  //     name: "Project 2",
-  //     process: 0.5,
-  //   },
-  //   {
-  //     name: "Project 3",
-  //     process: 0.1,
-  //   },
-  //   {
-  //     name: "Project 4",
-  //     process: 0.6,
-  //   },
-  //   {
-  //     name: "Project 5",
-  //     process: 1,
-  //   },
-  // ];
   return (
     <div className={styles.statusOverviewContainer}>
       <h2>Status Overview</h2>
+      <p className={styles.guideline}>
+        This Status Overview indicates the successful completion of the content
+        you have provided.
+      </p>
       {data.map((item) => (
         <ProcessStatus key={item.name} {...item} />
       ))}
@@ -130,8 +112,6 @@ function StatusOverview() {
   );
 }
 
-export const selectTotalProjects = (state: RootState) =>
-  selectProjectNomintateIds(state).length;
 export const selectTotalCompleteProjects = createSelector(
   selectProjectNomintateIds,
   selectProjectNomintateDetails,

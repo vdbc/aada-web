@@ -8,7 +8,9 @@ import {
   fetchProjectNominate,
   selectNomintateEntryDetail,
   selectProjectIdsGroupByEntry,
+  selectTotalProjects,
 } from "../../store/modules/nominate";
+import { selectIsLogged } from "../../store/modules/user";
 import ProjectProcessOverview from "./ProjectProcessOverview";
 import styles from "./styles.module.scss";
 
@@ -46,7 +48,25 @@ export default function _View() {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
+    const isLoggedIn = selectIsLogged(store.getState());
+    if (!isLoggedIn) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: "/",
+        },
+      };
+    }
+
     await store.dispatch(fetchProjectNominate());
+    if (!selectTotalProjects(store.getState())) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: "/open-account",
+        },
+      };
+    }
     await store.dispatch(fetchAllNominate());
 
     return {

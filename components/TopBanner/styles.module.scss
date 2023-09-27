@@ -1,31 +1,33 @@
 .homePageTopBanner {
-  > video {
+  >video {
     width: 100vw;
     max-height: calc(100vh - 100px);
     object-fit: cover;
   }
 }
-.title {
-  font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 38px;
-line-height: 38px;
-text-align: center;
-width: 50%;
-}
-.content {
-  color: #A67F56;;
-width: 60%;
-font-family: 'Lato';
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-line-height: 18px;
-text-align: center;
-letter-spacing: 0.03em;
 
+.title {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 38px;
+  text-align: center;
+  width: 50%;
 }
+
+.content {
+  color: #353a4e;
+  width: 60%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
 .topBanner {
   width: 100%;
   min-height: calc(100vh - 100px);
@@ -41,18 +43,18 @@ letter-spacing: 0.03em;
     min-height: calc(100vh - 60px);
   }
 
-  > * {
+  >* {
     z-index: 1;
   }
 
-  > .background {
+  >.background {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     position: absolute;
 
-    > div {
+    >div {
       width: 100%;
       height: 100%;
     }
@@ -65,16 +67,17 @@ letter-spacing: 0.03em;
     max-height: 120px;
     position: relative;
 
-    > img {
+    >img {
       object-fit: contain;
     }
+
   }
 
-  > h1 {
-    font-family: "SVN-MADE Coachella";
+  >h1 {
+    font-family: Big Caslon FB;
     font-style: normal;
     font-weight: 100;
-    font-size: 125px;
+    font-size: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,35 +90,40 @@ letter-spacing: 0.03em;
     background-clip: text;
     margin: 0;
 
+    @media (max-width: 1200px) {
+      font-size: 100px;
+    }
+
     @media (max-width: 1000px) {
       font-size: 110px;
     }
+
     @media (max-width: 900px) {
       font-size: 95px;
     }
+
     @media (max-width: 800px) {
       font-size: 75px;
     }
+
     @media (max-width: 600px) {
       font-size: 62px;
     }
+
     @media (max-width: 500px) {
-      font-size: 51px;
+      font-size: 45px;
     }
+
     @media (max-width: 400px) {
       font-size: 42px;
     }
-
-    > div {
-      font-size: 18px;
-    }
   }
 
-  > .subTitle {
+  >.subTitle {
     max-width: 880px;
   }
 
-  > div {
+  >div {
     font-size: 23px;
     line-height: 1.2;
     text-align: center;
@@ -135,7 +143,7 @@ letter-spacing: 0.03em;
     font-size: 9px;
     color: white;
 
-    > div {
+    >div {
       margin-left: 8px;
     }
   }
@@ -154,8 +162,20 @@ letter-spacing: 0.03em;
   padding: 0 24px;
   height: 35px;
 
-  > .wrapper {
+  >.wrapper {
     // margin: 0 24px;
     margin-right: 45px;
   }
+}
+
+.headerSmallText {
+  font-family: Lato;
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: 1.89px;
+}
+
+.className {
+  border: 1px solid rgba(250, 196, 126, 1);
+  padding: 10px 40px;
 }

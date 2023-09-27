@@ -5,9 +5,11 @@ import { useAppSelector, wrapper } from "../../store";
 import {
   fetchProjectNominate,
   selectDeadline,
+  selectTotalProjects,
 } from "../../store/modules/nominate";
 import {
   fetchOrganizationRegistered,
+  selectIsLogged,
   selectLastName,
 } from "../../store/modules/user";
 import AccountInfo from "./AccountInfo";
@@ -15,7 +17,6 @@ import ContactSupport from "./ContactSupport";
 import OverviewBox from "./OverviewBox";
 import RegistrationProcessOverview, {
   selectTotalCompleteProjects,
-  selectTotalProjects,
 } from "./RegistrationProcessOverview";
 import styles from "./styles.module.scss";
 
@@ -77,7 +78,24 @@ export default function Home() {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
+    const isLoggedIn = selectIsLogged(store.getState());
+    if (!isLoggedIn) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: "/",
+        },
+      };
+    }
     await store.dispatch(fetchProjectNominate());
+    if (!selectTotalProjects(store.getState())) {
+      return {
+        redirect: {
+          statusCode: 301,
+          destination: "/open-account",
+        },
+      };
+    }
     await store.dispatch(fetchOrganizationRegistered());
 
     return {

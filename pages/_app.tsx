@@ -12,7 +12,7 @@ import { getInitialAppProps } from "../utils/redux";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#a67f56",
+      main: "#353a4e",
     },
     secondary: {
       main: "#FAC47E",
@@ -26,7 +26,7 @@ function App({ Component, ...rest }: AppProps) {
     <Fragment>
       <Head>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>2023 Asia Architecture Design Awards</title>
+        <title>2024 Asia Architecture Design Awards</title>
         <meta
           name="description"
           content="The Asia Architecture & Design Awards (AADA) is born with a desire to honor excellences and creativities in a wide range of Architecture & Design works, from regional to international scale."
@@ -40,6 +40,7 @@ function App({ Component, ...rest }: AppProps) {
         <link
           href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=optional"
           rel="stylesheet"
+          type="text/css"
         />
         <script
           dangerouslySetInnerHTML={{

@@ -10,7 +10,7 @@
   padding: 0 15px;
   overflow: hidden;
 
-  > div {
+  >div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,11 +71,12 @@
     margin-top: 30px;
     margin-bottom: 15px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #fac47e 0%, #a67f56 100%);
+    background: linear-gradient(90deg, #fac47e 0%, #353a4e 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
+
     @media (max-width: 600px) {
       font-size: 60px;
     }
@@ -108,7 +109,7 @@
     font-weight: 900;
     font-size: 45px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #fac47e 0%, #a67f56 100%);
+    background: linear-gradient(90deg, #fac47e 0%, #353a4e 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -138,6 +139,7 @@
   .timelineMobile {
     width: 100%;
     display: none;
+
     @media (max-width: 600px) {
       display: block;
     }
@@ -185,6 +187,7 @@
   @media (max-width: 1000px) {
     margin-bottom: 120px;
   }
+
   @media (max-width: 1200px) {
     margin-bottom: 140px;
   }
@@ -202,7 +205,7 @@
     margin-bottom: -32px;
     padding: 15px 25px;
     height: 64px;
-    background: linear-gradient(90deg, #fac47e 0%, #a67f56 100%);
+    background: linear-gradient(90deg, #fac47e 0%, #353a4e 100%);
     box-shadow: 0px 0px 22px #000000;
     border-radius: 9px;
     font-style: italic;
@@ -210,6 +213,7 @@
     font-size: 25px;
     text-transform: uppercase;
     color: #ffffff;
+
     @media (max-width: 600px) {
       font-size: 20px;
     }
@@ -224,13 +228,14 @@
 
   .message {
     font-size: 20px;
-    color: #a67f56;
+    color: #353a4e;
     text-align: center;
   }
+
   .button {
     margin-top: 25px;
     padding: 10px 30px;
-    background-color: #a67f56;
+    background-color: #353a4e;
     border-radius: 9px;
     color: white;
     font-weight: 600;

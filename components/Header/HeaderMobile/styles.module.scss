@@ -7,7 +7,7 @@
 
 .leftMenu {
   z-index: 999999;
-  color: #a67f56;
+  color: #353a4e;
 
   .leftMenuHeader {
     display: flex;
@@ -21,7 +21,7 @@
     border-bottom: 1px solid gray;
 
     .buttonClose {
-      color: #a67f56;
+      color: #353a4e;
       background-color: transparent;
       padding: 25px;
       border-style: none;
@@ -37,13 +37,13 @@
     text-transform: capitalize;
     color: #333333;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 17px;
     padding: 10px 20px;
     white-space: nowrap;
   }
 
   .active {
-    background-color: #a67f56;
+    background-color: #353a4e;
     color: white;
   }
 }
@@ -55,7 +55,7 @@
   justify-content: space-between;
   width: 100%;
   height: 60px;
-  background-color: #a67f56;
+  background-color: #353a4e;
   border-bottom: 1px solid #fac47e;
 
   @media screen and (min-width: 961px) {
@@ -86,12 +86,13 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 0.5px solid #a67f56;
+  border-bottom: 0.5px solid #353a4e;
 
   @media (max-width: 960px) {
     display: none;
   }
 }
+
 .header {
   width: 100%;
   max-width: 1200px;
@@ -100,10 +101,10 @@
   flex-direction: row;
   align-items: center;
 
-  > .loginButton {
-    font-size: 15px;
+  >.loginButton {
+    font-size: 17px;
     color: white;
-    background-color: #a67f56;
+    background-color: #353a4e;
     min-width: 156px;
     min-height: 38px;
     border-style: none;

@@ -14,7 +14,7 @@ export default function _View({
     <div className={styles.container}>
       <div className={styles.title}>{title}</div>
       <div className={styles.contentContainer}>
-        <div className={styles.wrapperConent}>
+        <div className={styles.wrapperContent}>
           {separator}
           <div className={styles.content}>{children}</div>
         </div>

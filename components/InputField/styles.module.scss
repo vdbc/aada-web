@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: #a67f56;
+  color: #353a4e;
   width: 100%;
   margin-top: 9px;
 
   >.label {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   >.input {
@@ -22,7 +22,7 @@
       outline: none;
       border-style: none;
       padding: 10px 15px;
-      font-size: 15px;
+      font-size: 17px;
 
       @media (max-width: 800px) {
         padding: 10px 0 10px 5px;
