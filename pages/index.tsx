@@ -159,8 +159,6 @@ export default function Home() {
                 src="/logo_home/saladd.svg"
               />
             </Link>
-          </div>
-          <div className={styles.partnerLogo}>
             <Link href="https://rsp.sg/">
               <img
                 className={styles.aada_vdbc}
@@ -168,6 +166,9 @@ export default function Home() {
                 src="/logo_home/amazing.svg"
               />
             </Link>
+          </div>
+          <div className={styles.partnerLogo}>
+
             <Link href="https://italianatelier.it/">
               <img
                 className={styles.aada_vdbc}
