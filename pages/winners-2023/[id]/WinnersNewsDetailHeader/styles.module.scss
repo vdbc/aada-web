@@ -43,11 +43,23 @@
       }
     }
 
+    h2 {
+      text-transform: uppercase;
+
+      @media (max-width: 600px) {
+        font-size: 20px;
+      }
+    }
+
     .desc {
       margin-top: 40px;
       font-family: "LATO";
       font-weight: 400;
       font-size: 30px;
+
+      @media (max-width: 600px) {
+        font-size: 15px;
+      }
     }
   }
 }
