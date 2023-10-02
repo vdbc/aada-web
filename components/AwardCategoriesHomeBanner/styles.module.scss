@@ -200,4 +200,9 @@
 .className {
   border: 0.36px solid #16203C;
   padding: 10px 60px;
+
+  @media (max-width: 700px) {
+    padding: 10px 35px;
+  }
+
 }

@@ -40,6 +40,10 @@
   background-color: #16203c;
   color: white;
 
+  @media (max-width: 800px) {
+    background-color: #ffff;
+  }
+
   .avatar {
     width: 330px;
     height: 100%;
