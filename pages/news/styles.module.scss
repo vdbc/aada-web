@@ -31,15 +31,14 @@
     }
 
     .row {
-      margin-top: 30px;
+
       width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
 
-      @media (max-width: 400px) {
-
+      @media (max-width: 600px) {
         flex-wrap: wrap;
       }
 
@@ -47,7 +46,7 @@
       >* {
         margin-left: 20px;
 
-        @media (max-width: 400px) {
+        @media (max-width: 600px) {
 
           margin-left: 0;
         }
@@ -72,8 +71,6 @@
       .item2 {
         flex: 520;
         height: 438px;
-
-
       }
     }
   }
