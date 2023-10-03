@@ -41,9 +41,10 @@
       @media (max-width: 800px) {
         flex-wrap: wrap;
         margin-bottom: 0px;
+        justify-content: center;
       }
 
-      @media (max-width: 1000px) {
+      @media (max-width: 1200px) {
         flex-wrap: wrap;
 
       }
