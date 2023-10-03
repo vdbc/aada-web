@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { WinnersNewsTopBanner } from "../../components/TopBanner";
 import { useAppSelector, wrapper } from "../../store";
 import Image from "next/image";
 
