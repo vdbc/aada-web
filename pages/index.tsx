@@ -20,7 +20,6 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <Header />
-        <h1>Hello</h1>
         <HomePageTopBanner />
         <HomepageOverview />
         <TheAwardHomeBanner />
