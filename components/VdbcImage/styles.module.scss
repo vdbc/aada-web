@@ -1,0 +1,161 @@
+.homePageTopBanner {
+  > video {
+    width: 100vw;
+    max-height: calc(100vh - 100px);
+    object-fit: cover;
+  }
+}
+
+.titleVoting {
+  text-transform: none;
+}
+
+.topBanner {
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  color: #fac47e;
+  position: relative;
+
+  @media (max-width: 960px) {
+    min-height: calc(100vh - 60px);
+  }
+
+  > * {
+    z-index: 1;
+  }
+
+  > .background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    > div {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .logo {
+    width: 90%;
+    max-width: 900px;
+    height: 20vw;
+    max-height: 120px;
+    position: relative;
+
+    > img {
+      object-fit: contain;
+    }
+  }
+
+  .flex {
+    padding: 100px;
+    font-family: Formula Condensed;
+    display: flex;
+    text-align: center;
+    font-style: normal;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin: 0;
+    > h1 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 155px;
+      line-height: 113%;
+      background: url(/public/gradient.webp),
+        linear-gradient(90deg, #f4ddd5 0%, #c48f7f 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      background-blend-mode: luminosity, normal;
+    }
+    > h2 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 55.5927px;
+      line-height: 113%;
+      color: #ffffff;
+    }
+
+    @media (max-width: 1000px) {
+      font-size: 110px;
+    }
+    @media (max-width: 900px) {
+      font-size: 95px;
+    }
+    @media (max-width: 800px) {
+      font-size: 75px;
+    }
+    @media (max-width: 600px) {
+      font-size: 62px;
+    }
+    @media (max-width: 500px) {
+      font-size: 51px;
+    }
+    @media (max-width: 400px) {
+      font-size: 42px;
+    }
+
+    > div {
+      font-size: 18px;
+    }
+  }
+
+  > .subTitle {
+    max-width: 880px;
+  }
+
+  > div {
+    font-size: 23px;
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 0.05em;
+
+    @media (max-width: 600px) {
+      font-size: 19px;
+    }
+  }
+
+  .scrollDown {
+    position: absolute;
+    bottom: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 9px;
+    color: white;
+
+    > div {
+      margin-left: 8px;
+    }
+  }
+}
+
+.wrapperLink {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonLink {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0.36px solid #fac47e;
+  padding: 0 24px;
+  height: 35px;
+
+  > .wrapper {
+    // margin: 0 24px;
+    margin-right: 45px;
+  }
+}
