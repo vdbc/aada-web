@@ -1,0 +1,39 @@
+.buttonLink {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  padding: 10px 100px;
+  color: black;
+  border: 1px solid #16203C;
+  text-align: center;
+
+  @media (max-width: 600px) {
+    font-size: 17px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 300px) {
+    font-size: 12px;
+  }
+
+  .wrapper {
+    margin-right: 16px;
+    white-space: nowrap;
+  }
+}
+
+.button {
+  .wrapperBt {
+    border: 1px solid #16203C;
+    text-transform: uppercase;
+    padding: 10px 100px;
+    color: black;
+  }
+}
