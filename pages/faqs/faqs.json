@@ -1,0 +1,103 @@
+[
+  {
+    "title": "REGISTRATION",
+    "offset": 0,
+    "faqs": [
+      {
+        "question": "Do I need to submit only executed projects or can there be any projects at conceptual stage?",
+        "answer": "No. All projects are eligible to be nominated. Half-built or conceptual projects are qualified unless they meet the mentioned criteria."
+      },
+      {
+        "question": "Are the awards open for all?",
+        "answer": "Yes. The awards are open for all submissions, from independent professionals to architecture design firms."
+      },
+      {
+        "question": "Can I enter one project into multiple categories?",
+        "answer": "Yes. One project can be submitted to as many categories as you see it, hence it increases your chance of winning an award. Additional fee applies for different award categories you enter."
+      },
+      {
+        "question": "Can I submit multiple entries at one time?",
+        "answer": "Yes. Multiple entries are encouraged for any firms that conduct multi-disciplinary projects."
+      },
+      {
+        "question": "Can I enter one project in multiple award categories?",
+        "answer": "Yes. One project can enter more than one award category, based on the qualified criteria that are mentioned on each award category. However, there is an additional fee for each additional category you enter."
+      },
+      {
+        "question": "Is there any limit to the number of entries I can submit?",
+        "answer": "No. You can submit as many categories as you see fit to your project."
+      },
+      {
+        "question": "Can I submit an award-winning project from other competitions?",
+        "answer": "Yes. AADA welcomes previous award-winning projects to enter the shortlist of 2023 AADA."
+      },
+      {
+        "question": "How will I know whether my submission is completed or not?",
+        "answer": "You can access your admin dashboard to check the progress/ status of your entry submission. A clear guideline and overview of submission for each entered category is demonstrated with percentage of completion for you to review, edit and submit."
+      },
+      {
+        "question": "How will I know whether AADA receives my submission or not?",
+        "answer": "Upon completing your submission, you will receive a confirmation email from AADA within 3-5 days to acknowledge your submission and payment of fees."
+      }
+    ]
+  },
+  {
+    "title": "PAYMENT OF FEES",
+    "faqs": [
+      {
+        "question": "Are there any fees for registration?",
+        "answer": "Entry fee applies for each nomination to selected award category. \nEarly entry fee until 30 November 2023: USD 180 per entry\nStandard entry fee until 31 January 2024: USD 200 per entry"
+      },
+      {
+        "question": "What are payment options for the submission fee?",
+        "answer": "Paypal: You are directed to a third-party payment gateway to complete your payment of fees. Upon confirming your payment, you are granted to your AADA official account to complete the award registration form for each project enrolled. Bank transfer: An alternative method of payment enables you to complete your payment of fees via wire transfer to Asia Awards Organization authorized bank account. Within 24 hours upon receipt of payment, you are granted to your AADA official account to complete the award registration form for each project enrolled."
+      },
+      {
+        "question": "Can I make changes to my entry category after processing payment?",
+        "answer": "No. You can only make changes to project description upon finishing payment of fees. The entered category cannot be adjusted."
+      },
+      {
+        "question": "Can I cancel my payment and get a refund?",
+        "answer": "You can withdraw your entry within 48 hours after registration is confirmed. Please email to hello@aadawards.com for refund assistance and please be noted that a deductible processing fee is applied."
+      },
+      {
+        "question": "Are all fees in USD?",
+        "answer": "Yes. All fees are in USD."
+      }
+    ]
+  },
+  {
+    "title": "PROJECT QUALIFICATION",
+    "faqs": [
+      {
+        "question": "Who is the Judge?",
+        "answer": "A selected panel of judges consists of 20 members from 5 countries with expertise in architecture design professionals, academic professors and social initiators. A board of judges will be announced upon the deadline of registration process."
+      },
+      {
+        "question": "Can I receive a scoring board from judges?",
+        "answer": "Yes. Individual feedback and scoring board are provided with an additional fee of USD 500 per entry."
+      }
+    ]
+  },
+  {
+    "title": "AWARDS",
+    "faqs": [
+      {
+        "question": "What do I get if I am qualified to be the winner of Asia Architecture Design Awards?",
+        "answer": " Each winner is awarded with a Winner's Kit, which includes:\nAn AADA trophy\nAn AADA certificate\nAn AADA Hall of Fame yearbook.\nAll digital assets to be used on the winner's online platform: Badge, certificate, Hall of Fame yearbook."
+      },
+      {
+        "question": "How are the winners announced?",
+        "answer": "All winners are going to be announced upon the completion of judging process in May 2024. Winners will be announced online in AADA website and across social media platforms and also media partners channels."
+      },
+      {
+        "question": "Who is eligible to attend 2024 AADA Winners’ Night?",
+        "answer": "All winners are eligible to attend 2024 AADA Winners’ Night. Each category winner receives an invitation to partake in the Winners’ Night in Bangkok, Thailand."
+      },
+      {
+        "question": "Are there any fee to attend 2024 AADA Winners’ Night?",
+        "answer": "Participants should pay a fee of USD 350 per person to register and attend the Winners’ Night. The fee grants access to: A ticket to attend the Winners’ Night in Bangkok, Thailand Access to the ceremony Access to the cocktail reception One all-inclusive dinner and after party celebration"
+      }
+    ]
+  }
+]
